@@ -13,6 +13,7 @@ import { NotFoundServiceComponent } from './Khamsat Community/NotFoundServiceMod
 import { AddnewUserExperienceComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/addnew-user-experience/addnew-user-experience.component';
 import { UserExperiencesAndStoriesComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/user-experiences-and-stories/user-experiences-and-stories.component';
 import { NewServiceComponent } from './components/new-service/new-service.component';
+import { ServiceDetailsComponent } from './components/service-details/service-details.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NewServiceComponent } from './components/new-service/new-service.compon
     AddnewSubjectComponent,
     AddnewNotFoundServiceComponent,
     AddnewUserExperienceComponent,
-    NewServiceComponent
+    NewServiceComponent,
+    ServiceDetailsComponent
   ],
   imports: [
     FormsModule,

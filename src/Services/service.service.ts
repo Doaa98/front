@@ -28,7 +28,7 @@ export class ServiceService {
         // ,'Authorization': 'my-auth-token'
       })
     };
-    return this.http.get<Iservice>(`this.Url/${id}` ,httpOptions)
+    return this.http.get<Iservice>(`${this.Url}/${id}` ,httpOptions)
   }
 
   addService(ser: Iservice) {
@@ -46,14 +46,14 @@ export class ServiceService {
         // ,'Authorization': 'my-auth-token'
       })
     };
-    return this.http.put(`this.Url/${id}`, ser, httpOptions)
+    return this.http.put(`${this.Url}/${id}` , ser, httpOptions)
 
   }
 
 
   deleteCategory(id:number) {
    
-    return this.http.delete(`this.Url/${id}`)
+    return this.http.delete(`${this.Url}/${id}` )
   }
 
 }

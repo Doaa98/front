@@ -2,23 +2,23 @@ import { IServiceDevelopment } from "./iservice-development";
 
 export interface Iservice {
     
-    ID:number
+    id:number
 
-    Title:string
+    title:string
 
-    SubCategoryID:number
+    subCategoryID:number
 
-    Description:string
+    description:string
 
-    Images:string
+    images:string
 
-    Keywords:string
+    keywords:string
 
-    Duration:number
+    duration:number
 
-    InstructionsToBuyer:string
+    instructionsToBuyer:string
 
     serviceDevelopmentsVM:IServiceDevelopment[]
     
-    UserID:string
+    userID:string
 }

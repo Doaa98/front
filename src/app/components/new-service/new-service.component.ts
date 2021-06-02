@@ -9,19 +9,19 @@ import { Iservice } from './../../Shared/iservice';
   styleUrls: ['./new-service.component.css']
 })
 export class NewServiceComponent implements OnInit {
-    ser:Iservice={
-      Description:"",
-      Title:"",
-      Duration:3,
-      ID:0,
-      Images:"",
-      InstructionsToBuyer:"",
-      Keywords:"",
-      SubCategoryID:0,
-      UserID:"",
-      serviceDevelopmentsVM:[]
-      
-    }
+  service:Iservice ={
+    description:"",
+    title:"",
+    duration:0,
+    id:0,
+    images:"",
+    instructionsToBuyer:"",
+    keywords:"",
+    subCategoryID:0,
+    userID:"",
+    serviceDevelopmentsVM:[]
+    
+  }
 
   constructor(private serService: ServiceService, private router: Router) { }
   ngOnInit(): void {
@@ -29,7 +29,9 @@ export class NewServiceComponent implements OnInit {
 
   addService() {
 
-    this.serService.addService(this.ser)
+    console.log(this.service)
+    this.serService.addService(this.service)
+
       .subscribe(
         data =>{ console.log(data);
          // this.router.navigateByUrl("")
