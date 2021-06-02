@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +12,7 @@ import { AddnewNotFoundServiceComponent } from './Khamsat Community/NotFoundServ
 import { NotFoundServiceComponent } from './Khamsat Community/NotFoundServiceModule/not-found-service/not-found-service.component';
 import { AddnewUserExperienceComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/addnew-user-experience/addnew-user-experience.component';
 import { UserExperiencesAndStoriesComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/user-experiences-and-stories/user-experiences-and-stories.component';
+import { NewServiceComponent } from './components/new-service/new-service.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +24,12 @@ import { UserExperiencesAndStoriesComponent } from './Khamsat Community/UserExpe
     AddnewModelImplementedComponent,
     AddnewSubjectComponent,
     AddnewNotFoundServiceComponent,
-    AddnewUserExperienceComponent
+    AddnewUserExperienceComponent,
+    NewServiceComponent
   ],
   imports: [
+    FormsModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule
   ],
