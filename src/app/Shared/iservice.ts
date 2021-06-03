@@ -1,3 +1,4 @@
+import { IRate } from "./irate";
 import { IServiceDevelopment } from "./iservice-development";
 
 export interface Iservice {
@@ -21,4 +22,11 @@ export interface Iservice {
     serviceDevelopmentsVM:IServiceDevelopment[]
     
     userID:string
+
+    subCategoryName?:string
+
+    userFullName?:string
+
+    noOfBuyerServices?:number
+
 }

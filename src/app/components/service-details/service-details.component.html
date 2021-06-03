@@ -25,21 +25,18 @@
 
                 <ul class="page-meta u-12@large ">
                   <li>
-                    <a class="user" href="/user/walaa_mahfoud"><i class="fa fa-fw fa-user"></i> Walaa Mahfoud</a>
+                    <a class="user" href="/user/walaa_mahfoud"><i class="fa fa-fw fa-user"></i> {{service.userFullName}}</a>
                   </li>
                   <li class="u-hidden@small">
                     <i class="fa fa-bars fa-fw"></i>
-                    <a href="/programming">
-                      <span>برمجة وتطوير</span>
-                    </a>
-                    <span>&nbsp;/&nbsp;</span>
-                    <a href="/programming/php-programming">
-                      <span>برمجة PHP</span>
+                  
+                    <a href="#">
+                      <span>&nbsp;&nbsp;{{service.subCategoryName}}&nbsp;&nbsp;</span>
                     </a>
                   </li>
                   <li>
                     <i class="fa fa-clock-o fa-fw"></i>
-                    <span>مدة التسليم: يومين</span>
+                    <span>مدة التسليم: &nbsp;{{service.duration}} يوم</span>
                   </li>
                 </ul>
               </div>
@@ -208,7 +205,7 @@
                     <i class="fa fa-shopping-cart fa-fw"></i>
                     <span>تم شرائها</span>
                     <span class="meta-dots u-hidden">:</span>
-                    <span class="u-block u-text--medium service-meta__value">1 مرة</span>
+                    <span class="u-block u-text--medium service-meta__value">{{service.noOfBuyerServices}} مرة</span>
                   </li>
                   <li class="c-list__item">
                     <i class="fa fa-truck fa-fw"></i>
@@ -379,7 +376,7 @@
               </div>
               <div class="c-card__body u-no--padding">
                 <div class="reviews_block_list" id="reviews_list">
-                  <div class="discussion-item review" id="review-621742">
+                  <div class="discussion-item review" id="review-621742" *ngFor="let rate of rates">
                     <div class="profile-details">
                       <div class="o-media">
                         <div class="o-media__right">
@@ -394,12 +391,12 @@
                               <h5 class="u-margin-bottom--tiny u-block-inline">
                                 <div class="meta--user">
                                   <i class="fa fa-thumbs-up"></i>
-                                  <a href="/user/al3r18y">Ahmed Al Refiay</a>
+                                  <a href="#">{{rate.userfullname}}</a>
                                 </div>
                               </h5>
                               <div class="u-block@small meta--date">
                                 <i class="fa fa-clock-o fa-fw"></i>
-                                <span dir="ltr" title="01/06/2021 20:40:43 GMT">منذ 22 ساعة و58 دقيقة</span>
+                                <span dir="ltr" title="01/06/2021 20:40:43 GMT">{{rate.date |date:'short' }}</span>
                               </div>
                             </div>
 
@@ -409,41 +406,9 @@
                     </div>
                     <div class="discussion-message">
                       <article>
-                        أقسم بالله كانت تجربة اولى رائعة ..<br>كنت محتار في نقل الفكرة لكن طرحت مثال بسيط فكانت الآنسة
-                        ولاء محل جيد للتنفيذ نفذت الفكرة بعملية رائعة وبوقت قياسي .<br><br>لمن يقرأ التعليق لا تتردد
-                        بطلب الخدمة انا عميل قديم في موقع خمسات و لم اشاهد مثل الإتقان الذي قامت به المبدعة ولاء
-                        ..<br><br>وفقكِ الله و هذا اول تعامل وليس اخر ..<br><br>سأطلب المزيد
+                        {{rate.content }}
                       </article>
-                      <div class="discussion-item reply u-margin-top">
-                        <div class="profile-details">
-                          <div class="o-media">
-                            <div class="o-media__right">
-                              <a href="/user/walaa_mahfoud">
-                                <img class="u-circle img-thumbnail img--small"
-                                  src="https://avatars.hsoubcdn.com/a77c5ed7c3ea3b4c445010f1c5d1a98b?s=128">
-                              </a>
-                            </div>
-                            <div class="o-media__body">
-                              <div class="o-layout o-layout--flex">
-                                <div class="o-layout__item u-12@large u-12@tiny">
-                                  <h5 class="u-margin-bottom--tiny u-block-inline">
-                                    <div class="meta--user"><a href="/user/walaa_mahfoud">Walaa Mahfoud</a></div>
-                                  </h5>
-                                  <div class="u-block@small meta--date">
-                                    <i class="fa fa-clock-o fa-fw"></i>
-                                    <span dir="ltr" title="01/06/2021 20:40:43 GMT">منذ 22 ساعة و58 دقيقة</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="discussion-message">
-                          <article>
-                            كل الشكر والاحترام سيد أحمد.<br>من دواعي سروري .
-                          </article>
-                        </div>
-                      </div>
+                     
                     </div>
                   </div>
 
@@ -458,56 +423,12 @@
               </div>
               <div class="c-card__body">
                 <ul class="c-list c-list--tags">
-                  <li class="c-list__item" >
+
+                  <li class="c-list__item" *ngFor="let keyWord of keyWords">
                     <a class="c-button c-button--default c-button--ghost tag"
-                      href="/services/%D9%85%D9%88%D9%82%D8%B9">موقع</a>
+                      href="#">{{keyWord}}</a>
                   </li>
-                  <li class="c-list__item">
-                    <a class="c-button c-button--default c-button--ghost tag"
-                      href="/services/%D9%85%D8%B4%D8%A7%D9%83%D9%84">مشاكل</a>
-                  </li>
-                  <li class="c-list__item">
-                    <a class="c-button c-button--default c-button--ghost tag" href="/services/php">php</a>
-                  </li>
-                  <li class="c-list__item">
-                    <a class="c-button c-button--default c-button--ghost tag"
-                      href="/services/%D8%A3%D8%AE%D8%B7%D8%A7%D8%A1">أخطاء</a>
-                  </li>
-                  <li class="c-list__item">
-                    <a class="c-button c-button--default c-button--ghost tag"
-                      href="/services/%D8%AA%D8%B7%D8%A8%D9%8A%D9%82">تطبيق</a>
-                  </li>
-                  <li class="c-list__item">
-                    <a class="c-button c-button--default c-button--ghost tag"
-                      href="/services/%D9%88%D9%8A%D8%A8">ويب</a>
-                  </li>
-                  <li class="c-list__item">
-                    <a class="c-button c-button--default c-button--ghost tag"
-                      href="/services/%D8%A7%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A">الكتروني</a>
-                  </li>
-                  <li class="c-list__item">
-                    <a class="c-button c-button--default c-button--ghost tag"
-                      href="/services/%D8%A5%D8%B5%D9%84%D8%A7%D8%AD">إصلاح</a>
-                  </li>
-                  <li class="c-list__item">
-                    <a class="c-button c-button--default c-button--ghost tag" href="/services/website">website</a>
-                  </li>
-                  <li class="c-list__item">
-                    <a class="c-button c-button--default c-button--ghost tag" href="/services/app">app</a>
-                  </li>
-                  <li class="c-list__item">
-                    <a class="c-button c-button--default c-button--ghost tag" href="/services/fix">fix</a>
-                  </li>
-                  <li class="c-list__item">
-                    <a class="c-button c-button--default c-button--ghost tag"
-                      href="/services/codeigniter">codeigniter</a>
-                  </li>
-                  <li class="c-list__item">
-                    <a class="c-button c-button--default c-button--ghost tag" href="/services/error">error</a>
-                  </li>
-                  <li class="c-list__item">
-                    <a class="c-button c-button--default c-button--ghost tag" href="/services/bug">bug</a>
-                  </li>
+                  
                 </ul>
               </div>
             </div>
