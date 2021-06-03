@@ -18,32 +18,26 @@ export class AddnewNotFoundServiceComponent implements OnInit {
   massage: string;
   CommunityId: number=0;
   addCommunityForm:any;
-  subject: string[] = Object.values(SubjectCategory);
-//   keys() : Array<string> {
-//     var keys = Object.keys(this.subject);
-//     return keys.slice(keys.length / 2);
-// }
+  Subject: string[] = Object.values(SubjectCategory);
+
   ngOnInit(): void {
     this.addCommunityForm=this.fb.group({
-      Content:['',[Validators.required]],
-      Title:['',[Validators.required]],
-      Subject:['',[Validators.required]],
-      //Comments:['',[Validators.required]],
+      content:['',[Validators.required]],
+      title:['',[Validators.required]],
+      subject:['',[Validators.required]],
      // UserID:['',[Validators.required]],
     })
    this.getCommunity();
   }
-  get Content(){
+  get content(){
     return this.addCommunityForm.get('content')
   }
-  get Title(){
+  get title(){
     return this.addCommunityForm.get('title')
   }
-  get Subject(){
+  get subject(){
     return this.addCommunityForm.get('subject')
   }
-
-
   getCommunity(){
     this.khamsatCommunityService.returnAllCommunity().subscribe((Data)=>{
       this.communityList=Data;

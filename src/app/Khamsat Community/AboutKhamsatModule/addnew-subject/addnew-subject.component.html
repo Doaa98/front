@@ -30,24 +30,24 @@
                 <form [formGroup]="addCommunityForm" (ngSubmit)="addcommunity(addCommunityForm.value)" method="post">
                     <div class="form-group">
                         <label>عنوان الموضوع:</label>
-                        <input type="text" id="back" class="form-control" formControlName="Title"
-                            [class.is-invalid]="Title.invalid && Title.touched" />
-                        <div *ngIf="Title.errors && Title.touched">
-                            <small class="text-danger" *ngIf="Title.errors.required">Title is required</small>
+                        <input type="text" id="back" class="form-control" formControlName="title"
+                            [class.is-invalid]="title.invalid && title.touched" />
+                        <div *ngIf="title.errors && title.touched">
+                            <small class="text-danger" *ngIf="title.errors.required">Title is required</small>
                         </div>
                     </div>
                     <br>
                     <div class="form-group">
                         <label>التصنيف:</label>
 
-                        <select id="forum_name_select" fromControlerName="Subject"
-                            [class.is-invalid]="Subject.invalid && Subject.touched" class="form-control">
-                            <option  *ngFor="let item of subject">
+                        <select id="forum_name_select" fromControlerName="subject"
+                            [class.is-invalid]="subject.invalid && subject.touched" class="form-control">
+                            <option *ngFor="let item of Subject">
                                 {{item}}
                             </option>
                         </select>
-                        <div *ngIf="Subject.invalid && Subject.touched" class="col-12">
-                            <small class="text-danger" *ngIf="Subject.errors.required">Subject is required</small>
+                        <div *ngIf="subject.invalid && subject.touched" class="col-12">
+                            <small class="text-danger" *ngIf="subject.errors.required">Subject is required</small>
                         </div>
                     </div>
                     <input type="hidden" id="showcase_description"
@@ -65,11 +65,11 @@
                     <br>
                     <div class="form-group">
                         <label>محتوى الموضوع:</label>
-                        <textarea name="content" id="back" formControlName="Content"
-                            [class.is-invalid]="Content.invalid && Content.touched" class="form-control" rows="5"
+                        <textarea name="content" id="back" formControlName="content"
+                            [class.is-invalid]="content.invalid && content.touched" class="form-control" rows="5"
                             clos="80" maxlength="10000"></textarea>
-                        <div *ngIf="Content.errors && Content.touched">
-                            <small class="text-danger" *ngIf="Content.errors.required">Content is required</small>
+                        <div *ngIf="content.errors && content.touched">
+                            <small class="text-danger" *ngIf="content.errors.required">Content is required</small>
                         </div>
 
                     </div>
