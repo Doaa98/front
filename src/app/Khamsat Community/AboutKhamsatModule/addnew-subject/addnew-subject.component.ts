@@ -18,29 +18,29 @@ export class AddnewSubjectComponent implements OnInit {
   massage: string;
   CommunityId: number=0;
   addCommunityForm:any;
-  subject:SubjectCategory;
-  keys() : Array<string> {
-    var keys = Object.keys(this.subject);
-    return keys.slice(keys.length / 2);
-}
+  subject: string[] = Object.values(SubjectCategory);
+//   keys() : Array<string> {
+//     var keys = Object.keys(this.subject);
+//     return keys.slice(keys.length / 2);
+// }
   ngOnInit(): void {
     this.addCommunityForm=this.fb.group({
-      Content:['',[Validators.required]],
-      Title:['',[Validators.required]],
-      Subject:['',[Validators.required]],
-      //Comments:['',[Validators.required]],
+      content:['',[Validators.required]],
+      title:['',[Validators.required]],
+      subject:['',[Validators.required]],
+      
      // UserID:['',[Validators.required]],
     })
    this.getCommunity();
   }
   get Content(){
-    return this.addCommunityForm.get('Content')
+    return this.addCommunityForm.get('content')
   }
   get Title(){
-    return this.addCommunityForm.get('Title')
+    return this.addCommunityForm.get('title')
   }
   get Subject(){
-    return this.addCommunityForm.get('Subject')
+    return this.addCommunityForm.get('subject')
   }
 
 
@@ -55,7 +55,7 @@ Reset() {
   this.addCommunityForm.reset();  
  } 
 addcommunity(community: KhamsatCommunity) {  
-  debugger;  
+   
   community.ID = this.CommunityId;  
   this.khamsatCommunityService.addKhamsatCommunity(community).subscribe(  
    () => {  

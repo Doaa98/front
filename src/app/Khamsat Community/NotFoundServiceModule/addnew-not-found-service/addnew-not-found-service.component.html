@@ -42,7 +42,7 @@
 
                         <select id="forum_name_select" fromControlerName="Subject"
                             [class.is-invalid]="Subject.invalid && Subject.touched" class="form-control">
-                            <option value="showcase" *ngFor="let item of keys()">
+                            <option  *ngFor="let item of subject">
                                 {{item}}
                             </option>
                         </select>

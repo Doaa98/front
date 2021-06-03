@@ -8,11 +8,11 @@ export enum SubjectCategory
 export class KhamsatCommunity {
     constructor(
         public ID:number,
-        public Content:String, 
-        public Title:String,
-        public Subject:SubjectCategory,
-        public Comments:String,
-        public UserID:number,
+        public content:String, 
+        public title:String,
+        public subject:SubjectCategory,
+      
+        public userID:number,
 
 
     ){}

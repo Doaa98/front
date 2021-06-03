@@ -18,11 +18,11 @@ export class AddnewUserExperienceComponent implements OnInit {
   massage: string;
   CommunityId: number=0;
   addCommunityForm:any;
-  subject:SubjectCategory;
-  keys() : Array<string> {
-    var keys = Object.keys(this.subject);
-    return keys.slice(keys.length / 2);
-}
+  subject: string[] = Object.values(SubjectCategory);
+//   keys() : Array<string> {
+//     var keys = Object.keys(this.subject);
+//     return keys.slice(keys.length / 2);
+// }
   ngOnInit(): void {
     this.addCommunityForm=this.fb.group({
       Content:['',[Validators.required]],
@@ -34,15 +34,14 @@ export class AddnewUserExperienceComponent implements OnInit {
    this.getCommunity();
   }
   get Content(){
-    return this.addCommunityForm.get('Content')
+    return this.addCommunityForm.get('content')
   }
   get Title(){
-    return this.addCommunityForm.get('Title')
+    return this.addCommunityForm.get('title')
   }
   get Subject(){
-    return this.addCommunityForm.get('Subject')
+    return this.addCommunityForm.get('subject')
   }
-
 
   getCommunity(){
     this.khamsatCommunityService.returnAllCommunity().subscribe((Data)=>{
