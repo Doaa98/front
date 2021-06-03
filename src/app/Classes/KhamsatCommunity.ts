@@ -1,12 +1,13 @@
- enum SubjectCategory
+export enum SubjectCategory
 {
-    UserExperiencesAndStories,
-    AboutKhamsat,
-    NotFoundService,
-    ModelsImplemented
+    userExperiencesAndStories="UserExperiencesAndStories",
+    aboutKhamsat="AboutKhamsat",
+    notFoundService="NotFoundService",
+    modelsImplemented="ModelsImplemented"
 }
 export class KhamsatCommunity {
     constructor(
+        public ID:number,
         public Content:String, 
         public Title:String,
         public Subject:SubjectCategory,

@@ -9,7 +9,7 @@ import { KhamsatCommunity } from 'src/app/Classes/KhamsatCommunity';
 export class KhamsatCommunityService {
 
   constructor(private http:HttpClient) { }
-  url='http://localhost:/api/KhamsatCommunity';
+  url='http://localhost:21491/api/KhamsatCommunity';
   addKhamsatCommunity(khamsatCommunity:KhamsatCommunity): Observable<any> {
     const headers = { 'content-type': 'application/json'}
     const body=JSON.stringify(khamsatCommunity);
