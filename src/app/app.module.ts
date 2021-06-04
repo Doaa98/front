@@ -14,6 +14,7 @@ import { AddnewUserExperienceComponent } from './Khamsat Community/UserExperienc
 import { UserExperiencesAndStoriesComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/user-experiences-and-stories/user-experiences-and-stories.component';
 import { NewServiceComponent } from './components/new-service/new-service.component';
 import { ServiceDetailsComponent } from './components/service-details/service-details.component';
+import { SubCategoryServiceListComponent } from './components/sub-category-service-list/sub-category-service-list.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ServiceDetailsComponent } from './components/service-details/service-de
     AddnewNotFoundServiceComponent,
     AddnewUserExperienceComponent,
     NewServiceComponent,
-    ServiceDetailsComponent
+    ServiceDetailsComponent,
+    SubCategoryServiceListComponent
   ],
   imports: [
     FormsModule,

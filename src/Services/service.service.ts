@@ -21,6 +21,17 @@ export class ServiceService {
     };
     return this.http.get<Iservice[]>(this.Url , httpOptions)
   }
+
+  getSubCatServices(id:number): Observable<Iservice[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+        // ,'Authorization': 'my-auth-token'
+      })
+    };
+    return this.http.get<Iservice[]>(this.Url +"/cat/"+id, httpOptions)
+  }
+
   getService(id : number): Observable<Iservice> {
     const httpOptions = {
       headers: new HttpHeaders({
