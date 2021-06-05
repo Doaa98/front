@@ -12,6 +12,10 @@ import { AddnewNotFoundServiceComponent } from './Khamsat Community/NotFoundServ
 import { NotFoundServiceComponent } from './Khamsat Community/NotFoundServiceModule/not-found-service/not-found-service.component';
 import { AddnewUserExperienceComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/addnew-user-experience/addnew-user-experience.component';
 import { UserExperiencesAndStoriesComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/user-experiences-and-stories/user-experiences-and-stories.component';
+import { AboutKhamsatDetailsComponent } from './Khamsat Community/AboutKhamsatModule/about-khamsat-details/about-khamsat-details.component';
+import { ModelsImplementedDetailsComponent } from './Khamsat Community/Business models implemented/models-implemented-details/models-implemented-details.component';
+import { AServiceDetailsComponent } from './Khamsat Community/NotFoundServiceModule/aservice-details/aservice-details.component';
+import { UserExperienceDetailsComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/user-experience-details/user-experience-details.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { UserExperiencesAndStoriesComponent } from './Khamsat Community/UserExpe
     AddnewModelImplementedComponent,
     AddnewSubjectComponent,
     AddnewNotFoundServiceComponent,
-    AddnewUserExperienceComponent
+    AddnewUserExperienceComponent,
+    AboutKhamsatDetailsComponent,
+    ModelsImplementedDetailsComponent,
+    AServiceDetailsComponent,
+    UserExperienceDetailsComponent
   ],
   imports: [
     BrowserModule,
