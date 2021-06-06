@@ -15,6 +15,12 @@ import { UserExperiencesAndStoriesComponent } from './Khamsat Community/UserExpe
 import { NewServiceComponent } from './components/new-service/new-service.component';
 import { ServiceDetailsComponent } from './components/service-details/service-details.component';
 import { SubCategoryServiceListComponent } from './components/sub-category-service-list/sub-category-service-list.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { HsoubFooterComponent } from './layout/hsoub-footer/hsoub-footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { AllServicesHomeComponent } from './components/home/all-services-home/all-services-home.component';
+import { ServiceHomeComponent } from './components/home/service-home/service-home.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +35,13 @@ import { SubCategoryServiceListComponent } from './components/sub-category-servi
     AddnewUserExperienceComponent,
     NewServiceComponent,
     ServiceDetailsComponent,
-    SubCategoryServiceListComponent
+    SubCategoryServiceListComponent,
+    HeaderComponent,
+    FooterComponent,
+    HsoubFooterComponent,
+    HomeComponent,
+    AllServicesHomeComponent,
+    ServiceHomeComponent
   ],
   imports: [
     FormsModule,

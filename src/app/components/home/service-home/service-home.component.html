@@ -1,0 +1,34 @@
+<div id="category-programming" class="category u-margin-top--large@large"
+*ngFor="let cat of CatList">
+    <div class="u-margin-bottom@large u-padding-bottom--small u-margin-bottom@small">
+        <h1 class="category-title">
+            <a href="#">خدمات {{cat.name}}</a>
+        </h1>
+        <a href="#" class="c-button c-button--secondary u-pull--left">عرض الجميع</a>
+    </div>
+    <div class="o-layout o-layout--flex">
+        <div id="service-1721099" *ngFor="let ser of cat.services"
+            class="o-layout__item u-12@tiny u-6@small u-3@large u-4@medium u-margin-bottom--large service-block   ">
+            <div class="c-box">
+                <a routerLink="service/Details/{{ser.id}}"
+                    title="{{ser.title}}" class="c-box__url">
+                    <img src="https://khamsat.hsoubcdn.com/images/services/1247873/dda97ae2dc955dafe3576c814f497808_thumb.jpg"
+                        loading="lazy" class="c-box__image">
+                </a>
+
+                <h3 class="c-box__title">
+                    <a
+                        routerLink="service/Details/{{ser.id}}">{{ser.title}}</a>
+                </h3>
+
+                <div class="c-box__meta">
+                    <a routerLink="service/Details/{{ser.id}}"
+                        title="{{ser.title}}">
+                        <span>{{ser.noOfBuyerServices||0}} اشترى هذه الخدمة</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
