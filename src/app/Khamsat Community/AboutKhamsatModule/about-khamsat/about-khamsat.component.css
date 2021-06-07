@@ -9,7 +9,12 @@ body {
     line-height: 1.5em;
     line-height: 1;
 }
-
+.user{
+  margin-left: 4em;
+}
+.title{
+  margin-left: 11em;
+}
 
 a{
     color: black;
@@ -39,10 +44,13 @@ li{
   position: absolute;
   top: 85%;
   left: 50%;
-  width: 16%;
+  width:fit-content;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-#div{
-  display: inline;
+
+@media only screen and (max-width: 770px) {
+#hidden{
+  display: none;
+}
 }

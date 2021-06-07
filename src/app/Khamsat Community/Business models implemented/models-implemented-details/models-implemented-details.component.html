@@ -2,217 +2,200 @@
 
 <head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
 
 </head>
 
 <body>
-    <header class="hsoub-header">
-        <div class="hsoub-box">
-            <a class="hsoub-bars hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile"></a>
+  <header class="hsoub-header">
+    <div class="hsoub-box">
+      <a class="hsoub-bars hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile"></a>
 
 
-            <div class="hsoub-container">
-                <div class="hsoub-content" style="background:#F1F1F1">
+      <div class="hsoub-container">
+        <div class="hsoub-content" style="background:#F1F1F1">
 
 
-                    <div class="page_header">
-                        <div class="o-wrapper">
-                            <div class="o-layout o-layout--flex">
-                                <div class="o-layout__item u-9@large u-8@medium u-12@tiny">
-                                    <div class="o-media">
-                                        <div class="o-media__body">
-                                            <h1 style="float: right;">
-                                                <a href=""> تصاميم جذابة مختصة بالسياحة والسفر واعلانات للفيز</a>
-                                            </h1>
-                                            <div style="clear: both;"></div>
-                                            <ul class="page-meta u-12@large " style="float: right;color: gray;">
-                                                <li>
-                                                    <a class="user" href=""><i class="fa fa-fw fa-user"></i> Sedra
-                                                        Sakka</a>
-                                                </li>
-                                                <li>
-                                                    <a href="">
-                                                        <i class="fa fa-bars fa-fw"></i>
-                                                        <span>نماذج أعمال قمت بتنفيذها</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <i class="fa fa-clock-o fa-fw"></i>
-                                                    <span dir="ltr" title="03/06/2021 19:56:14 GMT">منذ ساعتين و46
-                                                        دقيقة</span>
-                                                </li>
+          <div class="page_header">
+            <div class="o-wrapper">
+              <div class="o-layout o-layout--flex">
+                <div class="o-layout__item u-9@large u-8@medium u-12@tiny">
+                  <div class="o-media">
+                    <div class="o-media__body">
+                      <h1 style="float: right;">
+                        <a href="">{{Khamsat.title}}</a>
+                      </h1>
+                      <div style="clear: both;"></div>
+                      <ul class="page-meta u-12@large " style="float: right;color: gray;">
+                        <li>
+                          <a class="user" href=""><i class="fa fa-fw fa-user"></i> {{Khamsat.userFullName}} </a>
+                        </li>
+                        <li>
+                          <a routerLink="/ModelImplementd">
+                            <i class="fa fa-bars fa-fw"></i>
+                            <span> نماذج اعمال قمت بتنفيذها</span>
+                          </a>
+                        </li>
+                        <li>
+                          <i class="fa fa-clock-o fa-fw"></i>
+                          <span dir="ltr" title="03/06/2021 19:56:14 GMT">  {{Khamsat.date}} </span>
+                        </li>
 
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-                                <div class="o-layout__item u-3@large u-4@medium u-hidden@small u-hidden@tiny">
+                <div class="o-layout__item u-3@large u-4@medium u-hidden@small u-hidden@tiny">
 
-                                    <div class="page-navbar--tablet">
-                                        <a class="c-button c-button--primary" href="#add_comment">
-                                            <i class="fa fa-comment"></i>&nbsp;
-                                            <span>أضف تعليق</span>
-                                        </a>
-                                        <a href="" class="c-button c-button--primary dropdown-button"> <i
-                                                class="fa fa-caret-down"></i></a>
+                  <div class="page-navbar--tablet">
+                    <a class="c-button c-button--primary" href="#add_comment">
+                      <i class="fa fa-comment"></i>&nbsp;
+                      <span>أضف تعليق</span>
+                    </a>
 
-                                    </div>
-                                </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <div class="o-wrapper">
+
+            <div class="content inside">
+              <div class="o-layout o-layout--flex">
+                <div class="o-layout__item u-9@large u-12@medium u-12@small u-12@tiny js-page">
+
+
+                  <div class="card">
+                    <div class="card-body">
+                     <article style="float: right;">
+                          {{Khamsat.content}}
+                        </article>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="card" *ngFor="let item of Khamsat._Comments ; let i=index;">
+                    <div class="card-head">
+                      <h3 style="float: right;margin: 0.3em;">التعليقات (item.length)</h3>
+                    </div>
+                    <div class="card_-body " id="post_replies">
+                      <div class="comments" style="margin: 0.3em;">
+
+                        <div style="float: right;" class="discussion-item comment" data-id="5758835"
+                          id="post_reply-5758835">
+                          <div class="profile-details">
+                            <div class="o-media">
+                              <div class="o-media__right meta--avatar">
+                                <a href="">
+                                  <img class="rounded-circle" src=".{{item.image}}" width="65 px"
+                                    height="65px" style="vertical-align:middle;float: left;">
+                                </a>
+                              </div>
+                              <div class="o-media__body">
+                                <h5 class="u-margin-bottom--tiny">
+                                  <div class="meta--user">
+                                    <a href="">{{item.fullName}} </a>
+                                  </div>
+                                  <div class="u-block@small meta--date" style="color: gray; font-size:13px">
+                                    <i class="fa fa-clock-o fa-fw"></i>
+                                    <span dir="ltr" title="03/06/2021 20:25:14 GMT"> منذ ساعة ودقيقتين</span>
+                                  </div>
+                                </h5>
+                              </div>
+                              <div class="o-layout__item u-7@large u-6@medium u-hidden@small">
+
+                              </div>
 
                             </div>
+                          </div>
+                          <div class="discussion-message">
+                            <article class="comment reply_content replace_urls ">{{item.content}}  </article>
+
+                          </div>
                         </div>
+
+
+                      </div>
                     </div>
+                  </div>
+                  <br>
+                  <div class="card " id="add_comment">
+                    <div class="card-head">
+                      <h4 style="float: right;margin: 0.3em;">أضف تعليق</h4>
+                    </div>
+                    <div class="card-body">
+                      <form id="commentable_form" action="" method="post">
+                        <div class="u-margin-bottom">
+                          <textarea name="content" class="c-form__control" rows="5" clos="60"
+                            maxlength="2000"></textarea>
+                          <p class="c-form__hb" style="float: right;">
+                            <span>استخدم</span>&nbsp;
+                            <a href="https://suar.me" target="_blank" class="u-clr--primary">موقع صور</a>
+                            <span>عند حاجتك لرفع أو اضافة صورة لتعليقاتك.</span>
+                          </p>
 
-
-
-
-                    <div class="o-wrapper">
-
-                        <div class="content inside">
-                            <div class="o-layout o-layout--flex">
-                                <div class="o-layout__item u-9@large u-12@medium u-12@small u-12@tiny js-page">
-
-
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <article style="float: right;">
-                                                تصاميم قوية وجذابة مختصة بالسياحة والسفر وتصاميم فيز الى دول العالم وهذه
-                                                جزء من اعمالي:
-                                                https://suar.me/vq4xm#
-                                            </article>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="card">
-                                        <div class="card-head">
-                                            <h3 style="float: right;margin: 0.3em;">التعليقات ()</h3>
-                                        </div>
-                                        <div class="card_-body " id="post_replies">
-                                            <div class="comments" style="margin: 0.3em;">
-
-                                                <div style="float: right;" class="discussion-item comment"
-                                                    data-id="5758835" id="post_reply-5758835">
-                                                    <div class="profile-details">
-                                                        <div class="o-media">
-                                                            <div class="o-media__right meta--avatar">
-                                                                <a href="">
-                                                                    <img class="rounded-circle"
-                                                                        src="./assets/Images/avater.png" width="65 px"
-                                                                        height="65px"
-                                                                        style="vertical-align:middle;float: left;">
-                                                                </a>
-                                                            </div>
-                                                            <div class="o-media__body">
-                                                                <h5 class="u-margin-bottom--tiny">
-                                                                    <div class="meta--user">
-                                                                        <a href="">
-                                                                            Mimouna Ben</a>
-                                                                    </div>
-                                                                    <div class="u-block@small meta--date"
-                                                                        style="color: gray; font-size:13px">
-                                                                        <i class="fa fa-clock-o fa-fw"></i>
-                                                                        <span dir="ltr" title="03/06/2021 20:25:14 GMT">
-                                                                            منذ ساعتين و44 دقيقة</span>
-                                                                    </div>
-                                                                </h5>
-                                                            </div>
-                                                            <div
-                                                                class="o-layout__item u-7@large u-6@medium u-hidden@small">
-
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="discussion-message">
-                                                        <article class="comment reply_content replace_urls ">تصاميمك
-                                                            رائعة بالتوفيق</article>
-
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="card " id="add_comment">
-                                        <div class="card-head">
-                                            <h4 style="float: right;margin: 0.3em;">أضف تعليق</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <form id="commentable_form" action="" method="post">
-                                                <div class="u-margin-bottom">
-                                                    <textarea name="content" class="c-form__control" rows="5" clos="60"
-                                                        maxlength="2000"></textarea>
-                                                    <p class="c-form__hb" style="float: right;">
-                                                        <span>استخدم</span>&nbsp;
-                                                        <a href="https://suar.me" target="_blank"
-                                                            class="u-clr--primary">موقع صور</a>
-                                                        <span>عند حاجتك لرفع أو اضافة صورة لتعليقاتك.</span>
-                                                    </p>
-
-                                                </div>
-                                                <div style="clear: both;"></div>
-                                                <div style="float: right;">
-
-                                                    <input type="checkbox" value="0">&nbsp;
-                                                    <span>التعليق لا يحتوي على معلومات اتصال خارجية ولا
-                                                        يخالف</span>&nbsp;
-                                                    <a href="" target="_blank" class="u-clr--primary">شروط موقع
-                                                        خمسات</a>
-
-                                                </div>
-                                                <div style="clear: both;"></div><br>
-                                                <div>
-                                                    <button style="float: right;" type="submit"
-                                                        class="btn btn-success">أرسل</button>
-                                                </div>
-
-                                            </form>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="o-layout__item u-3@large" id="community_sidebar">
-
-                                    <div class="card u-margin-bottom--large">
-                                        <div class="card-head">
-                                            <h3 style="margin: 0.3em; float: right;font-weight: light;">آخر المساهمات
-                                            </h3>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="o-media">
-                                                <div class="o-media__right">
-                                                    <a href="" title="">
-                                                        <img class="rounded-circle" src="./assets/Images/avater.png"
-                                                            width="65 px" height="65px" style="vertical-align:middle;">
-
-                                                    </a>
-                                                </div>
-                                                <div class="o-media__body">
-                                                    <h5><a href="">مبرمج مصري خبير بالووردس</a></h5>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-
-
-                                </div>
-                            </div>
                         </div>
+                        <div style="clear: both;"></div>
+                        <div style="float: right;">
+
+                          <input type="checkbox" value="0">&nbsp;
+                          <span>التعليق لا يحتوي على معلومات اتصال خارجية ولا يخالف</span>&nbsp;
+                          <a href="" target="_blank" class="u-clr--primary">شروط موقع خمسات</a>
+
+                        </div>
+                        <div style="clear: both;"></div><br>
+                        <div>
+                          <button style="float: right;" type="submit" class="btn btn-success">أرسل</button>
+                        </div>
+
+                      </form>
+
+
                     </div>
+                  </div>
 
                 </div>
+
+                <div class="o-layout__item u-3@large" id="community_sidebar">
+
+                  <div class="card u-margin-bottom--large" id="hidden">
+                    <div class="card-head">
+                      <h3 style="margin: 0.3em; float: right;font-weight: light;">آخر المساهمات</h3>
+                    </div>
+                    <div class="card-body">
+                      <div class="o-media">
+                        <div class="o-media__right">
+                          <a href="" title="">
+                            <img class="rounded-circle" src="./assets/Images/avater.png" width="65 px" height="65px"
+                              style="vertical-align:middle;">
+
+                          </a>
+                        </div>
+                        <div class="o-media__body">
+                          <h5><a href="">
+                              أحتاج شخص للتسويق على يوتيوب</a></h5>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+
+
+                </div>
+              </div>
             </div>
+          </div>
+
         </div>
-    </header>
+      </div>
+    </div>
+  </header>
 
 
 </body>

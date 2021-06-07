@@ -23,22 +23,22 @@
                   <div class="o-media">
                     <div class="o-media__body">
                       <h1 style="float: right;">
-                        <a  href="">عمل خطة بحث</a>
-                      </h1> 
+                        <a href="">{{Khamsat.title}}</a>
+                      </h1>
                       <div style="clear: both;"></div>
                       <ul class="page-meta u-12@large " style="float: right;color: gray;">
                         <li>
-                          <a class="user" href=""><i class="fa fa-fw fa-user"></i> Dr Tasnim Mohamed</a>
+                          <a class="user" href=""><i class="fa fa-fw fa-user"></i> {{Khamsat.userFullName}} </a>
                         </li>
                         <li>
-                          <a href="">
+                          <a routerLink="/NotFoundService">
                             <i class="fa fa-bars fa-fw"></i>
-                            <span>طلبات الخدمات غير الموجودة</span>
+                            <span> طلبات الخدمات غير الموجوده</span>
                           </a>
                         </li>
                         <li>
                           <i class="fa fa-clock-o fa-fw"></i>
-                          <span dir="ltr" title="03/06/2021 19:56:14 GMT">منذ ساعة و27 دقيقة</span>
+                          <span dir="ltr" title="03/06/2021 19:56:14 GMT">  {{Khamsat.date}} </span>
                         </li>
 
                       </ul>
@@ -47,15 +47,14 @@
                 </div>
 
                 <div class="o-layout__item u-3@large u-4@medium u-hidden@small u-hidden@tiny">
-              
+
                   <div class="page-navbar--tablet">
                     <a class="c-button c-button--primary" href="#add_comment">
                       <i class="fa fa-comment"></i>&nbsp;
                       <span>أضف تعليق</span>
                     </a>
-                    <a href="" class="c-button c-button--primary dropdown-button"> <i class="fa fa-caret-down"></i></a>
-           
-              </div>
+
+                  </div>
                 </div>
 
               </div>
@@ -74,16 +73,15 @@
 
                   <div class="card">
                     <div class="card-body">
-                      <article style="float: right;">
-                        مطلوب عمل خطة بحث في اصول الفقه بعنوان الترجيح باعتبار المتن دراسة و تطبيق<br>خطة بحث من خمس
-                        فصول في كل فصل اربعة مباحث الرجاء وضع السعر في العرض
-                      </article>
+                     <article style="float: right;">
+                          {{Khamsat.content}}
+                        </article>
                     </div>
                   </div>
                   <br>
-                  <div class="card">
+                  <div class="card" *ngFor="let item of Khamsat._Comments ; let i=index;">
                     <div class="card-head">
-                      <h3 style="float: right;margin: 0.3em;">التعليقات ()</h3>
+                      <h3 style="float: right;margin: 0.3em;">التعليقات (item.length)</h3>
                     </div>
                     <div class="card_-body " id="post_replies">
                       <div class="comments" style="margin: 0.3em;">
@@ -94,18 +92,18 @@
                             <div class="o-media">
                               <div class="o-media__right meta--avatar">
                                 <a href="">
-                                  <img class="rounded-circle" src="./assets/Images/avater.png" width="65 px"
+                                  <img class="rounded-circle" src=".{{item.image}}" width="65 px"
                                     height="65px" style="vertical-align:middle;float: left;">
                                 </a>
                               </div>
                               <div class="o-media__body">
                                 <h5 class="u-margin-bottom--tiny">
                                   <div class="meta--user">
-                                    <a href="">مراد حميدي</a>
+                                    <a href="">{{item.fullName}} </a>
                                   </div>
-                                  <div class="u-block@small meta--date"style="color: gray; font-size:13px">
+                                  <div class="u-block@small meta--date" style="color: gray; font-size:13px">
                                     <i class="fa fa-clock-o fa-fw"></i>
-                                    <span dir="ltr"  title="03/06/2021 20:25:14 GMT">منذ 58 دقيقة</span>
+                                    <span dir="ltr" title="03/06/2021 20:25:14 GMT">{{item.date}}</span>
                                   </div>
                                 </h5>
                               </div>
@@ -116,9 +114,8 @@
                             </div>
                           </div>
                           <div class="discussion-message">
-                              <article class="comment reply_content replace_urls ">تواصل معي
-                                التسليم في اسرع وقت</article>
-                           
+                            <article class="comment reply_content replace_urls ">{{item.content}}  </article>
+
                           </div>
                         </div>
 
@@ -166,21 +163,22 @@
 
                 <div class="o-layout__item u-3@large" id="community_sidebar">
 
-                  <div class="card u-margin-bottom--large">
-                    <div class="card-head" >
+                  <div class="card u-margin-bottom--large" id="hidden">
+                    <div class="card-head">
                       <h3 style="margin: 0.3em; float: right;font-weight: light;">آخر المساهمات</h3>
                     </div>
                     <div class="card-body">
                       <div class="o-media">
                         <div class="o-media__right">
                           <a href="" title="">
-                            <img class="rounded-circle" src="./assets/Images/avater.png" width="65 px"
-                            height="65px" style="vertical-align:middle;">
-                         
-                            </a>
+                            <img class="rounded-circle" src="./assets/Images/avater.png" width="65 px" height="65px"
+                              style="vertical-align:middle;">
+
+                          </a>
                         </div>
                         <div class="o-media__body">
-                          <h5><a href="">مبرمج مصري خبير بالووردس</a></h5>
+                          <h5><a href="">
+                              أحتاج شخص للتسويق على يوتيوب</a></h5>
                         </div>
                       </div>
 

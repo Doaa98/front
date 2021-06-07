@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { KhamsatCommunity, SubjectCategory } from 'src/app/Classes/KhamsatCommunity';
+import { customkhamsat, SubjectCategory } from 'src/app/Classes/KhamsatCommunity';
 import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunityService';
 
 @Component({
@@ -12,7 +12,6 @@ import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunitySe
 export class AddnewSubjectComponent implements OnInit {
 
   constructor(private fb:FormBuilder,private khamsatCommunityService:KhamsatCommunityService,private router :Router) { }
-  communityList:KhamsatCommunity []=[];
   errorMsg: any;
   dataSaved=false;
   massage: string;
@@ -27,7 +26,6 @@ export class AddnewSubjectComponent implements OnInit {
       subject:['',[Validators.required]],
      // UserID:['',[Validators.required]],
     })
-   this.getCommunity();
   }
   get content(){
     return this.addCommunityForm.get('content')
@@ -39,26 +37,17 @@ export class AddnewSubjectComponent implements OnInit {
     return this.addCommunityForm.get('subject')
   }
 
-
-  getCommunity(){
-    this.khamsatCommunityService.returnAllCommunity().subscribe((Data)=>{
-      this.communityList=Data;
-    },(err)=>{
-    this.errorMsg=err;
-    })
-  }
 Reset() {  
   this.addCommunityForm.reset();  
  } 
-addcommunity(community: KhamsatCommunity) {  
+addcommunity(community: customkhamsat) {  
   community.ID = this.CommunityId;  
   this.khamsatCommunityService.addKhamsatCommunity(community).subscribe(  
    () => {  
     this.dataSaved = true;  
     this.massage = 'Record saved Successfully';  
     this.Reset();  
-    this.CommunityId = 0; 
-    this.getCommunity();      
+    this.CommunityId = 0;     
    });  
    this.router.navigate(['/aboutKhamsat']);
  } 

@@ -3,7 +3,7 @@
 
     <div style="margin-top: 2em;">
       <h5>
-        <a href="" style="font-size: 1.5em;float: right;" class="back-arrow" title="الرجوع الى المجتمع"> <i
+        <a routerLink="/ModelImplementd" style="font-size: 1.5em;float: right;" class="back-arrow" title="الرجوع الى المجتمع"> <i
             class="fa fa-chevron-right" aria-hidden="true"></i></a>
       </h5>
       <a href="" style="float: right;font-size: 2em;"> أمور عامة حول خمسات</a>
@@ -14,46 +14,50 @@
     <br>
     <div class="card " id="forum_home">
       <div class="card-body" id="forum-showcase">
-        <div style="float: right;" id="div">
+     <div *ngFor="let item of communityList">
+       <div *ngIf="item.subject==1">
+        <div class="media" style="float:right" >
 
           <a href="">
-            <img class="rounded-circle" src="./assets/Images/avater.png" width="65 px" height="65px"
-              style="vertical-align:middle" />
+            <img class="rounded-circle" src="{{item.image}}" width="65px" height="65px"
+            style="vertical-align:middle" />
           </a>
+
           <span>
-            <span><a routerLink="/KhamsatDetalis">
-              خطوة مهمة جدّاً لكسر حاجز بيع الخدمة الأولى؟</a></span>
-            <ul class="details-list" style="display: inline;">
-              <li>
-                <a class="user" href="" style="color: gray;"><i class="fa fa-user"></i> Ahmed Kamal</a>
-                &nbsp;&nbsp;&nbsp; <i class="fa fa-clock-o"></i>
-                <span dir="ltr">منذ يومين 11 ساعه
+            <span>
+              <a class="title" [routerLink]= "['/KhamsatDetalis/',item.id]">
+                {{item.title}} </a><br></span>
 
-                </span>
+            
+            <ul style="display: inline;color: gray;">
+              <li >
+                <span> <i class="fa fa-user"></i> {{item.fullName}} </span> 
+               &nbsp;&nbsp;&nbsp;
+                <span><i class="fa fa-clock-o"></i> {{item.date}}  </span>
               </li>
-
             </ul>
           </span>
         </div>
-        <div class="media" id="div">
+        <div class="media" id="hidden"style="float:left" >
 
           <a href="">
-            <img class="rounded-circle" src="./assets/Images/avatar2.png" width="65px" height="65px"
+            <img class="rounded-circle" src="{{item.Comment.image}}" width="65px" height="65px"
               style="vertical-align:middle" />
           </a>
 
           <span>
             <span>
-              <a class="user" href="">Tarek Boublat</a></span>
+              <a class="user" href="">{{item.Comment.fullName}}</a>   <br></span>
 
-
+            
             <ul class="details-list" style="display: inline;">
               <li>
-                <span><i class="fa fa-clock-o"></i> آخر تفاعل منذ ساعة و33 دقيقة</span>
+                <span><i class="fa fa-clock-o"></i> {{item.Comment.date}}</span>
               </li>
             </ul>
           </span>
         </div>
+</div></div>
         <div style="clear: both;"></div>
         <br><br>
         <div>
