@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { KhamsatCommunity, SubjectCategory } from 'src/app/Classes/KhamsatCommunity';
-import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunityService';
+import { KhamsatCommunityService } from '../../../../../Services/KhamsatCommunityService';
 
 @Component({
-  selector: 'app-addnew-model-implemented',
-  templateUrl: './addnew-model-implemented.component.html',
-  styleUrls: ['./addnew-model-implemented.component.css']
+  selector: 'app-addnew-not-found-service',
+  templateUrl: './addnew-not-found-service.component.html',
+  styleUrls: ['./addnew-not-found-service.component.css']
 })
-export class AddnewModelImplementedComponent implements OnInit {
+export class AddnewNotFoundServiceComponent implements OnInit {
 
   constructor(private fb:FormBuilder,private khamsatCommunityService:KhamsatCommunityService,private router :Router) { }
   communityList:KhamsatCommunity []=[];
@@ -38,7 +38,6 @@ export class AddnewModelImplementedComponent implements OnInit {
   get subject(){
     return this.addCommunityForm.get('subject')
   }
-
   getCommunity(){
     this.khamsatCommunityService.returnAllCommunity().subscribe((Data)=>{
       this.communityList=Data;
@@ -61,6 +60,7 @@ addcommunity(community: KhamsatCommunity) {
     this.getCommunity();      
    });  
    this.router.navigate(['/aboutKhamsat']);
- }
+ } 
+
 
 }

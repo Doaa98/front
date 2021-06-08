@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { KhamsatCommunity, SubjectCategory } from 'src/app/Classes/KhamsatCommunity';
-import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunityService';
+import { KhamsatCommunityService } from '../../../../../Services/KhamsatCommunityService';
 
 @Component({
-  selector: 'app-models-implemented',
-  templateUrl: './models-implemented.component.html',
-  styleUrls: ['./models-implemented.component.css']
+  selector: 'app-user-experiences-and-stories',
+  templateUrl: './user-experiences-and-stories.component.html',
+  styleUrls: ['./user-experiences-and-stories.component.css']
 })
-export class ModelsImplementedComponent implements OnInit {
+export class UserExperiencesAndStoriesComponent implements OnInit {
 
-  
   constructor(private communityService:KhamsatCommunityService) { }
   communityList:KhamsatCommunity [];
   errorMsg: any;

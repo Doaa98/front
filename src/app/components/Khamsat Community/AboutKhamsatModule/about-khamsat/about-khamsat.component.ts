@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { KhamsatCommunity, SubjectCategory } from 'src/app/Classes/KhamsatCommunity';
-import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunityService';
+import { KhamsatCommunityService } from '../../../../../Services/KhamsatCommunityService';
 
 @Component({
-  selector: 'app-not-found-service',
-  templateUrl: './not-found-service.component.html',
-  styleUrls: ['./not-found-service.component.css']
+  selector: 'app-about-khamsat',
+  templateUrl: './about-khamsat.component.html',
+  styleUrls: ['./about-khamsat.component.css']
 })
-export class NotFoundServiceComponent implements OnInit {
+export class AboutKhamsatComponent implements OnInit {
 
+ 
   constructor(private communityService:KhamsatCommunityService) { }
   communityList:KhamsatCommunity [];
   errorMsg: any;
@@ -29,5 +30,8 @@ export class NotFoundServiceComponent implements OnInit {
     this.errorMsg=err;
     })
   }
+
+
+
 
 }

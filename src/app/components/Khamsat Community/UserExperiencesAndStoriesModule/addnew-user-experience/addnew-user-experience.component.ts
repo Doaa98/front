@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { KhamsatCommunity, SubjectCategory } from 'src/app/Classes/KhamsatCommunity';
-import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunityService';
+import { KhamsatCommunityService } from '../../../../../Services/KhamsatCommunityService';
 
 @Component({
-  selector: 'app-addnew-not-found-service',
-  templateUrl: './addnew-not-found-service.component.html',
-  styleUrls: ['./addnew-not-found-service.component.css']
+  selector: 'app-addnew-user-experience',
+  templateUrl: './addnew-user-experience.component.html',
+  styleUrls: ['./addnew-user-experience.component.css']
 })
-export class AddnewNotFoundServiceComponent implements OnInit {
+export class AddnewUserExperienceComponent implements OnInit {
 
   constructor(private fb:FormBuilder,private khamsatCommunityService:KhamsatCommunityService,private router :Router) { }
   communityList:KhamsatCommunity []=[];
@@ -38,6 +38,7 @@ export class AddnewNotFoundServiceComponent implements OnInit {
   get subject(){
     return this.addCommunityForm.get('subject')
   }
+
   getCommunity(){
     this.khamsatCommunityService.returnAllCommunity().subscribe((Data)=>{
       this.communityList=Data;

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { KhamsatCommunity, SubjectCategory } from 'src/app/Classes/KhamsatCommunity';
-import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunityService';
+import { KhamsatCommunityService } from '../../../../../Services/KhamsatCommunityService';
 
 @Component({
-  selector: 'app-user-experiences-and-stories',
-  templateUrl: './user-experiences-and-stories.component.html',
-  styleUrls: ['./user-experiences-and-stories.component.css']
+  selector: 'app-not-found-service',
+  templateUrl: './not-found-service.component.html',
+  styleUrls: ['./not-found-service.component.css']
 })
-export class UserExperiencesAndStoriesComponent implements OnInit {
+export class NotFoundServiceComponent implements OnInit {
 
   constructor(private communityService:KhamsatCommunityService) { }
   communityList:KhamsatCommunity [];

@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { KhamsatCommunity, SubjectCategory } from 'src/app/Classes/KhamsatCommunity';
-import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunityService';
+import { KhamsatCommunityService } from '../../../../../Services/KhamsatCommunityService';
 
 @Component({
-  selector: 'app-about-khamsat',
-  templateUrl: './about-khamsat.component.html',
-  styleUrls: ['./about-khamsat.component.css']
+  selector: 'app-models-implemented',
+  templateUrl: './models-implemented.component.html',
+  styleUrls: ['./models-implemented.component.css']
 })
-export class AboutKhamsatComponent implements OnInit {
+export class ModelsImplementedComponent implements OnInit {
 
- 
+  
   constructor(private communityService:KhamsatCommunityService) { }
   communityList:KhamsatCommunity [];
   errorMsg: any;
@@ -30,8 +30,5 @@ export class AboutKhamsatComponent implements OnInit {
     this.errorMsg=err;
     })
   }
-
-
-
 
 }

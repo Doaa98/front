@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { KhamsatCommunity, SubjectCategory } from 'src/app/Classes/KhamsatCommunity';
-import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunityService';
+import { KhamsatCommunityService } from '../../../../../Services/KhamsatCommunityService';
 
 @Component({
-  selector: 'app-addnew-user-experience',
-  templateUrl: './addnew-user-experience.component.html',
-  styleUrls: ['./addnew-user-experience.component.css']
+  selector: 'app-addnew-subject',
+  templateUrl: './addnew-subject.component.html',
+  styleUrls: ['./addnew-subject.component.css']
 })
-export class AddnewUserExperienceComponent implements OnInit {
+export class AddnewSubjectComponent implements OnInit {
 
   constructor(private fb:FormBuilder,private khamsatCommunityService:KhamsatCommunityService,private router :Router) { }
   communityList:KhamsatCommunity []=[];
@@ -39,6 +39,7 @@ export class AddnewUserExperienceComponent implements OnInit {
     return this.addCommunityForm.get('subject')
   }
 
+
   getCommunity(){
     this.khamsatCommunityService.returnAllCommunity().subscribe((Data)=>{
       this.communityList=Data;
@@ -50,7 +51,6 @@ Reset() {
   this.addCommunityForm.reset();  
  } 
 addcommunity(community: KhamsatCommunity) {  
-  debugger;  
   community.ID = this.CommunityId;  
   this.khamsatCommunityService.addKhamsatCommunity(community).subscribe(  
    () => {  
@@ -62,6 +62,5 @@ addcommunity(community: KhamsatCommunity) {
    });  
    this.router.navigate(['/aboutKhamsat']);
  } 
-
 
 }
