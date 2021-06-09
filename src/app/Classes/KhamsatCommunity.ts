@@ -1,14 +1,14 @@
-export enum SubjectCategory {
-    userExperiencesAndStories = "UserExperiencesAndStories",
-    aboutKhamsat = "AboutKhamsat",
-    notFoundService = "NotFoundService",
-    modelsImplemented = "ModelsImplemented"
+export enum  SubjectCategory {
+    UserExperiencesAndStories= "UserExperiencesAndStories",
+    AboutKhamsat= "AboutKhamsat",
+    NotFoundService= "NotFoundService",
+    ModelsImplemented= "ModelsImplemented"
 }
 export enum Subject {
-UserExperiencesAndStories,
-AboutKhamsat,
-NotFoundService,
-ModelsImplemented
+    UserExperiencesAndStories,
+    AboutKhamsat,
+    NotFoundService,
+    ModelsImplemented
 }
 //use to index home
 export interface KhamsatCommunityVM {
@@ -24,7 +24,7 @@ export interface KhamsatCommunityVM {
 }
 //get one by comments
 export interface khamsatcommunity_withcomments {
-    ID: number
+    id: number
     content: string;
     title: string;
     date: string;
@@ -36,12 +36,13 @@ export interface khamsatcommunity_withcomments {
 //use to show
 export  interface customcomment
 {
-      ID :number;
-      content :string;    
-      userID :string;
-      image :string;
-     fullName :string;
-     date: Date;
+    id :number,
+    content :string,
+    khamsatcommunityID :number,
+    userID :string,
+    image :string,
+    date:Date,
+    fullName :string,
 }
 //use to create
 export interface  customkhamsat
@@ -53,6 +54,16 @@ export interface  customkhamsat
      Date :string;
      userID :string;
    
+}
+// to create comment
+export interface CommentViewModel
+{
+     id :number,
+    content :string,   
+     date :string,
+     userID:string, 
+     khamsatcommunityID  :number,
+  
 }
 
 

@@ -21,16 +21,12 @@ export class AboutKhamsatComponent implements OnInit {
 
   }
   getCommunity() {
-    this.communityService.returnAllCommunity().subscribe
+    this.communityService.Gettypekhamsatcommunity(1).subscribe
     ( Community=>
       {
         this.communityList=Community;
         console.log(Community)
         console.log(this.communityList)
-        for(var i=0;i<this.communityList.length;i++){
-          if(this.communityList[i].subject==1)
-          console.log(this.communityList[i].fullName)
-        }
       },
       errorResponse=>
       {

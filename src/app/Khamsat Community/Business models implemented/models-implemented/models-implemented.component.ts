@@ -21,7 +21,7 @@ export class ModelsImplementedComponent implements OnInit {
 
   }
   getCommunity() {
-    this.communityService.returnAllCommunity().subscribe
+    this.communityService.Gettypekhamsatcommunity(3).subscribe
     ( Community=>
       {
         this.communityList=Community;
