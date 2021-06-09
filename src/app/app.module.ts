@@ -12,6 +12,8 @@ import { AddnewNotFoundServiceComponent } from './Khamsat Community/NotFoundServ
 import { NotFoundServiceComponent } from './Khamsat Community/NotFoundServiceModule/not-found-service/not-found-service.component';
 import { AddnewUserExperienceComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/addnew-user-experience/addnew-user-experience.component';
 import { UserExperiencesAndStoriesComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/user-experiences-and-stories/user-experiences-and-stories.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { UserExperiencesAndStoriesComponent } from './Khamsat Community/UserExpe
     AddnewModelImplementedComponent,
     AddnewSubjectComponent,
     AddnewNotFoundServiceComponent,
-    AddnewUserExperienceComponent
+    AddnewUserExperienceComponent,
+    RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
