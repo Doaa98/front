@@ -25,11 +25,12 @@
 
                 <ul class="page-meta u-12@large ">
                   <li>
-                    <a class="user" href="/user/walaa_mahfoud"><i class="fa fa-fw fa-user"></i> {{service.userFullName}}</a>
+                    <a class="user" href="/user/walaa_mahfoud"><i class="fa fa-fw fa-user"></i>
+                      {{service.userFullName}}</a>
                   </li>
                   <li class="u-hidden@small">
                     <i class="fa fa-bars fa-fw"></i>
-                  
+
                     <a href="#">
                       <span>&nbsp;&nbsp;{{service.subCategoryName}}&nbsp;&nbsp;</span>
                     </a>
@@ -154,7 +155,7 @@
                       </td>
                       <td>
                         {{dev.description}}
-                       </td>
+                      </td>
                       <td width="15%">
                         <span class="number" title="عدد الأيام الذي سيضاف الى مدة تسليم الخدمة">+ يومين</span>
                       </td>
@@ -163,7 +164,7 @@
                           data-price="10.00">+ ${{dev.price}}</span>
                       </td>
                     </tr>
-                   
+
                   </tbody>
                 </table>
               </div>
@@ -229,7 +230,7 @@
                     <span>عدد مرات الطلب</span>
                     <div
                       class="c-form__select c-form__select--small u-block@small u-margin-top@small u-margin-bottom@small">
-                      <select id="service_quantity" name="service_quantity">
+                      <select id="service_quantity" name="service_quantity" #qu (change)="calculatePrice( qu.value)">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -243,9 +244,10 @@
                       </select>
                     </div>
                     <span>المبلغ النهائي</span>
-                    <span class="total_order_price">5</span>$
+                    <span class="total_order_price">{{calculatePrice( qu.value)}}</span>$
                   </h3>
-                  <button type="button" id="add_to_cart_btn" class="c-button c-button--primary " data-banned-country="">
+                  <button type="button" id="add_to_cart_btn" class="c-button c-button--primary " data-banned-country=""
+                    (click)="addToCart(qu.value)">
                     <i class="fa fa-shopping-cart"></i>
                     <span>أضف الى سلة المشتريات</span>
                   </button>
@@ -408,7 +410,7 @@
                       <article>
                         {{rate.content }}
                       </article>
-                     
+
                     </div>
                   </div>
 
@@ -425,10 +427,9 @@
                 <ul class="c-list c-list--tags">
 
                   <li class="c-list__item" *ngFor="let keyWord of keyWords">
-                    <a class="c-button c-button--default c-button--ghost tag"
-                      href="#">{{keyWord}}</a>
+                    <a class="c-button c-button--default c-button--ghost tag" href="#">{{keyWord}}</a>
                   </li>
-                  
+
                 </ul>
               </div>
             </div>
@@ -539,5 +540,27 @@
     </div>
     <!--  END o-wrapper -->
 
+  </div>
+</div>
+
+
+
+<div class="alertify " style="display: none;" #alertModel>
+  <div class="ajs-dimmer"></div>
+  <div class="ajs-modal" tabindex="0" style="">
+    <div class="ajs-dialog" tabindex="0"><button class="ajs-reset"></button>
+      <div class="ajs-commands"><button class="ajs-pin"></button><button class="ajs-maximize"></button><button
+          class="ajs-close"></button></div>
+      <div class="ajs-header">إشعار</div>
+      <div class="ajs-body">
+        <div class="ajs-content">تم إضافة الخدمة الى سلة المشتريات</div>
+      </div>
+      <div class="ajs-footer">
+        <div class="ajs-auxiliary ajs-buttons"></div>
+        <div class="ajs-primary ajs-buttons"><button class="ajs-button ajs-ok" (click)="buyNowClick()">ادفع الآن</button><button
+            class="ajs-button ajs-cancel" (click)="cancelClick()">تصفح المزيد</button></div>
+      </div>
+      <div class="ajs-handle"></div><button class="ajs-reset"></button>
+    </div>
   </div>
 </div>

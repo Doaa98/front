@@ -71,6 +71,16 @@ export class ServiceService {
     return this.http.get<Iservice[]>(this.Url +"/category/"+id, httpOptions)
   }
 
+  GetPageRecords(pageSize:number , pageNumber:number): Observable<Iservice[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+        // ,'Authorization': 'my-auth-token'
+      })
+    };
+    return this.http.get<Iservice[]>(`${this.Url}/${pageSize}/${pageNumber}`, httpOptions)
+  }
+
   deleteService(id:number) {
    
     return this.http.delete(`${this.Url}/${id}` )

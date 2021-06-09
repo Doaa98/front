@@ -21,6 +21,7 @@ import { HsoubFooterComponent } from './layout/hsoub-footer/hsoub-footer.compone
 import { HomeComponent } from './components/home/home.component';
 import { AllServicesHomeComponent } from './components/home/all-services-home/all-services-home.component';
 import { ServiceHomeComponent } from './components/home/service-home/service-home.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ServiceHomeComponent } from './components/home/service-home/service-hom
     HsoubFooterComponent,
     HomeComponent,
     AllServicesHomeComponent,
-    ServiceHomeComponent
+    ServiceHomeComponent,
+    CartComponent
   ],
   imports: [
     FormsModule,

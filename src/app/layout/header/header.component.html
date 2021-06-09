@@ -528,8 +528,10 @@
         </a>
       </li>
       <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile hide-xs-only">
-        <a class="hsoub-menu-item-link hsoub-menu-item-link--is-large    " href="/cart" title="سلة المشتريات"
-          data-badge="1">
+        <a class="hsoub-menu-item-link hsoub-menu-item-link--is-large    " routerLink="/cart" title="سلة المشتريات"
+           > <span class="c-badge " style="background-color: #e75737; border-radius:20px;
+          bottom: 10px; position: relative;line-height: 1; ">{{itemsNumber}}</span>
+
           <i class="hsoub-menu-item-link-icon fa fa-shopping-cart"></i>
 
         </a>
@@ -640,7 +642,8 @@
     </div>
     <ul class="hsoub-sidebar-menu">
       <li class="hsoub-sidebar-menu-item hsoub--visible-v   hsoub-mobile show-xs-only">
-        <a class="hsoub-sidebar-menu-item-link" href="/cart" data-badge="1">
+        <a class="hsoub-sidebar-menu-item-link" href="/cart" ><span class="c-badge " style="background-color: #e75737; border-radius:20px;
+          bottom: 10px; position: relative;line-height: 1; ">{{itemsNumber}}</span>
           <i class="fa fa-fw fa-shopping-cart"></i>
           سلة المشتريات
         </a>

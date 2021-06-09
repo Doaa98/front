@@ -6,6 +6,7 @@ import { NewServiceComponent } from './components/new-service/new-service.compon
 import { ServiceDetailsComponent } from './components/service-details/service-details.component';
 import { SubCategoryServiceListComponent } from './components/sub-category-service-list/sub-category-service-list.component';
 import { HomeComponent } from './components/home/home.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
   {
@@ -13,14 +14,13 @@ const routes: Routes = [
   },
   {
   path:'NewModel',component:AddnewModelImplementedComponent
-  },
+  }, 
+  { path: 'cart', component: CartComponent },
+
   { path: 'service/new', component: NewServiceComponent },
   { path: 'service/Details/:id', component: ServiceDetailsComponent },
   { path: 'SubCategory/:id', component: SubCategoryServiceListComponent },
   { path: '', component: HomeComponent }
-
-
-
 ];
 
 @NgModule({
