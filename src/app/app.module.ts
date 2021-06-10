@@ -13,6 +13,8 @@ import { AboutKhamsatDetailsComponent } from './Khamsat Community/AboutKhamsatMo
 import { ModelsImplementedDetailsComponent } from './Khamsat Community/Business models implemented/models-implemented-details/models-implemented-details.component';
 import { AServiceDetailsComponent } from './Khamsat Community/NotFoundServiceModule/aservice-details/aservice-details.component';
 import { UserExperienceDetailsComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/user-experience-details/user-experience-details.component';
+import { NewServiceComponent } from './components/new-service/new-service.component';
+import { ServiceDetailsComponent } from './components/service-details/service-details.component';
 
 @NgModule({
   declarations: [
@@ -25,9 +27,13 @@ import { UserExperienceDetailsComponent } from './Khamsat Community/UserExperien
     AboutKhamsatDetailsComponent,
     ModelsImplementedDetailsComponent,
     AServiceDetailsComponent,
-    UserExperienceDetailsComponent
+    UserExperienceDetailsComponent,
+    NewServiceComponent,
+    ServiceDetailsComponent
   ],
   imports: [
+    FormsModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

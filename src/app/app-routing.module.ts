@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutKhamsatDetailsComponent } from './Khamsat Community/AboutKhamsatModule/about-khamsat-details/about-khamsat-details.component';
 import { AboutKhamsatComponent } from './Khamsat Community/AboutKhamsatModule/about-khamsat/about-khamsat.component';
@@ -9,6 +9,8 @@ import { AServiceDetailsComponent } from './Khamsat Community/NotFoundServiceMod
 import { NotFoundServiceComponent } from './Khamsat Community/NotFoundServiceModule/not-found-service/not-found-service.component';
 import { UserExperienceDetailsComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/user-experience-details/user-experience-details.component';
 import { UserExperiencesAndStoriesComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/user-experiences-and-stories/user-experiences-and-stories.component';
+import { NewServiceComponent } from './components/new-service/new-service.component';
+import { ServiceDetailsComponent } from './components/service-details/service-details.component';
 
 const routes: Routes = [
   {
@@ -39,7 +41,10 @@ const routes: Routes = [
 
   {
     path:'ExpDetails/:id',component:UserExperienceDetailsComponent
-  }
+  },
+  { path: 'service/new', component: NewServiceComponent },
+  { path: 'service/Details/:id', component: ServiceDetailsComponent }
+
 ];
 
 @NgModule({
