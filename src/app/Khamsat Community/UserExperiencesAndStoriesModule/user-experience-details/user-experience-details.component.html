@@ -129,10 +129,14 @@
                       <h4 style="float: right;margin: 0.3em;">أضف تعليق</h4>
                     </div>
                     <div class="card-body">
-                      <form id="commentable_form" action="" method="post">
+                      <form id="commentable_form" [formGroup]="addCommentForm">
                         <div class="u-margin-bottom">
-                          <textarea name="content" class="c-form__control" rows="5" clos="60"
+                          <textarea name="content" class="form-control" formControlName="content"  
+                          [class.is-invalid]="content.invalid && content.touched" rows="5" clos="60"
                             maxlength="2000"></textarea>
+                            <div *ngIf="content.errors && content.touched">
+                              <small class="text-danger" *ngIf="content.errors.required">Content is required</small>
+                          </div>
                           <p class="c-form__hb" style="float: right;">
                             <span>استخدم</span>&nbsp;
                             <a href="https://suar.me" target="_blank" class="u-clr--primary">موقع صور</a>
@@ -150,7 +154,7 @@
                         </div>
                         <div style="clear: both;"></div><br>
                         <div>
-                          <button style="float: right;" type="submit" class="btn btn-success">أرسل</button>
+                          <button style="float: right;" type="submit" onclick="createcomment()" class="btn btn-success">أرسل</button>
                         </div>
 
                       </form>

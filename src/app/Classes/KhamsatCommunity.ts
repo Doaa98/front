@@ -63,7 +63,6 @@ export interface CommentViewModel
      date :string,
      userID:string, 
      khamsatcommunityID  :number,
-  
 }
 
 
