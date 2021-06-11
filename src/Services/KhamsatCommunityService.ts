@@ -2,7 +2,7 @@ import {catchError} from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable ,throwError } from 'rxjs';
-import { KhamsatCommunity } from 'src/app/Classes/KhamsatCommunity';
+import { KhamsatCommunity } from 'src/app/models/KhamsatCommunity';
 @Injectable({
   providedIn: 'root'
 })

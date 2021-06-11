@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +21,7 @@ import { HsoubFooterComponent } from './layout/hsoub-footer/hsoub-footer.compone
 import { HomeComponent } from './components/home/home.component';
 import { AllServicesHomeComponent } from './components/home/all-services-home/all-services-home.component';
 import { ServiceHomeComponent } from './components/home/service-home/service-home.component';
+import { AddServiceComponent } from './components/add-service/add-service.component';
 
 @NgModule({
   declarations: [
@@ -41,13 +42,15 @@ import { ServiceHomeComponent } from './components/home/service-home/service-hom
     HsoubFooterComponent,
     HomeComponent,
     AllServicesHomeComponent,
-    ServiceHomeComponent
+    ServiceHomeComponent,
+    AddServiceComponent
   ],
   imports: [
     FormsModule,
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

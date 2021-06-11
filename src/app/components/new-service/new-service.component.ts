@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceService } from '../../../Services/service.service';
-import { Iservice } from './../../Shared/iservice';
+import { IService } from '../../models/IService';
 
 @Component({
   selector: 'app-new-service',
@@ -9,7 +9,7 @@ import { Iservice } from './../../Shared/iservice';
   styleUrls: ['./new-service.component.css']
 })
 export class NewServiceComponent implements OnInit {
-  service:Iservice ={
+  service:IService ={
     description:"",
     title:"",
     duration:0,
@@ -17,7 +17,7 @@ export class NewServiceComponent implements OnInit {
     images:"",
     instructionsToBuyer:"",
     keywords:"",
-    subCategoryID:0,
+    subCategoryName:"",
     userID:"",
     serviceDevelopmentsVM:[]
     

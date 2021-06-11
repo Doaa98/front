@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IRate } from 'src/app/Shared/irate';
-import { Iservice } from 'src/app/Shared/iservice';
+import { IRate } from 'src/app/models/IRate';
+import { IService } from 'src/app/models/IService';
 import { RateService } from 'src/Services/rate.service';
 import { ServiceService } from 'src/Services/service.service';
 
@@ -13,7 +13,7 @@ import { ServiceService } from 'src/Services/service.service';
 export class ServiceDetailsComponent implements OnInit {
 
   serviceId!: number;
-  service: Iservice = {
+  service: IService = {
     description: "",
     title: "",
     duration: 0,
@@ -21,7 +21,7 @@ export class ServiceDetailsComponent implements OnInit {
     images: "",
     instructionsToBuyer: "",
     keywords: "",
-    subCategoryID: 0,
+    subCategoryName: "",
     userID: "",
     serviceDevelopmentsVM: []
 

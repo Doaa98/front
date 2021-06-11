@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ICategory } from 'src/app/Shared/icategory';
-import { Iservice } from 'src/app/Shared/iservice';
-import { ISubCategory } from 'src/app/Shared/isub-category';
+import { ICategory } from 'src/app/models/ICategory';
+import { IService } from 'src/app/models/IService';
+import { ISubCategory } from 'src/app/models/ISubCategory';
 import { CategoryService } from 'src/Services/category.service';
 import { ServiceService } from 'src/Services/service.service';
 import { SubCategoryService } from 'src/Services/sub-category.service';
@@ -19,7 +19,7 @@ export class SubCategoryServiceListComponent implements OnInit {
   subCatList: ISubCategory[] = []
   CatList: ICategory[] = []
 
-  subCatServiceList: Iservice[] = [];
+  subCatServiceList: IService[] = [];
 
   constructor(private serService: ServiceService, private router: Router
     , private activatedroute: ActivatedRoute
@@ -67,7 +67,7 @@ export class SubCategoryServiceListComponent implements OnInit {
       return count;
 
   }
-
+  
 }
 
 
