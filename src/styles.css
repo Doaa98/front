@@ -1,3 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "../src/assets/CSS/app-main.css"
+@import "../src/assets/CSS/app-main.css";
+@import "../src/assets/CSS/OpenSans.css";
+@import "../src/assets/CSS/NotoArabic.css";

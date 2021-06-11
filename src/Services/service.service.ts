@@ -61,20 +61,22 @@ export class ServiceService {
   }
 
   getCatServices(id: number): Observable<IService[]> {
-    return this.http
-      .get<IService[]>(this.baseURL + '/category/' + id)
-      .pipe(
-        catchError((err) => {
-          return throwError(err.message);
-        })
-      );
-  }
-
-  deleteService(id: number) {
-    return this.http.delete(`${this.baseURL}/${id}`).pipe(
+    return this.http.get<IService[]>(this.baseURL + '/category/' + id).pipe(
       catchError((err) => {
         return throwError(err.message);
       })
     );
+    }
+    GetPageRecords(pageSize:number , pageNumber:number): Observable<IService[]> {
+      return this.http.get<IService[]>(`${this.baseURL}/${pageSize}/${pageNumber}`, httpOptions)
+    }
+
+    deleteService(id: number) {
+      return this.http.delete(`${this.baseURL}/${id}`).pipe(
+        catchError((err) => {
+          return throwError(err.message);
+        })
+      );
+    }
   }
-}
+

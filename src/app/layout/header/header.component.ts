@@ -1,4 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { CartService } from 'src/Services/cart.service';
+import { SubjectService } from 'src/Services/subject.service';
 
 @Component({
   selector: 'app-header',
@@ -10,14 +13,26 @@ export class HeaderComponent implements OnInit {
   @ViewChild("navbar")
   navbar!: ElementRef;
 
+  itemsNumber: number = 0;
+
   isAcctive = false;
   isAside = false;
 
-  constructor() { }
+  clickEventsubscription: Subscription = new Subscription;
+
+  constructor(private subjectService: SubjectService, private cartService: CartService) { }
 
   ngOnInit(): void {
-    window.addEventListener('scroll', this.scroll, true); 
+    window.addEventListener('scroll', this.scroll, true);
 
+    this.clickEventsubscription = this.subjectService.getClickEvent().subscribe(() => {
+      this.calcItemsNum();
+    })
+    this.calcItemsNum()
+  }
+  calcItemsNum() {
+    this.cartService.getCartByUserId("qq")
+      .subscribe(d => this.itemsNumber = d.length)
   }
   ngOnDestroy() {
     window.removeEventListener('scroll', this.scroll, true);
@@ -33,8 +48,7 @@ export class HeaderComponent implements OnInit {
       this.navbar.nativeElement.style.top = "-60px";
     }
     this.prevScrollpos = currentScrollPos;
-    if(this.prevScrollpos<70)
-    {
+    if (this.prevScrollpos < 70) {
       this.navbar.nativeElement.style.top = "0";
     }
   };

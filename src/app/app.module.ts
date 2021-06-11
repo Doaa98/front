@@ -13,7 +13,6 @@ import { NotFoundServiceComponent } from './Khamsat Community/NotFoundServiceMod
 import { AddnewUserExperienceComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/addnew-user-experience/addnew-user-experience.component';
 import { UserExperiencesAndStoriesComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/user-experiences-and-stories/user-experiences-and-stories.component';
 import { NewServiceComponent } from './components/new-service/new-service.component';
-import { ServiceDetailsComponent } from './components/service-details/service-details.component';
 import { SubCategoryServiceListComponent } from './components/sub-category-service-list/sub-category-service-list.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
@@ -22,6 +21,8 @@ import { HomeComponent } from './components/home/home.component';
 import { AllServicesHomeComponent } from './components/home/all-services-home/all-services-home.component';
 import { ServiceHomeComponent } from './components/home/service-home/service-home.component';
 import { AddServiceComponent } from './components/add-service/add-service.component';
+import { CartComponent } from './components/cart/cart.component';
+import { ServiceDetailsComponent } from './components/service-details/service-details.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AddServiceComponent } from './components/add-service/add-service.compon
     HomeComponent,
     AllServicesHomeComponent,
     ServiceHomeComponent,
-    AddServiceComponent
+    AddServiceComponent,
+    CartComponent
   ],
   imports: [
     FormsModule,
