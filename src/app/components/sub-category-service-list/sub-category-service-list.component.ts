@@ -15,6 +15,8 @@ import { SubCategoryService } from 'src/Services/sub-category.service';
 export class SubCategoryServiceListComponent implements OnInit {
 
   subCatId!: number;
+  CatId!: number;
+  Cat!: ICategory;
   subcat!: ISubCategory;
   subCatList: ISubCategory[] = []
   CatList: ICategory[] = []
@@ -29,18 +31,25 @@ export class SubCategoryServiceListComponent implements OnInit {
 
     this.activatedroute.params.subscribe(data => {
       this.subCatId = data.id;
+      this.CatId = data.catId;
+      console.log(data)
     })
 
-    this.subCatService.getSubCategory(this.subCatId).subscribe(
-      d => { this.subcat = d }
-    )
 
-    this.serService.getSubCatServices(this.subCatId).subscribe(
-      data => {
 
-        this.subCatServiceList = data
-      }
-    )
+    if (this.subCatId != null) {
+      this.serService.getSubCatServices(this.subCatId).subscribe(
+        data => this.subCatServiceList = data)
+      this.subCatService.getSubCategory(this.subCatId).subscribe(
+        d => { this.subcat = d }
+      )
+    } else {
+      this.serService.getCatAllServices(this.CatId).subscribe(
+        data => this.subCatServiceList = data)
+      this.catService.getCategory(this.CatId).subscribe(
+        d => this.Cat = d)
+    }
+
 
     this.subCatService.getAllSubCategories().subscribe(
       data => { this.subCatList = data }
@@ -53,7 +62,7 @@ export class SubCategoryServiceListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+
   }
 
   countServices(catId: number): number {
@@ -64,7 +73,7 @@ export class SubCategoryServiceListComponent implements OnInit {
       }
 
     }
-      return count;
+    return count;
 
   }
 

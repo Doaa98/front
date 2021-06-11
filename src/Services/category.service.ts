@@ -19,4 +19,10 @@ export class CategoryService {
 
   };
 
+  getCategory( id:number ): Observable<ICategory> {
+ 
+    return this.http.get<ICategory>(this.Url+"/"+id )
+
+  };
+
 }

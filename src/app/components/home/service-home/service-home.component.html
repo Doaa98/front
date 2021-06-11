@@ -2,9 +2,9 @@
 *ngFor="let cat of CatList">
     <div class="u-margin-bottom@large u-padding-bottom--small u-margin-bottom@small">
         <h1 class="category-title">
-            <a href="#">خدمات {{cat.name}}</a>
+            <a routerLink="/Category/{{cat.id}}">خدمات {{cat.name}}</a>
         </h1>
-        <a href="#" class="c-button c-button--secondary u-pull--left">عرض الجميع</a>
+        <a routerLink="/Category/{{cat.id}}" class="c-button c-button--secondary u-pull--left">عرض الجميع</a>
     </div>
     <div class="o-layout o-layout--flex">
         <div id="service-1721099" *ngFor="let ser of cat.services"

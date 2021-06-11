@@ -86,4 +86,14 @@ export class ServiceService {
     return this.http.delete(`${this.Url}/${id}` )
   }
 
+  getCatAllServices(id:number): Observable<Iservice[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+        // ,'Authorization': 'my-auth-token'
+      })
+    };
+    return this.http.get<Iservice[]>(this.Url +"/category/All/"+id, httpOptions)
+  }
+
 }

@@ -1,0 +1,95 @@
+<div class="hsoub-container " style="padding: 3%; margin-top: 35px;" >
+    <div class="hsoub-content">
+
+
+
+        <div class="o-wrapper ">
+
+            <div class="content inside">
+                <div id="loading" class="hidden">
+                    <p align="center"><img
+                            src="https://khamsat.hsoubcdn.com/assets/images/loading-b9f326901e161822ce76a37af0f8d0dfb8d2e913ff9782c13eb5d72bbda199c2.gif"
+                            alt="يرجى الإنتظار">
+                    </p>
+                </div>
+
+
+                <div class="o-layout o-layout--flex">
+                    <div class="o-layout__item u-12@medium u-12@tiny">
+                    </div>
+
+                    <div class="o-layout__item u-12@tiny">
+
+                        <div
+                            class="o-layout__item u-12@large u-12@tiny u-margin-bottom u-no--padding u-margin-top@small">
+                            <h1>مركز التنبيهات</h1>
+                        </div>
+
+                        <div class="c-card">
+                            <div class="c-card__body u-no--padding">
+                                <div class="panel panel-default">
+                                    <table id="notifications_table">
+                                        <colgroup>
+                                            <col class="u-avatar-col">
+                                            <col width="auto">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr id="notification-44899090" class="notification-item " 
+                                            *ngFor="let notification of signalRService.Notifications">
+                                                <td class="avatar-td u-text--center">
+                                                    <a href="/user/azoooz11111">
+                                                        <img class="u-circle img-thumbnail img--medium"
+                                                            src="https://avatars.hsoubcdn.com/6048019056eea385a42c2b8c697273f4?s=128">
+                                                    </a>
+                                                </td>
+
+                                                <td class="details-td" >
+                                                    <h3 class="details-head"> {{ notification.message}} </h3>
+                                                    <ul class="details-list">
+                                                        <li>
+                                                            <i class="fa fa-fw fa-clock-o"></i>
+                                                            <span dir="ltr">{{notification.date | date}}</span>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+
+
+                                            <tr id="notification-38464452" class="notification-item ">
+                                                <td class="avatar-td u-text--center">
+                                                    <a href="/user/programmer01">
+                                                        <img class="u-circle img-thumbnail img--medium"
+                                                            src="https://avatars.hsoubcdn.com/d17a227615ef8f87cd2b4d063b1b6f47?s=128">
+                                                    </a>
+                                                </td>
+
+                                                <td class="details-td">
+                                                    <h3 class="details-head"><a
+                                                            href="https://khamsat.com/programming/css-html/1575426-%D8%AA%D8%AD%D9%88%D9%8A%D9%84-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%A7%D9%84%D9%85%D9%88%D9%82%D8%B9-psd-%D8%A7%D9%84%D9%89-%D8%A7%D9%83%D9%88%D8%A7%D8%AF-html-and-css">خدمتك</a>
+                                                        بانتظار المراجعة حالياً، سيصلك إشعار حين إتمام مراجعتها من قبل
+                                                        فريقنا.</h3>
+                                                    <ul class="details-list">
+                                                        <li>
+                                                            <i class="fa fa-fw fa-clock-o"></i>
+                                                            <span dir="ltr">منذ 7 أشهر ويومين</span>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div><!--  END o-layout -->
+            </div>
+            <!--  END content -->
+        </div>
+        <!--  END o-wrapper -->
+
+    </div>
+</div>

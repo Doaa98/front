@@ -1,23 +1,15 @@
-<div class="hsoub-container">
+<div class="hsoub-container" style="padding: 3%; margin-top: 35px;">
     <div class="hsoub-content">
 
 
 
         <div class="o-wrapper ">
 
-            <div class="content inside">
-                <div id="loading" class="hidden">
-                    <p align="center"><img
-                            src="https://khamsat.hsoubcdn.com/assets/images/loading-b9f326901e161822ce76a37af0f8d0dfb8d2e913ff9782c13eb5d72bbda199c2.gif"
-                            alt="يرجى الإنتظار">
-                    </p>
-                </div>
-
 
                 <div class="o-layout o-layout--flex">
                     <div class="o-layout__item u-12@medium u-12@tiny">
                     </div>
-                    <div class="o-layout__item u-12@medium u-12@tiny">
+                    <div class="o-layout__item u-12@medium u-12@tiny" *ngIf="subcat != null">
                         <div
                             class="o-layout__item u-12@large u-12@tiny u-margin-bottom u-no--padding u-margin-top@small">
                             <div class="o-layout o-layout--flex">
@@ -28,7 +20,47 @@
                                         </a>
                                     </h1>
                                     <div class="filter-sort u-pull--left search_sort u-hidden@small">
-                                        <a href="#" class="c-button c-button--secondary dropdown-button"
+                                        <a  class="c-button c-button--secondary dropdown-button"
+                                            data-jq-dropdown="#jq-filter-sort">
+                                            <span class="text">خدمات مميزة</span>
+                                            <i class="fa fa-caret-down"></i>
+                                        </a>
+                                        <div id="jq-filter-sort" class="jq-dropdown jq-dropdown-tip">
+                                            <ul class="jq-dropdown-menu">
+                                                <li><a  data-sort="featured" class="filter active">خدمات
+                                                        مميزة</a></li>
+                                                <li><a  data-sort="recent" class="filter ">أضيفت حديثاً</a></li>
+                                                <li><a  data-sort="trending" class="filter ">خدمات صاعدة</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <a href="#"
+                                        class="c-button c-button--secondary  js-filter-sidebar-button u-pull--left u-hidden@medium u-hidden@large">
+                                        <i class="fa fa-sliders"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-content--top">
+                            رسّخ قواعد نجاح عملك بمساعدة مستشاري أعمال خبراء
+                        </div>
+
+                    </div>
+
+                    <div class="o-layout__item u-12@medium u-12@tiny" *ngIf="Cat != null">
+                        <div
+                            class="o-layout__item u-12@large u-12@tiny u-margin-bottom u-no--padding u-margin-top@small">
+                            <div class="o-layout o-layout--flex">
+                                <div class="o-layout__item u-12@large u-12@medium u-12@small u-12@tiny">
+                                    <h1 class="category-title">
+                                        <a href="#">
+                                            {{Cat.name}}
+                                        </a>
+                                    </h1>
+                                    <div class="filter-sort u-pull--left search_sort u-hidden@small">
+                                        <a  class="c-button c-button--secondary dropdown-button"
                                             data-jq-dropdown="#jq-filter-sort">
                                             <span class="text">خدمات مميزة</span>
                                             <i class="fa fa-caret-down"></i>
@@ -56,6 +88,7 @@
                         </div>
 
                     </div>
+
 
                     <div class="o-layout__item u-3@medium u-3@large u-no--padding">
                         <div class="js-filter-sidebar-group">

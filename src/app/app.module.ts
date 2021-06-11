@@ -22,6 +22,8 @@ import { HomeComponent } from './components/home/home.component';
 import { AllServicesHomeComponent } from './components/home/all-services-home/all-services-home.component';
 import { ServiceHomeComponent } from './components/home/service-home/service-home.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CustomDatePipe } from './Pipe/custom-date.pipe';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -43,8 +45,10 @@ import { CartComponent } from './components/cart/cart.component';
     HomeComponent,
     AllServicesHomeComponent,
     ServiceHomeComponent,
-    CartComponent
-  ],
+    CartComponent,
+    CustomDatePipe,
+    NotificationComponent
+    ],
   imports: [
     FormsModule,
     HttpClientModule,
