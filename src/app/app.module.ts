@@ -20,7 +20,6 @@ import { HsoubFooterComponent } from './layout/hsoub-footer/hsoub-footer.compone
 import { HomeComponent } from './components/home/home.component';
 import { AllServicesHomeComponent } from './components/home/all-services-home/all-services-home.component';
 import { ServiceHomeComponent } from './components/home/service-home/service-home.component';
-import { AddServiceComponent } from './components/add-service/add-service.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ServiceDetailsComponent } from './components/service-details/service-details.component';
 
@@ -44,7 +43,6 @@ import { ServiceDetailsComponent } from './components/service-details/service-de
     HomeComponent,
     AllServicesHomeComponent,
     ServiceHomeComponent,
-    AddServiceComponent,
     CartComponent
   ],
   imports: [
