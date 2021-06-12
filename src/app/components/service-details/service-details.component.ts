@@ -50,7 +50,7 @@ export class ServiceDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.serService.getService(this.serviceId).subscribe(
       data => {
-        this.service = data; console.log(data)
+        this.service = data; 
         this.keyWords = this.service.keywords.split(',');
         this.rateService.getServiceRates(this.service.id)
           .subscribe(
