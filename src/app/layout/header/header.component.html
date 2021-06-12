@@ -1,6 +1,6 @@
 <header class="hsoub-header" style="" #navbar [ngClass]="{'sidebar-active': isAside}">
   <div class="hsoub-box"><a class="hsoub-bars hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile"
-    (click)="AsideToggle()">
+      (click)="AsideToggle()">
       <i class="hsoub-bars-icon"></i>
     </a><a routerLink="/" class="hsoub-logo"><img class="hsoub-logo-img hsoub--visible-h hsoub-desktop hsoub-tablet "
         src="https://khamsat.hsoubcdn.com/assets/images/logo-73045c76e830509d4dbe03ea6172d22f047c708fed5435e93ffd47f80ee5ffa4.png"><img
@@ -32,7 +32,7 @@
         </a>
       </li>
     </ul>
-    <div class="hsoub-megamenu "  [ngClass]="{'hsoub-megamenu-active': isAcctive}">
+    <div class="hsoub-megamenu " [ngClass]="{'hsoub-megamenu-active': isAcctive}">
       <div class="hsoub-megamenu-row">
         <div class="hsoub-megamenu-column">
           <ul class="hsoub-bullets">
@@ -528,8 +528,8 @@
         </a>
       </li>
       <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile hide-xs-only">
-        <a class="hsoub-menu-item-link hsoub-menu-item-link--is-large    " routerLink="/cart" title="سلة المشتريات"
-           > <span class="c-badge " style="background-color: #e75737; border-radius:20px;
+        <a class="hsoub-menu-item-link hsoub-menu-item-link--is-large    " routerLink="/cart" title="سلة المشتريات">
+          <span class="c-badge " style="background-color: #e75737; border-radius:20px;
           bottom: 10px; position: relative;line-height: 1; " *ngIf="itemsNumber != 0">{{itemsNumber}}</span>
 
           <i class="hsoub-menu-item-link-icon fa fa-shopping-cart"></i>
@@ -559,51 +559,38 @@
         </a>
         <div class="hsoub-list hsoub-list-right">
           <ul class="hsoub-list-group" data-empty="لا جديد حتى اللحظة!">
-     
-        
+
+
           </ul><a class="hsoub-list-action-link" href="/messages"><i class="fa fa-fw fa-envelope"></i> جميع الرسائل</a>
         </div>
       </li>
       <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile">
-        <a class="hsoub-menu-item-link hsoub-menu-item-link--is-large    "  title="الإشعارات"
-        (click)="notfiyToggle()" >
+        <a class="hsoub-menu-item-link hsoub-menu-item-link--is-large    " title="الإشعارات" (click)="notfiyToggle()">
           <span class="c-badge " style="background-color: #e75737; border-radius:20px;
           bottom: 10px; position: relative;line-height: 1; " *ngIf="signalRService.newNotificationsCount != 0">
-          {{signalRService.newNotificationsCount}}</span>
+            {{signalRService.newNotificationsCount}}</span>
 
           <i class="hsoub-menu-item-link-icon fa fa-bell"></i>
 
         </a>
-        
 
-        <div class="hsoub-list hsoub-list-right" *ngIf="isNotifyShow"
-        style="display: block;"><ul class="hsoub-list-group" data-empty="لا جديد حتى اللحظة!">
-          <li class="hsoub-list-item " *ngFor="let notification of signalRService.Notifications">
-          <img class="hsoub-list-item-img" alt="Azoooz11111 Aziz" src="https://avatars.hsoubcdn.com/6048019056eea385a42c2b8c697273f4?s=128">
-          <div class="hsoub-list-item-content">
-{{ notification.message}}
-            <div class="hsoub-list-item-date">
-              <time datetime="2021-06-07T23:15:20+00:00" title="2021-06-07T23:15:20+00:00"> <i class="fa fa-clock-o"></i> {{notification.date | date}}  </time>
-            </div>
-          </div>
-        </li><li class="hsoub-list-item ">
-          <img class="hsoub-list-item-img" alt="Azoooz11111 Aziz" src="https://avatars.hsoubcdn.com/6048019056eea385a42c2b8c697273f4?s=128">
-          <div class="hsoub-list-item-content">
-            مبروك! <a class="hsoub-list-item-link" href="https://khamsat.com/user/azoooz11111">Azoooz11111 Aziz</a> استلم الطلب: <a class="hsoub-list-item-link" href="https://khamsat.com/order/1870712">برمجة وتطوير إضافات وملحقات متصفح كروم Chrome extension</a>.
-            <div class="hsoub-list-item-date">
-              <time datetime="2021-06-07T23:15:00+00:00" title="2021-06-07T23:15:00+00:00"> <i class="fa fa-clock-o"></i> منذ يومين و18 ساعة </time>
-            </div>
-          </div>
-        </li>
-        <li class="hsoub-list-item ">
-          <img class="hsoub-list-item-img" alt="Ashraf Shaker" src="https://avatars.hsoubcdn.com/d17a227615ef8f87cd2b4d063b1b6f47?s=128">
-          <div class="hsoub-list-item-content">
-            <a class="hsoub-list-item-link" href="https://khamsat.com/programming/css-html/1619877-responsive-web-design-%D8%B5%D9%81%D8%AD%D8%A7%D8%AA-%D8%A7%D9%84%D9%88%D9%8A%D8%A8-%D8%A7%D9%84%D8%AA%D9%81%D8%A7%D8%B9%D9%84%D9%8A%D8%A9">خدمتك</a> بانتظار المراجعة حالياً، سيصلك إشعار حين إتمام مراجعتها من قبل فريقنا.
-            <div class="hsoub-list-item-date">
-              <time datetime="2021-01-02T20:28:50+00:00" title="2021-01-02T20:28:50+00:00"> <i class="fa fa-clock-o"></i> منذ 5 أشهر و8 أيام </time>
-            </div>
-          </div>
-        </li></ul><a class="hsoub-list-action-link" routerLink="/notifications"><i class="fa fa-fw fa-bell"></i> جميع الإشعارات</a></div>
+
+        <div class="hsoub-list hsoub-list-right" *ngIf="isNotifyShow" style="display: block;">
+          <ul class="hsoub-list-group" data-empty="لا جديد حتى اللحظة!">
+            <li class="hsoub-list-item " *ngFor="let notification of signalRService.Notifications">
+              <img class="hsoub-list-item-img" alt="Azoooz11111 Aziz"
+                src="https://avatars.hsoubcdn.com/6048019056eea385a42c2b8c697273f4?s=128">
+              <div class="hsoub-list-item-content">
+                {{ notification.message}}
+                <div class="hsoub-list-item-date">
+                  <time datetime="2021-06-07T23:15:20+00:00" title="2021-06-07T23:15:20+00:00"> <i
+                      class="fa fa-clock-o"></i> {{notification.date | customDate}} </time>
+                </div>
+              </div>
+            </li>
+          </ul><a class="hsoub-list-action-link" routerLink="/notifications"><i class="fa fa-fw fa-bell"></i> جميع
+            الإشعارات</a>
+        </div>
 
 
       </li>
@@ -673,7 +660,7 @@
     </div>
     <ul class="hsoub-sidebar-menu">
       <li class="hsoub-sidebar-menu-item hsoub--visible-v   hsoub-mobile show-xs-only">
-        <a class="hsoub-sidebar-menu-item-link" href="/cart" ><span class="c-badge " style="background-color: #e75737; border-radius:20px;
+        <a class="hsoub-sidebar-menu-item-link" href="/cart"><span class="c-badge " style="background-color: #e75737; border-radius:20px;
           bottom: 10px; position: relative;line-height: 1; ">{{itemsNumber}}</span>
           <i class="fa fa-fw fa-shopping-cart"></i>
           سلة المشتريات
