@@ -50,7 +50,7 @@ export interface  customkhamsat
      ID :number;
      content:string; 
      title :string;
-     subject : SubjectCategory;
+     subject : Subject;
      Date :string;
      userID :string;
    
