@@ -170,7 +170,7 @@ export class AddServiceComponent implements OnInit {
 
   hideGallery() {
     console.log(this.isShowGallery);
-    this.isShowGallery = false;
+    // this.isShowGallery = false;
     console.log(this.isShowGallery);
 
   }
