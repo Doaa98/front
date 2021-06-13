@@ -27,7 +27,7 @@
 
         <div class="card" id="center">
             <div class="card-body">
-                <form [formGroup]="addCommunityForm" (ngSubmit)="addcommunity(addCommunityForm.value)" method="post">
+                <form [formGroup]="addCommunityForm" >
                     <div class="form-group">
                         <label>عنوان الموضوع:</label>
                         <input type="text" id="back" class="form-control" formControlName="title"
@@ -110,7 +110,7 @@
                         <input id="user_token" type='hidden' name='token'
                             value='b91fc0c6972e0f4597fb37a1fa9040a5eabbb530' />
                         <br>
-                        <button type="submit" class="btn btn-success">نشر</button>
+                        <button type="submit" (click)="create()" class="btn btn-success">نشر</button>
                     </div>
 
                 </form>

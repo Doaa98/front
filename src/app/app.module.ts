@@ -19,11 +19,14 @@ import { AboutKhamsatComponent } from './components/Khamsat Community/AboutKhams
 import { NotFoundServiceComponent } from './components/Khamsat Community/NotFoundServiceModule/not-found-service/not-found-service.component';
 import { ModelsImplementedComponent } from './components/Khamsat Community/Business models implemented/models-implemented/models-implemented.component';
 import { UserExperiencesAndStoriesComponent } from './components/Khamsat Community/UserExperiencesAndStoriesModule/user-experiences-and-stories/user-experiences-and-stories.component';
-import { AddnewModelImplementedComponent } from './components/Khamsat Community/Business models implemented/addnew-model-implemented/addnew-model-implemented.component';
 import { AddnewSubjectComponent } from './components/Khamsat Community/AboutKhamsatModule/addnew-subject/addnew-subject.component';
 import { AddnewNotFoundServiceComponent } from './components/Khamsat Community/NotFoundServiceModule/addnew-not-found-service/addnew-not-found-service.component';
 import { AddnewUserExperienceComponent } from './components/Khamsat Community/UserExperiencesAndStoriesModule/addnew-user-experience/addnew-user-experience.component';
-
+import { AboutKhamsatDetailsComponent } from './Khamsat Community/AboutKhamsatModule/about-khamsat-details/about-khamsat-details.component';
+import { ModelsImplementedDetailsComponent } from './Khamsat Community/Business models implemented/models-implemented-details/models-implemented-details.component';
+import { AServiceDetailsComponent } from './Khamsat Community/NotFoundServiceModule/aservice-details/aservice-details.component';
+import { UserExperienceDetailsComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/user-experience-details/user-experience-details.component';
+import { AddnewModelImplementedComponent } from './components/Khamsat Community/Business models implemented/addnew-model-implemented/addnew-model-implemented.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,6 @@ import { AddnewUserExperienceComponent } from './components/Khamsat Community/Us
     NotFoundServiceComponent,
     ModelsImplementedComponent,
     UserExperiencesAndStoriesComponent,
-    AddnewModelImplementedComponent,
     AddnewSubjectComponent,
     AddnewUserExperienceComponent,
     AddnewNotFoundServiceComponent,
@@ -45,8 +47,14 @@ import { AddnewUserExperienceComponent } from './components/Khamsat Community/Us
     AllServicesHomeComponent,
     ServiceHomeComponent,
     CartComponent,
-    AddServiceComponent
-    
+    AddServiceComponent,
+    AddServiceComponent,
+    ServiceDetailsComponent,
+    AboutKhamsatDetailsComponent,
+    ModelsImplementedDetailsComponent,
+    AServiceDetailsComponent,
+    UserExperienceDetailsComponent,
+    AddnewModelImplementedComponent
   ],
   imports: [
     FormsModule,
