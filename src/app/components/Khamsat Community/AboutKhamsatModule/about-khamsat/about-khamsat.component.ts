@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { KhamsatCommunity, SubjectCategory } from 'src/app/models/KhamsatCommunity';
 import { KhamsatCommunityService } from '../../../../../Services/KhamsatCommunityService';
-import { KhamsatCommunityVM, SubjectCategory } from 'src/app/models/KhamsatCommunity';
+import { KhamsatCommunityVM } from 'src/app/models/KhamsatCommunity';
 
 @Component({
   selector: 'app-about-khamsat',
@@ -12,7 +11,7 @@ export class AboutKhamsatComponent implements OnInit {
 
  
   constructor(private communityService:KhamsatCommunityService) { }
-  communityList:KhamsatCommunity [] = [];
+  communityList: KhamsatCommunityVM [] = [];
   errorMsg: any;
   dataSaved=false;
   massage: string = '';
