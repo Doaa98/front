@@ -12,7 +12,12 @@ import { AddnewModelImplementedComponent } from './components/Khamsat Community/
 import { AddnewSubjectComponent } from './components/Khamsat Community/AboutKhamsatModule/addnew-subject/addnew-subject.component';
 import { AddnewNotFoundServiceComponent } from './components/Khamsat Community/NotFoundServiceModule/addnew-not-found-service/addnew-not-found-service.component';
 import { AddnewUserExperienceComponent } from './components/Khamsat Community/UserExperiencesAndStoriesModule/addnew-user-experience/addnew-user-experience.component';
-
+import { AboutKhamsatDetailsComponent } from './Khamsat Community/AboutKhamsatModule/about-khamsat-details/about-khamsat-details.component';
+import { ModelsImplementedDetailsComponent } from './Khamsat Community/Business models implemented/models-implemented-details/models-implemented-details.component';
+import { AServiceDetailsComponent } from './Khamsat Community/NotFoundServiceModule/aservice-details/aservice-details.component';
+import { UserExperienceDetailsComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/user-experience-details/user-experience-details.component';
+import { NewServiceComponent } from './components/new-service/new-service.component';
+import { ServiceDetailsComponent } from './components/service-details/service-details.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +26,19 @@ import { AddnewUserExperienceComponent } from './components/Khamsat Community/Us
     NotFoundServiceComponent,
     ModelsImplementedComponent,
     UserExperiencesAndStoriesComponent,
-    AddnewModelImplementedComponent,
     AddnewSubjectComponent,
     AddnewNotFoundServiceComponent,
     AddnewUserExperienceComponent,
+    AboutKhamsatDetailsComponent,
+    ModelsImplementedDetailsComponent,
+    AServiceDetailsComponent,
+    UserExperienceDetailsComponent,
+    NewServiceComponent,
+    ServiceDetailsComponent
   ],
   imports: [
+    FormsModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

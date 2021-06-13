@@ -1,19 +1,68 @@
-export enum SubjectCategory
+export enum  SubjectCategory {
+    UserExperiencesAndStories= "UserExperiencesAndStories",
+    AboutKhamsat= "AboutKhamsat",
+    NotFoundService= "NotFoundService",
+    ModelsImplemented= "ModelsImplemented"
+}
+export enum Subject {
+    UserExperiencesAndStories,
+    AboutKhamsat,
+    NotFoundService,
+    ModelsImplemented
+}
+//use to index home
+export interface KhamsatCommunityVM {
+    id: number;
+    content: string;
+    title: string;
+    subject: Subject;
+    date: Date;
+    Comment:customcomment;
+    userID: string;
+    image: string;
+    fullName: string;
+}
+//get one by comments
+export interface khamsatcommunity_withcomments {
+    id: number
+    content: string;
+    title: string;
+    date: string;
+    _Comments:customcomment[];/// list
+    userID: string;
+    userImage: string;
+    userFullName: string;
+}
+//use to show
+export  interface customcomment
 {
-    userExperiencesAndStories="UserExperiencesAndStories",
-    aboutKhamsat="AboutKhamsat",
-    notFoundService="NotFoundService",
-    modelsImplemented="ModelsImplemented"
+    id :number,
+    content :string,
+    khamsatcommunityID :number,
+    userID :string,
+    image :string,
+    date:Date,
+    fullName :string,
 }
-export class KhamsatCommunity {
-    constructor(
-        public ID:number,
-        public content:String, 
-        public title:String,
-        public subject:SubjectCategory,
-      
-        public userID:number,
+//use to create
+export interface  customkhamsat
+{
+     ID :number;
+     content:string; 
+     title :string;
+     subject : Subject;
+     Date :string;
+     userID :string;
+   
+}
+// to create comment
+export interface CommentViewModel
+{
+     id :number,
+    content :string,   
+     date :string,
+     userID:string, 
+     khamsatcommunityID  :number,
+}
 
 
-    ){}
-}

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { KhamsatCommunity, SubjectCategory } from 'src/app/Classes/KhamsatCommunity';
 import { KhamsatCommunityService } from '../../../../../Services/KhamsatCommunityService';
+import { KhamsatCommunityVM, SubjectCategory } from 'src/app/Classes/KhamsatCommunity';
+import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunityService';
 
 @Component({
   selector: 'app-about-khamsat',
@@ -9,26 +11,29 @@ import { KhamsatCommunityService } from '../../../../../Services/KhamsatCommunit
 })
 export class AboutKhamsatComponent implements OnInit {
 
- 
-  constructor(private communityService:KhamsatCommunityService) { }
-  communityList:KhamsatCommunity [];
+
+  constructor(private communityService: KhamsatCommunityService) { }
+  communityList: KhamsatCommunityVM[]=[];
   errorMsg: any;
-  dataSaved=false;
-  massage: string;
+  str:any;
 
   ngOnInit(): void {
 
-   this.getCommunity();
- 
+    this.getCommunity();
+
   }
-  getCommunity(){
-    this.communityService.returnAllCommunity().subscribe(
-    (Data)=>{
-      this.communityList=Data;
-     },
-    (err)=>{
-    this.errorMsg=err;
-    })
+  getCommunity() {
+    this.communityService.Gettypekhamsatcommunity(1).subscribe
+    ( Community=>
+      {
+        this.communityList=Community;
+        console.log(Community)
+        console.log(this.communityList)
+      },
+      errorResponse=>
+      {
+       this.errorMsg=errorResponse;
+      });
   }
 
 

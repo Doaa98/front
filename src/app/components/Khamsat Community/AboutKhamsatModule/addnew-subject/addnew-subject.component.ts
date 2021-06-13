@@ -3,6 +3,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { KhamsatCommunity, SubjectCategory } from 'src/app/Classes/KhamsatCommunity';
 import { KhamsatCommunityService } from '../../../../../Services/KhamsatCommunityService';
+import { customkhamsat, SubjectCategory } from 'src/app/Classes/KhamsatCommunity';
+import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunityService';
 
 @Component({
   selector: 'app-addnew-subject',
@@ -12,12 +14,10 @@ import { KhamsatCommunityService } from '../../../../../Services/KhamsatCommunit
 export class AddnewSubjectComponent implements OnInit {
 
   constructor(private fb:FormBuilder,private khamsatCommunityService:KhamsatCommunityService,private router :Router) { }
-  communityList:KhamsatCommunity []=[];
   errorMsg: any;
-  dataSaved=false;
-  massage: string;
-  CommunityId: number=0;
   addCommunityForm:any;
+  newsubject:any;
+  
   Subject: string[] = Object.values(SubjectCategory);
 
   ngOnInit(): void {
@@ -27,7 +27,6 @@ export class AddnewSubjectComponent implements OnInit {
       subject:['',[Validators.required]],
      // UserID:['',[Validators.required]],
     })
-   this.getCommunity();
   }
   get content(){
     return this.addCommunityForm.get('content')
@@ -39,28 +38,32 @@ export class AddnewSubjectComponent implements OnInit {
     return this.addCommunityForm.get('subject')
   }
 
+ create(){
+ this.newsubject={
+  ID :0,
+  content:this.content.value,
+  title :this.title.value,
+  subject : this.addCommunityForm.get('subject').value,
+  Date :null,    
+  userID:"2c20fb7b-f9bb-4ba5-9986-92bf67dc310a"
 
-  getCommunity(){
-    this.khamsatCommunityService.returnAllCommunity().subscribe((Data)=>{
-      this.communityList=Data;
-    },(err)=>{
-    this.errorMsg=err;
-    })
-  }
-Reset() {  
-  this.addCommunityForm.reset();  
- } 
-addcommunity(community: KhamsatCommunity) {  
-  community.ID = this.CommunityId;  
-  this.khamsatCommunityService.addKhamsatCommunity(community).subscribe(  
-   () => {  
-    this.dataSaved = true;  
-    this.massage = 'Record saved Successfully';  
-    this.Reset();  
-    this.CommunityId = 0; 
-    this.getCommunity();      
-   });  
+}
+console.log(this.newsubject);
+this.khamsatCommunityService.addKhamsatCommunity(this.newsubject).subscribe(
+  pro=>{
+    console.log("1");
+    this.errorMsg=pro;
+    console.log("2");
+    console.log("res:"+this.errorMsg)//for test
+    
    this.router.navigate(['/aboutKhamsat']);
- } 
+  },
+  errorResponse=>
+  { console.log("3");
+   this.errorMsg=errorResponse;
+   console.log(this.errorMsg);
+  }
+  );
+} 
 
 }

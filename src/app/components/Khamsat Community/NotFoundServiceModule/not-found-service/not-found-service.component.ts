@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { KhamsatCommunity, SubjectCategory } from 'src/app/Classes/KhamsatCommunity';
 import { KhamsatCommunityService } from '../../../../../Services/KhamsatCommunityService';
+import {  KhamsatCommunityVM, SubjectCategory } from 'src/app/Classes/KhamsatCommunity';
+import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunityService';
 
 @Component({
   selector: 'app-not-found-service',
@@ -9,25 +11,28 @@ import { KhamsatCommunityService } from '../../../../../Services/KhamsatCommunit
 })
 export class NotFoundServiceComponent implements OnInit {
 
-  constructor(private communityService:KhamsatCommunityService) { }
-  communityList:KhamsatCommunity [];
+
+  constructor(private communityService: KhamsatCommunityService) { }
+  communityList: KhamsatCommunityVM[]=[];
   errorMsg: any;
-  dataSaved=false;
-  massage: string;
 
   ngOnInit(): void {
 
-   this.getCommunity();
- 
+    this.getCommunity();
+
   }
-  getCommunity(){
-    this.communityService.returnAllCommunity().subscribe(
-    (Data)=>{
-      this.communityList=Data;
-     },
-    (err)=>{
-    this.errorMsg=err;
-    })
+  getCommunity() {
+    this.communityService.Gettypekhamsatcommunity(2).subscribe
+    ( Community=>
+      {
+        this.communityList=Community;
+        console.log(Community)
+        console.log(this.communityList)
+      },
+      errorResponse=>
+      {
+       this.errorMsg=errorResponse;
+      });
   }
 
 }
