@@ -21,10 +21,6 @@ const routes: Routes = [
     path: 'ModelImplementd',
     component: ModelsImplementedComponent,
   },
-  {
-    path: 'NewModel',
-    component: AddnewModelImplementedComponent,
-  },
   { path: 'cart', component: CartComponent },
 
   { path: 'service/add', component: AddServiceComponent },
