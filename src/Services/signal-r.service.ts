@@ -33,9 +33,11 @@ export class SignalRService {
       if (data.userID == this.userId) {
         this.Notifications.unshift(data);
         this.newNotificationsCount++;
+        let audio = new Audio();
+        audio.src = "../../../assets/audio/pristine-609.mp3";
+        audio.load();
+        audio.play();
       }
-
-      console.log(data);
     });
   }
 
