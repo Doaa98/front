@@ -12,7 +12,6 @@ import { AddnewNotFoundServiceComponent } from './Khamsat Community/NotFoundServ
 import { NotFoundServiceComponent } from './Khamsat Community/NotFoundServiceModule/not-found-service/not-found-service.component';
 import { AddnewUserExperienceComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/addnew-user-experience/addnew-user-experience.component';
 import { UserExperiencesAndStoriesComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/user-experiences-and-stories/user-experiences-and-stories.component';
-import { NewServiceComponent } from './components/new-service/new-service.component';
 import { SubCategoryServiceListComponent } from './components/sub-category-service-list/sub-category-service-list.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
@@ -22,6 +21,8 @@ import { AllServicesHomeComponent } from './components/home/all-services-home/al
 import { ServiceHomeComponent } from './components/home/service-home/service-home.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ServiceDetailsComponent } from './components/service-details/service-details.component';
+import { AddServiceComponent } from './components/add-service/add-service.component';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,6 @@ import { ServiceDetailsComponent } from './components/service-details/service-de
     AddnewSubjectComponent,
     AddnewNotFoundServiceComponent,
     AddnewUserExperienceComponent,
-    NewServiceComponent,
     ServiceDetailsComponent,
     SubCategoryServiceListComponent,
     HeaderComponent,
@@ -43,14 +43,17 @@ import { ServiceDetailsComponent } from './components/service-details/service-de
     HomeComponent,
     AllServicesHomeComponent,
     ServiceHomeComponent,
-    CartComponent
+    CartComponent,
+    AddServiceComponent
+    
   ],
   imports: [
     FormsModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ClickOutsideModule
   ],
   providers: [],
   bootstrap: [AppComponent]

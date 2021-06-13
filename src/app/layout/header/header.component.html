@@ -1,45 +1,59 @@
-<header class="hsoub-header" style="" #navbar [ngClass]="{'sidebar-active': isAside}">
-  <div class="hsoub-box"><a class="hsoub-bars hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile"
-    (click)="AsideToggle()">
-      <i class="hsoub-bars-icon"></i>
-    </a><a routerLink="/" class="hsoub-logo"><img class="hsoub-logo-img hsoub--visible-h hsoub-desktop hsoub-tablet "
-        src="https://khamsat.hsoubcdn.com/assets/images/logo-73045c76e830509d4dbe03ea6172d22f047c708fed5435e93ffd47f80ee5ffa4.png"><img
-        class="hsoub-logo-img hsoub--visible-h   hsoub-mobile"
-        src="https://khamsat.hsoubcdn.com/assets/images/logo-mobile-215fffeb86f5121a190d2551c62feea201ca1b4e0d5ea7feef9f5aa04a55dac4.png"></a>
-    <ul class="hsoub-menu ">
-      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop  ">
-        <a class="hsoub-menu-item-link     " routerLink="/service/new">
+<header
+  class="hsoub-header"
+  style=""
+  #navbar
+  [ngClass]="{ 'sidebar-active': isAside }"
+>
+  <div class="hsoub-box">
+    <a
+      class="
+        hsoub-bars hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile
+      "
+      (click)="AsideToggle()"
+    >
+      <i class="hsoub-bars-icon"></i> </a
+    ><a routerLink="/" class="hsoub-logo"
+      ><img
+        class="hsoub-logo-img hsoub--visible-h hsoub-desktop hsoub-tablet"
+        src="https://khamsat.hsoubcdn.com/assets/images/logo-73045c76e830509d4dbe03ea6172d22f047c708fed5435e93ffd47f80ee5ffa4.png" /><img
+        class="hsoub-logo-img hsoub--visible-h hsoub-mobile"
+        src="https://khamsat.hsoubcdn.com/assets/images/logo-mobile-215fffeb86f5121a190d2551c62feea201ca1b4e0d5ea7feef9f5aa04a55dac4.png"
+    /></a>
+    <ul class="hsoub-menu">
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop">
+        <a class="hsoub-menu-item-link" routerLink="/service/add">
           <i class="hsoub-menu-item-link-icon fa fa-plus"></i>
           <span>أضف خدمة</span>
         </a>
       </li>
-      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet ">
-        <a class="hsoub-menu-item-link " (click)="dropdownMenuToggle()">
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet">
+        <a class="hsoub-menu-item-link" (click)="dropdownMenuToggle()">
           <i class="hsoub-menu-item-link-icon fa fa-cubes"></i>
           <span>التصنيفات</span>
         </a>
       </li>
-      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop  ">
-        <a class="hsoub-menu-item-link     " href="/purchases">
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop">
+        <a class="hsoub-menu-item-link" href="/purchases">
           <i class="hsoub-menu-item-link-icon fa fa-folder-open"></i>
           <span>المشتريات</span>
         </a>
       </li>
-      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop  ">
-        <a class="hsoub-menu-item-link     " href="/orders">
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop">
+        <a class="hsoub-menu-item-link" href="/orders">
           <i class="hsoub-menu-item-link-icon fa fa-truck"></i>
           <span>الطلبات الواردة</span>
         </a>
       </li>
     </ul>
-    <div class="hsoub-megamenu "  [ngClass]="{'hsoub-megamenu-active': isAcctive}">
+    <div
+      class="hsoub-megamenu"
+      [ngClass]="{ 'hsoub-megamenu-active': isAcctive }"
+    >
       <div class="hsoub-megamenu-row">
         <div class="hsoub-megamenu-column">
           <ul class="hsoub-bullets">
             <li class="hsoub-bullet-head">
-              <a class="hsoub-bullet-link" href="/business">
-                أعمال
-              </a>
+              <a class="hsoub-bullet-link" href="/business"> أعمال </a>
             </li>
             <li class="hsoub-bullet">
               <a class="hsoub-bullet-link" href="/business/data-entry">
@@ -91,7 +105,10 @@
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/programming/content-management-systems">
+              <a
+                class="hsoub-bullet-link"
+                href="/programming/content-management-systems"
+              >
                 أنظمة ادارة المحتوى
               </a>
             </li>
@@ -121,12 +138,18 @@
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/programming/python-programming">
+              <a
+                class="hsoub-bullet-link"
+                href="/programming/python-programming"
+              >
                 برمجة بايثون
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/programming/mobile-development">
+              <a
+                class="hsoub-bullet-link"
+                href="/programming/mobile-development"
+              >
                 برمجة تطبيقات الجوال
               </a>
             </li>
@@ -136,7 +159,10 @@
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/programming/ecommerce-development">
+              <a
+                class="hsoub-bullet-link"
+                href="/programming/ecommerce-development"
+              >
                 تطوير متاجر إلكترونية
               </a>
             </li>
@@ -156,7 +182,10 @@
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/programming/programming-services">
+              <a
+                class="hsoub-bullet-link"
+                href="/programming/programming-services"
+              >
                 أخرى
               </a>
             </li>
@@ -195,12 +224,18 @@
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/marketing/instagram-marketing">
+              <a
+                class="hsoub-bullet-link"
+                href="/marketing/instagram-marketing"
+              >
                 التسويق عبر انستقرام
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/marketing/search-engine-marketing">
+              <a
+                class="hsoub-bullet-link"
+                href="/marketing/search-engine-marketing"
+              >
                 التسويق عبر محركات البحث SEM
               </a>
             </li>
@@ -244,9 +279,7 @@
         <div class="hsoub-megamenu-column">
           <ul class="hsoub-bullets">
             <li class="hsoub-bullet-head">
-              <a class="hsoub-bullet-link" href="/training">
-                تدريب عن بعد
-              </a>
+              <a class="hsoub-bullet-link" href="/training"> تدريب عن بعد </a>
             </li>
             <li class="hsoub-bullet">
               <a class="hsoub-bullet-link" href="/training/personal-advice">
@@ -289,9 +322,7 @@
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/training/arts">
-                فنون وحرف
-              </a>
+              <a class="hsoub-bullet-link" href="/training/arts"> فنون وحرف </a>
             </li>
             <li class="hsoub-bullet">
               <a class="hsoub-bullet-link" href="/training/school-help">
@@ -345,7 +376,10 @@
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/video-design/video-design-services">
+              <a
+                class="hsoub-bullet-link"
+                href="/video-design/video-design-services"
+              >
                 أخرى
               </a>
             </li>
@@ -354,9 +388,7 @@
         <div class="hsoub-megamenu-column">
           <ul class="hsoub-bullets">
             <li class="hsoub-bullet-head">
-              <a class="hsoub-bullet-link" href="/designing">
-                تصميم
-              </a>
+              <a class="hsoub-bullet-link" href="/designing"> تصميم </a>
             </li>
             <li class="hsoub-bullet">
               <a class="hsoub-bullet-link" href="/designing/covers-design">
@@ -389,7 +421,10 @@
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/designing/architectural-design">
+              <a
+                class="hsoub-bullet-link"
+                href="/designing/architectural-design"
+              >
                 تصميم معماري وديكور
               </a>
             </li>
@@ -418,9 +453,7 @@
         <div class="hsoub-megamenu-column">
           <ul class="hsoub-bullets">
             <li class="hsoub-bullet-head">
-              <a class="hsoub-bullet-link" href="/audio">
-                صوتيات
-              </a>
+              <a class="hsoub-bullet-link" href="/audio"> صوتيات </a>
             </li>
             <li class="hsoub-bullet">
               <a class="hsoub-bullet-link" href="/audio/audiobook-production">
@@ -452,9 +485,7 @@
         <div class="hsoub-megamenu-column">
           <ul class="hsoub-bullets">
             <li class="hsoub-bullet-head">
-              <a class="hsoub-bullet-link" href="/writing">
-                كتابة وترجمة
-              </a>
+              <a class="hsoub-bullet-link" href="/writing"> كتابة وترجمة </a>
             </li>
             <li class="hsoub-bullet">
               <a class="hsoub-bullet-link" href="/writing/creative-writing">
@@ -521,107 +552,177 @@
       </div>
     </div>
     <ul class="hsoub-menu hsoub-menu--is-minor">
-      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet ">
-        <a class="hsoub-menu-item-link hsoub-menu-item-link--is-large    " title="بحث">
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet">
+        <a
+          class="hsoub-menu-item-link hsoub-menu-item-link--is-large"
+          title="بحث"
+        >
           <i class="hsoub-menu-item-link-icon fa fa-search"></i>
-
         </a>
       </li>
-      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile hide-xs-only">
-        <a class="hsoub-menu-item-link hsoub-menu-item-link--is-large    " routerLink="/cart" title="سلة المشتريات"
-           > <span class="c-badge " style="background-color: #e75737; border-radius:20px;
-          bottom: 10px; position: relative;line-height: 1; ">{{itemsNumber}}</span>
+      <li
+        class="
+          hsoub-menu-item
+          hsoub--visible-h
+          hsoub-desktop
+          hsoub-tablet
+          hsoub-mobile
+          hide-xs-only
+        "
+      >
+        <a
+          class="hsoub-menu-item-link hsoub-menu-item-link--is-large"
+          routerLink="/cart"
+          title="سلة المشتريات"
+        >
+          <span
+            class="c-badge"
+            style="
+              background-color: #e75737;
+              border-radius: 20px;
+              bottom: 10px;
+              position: relative;
+              line-height: 1;
+            "
+            >{{ itemsNumber }}</span
+          >
 
           <i class="hsoub-menu-item-link-icon fa fa-shopping-cart"></i>
-
         </a>
         <div class="hsoub-list hsoub-list-right">
           <ul class="hsoub-list-group" data-empty="لا توجد أي خدمات بعد">
-            <li class="hsoub-list-item ">
-
+            <li class="hsoub-list-item">
               <div class="hsoub-list-item-content">
-                <a class="hsoub-list-item-link"
-                  href="/business/legal-services/1205849-%D8%AA%D9%82%D8%AF%D9%8A%D9%85-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86%D9%8A%D8%A9-%D9%88%D8%B5%D9%8A%D8%A7%D8%BA%D8%A9-%D8%A7%D9%84%D8%B9%D9%82%D9%88%D8%AF">
-                  تقديم الاستشارات القانونية وصياغة العقود </a>
-                <div class="hsoub-list-item-date">
-
-                </div>
+                <a
+                  class="hsoub-list-item-link"
+                  href="/business/legal-services/1205849-%D8%AA%D9%82%D8%AF%D9%8A%D9%85-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86%D9%8A%D8%A9-%D9%88%D8%B5%D9%8A%D8%A7%D8%BA%D8%A9-%D8%A7%D9%84%D8%B9%D9%82%D9%88%D8%AF"
+                >
+                  تقديم الاستشارات القانونية وصياغة العقود
+                </a>
+                <div class="hsoub-list-item-date"></div>
               </div>
             </li>
-          </ul><a class="hsoub-list-action-link" href="/cart"><i class="fa fa-fw fa-shopping-cart"></i> اعرض سلة
-            المشتريات</a>
+          </ul>
+          <a class="hsoub-list-action-link" href="/cart"
+            ><i class="fa fa-fw fa-shopping-cart"></i> اعرض سلة المشتريات</a
+          >
         </div>
       </li>
-      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile">
-        <a class="hsoub-menu-item-link hsoub-menu-item-link--is-large    " href="/messages" title="الرسائل">
+      <li
+        class="
+          hsoub-menu-item
+          hsoub--visible-h
+          hsoub-desktop
+          hsoub-tablet
+          hsoub-mobile
+        "
+      >
+        <a
+          class="hsoub-menu-item-link hsoub-menu-item-link--is-large"
+          href="/messages"
+          title="الرسائل"
+        >
           <i class="hsoub-menu-item-link-icon fa fa-envelope"></i>
-
         </a>
         <div class="hsoub-list hsoub-list-right">
-          <ul class="hsoub-list-group" data-empty="لا جديد حتى اللحظة!">
-     
-        
-          </ul><a class="hsoub-list-action-link" href="/messages"><i class="fa fa-fw fa-envelope"></i> جميع الرسائل</a>
+          <ul class="hsoub-list-group" data-empty="لا جديد حتى اللحظة!"></ul>
+          <a class="hsoub-list-action-link" href="/messages"
+            ><i class="fa fa-fw fa-envelope"></i> جميع الرسائل</a
+          >
         </div>
       </li>
-      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile">
-        <a class="hsoub-menu-item-link hsoub-menu-item-link--is-large    " href="/notifications" title="الإشعارات">
+      <li
+        class="
+          hsoub-menu-item
+          hsoub--visible-h
+          hsoub-desktop
+          hsoub-tablet
+          hsoub-mobile
+        "
+      >
+        <a
+          class="hsoub-menu-item-link hsoub-menu-item-link--is-large"
+          href="/notifications"
+          title="الإشعارات"
+        >
           <i class="hsoub-menu-item-link-icon fa fa-bell"></i>
-
         </a>
         <div class="hsoub-list hsoub-list-right">
-          <ul class="hsoub-list-group" data-empty="لا جديد حتى اللحظة!">
-           
-          </ul><a class="hsoub-list-action-link" href="/notifications"><i class="fa fa-fw fa-bell"></i> جميع
-            الإشعارات</a>
+          <ul class="hsoub-list-group" data-empty="لا جديد حتى اللحظة!"></ul>
+          <a class="hsoub-list-action-link" href="/notifications"
+            ><i class="fa fa-fw fa-bell"></i> جميع الإشعارات</a
+          >
         </div>
       </li>
-      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile">
-        <a class="hsoub-menu-item-link     hsoub-menu-item-link--is-img" href="/user/programmer01" title="programmer01">
-          <img class="hsoub-menu-item-link-img"
-            src="https://avatars.hsoubcdn.com/d17a227615ef8f87cd2b4d063b1b6f47?s=128">
-
+      <li
+        class="
+          hsoub-menu-item
+          hsoub--visible-h
+          hsoub-desktop
+          hsoub-tablet
+          hsoub-mobile
+        "
+      >
+        <a
+          class="hsoub-menu-item-link hsoub-menu-item-link--is-img"
+          href="/user/programmer01"
+          title="programmer01"
+        >
+          <img
+            class="hsoub-menu-item-link-img"
+            src="https://avatars.hsoubcdn.com/d17a227615ef8f87cd2b4d063b1b6f47?s=128"
+          />
         </a>
         <ul class="hsoub-dropdown hsoub-dropdown-right">
-          <li class="hsoub-dropdown-item ">
+          <li class="hsoub-dropdown-item">
             <a class="hsoub-dropdown-item-link" href="/user/programmer01">
               <i class="fa fa-fw fa-user"></i>
               programmer01
             </a>
           </li>
-          <li class="hsoub-dropdown-item ">
+          <li class="hsoub-dropdown-item">
             <a class="hsoub-dropdown-item-link" href="/collections">
               <i class="fa fa-fw fa-bookmark"></i>
               مجموعاتي
             </a>
           </li>
-          <li class="hsoub-dropdown-item ">
+          <li class="hsoub-dropdown-item">
             <a class="hsoub-dropdown-item-link" href="/credit">
               <i class="fa fa-fw fa-usd"></i>
               الرصيد
             </a>
           </li>
-          <li class="hsoub-dropdown-item ">
+          <li class="hsoub-dropdown-item">
             <a class="hsoub-dropdown-item-link" href="/account">
               <i class="fa fa-fw fa-sliders"></i>
               الإعدادات
             </a>
           </li>
           <li class="hsoub-dropdown-item hsoub-dropdown-divider">
-            <a class="hsoub-dropdown-item-link" href="https://accounts.hsoub.com/edit" target="_blank">
+            <a
+              class="hsoub-dropdown-item-link"
+              href="https://accounts.hsoub.com/edit"
+              target="_blank"
+            >
               <i class="fa fa-fw fa-edit"></i>
               تعديل الحساب
             </a>
           </li>
-          <li class="hsoub-dropdown-item ">
-            <a class="hsoub-dropdown-item-link" href="/r/helpdesk" target="_blank">
+          <li class="hsoub-dropdown-item">
+            <a
+              class="hsoub-dropdown-item-link"
+              href="/r/helpdesk"
+              target="_blank"
+            >
               <i class="fa fa-fw fa-support"></i>
               مساعدة
             </a>
           </li>
           <li class="hsoub-dropdown-item hsoub-dropdown-divider">
-            <a class="hsoub-dropdown-item-link"
-              href="https://accounts.hsoub.com/logout?source=khamsat&amp;t=5e750cb84b98a8e95499eb82aff4aa3d">
+            <a
+              class="hsoub-dropdown-item-link"
+              href="https://accounts.hsoub.com/logout?source=khamsat&amp;t=5e750cb84b98a8e95499eb82aff4aa3d"
+            >
               <i class="fa fa-fw fa-sign-out"></i>
               خروج
             </a>
@@ -632,135 +733,165 @@
   </div>
 </header>
 
-<aside class="hsoub-sidebar" style="" [ngClass]="{'aside-toggle': isAside}">
+<aside class="hsoub-sidebar" style="" [ngClass]="{ 'aside-toggle': isAside }">
   <div class="hsoub-sidebar-wrapper">
     <div class="hsoub-sidebar-search">
       <form action="/search" accept-charset="UTF-8" method="get">
-        <input name="utf8" type="hidden" value="✓">
-        <input class="hsoub-search" type="search" name="q" placeholder="ابحث عن ..." value="">
+        <input name="utf8" type="hidden" value="✓" />
+        <input
+          class="hsoub-search"
+          type="search"
+          name="q"
+          placeholder="ابحث عن ..."
+          value=""
+        />
       </form>
     </div>
     <ul class="hsoub-sidebar-menu">
-      <li class="hsoub-sidebar-menu-item hsoub--visible-v   hsoub-mobile show-xs-only">
-        <a class="hsoub-sidebar-menu-item-link" href="/cart" ><span class="c-badge " style="background-color: #e75737; border-radius:20px;
-          bottom: 10px; position: relative;line-height: 1; ">{{itemsNumber}}</span>
+      <li
+        class="
+          hsoub-sidebar-menu-item hsoub--visible-v hsoub-mobile
+          show-xs-only
+        "
+      >
+        <a class="hsoub-sidebar-menu-item-link" href="/cart"
+          ><span
+            class="c-badge"
+            style="
+              background-color: #e75737;
+              border-radius: 20px;
+              bottom: 10px;
+              position: relative;
+              line-height: 1;
+            "
+            >{{ itemsNumber }}</span
+          >
           <i class="fa fa-fw fa-shopping-cart"></i>
           سلة المشتريات
         </a>
       </li>
-      <li class="hsoub-sidebar-menu-item hsoub--visible-v  hsoub-tablet hsoub-mobile">
+      <li
+        class="
+          hsoub-sidebar-menu-item hsoub--visible-v hsoub-tablet hsoub-mobile
+        "
+      >
         <a class="hsoub-sidebar-menu-item-link" routerLink="/service/new">
           <i class="fa fa-fw fa-plus"></i>
           أضف خدمة
         </a>
       </li>
-      <li class="hsoub-sidebar-menu-item hsoub--visible-v hsoub-desktop  ">
+      <li class="hsoub-sidebar-menu-item hsoub--visible-v hsoub-desktop">
         <a class="hsoub-sidebar-menu-item-link" href="/purchases">
           <i class="fa fa-fw fa-folder-open"></i>
           المشتريات
         </a>
       </li>
-      <li class="hsoub-sidebar-menu-item hsoub--visible-v hsoub-desktop  ">
+      <li class="hsoub-sidebar-menu-item hsoub--visible-v hsoub-desktop">
         <a class="hsoub-sidebar-menu-item-link" href="/orders">
           <i class="fa fa-fw fa-truck"></i>
           الطلبات الواردة
         </a>
       </li>
-      <li class="hsoub-sidebar-menu-item hsoub--visible-v  hsoub-tablet hsoub-mobile">
+      <li
+        class="
+          hsoub-sidebar-menu-item hsoub--visible-v hsoub-tablet hsoub-mobile
+        "
+      >
         <a class="hsoub-sidebar-menu-item-link" href="/purchases">
           <i class="fa fa-fw fa-folder-open"></i>
           المشتريات
         </a>
       </li>
-      <li class="hsoub-sidebar-menu-item hsoub--visible-v  hsoub-tablet hsoub-mobile">
+      <li
+        class="
+          hsoub-sidebar-menu-item hsoub--visible-v hsoub-tablet hsoub-mobile
+        "
+      >
         <a class="hsoub-sidebar-menu-item-link" href="/orders">
           <i class="fa fa-fw fa-truck"></i>
           الطلبات الواردة
         </a>
       </li>
-      <li class="hsoub-sidebar-menu-item hsoub--visible-v hsoub-mobile hsoub--active">
+      <li
+        class="
+          hsoub-sidebar-menu-item hsoub--visible-v hsoub-mobile hsoub--active
+        "
+      >
         <a class="hsoub-sidebar-menu-item-link">
           <i class="fa fa-fw fa-cubes"></i>
           التصنيفات
         </a>
         <ul class="hsoub-sidebar-menu">
-          <li class="hsoub-sidebar-menu-item ">
-            <a class="hsoub-sidebar-menu-item-link" href="/business">
-
-              أعمال
-            </a>
+          <li class="hsoub-sidebar-menu-item">
+            <a class="hsoub-sidebar-menu-item-link" href="/business"> أعمال </a>
           </li>
-          <li class="hsoub-sidebar-menu-item ">
+          <li class="hsoub-sidebar-menu-item">
             <a class="hsoub-sidebar-menu-item-link" href="/programming">
-
               برمجة وتطوير
             </a>
           </li>
-          <li class="hsoub-sidebar-menu-item ">
+          <li class="hsoub-sidebar-menu-item">
             <a class="hsoub-sidebar-menu-item-link" href="/marketing">
-
               تسويق الكتروني
             </a>
           </li>
-          <li class="hsoub-sidebar-menu-item ">
+          <li class="hsoub-sidebar-menu-item">
             <a class="hsoub-sidebar-menu-item-link" href="/training">
-
               تدريب عن بعد
             </a>
           </li>
-          <li class="hsoub-sidebar-menu-item ">
+          <li class="hsoub-sidebar-menu-item">
             <a class="hsoub-sidebar-menu-item-link" href="/video-design">
-
               تصميم فيديو
             </a>
           </li>
-          <li class="hsoub-sidebar-menu-item ">
+          <li class="hsoub-sidebar-menu-item">
             <a class="hsoub-sidebar-menu-item-link" href="/designing">
-
               تصميم
             </a>
           </li>
-          <li class="hsoub-sidebar-menu-item ">
-            <a class="hsoub-sidebar-menu-item-link" href="/audio">
-
-              صوتيات
-            </a>
+          <li class="hsoub-sidebar-menu-item">
+            <a class="hsoub-sidebar-menu-item-link" href="/audio"> صوتيات </a>
           </li>
-          <li class="hsoub-sidebar-menu-item ">
+          <li class="hsoub-sidebar-menu-item">
             <a class="hsoub-sidebar-menu-item-link" href="/writing">
-
               كتابة وترجمة
             </a>
           </li>
         </ul>
       </li>
-      <li class="hsoub-sidebar-menu-item hsoub--visible-v hsoub-desktop hsoub-tablet hsoub-mobile hsoub--active">
+      <li
+        class="
+          hsoub-sidebar-menu-item
+          hsoub--visible-v
+          hsoub-desktop
+          hsoub-tablet
+          hsoub-mobile
+          hsoub--active
+        "
+      >
         <a class="hsoub-sidebar-menu-item-link">
           <i class="fa fa-fw fa-comments"></i>
           مجتمع خمسات
         </a>
         <ul class="hsoub-sidebar-menu">
-          <li class="hsoub-sidebar-menu-item ">
+          <li class="hsoub-sidebar-menu-item">
             <a class="hsoub-sidebar-menu-item-link" href="/community/showcase">
-
               نماذج أعمال قمت بتنفيذها
             </a>
           </li>
-          <li class="hsoub-sidebar-menu-item ">
+          <li class="hsoub-sidebar-menu-item">
             <a class="hsoub-sidebar-menu-item-link" href="/community/requests">
-
               طلبات الخدمات غير الموجودة
             </a>
           </li>
-          <li class="hsoub-sidebar-menu-item ">
+          <li class="hsoub-sidebar-menu-item">
             <a class="hsoub-sidebar-menu-item-link" href="/community/stories">
-
               تجارب وقصص المستخدمين
             </a>
           </li>
-          <li class="hsoub-sidebar-menu-item ">
+          <li class="hsoub-sidebar-menu-item">
             <a class="hsoub-sidebar-menu-item-link" href="/community/general">
-
               أمور عامة حول خمسات
             </a>
           </li>

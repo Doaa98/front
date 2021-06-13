@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { IService } from '../app/models/IService';
 import { Observable, throwError } from 'rxjs';
@@ -66,17 +66,37 @@ export class ServiceService {
         return throwError(err.message);
       })
     );
-    }
-    GetPageRecords(pageSize:number , pageNumber:number): Observable<IService[]> {
-      return this.http.get<IService[]>(`${this.baseURL}/${pageSize}/${pageNumber}`, httpOptions)
-    }
-
-    deleteService(id: number) {
-      return this.http.delete(`${this.baseURL}/${id}`).pipe(
-        catchError((err) => {
-          return throwError(err.message);
-        })
-      );
-    }
+  }
+  GetPageRecords(pageSize: number, pageNumber: number): Observable<IService[]> {
+    return this.http.get<IService[]>(
+      `${this.baseURL}/${pageSize}/${pageNumber}`,
+      httpOptions
+    );
   }
 
+  deleteService(id: number) {
+    return this.http.delete(`${this.baseURL}/${id}`).pipe(
+      catchError((err) => {
+        return throwError(err.message);
+      })
+    );
+  }
+
+  uploadImgs(files: any): Observable<HttpEvent<Object>> {
+    if (files.length !== 0) {
+      return new Observable();
+    }
+
+    let filesToUpload: File[] = files;
+    const formData = new FormData();
+
+    Array.from(filesToUpload).map((file, index) => {
+      return formData.append('file' + index, file, file.name);
+    });
+
+    return this.http.post('https://localhost:5001/api/upload', formData, {
+      reportProgress: true,
+      observe: 'events',
+    });
+  }
+}
