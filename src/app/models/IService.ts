@@ -1,13 +1,12 @@
-import { IRate } from "./irate";
-import { IServiceDevelopment } from "./iservice-development";
+import { IServiceDevelopment } from "./IServiceDevelopment";
 
-export interface Iservice {
+export interface IService {
     
     id:number
 
     title:string
 
-    subCategoryID:number
+    subCategoryName:string
 
     description:string
 
@@ -23,10 +22,7 @@ export interface Iservice {
     
     userID:string
 
-    subCategoryName?:string
-
     userFullName?:string
 
     noOfBuyerServices?:number
-
 }

@@ -16,7 +16,7 @@
                                 <div class="o-layout__item u-12@large u-12@medium u-12@small u-12@tiny">
                                     <h1 class="category-title">
                                         <a href="#">
-                                            {{subcat.name}}
+                                            {{subcat.arabicName}}
                                         </a>
                                     </h1>
                                     <div class="filter-sort u-pull--left search_sort u-hidden@small">
@@ -107,7 +107,7 @@
                                         *ngFor="let cat of CatList">
                                             <a  class="c-list__link c-list__link--category is-active"
                                                 data-deselect-others="true" (click)="cat.isShow = !cat.isShow" >
-                                                <span>{{cat.name}}</span>
+                                                <span>{{cat.arabicName}}</span>
                                                 <span class="c-badge u-pull--left">{{countServices(cat.id)}}</span>
                                             </a>
                                             <ul class="c-list c-list--vert c-list--sub " *ngIf="cat.isShow">
@@ -116,7 +116,7 @@
 
                                                     <a href="/SubCategory/{{subcat.id}}" routerLinkActive="router-link-active"  class="c-list__link "
                                                         data-deselect-others="true" *ngIf="subcat.categoryID == cat.id">
-                                                        <span>{{subcat.name}}</span>
+                                                        <span>{{subcat.arabicName}}</span>
                                                         <span class="c-badge u-pull--left">{{subcat.servicesCount}}</span>
                                                     </a>
                                                 </li>

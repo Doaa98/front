@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IRate } from 'src/app/Shared/irate';
+import { IRate } from 'src/app/models/IRate';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

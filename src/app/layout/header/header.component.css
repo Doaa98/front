@@ -856,9 +856,9 @@ transition: transform 0.25s;
 
 .sidebar-active {
   /* -webkit-transform: translateX(-260px); */
-  -ms-transform: translateX(-260px);
+  -ms-transform: translateX(-2/60px);
   /* transform: translateX(-260px); */
   /* -webkit-transform: translate3d(-260px,0,0); */
   transform: translate3d(-260px,0,0);
-  overflow: hidden;
+  /* overflow: hidden; */
 }

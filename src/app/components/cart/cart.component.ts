@@ -1,7 +1,7 @@
 import { isNgTemplate } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { Icart } from 'src/app/Shared/icart';
-import { Iservice } from 'src/app/Shared/iservice';
+import { ICart } from 'src/app/models/icart';
+import { IService } from 'src/app/models/IService';
 import { CartService } from 'src/Services/cart.service';
 import { ServiceService } from 'src/Services/service.service';
 
@@ -12,10 +12,10 @@ import { ServiceService } from 'src/Services/service.service';
 })
 export class CartComponent implements OnInit {
 
-  cart: Icart[] = [];
+  cart: ICart[] = [];
   totalPrice = 0
 
-  serList: Iservice[] = []
+  serList: IService[] = []
   constructor(private serService: ServiceService,
     private cartService: CartService) {
 
@@ -43,13 +43,13 @@ export class CartComponent implements OnInit {
   }
 
 
-  calculatePrice(item: Icart, quan: string) {
+  calculatePrice(item: ICart, quan: string) {
 
     item.quantity = parseInt(quan)
     this.updateTotalPrice()
   }
 
-  UpdataPrice(item: Icart, price: number, value: boolean) {
+  UpdataPrice(item: ICart, price: number, value: boolean) {
     if (item.price != null) {
       if (value) {
         item.price += price

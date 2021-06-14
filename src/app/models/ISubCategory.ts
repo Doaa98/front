@@ -1,8 +1,7 @@
 export interface ISubCategory {
 
     id:number
-    name:string
+    arabicName:string
     categoryID:number
-    categoryName:string
     servicesCount:number
 }

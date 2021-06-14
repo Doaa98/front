@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Icart } from 'src/app/Shared/icart';
+import { ICart } from 'src/app/models/icart';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -12,13 +12,13 @@ export class CartService {
 
   constructor(private http: HttpClient) { }
 
-  getCartByUserId( id:string ): Observable<Icart[]> {
+  getCartByUserId( id:string ): Observable<ICart[]> {
  
-    return this.http.get<Icart[]>(`${this.Url}/user/${id}` )
+    return this.http.get<ICart[]>(`${this.Url}/user/${id}` )
 
   };
 
-  addCartItem(cartItem: Icart) {
+  addCartItem(cartItem: ICart) {
    
     return this.http.post(this.Url, cartItem)
 
