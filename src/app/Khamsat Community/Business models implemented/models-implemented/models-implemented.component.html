@@ -1,68 +1,64 @@
+<body>
+  <div class="container" style="margin-top: 1em;">
 
-      <body>
-        <div class="container" style="margin-top: 1em;">
-      
-          <div style="margin-top: 2em;">
+    <div style="margin-top: 2em;">
 
-            <a href="" style="float: right;font-size: 2em;"> نماذج اعمال قمت بتنفيذها</a>
-      
-            <a routerLink="/NewSubject" style="float: left;"><button class="btn btn-success">موضوع جديد</button></a>
-          </div>
-          <div style="clear: both;"></div>
-          <br>
-          <div class="card " id="forum_home">
-            <div class="card-body" id="forum-showcase">
-           <div *ngFor="let item of communityList">
-             <div *ngIf="item.subject==3">
-              <div class="media" style="float:right" >
-      
-                <a href="">
-                  <img class="rounded-circle" src="{{item.image}}" width="65px" height="65px"
+      <a href="" style="float: right;font-size: 2em;"> نماذج اعمال قمت بتنفيذها</a>
+
+      <a routerLink="/NewSubject" style="float: left;"><button class="btn btn-success">موضوع جديد</button></a>
+    </div>
+    <div style="clear: both;"></div>
+    <br>
+    <div class="card " id="forum_home">
+      <div class="card-body" id="forum-showcase">
+        <div *ngFor="let item of communityList">
+          <div *ngIf="item.subject==3">
+            <div class="media" style="float:right">
+
+              <a href="">
+                <img class="rounded-circle" src="{{item.image}}" width="65px" height="65px"
                   style="vertical-align:middle" />
-                </a>
-      
+              </a>
+
+              <span>
                 <span>
-                  <span>
-                    <a class="title" [routerLink]= "['/KhamsatDetalis/',item.id]">
-                      {{item.title}} </a><br></span>
-      
-                  
-                  <ul class="details-list" style="display: inline;">
-                    <li >
-                      <a  href="" style="color: gray;"><i class="fa fa-user"></i> {{item.fullName}}</a>
-                      &nbsp;
-                      <span><i class="fa fa-clock-o"></i> {{item.date}}  </span>
-                    </li>
-                  </ul>
-                </span>
-              </div>
-              <div class="media" id="hidden"style="float:left" >
-      
-                <a href="">
-                  <img class="rounded-circle" src="{{item.Comment.image}}" width="65px" height="65px"
-                    style="vertical-align:middle" />
-                </a>
-      
+                  <a class="title" [routerLink]="['/KhamsatDetalis/',item.id]">
+                    {{item.title}} </a><br></span>
+
+
+                <ul class="details-list" style="display: inline;">
+                  <li>
+                    <a href="" style="color: gray;"><i class="fa fa-user"></i> {{item.fullName}}</a>
+                    &nbsp;
+                    <span><i class="fa fa-clock-o"></i> {{item.date}} </span>
+                  </li>
+                </ul>
+              </span>
+            </div>
+            <div class="media" id="hidden" style="float:left">
+
+              <a href="">
+                <img class="rounded-circle" src="{{item.Comment.image}}" width="65px" height="65px"
+                  style="vertical-align:middle" />
+              </a>
+
+              <span>
                 <span>
-                  <span>
-                    <a class="user" href="">{{item.Comment.fullName}}</a>   <br></span>
-      
-                  
-                  <ul class="details-list" style="display: inline;">
-                    <li>
-                      <span><i class="fa fa-clock-o"></i> {{item.Comment.date}}</span>
-                    </li>
-                  </ul>
-                </span>
-              </div>
-      </div></div>
-              <div style="clear: both;"></div>
-              <br><br>
-              <div>
-                <button class="btn btn-outline-success" id="center"> عرض المواضيع الاقدم</button>
-              </div>
+                  <a class="user" href="">{{item.Comment.fullName}}</a> <br></span>
+
+
+                <ul class="details-list" style="display: inline;">
+                  <li>
+                    <span><i class="fa fa-clock-o"></i> {{item.Comment.date}}</span>
+                  </li>
+                </ul>
+              </span>
             </div>
           </div>
         </div>
-        <br><br>
-      </body>
+
+      </div>
+    </div>
+  </div>
+  <br><br>
+</body>

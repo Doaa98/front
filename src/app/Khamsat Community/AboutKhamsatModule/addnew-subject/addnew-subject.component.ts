@@ -51,13 +51,12 @@ this.khamsatCommunityService.addKhamsatCommunity(this.newsubject).subscribe(
   pro=>{
     console.log("1");
     this.errorMsg=pro;
-    console.log("2");
     console.log("res:"+this.errorMsg)//for test
     
    this.router.navigate(['/aboutKhamsat']);
   },
   errorResponse=>
-  { console.log("3");
+  { 
    this.errorMsg=errorResponse;
    console.log(this.errorMsg);
   }

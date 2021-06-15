@@ -9,7 +9,8 @@ import { CommentViewModel, customkhamsat, KhamsatCommunityVM, khamsatcommunity_w
 export class KhamsatCommunityService {
 
   constructor(private http: HttpClient) { }
-  url = 'http://localhost:44376/api/KhamsatCommunity';
+  url = 'http://localhost:21491/api/KhamsatCommunity';
+  commenturl='http://localhost:21491/api/Comment';
   addKhamsatCommunity(khamsatCommunity: customkhamsat): Observable<any> {
     const httpOptions = {
 
@@ -30,7 +31,7 @@ export class KhamsatCommunityService {
       userID: khamsatCommunity.userID
     }
     console.log("send:" + JSON.stringify(obj))
-    return this.http.post("http://localhost:44376/api/KhamsatCommunity", obj, httpOptions).pipe(catchError((err) => {
+    return this.http.post(this.url, obj, httpOptions).pipe(catchError((err) => {
       console.log("service");
       return throwError(err.message || "Internal Server error contact site adminstarator");
     }));
@@ -41,7 +42,7 @@ export class KhamsatCommunityService {
     const headers = { 'content-type': 'application/json' }
     const body = JSON.stringify(_commentViewModel);
     console.log("service");
-    return this.http.post("http://localhost:44376/api/Comment", body, { headers: headers }).pipe(catchError((err) => {
+    return this.http.post(this.commenturl, body, { headers: headers }).pipe(catchError((err) => {
       console.log("service");
       return throwError(err.message || "Internal Server error contact site adminstarator");
     }));
@@ -58,7 +59,7 @@ export class KhamsatCommunityService {
   //khamsatcommunity spesific without all for one type
   Gettypekhamsatcommunity(id: any): Observable<KhamsatCommunityVM[]> {
     console.log("service");
-    return this.http.get<KhamsatCommunityVM[]>("https://localhost:44376/api/KhamsatCommunity?s=" + id).pipe(catchError((err) => {
+    return this.http.get<KhamsatCommunityVM[]>("https://localhost:21491/api/KhamsatCommunity?s=" + id).pipe(catchError((err) => {
       console.log("service");
       return throwError(err.message || "Internal Server error contact site adminstarator");
     }));
@@ -66,7 +67,8 @@ export class KhamsatCommunityService {
 
   //khamsatcommunity spesific withcomment one by comment
   getKhamsatCommunityById(id: number): Observable<khamsatcommunity_withcomments> {
-    return this.http.get<khamsatcommunity_withcomments>("http://localhost:44376/api/KhamsatCommunity/" + id).pipe(catchError((err) => {
+    console.log("service");
+    return this.http.get<khamsatcommunity_withcomments>("https://localhost:21491/api/KhamsatCommunity/"+ id).pipe(catchError((err) => {
       console.log("service");
       return throwError(err.message || "Internal Server error contact site adminstarator");
     }));

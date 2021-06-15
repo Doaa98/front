@@ -92,7 +92,7 @@
                             <div class="o-media">
                               <div class="o-media__right meta--avatar">
                                 <a href="">
-                                  <img class="rounded-circle" src=".{{item.image}}" width="65 px"
+                                  <img class="rounded-circle" src="{{item.image}}" width="65 px"
                                     height="65px" style="vertical-align:middle;float: left;">
                                 </a>
                               </div>
@@ -172,17 +172,17 @@
                       <h3 style="margin: 0.3em; float: right;font-weight: light;">آخر المساهمات</h3>
                     </div>
                     <div class="card-body">
-                      <div class="o-media">
+                      <div class="o-media" *ngFor="let item of latestContributions">
                         <div class="o-media__right">
                           <a href="" title="">
-                            <img class="rounded-circle" src="./assets/Images/avater.png" width="65 px" height="65px"
+                            <img class="rounded-circle" src="{{item.image}}" width="65 px" height="65px"
                               style="vertical-align:middle;">
 
                           </a>
                         </div>
                         <div class="o-media__body">
                           <h5><a href="">
-                              أحتاج شخص للتسويق على يوتيوب</a></h5>
+                             {{item.title}}</a></h5>
                         </div>
                       </div>
 

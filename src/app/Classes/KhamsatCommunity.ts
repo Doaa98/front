@@ -16,10 +16,10 @@ export interface KhamsatCommunityVM {
     content: string;
     title: string;
     subject: Subject;
-    date: Date;
+    date: string;
     Comment:customcomment;
     userID: string;
-    image: string;
+    image: string; 
     fullName: string;
 }
 //get one by comments
@@ -41,7 +41,7 @@ export  interface customcomment
     khamsatcommunityID :number,
     userID :string,
     image :string,
-    date:Date,
+    date:string,
     fullName :string,
 }
 //use to create
