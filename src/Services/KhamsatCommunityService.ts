@@ -10,7 +10,7 @@ export class KhamsatCommunityService {
 
   constructor(private http: HttpClient) { }
   url = 'http://localhost:21491/api/KhamsatCommunity';
-  commenturl='http://localhost:21491/api/Comment';
+  commenturl = 'http://localhost:21491/api/Comment';
   addKhamsatCommunity(khamsatCommunity: customkhamsat): Observable<any> {
     const httpOptions = {
 
@@ -59,7 +59,7 @@ export class KhamsatCommunityService {
   //khamsatcommunity spesific without all for one type
   Gettypekhamsatcommunity(id: any): Observable<KhamsatCommunityVM[]> {
     console.log("service");
-    return this.http.get<KhamsatCommunityVM[]>("https://localhost:21491/api/KhamsatCommunity?s=" + id).pipe(catchError((err) => {
+    return this.http.get<KhamsatCommunityVM[]>("http://localhost:21491/api/KhamsatCommunity/spesificType?s=" + id).pipe(catchError((err) => {
       console.log("service");
       return throwError(err.message || "Internal Server error contact site adminstarator");
     }));
@@ -68,7 +68,7 @@ export class KhamsatCommunityService {
   //khamsatcommunity spesific withcomment one by comment
   getKhamsatCommunityById(id: number): Observable<khamsatcommunity_withcomments> {
     console.log("service");
-    return this.http.get<khamsatcommunity_withcomments>("https://localhost:21491/api/KhamsatCommunity/"+ id).pipe(catchError((err) => {
+    return this.http.get<khamsatcommunity_withcomments>("http://localhost:21491/api/KhamsatCommunity/KhamsatCommunityWithComment/" + id).pipe(catchError((err) => {
       console.log("service");
       return throwError(err.message || "Internal Server error contact site adminstarator");
     }));

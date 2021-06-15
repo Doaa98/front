@@ -27,7 +27,7 @@
 
         <div class="card" id="center">
             <div class="card-body">
-                <form [formGroup]="addCommunityForm" >
+                <form [formGroup]="addCommunityForm">
                     <div class="form-group">
                         <label>عنوان الموضوع:</label>
                         <input type="text" id="back" class="form-control" formControlName="title"
@@ -40,15 +40,13 @@
                     <div class="form-group">
                         <label>التصنيف:</label>
 
-                        <select id="forum_name_select" fromControlerName="subject"
-                            [class.is-invalid]="subject.invalid && subject.touched" class="form-control">
-                            <option *ngFor="let item of Subject">
-                                {{item}}
-                            </option>
+
+                        <select class="custom-select" formControlName="subject"  type="text" class="form-control"> 
+
+                            <option *ngFor="let c of Subjects , index as i"  value="{{i}}">{{c}}  </option>
+
                         </select>
-                        <div *ngIf="subject.invalid && subject.touched" class="col-12">
-                            <small class="text-danger" *ngIf="subject.errors.required">Subject is required</small>
-                        </div>
+
                     </div>
                     <input type="hidden" id="showcase_description"
                         value="بامكانك عرض نماذج عن الأعمال التي قمت بتنفيذها هنا. يمنع اعادة عرض الخدمات المنشورة بالموقع!" />

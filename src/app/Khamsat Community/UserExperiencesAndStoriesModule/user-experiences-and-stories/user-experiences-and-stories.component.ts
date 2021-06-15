@@ -15,19 +15,15 @@ export class UserExperiencesAndStoriesComponent implements OnInit {
   errorMsg: any;
 
   ngOnInit(): void {
-   
-    console.log("Community")
     this.getCommunity();
   }
   getCommunity() {
-    console.log("Community")
     this.communityService.Gettypekhamsatcommunity(0).subscribe
       ( Community=>
         {
           this.communityList=Community;
-          //console.log(Community)
-          //
-          console.log(this.communityList+"yyu")
+          console.log(Community)
+          console.log(this.communityList)
         },
         errorResponse=>
         {

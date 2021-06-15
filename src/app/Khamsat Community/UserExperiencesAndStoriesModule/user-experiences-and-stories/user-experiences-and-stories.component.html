@@ -19,48 +19,48 @@
           <div class="media" style="float:right">
 
             <a href="">
-              <img class="rounded-circle" src="{{item.image}}" width="65px" height="65px"
+              <img class="rounded-circle" src="" alt="imageService"  width="65px" height="65px"
                 style="vertical-align:middle" />
             </a>
 
             <span>
               <span>
-                <a class="title" [routerLink]="['/KhamsatDetalis/',item.id]">
+                <a class="title" [routerLink]="['/ExpDetails/',item.id]">
                   {{item.title}} </a><br></span>
 
 
               <ul class="details-list" style="display: inline;">
                 <li>
-                  <span> <a href="" style="color: gray;">&nbsp;<i class="fa fa-user"></i> {{item.date}}</a>
+                  <span> <a href="" style="color: gray;">&nbsp;<i class="fa fa-user"></i>{{item.fullName}}</a>
                     &nbsp;</span>
-                  <span><i class="fa fa-clock-o"></i> {{item.fullName}} </span>
+                  <span><i class="fa fa-clock-o"></i>  {{item.date}} </span>
                 </li>
               </ul>
             </span>
           </div>
-          <div class="media" id="hidden" style="float:left">
+          <div class="media" id="hidden" style="float:left" *ngIf="item.comment!=null">
 
             <a href="">
-              <img class="rounded-circle" src="{{item.Comment.image}}" width="65px" height="65px"
+              <img class="rounded-circle" src="" alt="imageComment" width="65px" height="65px"
                 style="vertical-align:middle" />
             </a>
 
             <span>
               <span>
-                <a class="user" href="">{{item.Comment.fullName}}</a> <br></span>
+                <a class="user" href="">{{item.comment.fullName}}</a> <br></span>
 
 
               <ul class="details-list" style="display: inline;">
                 <li>
-                  <span><i class="fa fa-clock-o"></i> {{item.Comment.date}}</span>
+                  <span><i class="fa fa-clock-o"></i> {{item.comment.date}}</span>
                 </li>
               </ul>
             </span>
           </div>
+          <div style="clear: both;"></div>
         </div>
       </div>
     </div>
   </div>
-  {{communityList|json}}
   <br><br>
 </body>

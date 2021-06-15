@@ -27,6 +27,7 @@ export class AServiceDetailsComponent implements OnInit {
       this.KhamsatService.getKhamsatCommunityById(this.Id).subscribe(
         (res) => {
           this.Khamsat = res;
+          console.log(res)
           console.log(this.Khamsat.title, this.Khamsat.userFullName, this.Khamsat.userImage
             , this.Khamsat.content, this.Khamsat.date)
           this.Khamsat._Comments.forEach(function (value) {

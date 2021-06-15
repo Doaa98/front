@@ -25,7 +25,6 @@ export class AboutKhamsatComponent implements OnInit {
     ( Community=>
       {
         this.communityList=Community;
-        console.log(Community)
         console.log(this.communityList)
       },
       errorResponse=>

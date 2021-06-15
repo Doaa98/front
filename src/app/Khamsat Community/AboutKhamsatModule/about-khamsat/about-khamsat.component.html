@@ -38,25 +38,26 @@
                 </ul>
               </span>
             </div>
-            <div class="media" id="hidden" style="float:left">
+            <div class="media" id="hidden" style="float:left" *ngIf="item.comment!=null">
 
               <a href="">
-                <img class="rounded-circle" src="{{item.Comment.image}}" width="65px" height="65px"
+                <img class="rounded-circle" src="{{item.comment.image}}" width="65px" height="65px"
                   style="vertical-align:middle" />
               </a>
 
               <span>
                 <span>
-                  <a class="user" href="">{{item.Comment.fullName}}</a> <br></span>
+                  <a class="user" href="">{{item.comment.fullName}}</a> <br></span>
 
 
                 <ul class="details-list" style="display: inline;">
                   <li>
-                    <span><i class="fa fa-clock-o"></i> {{item.Comment.date}}</span>
+                    <span><i class="fa fa-clock-o"></i> {{item.comment.date}}</span>
                   </li>
                 </ul>
               </span>
             </div>
+            <div style="clear: both;"></div>
           </div>
         </div>
       </div>

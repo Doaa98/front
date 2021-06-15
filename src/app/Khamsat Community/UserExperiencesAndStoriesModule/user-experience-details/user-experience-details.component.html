@@ -38,7 +38,7 @@
                         </li>
                         <li>
                           <i class="fa fa-clock-o fa-fw"></i>
-                          <span dir="ltr" title="03/06/2021 19:56:14 GMT">  {{Khamsat.date}} </span>
+                          <span dir="ltr" title="03/06/2021 19:56:14 GMT"> {{Khamsat.date}} </span>
                         </li>
 
                       </ul>
@@ -73,9 +73,9 @@
 
                   <div class="card">
                     <div class="card-body">
-                     <article style="float: right;">
-                          {{Khamsat.content}}
-                        </article>
+                      <article style="float: right;">
+                        {{Khamsat.content}}
+                      </article>
                     </div>
                   </div>
                   <br>
@@ -92,8 +92,8 @@
                             <div class="o-media">
                               <div class="o-media__right meta--avatar">
                                 <a href="">
-                                  <img class="rounded-circle" src="{{item.image}}" width="65 px"
-                                    height="65px" style="vertical-align:middle;float: left;">
+                                  <img class="rounded-circle" src="{{item.image}}" width="65 px" height="65px"
+                                    style="vertical-align:middle;float: left;">
                                 </a>
                               </div>
                               <div class="o-media__body">
@@ -114,7 +114,7 @@
                             </div>
                           </div>
                           <div class="discussion-message">
-                            <article class="comment reply_content replace_urls ">{{item.content}}  </article>
+                            <article class="comment reply_content replace_urls ">{{item.content}} </article>
 
                           </div>
                         </div>
@@ -131,11 +131,11 @@
                     <div class="card-body">
                       <form id="commentable_form" [formGroup]="addCommentForm">
                         <div class="u-margin-bottom">
-                          <textarea name="content" class="form-control" formControlName="content"  
-                          [class.is-invalid]="content.invalid && content.touched" rows="5" clos="60"
+                          <textarea name="content" class="form-control" formControlName="content"
+                            [class.is-invalid]="content.invalid && content.touched" rows="5" clos="60"
                             maxlength="2000"></textarea>
-                            <div *ngIf="content.errors && content.touched">
-                              <small class="text-danger" *ngIf="content.errors.required">Content is required</small>
+                          <div *ngIf="content.errors && content.touched">
+                            <small class="text-danger" *ngIf="content.errors.required">Content is required</small>
                           </div>
                           <p class="c-form__hb" style="float: right;">
                             <span>استخدم</span>&nbsp;
@@ -154,7 +154,8 @@
                         </div>
                         <div style="clear: both;"></div><br>
                         <div>
-                          <button style="float: right;" type="submit" (click)="createcomment()" class="btn btn-success">أرسل</button>
+                          <button style="float: right;" type="submit" (click)="createcomment()"
+                            class="btn btn-success">أرسل</button>
                         </div>
 
                       </form>
@@ -182,7 +183,7 @@
                         </div>
                         <div class="o-media__body">
                           <h5><a href="">
-                             {{item.title}}</a></h5>
+                              {{item.title}}</a></h5>
                         </div>
                       </div>
 
@@ -200,8 +201,6 @@
       </div>
     </div>
   </header>
-
-
 </body>
 
 </html>
