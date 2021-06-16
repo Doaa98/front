@@ -26,7 +26,7 @@ export class KhamsatCommunityService {
       id: khamsatCommunity.ID,
       content: khamsatCommunity.content,
       title: khamsatCommunity.title,
-      subject: khamsatCommunity.subject,
+      subject: parseInt(khamsatCommunity.subject),
       date: khamsatCommunity.Date,
       userID: khamsatCommunity.userID
     }
@@ -59,7 +59,7 @@ export class KhamsatCommunityService {
   //khamsatcommunity spesific without all for one type
   Gettypekhamsatcommunity(id: any): Observable<KhamsatCommunityVM[]> {
     console.log("service");
-    return this.http.get<KhamsatCommunityVM[]>("http://localhost:21491/api/KhamsatCommunity/spesificType?s=" + id).pipe(catchError((err) => {
+    return this.http.get<KhamsatCommunityVM[]>("http://localhost:21491/api/KhamsatCommunity?s=" + id).pipe(catchError((err) => {
       console.log("service");
       return throwError(err.message || "Internal Server error contact site adminstarator");
     }));
