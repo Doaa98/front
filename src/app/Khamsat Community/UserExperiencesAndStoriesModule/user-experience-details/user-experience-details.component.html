@@ -1,206 +1,194 @@
-<html class="hsoub-no-touch wf-roboto-n3-active wf-roboto-n4-active wf-roboto-n5-active wf-active">
-
-<head>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
-
-</head>
-
-<body>
-  <header class="hsoub-header">
-    <div class="hsoub-box">
-      <a class="hsoub-bars hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile"></a>
-
-
-      <div class="hsoub-container">
-        <div class="hsoub-content" style="background:#F1F1F1">
-
-
-          <div class="page_header">
-            <div class="o-wrapper">
-              <div class="o-layout o-layout--flex">
-                <div class="o-layout__item u-9@large u-8@medium u-12@tiny">
-                  <div class="o-media">
-                    <div class="o-media__body">
-                      <h1 style="float: right;">
-                        <a href="">{{Khamsat.title}}</a>
-                      </h1>
-                      <div style="clear: both;"></div>
-                      <ul class="page-meta u-12@large " style="float: right;color: gray;">
-                        <li>
-                          <a class="user" href=""><i class="fa fa-fw fa-user"></i> {{Khamsat.userFullName}} </a>
-                        </li>
-                        <li>
-                          <a routerLink="/UserExp">
-                            <i class="fa fa-bars fa-fw"></i>
-                            <span> تجارب وقصص المستخدمين</span>
-                          </a>
-                        </li>
-                        <li>
-                          <i class="fa fa-clock-o fa-fw"></i>
-                          <span dir="ltr" title="03/06/2021 19:56:14 GMT"> {{Khamsat.date}} </span>
-                        </li>
-
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="o-layout__item u-3@large u-4@medium u-hidden@small u-hidden@tiny">
-
-                  <div class="page-navbar--tablet">
-                    <a class="c-button c-button--primary" href="#add_comment">
-                      <i class="fa fa-comment"></i>&nbsp;
-                      <span>أضف تعليق</span>
+<div class="hsoub-container">
+  <div class="hsoub-content">
+    <div class="page_header">
+      <div class="o-wrapper">
+        <div class="o-layout o-layout--flex">
+          <div class="o-layout__item u-9@large u-8@medium u-12@tiny">
+            <div class="o-media">
+              <div class="o-media__body">
+                <h1>
+                  <a href="">{{Khamsat.title}}</a>
+                </h1>
+                <ul class="page-meta u-12@large ">
+                  <li>
+                    <a class="user" href=""><i class="fa fa-fw fa-user"></i> {{Khamsat.userFullName}} </a>
+                  </li>
+                  <li>
+                    <a routerLink="/UserExp">
+                      <i class="fa fa-bars fa-fw"></i>
+                      <span> تجارب وقصص المستخدمين </span>
                     </a>
+                  </li>
+                  <li>
+                    <i class="fa fa-clock-o fa-fw"></i>
+                    <span dir="ltr">{{Khamsat.date}}</span>
+                  </li>
 
-                  </div>
-                </div>
-
+                </ul>
               </div>
             </div>
           </div>
 
+          <div class="o-layout__item u-3@large u-4@medium u-hidden@small u-hidden@tiny">
+            <div class="page-header-buttons">
+              <a class="c-button c-button--primary" href="#add_comment">
+                <i class="fa fa-comment"></i>
+                <span>أضف تعليق</span>
+              </a>
 
-
-
-          <div class="o-wrapper">
-
-            <div class="content inside">
-              <div class="o-layout o-layout--flex">
-                <div class="o-layout__item u-9@large u-12@medium u-12@small u-12@tiny js-page">
-
-
-                  <div class="card">
-                    <div class="card-body">
-                      <article style="float: right;">
-                        {{Khamsat.content}}
-                      </article>
-                    </div>
-                  </div>
-                  <br>
-                  <div class="card" *ngFor="let item of Khamsat._Comments ; let i=index;">
-                    <div class="card-head">
-                      <h3 style="float: right;margin: 0.3em;">التعليقات (item._Comments.length)</h3>
-                    </div>
-                    <div class="card_-body " id="post_replies">
-                      <div class="comments" style="margin: 0.3em;">
-
-                        <div style="float: right;" class="discussion-item comment" data-id="5758835"
-                          id="post_reply-5758835">
-                          <div class="profile-details">
-                            <div class="o-media">
-                              <div class="o-media__right meta--avatar">
-                                <a href="">
-                                  <img class="rounded-circle" src="{{item.image}}" width="65 px" height="65px"
-                                    style="vertical-align:middle;float: left;">
-                                </a>
-                              </div>
-                              <div class="o-media__body">
-                                <h5 class="u-margin-bottom--tiny">
-                                  <div class="meta--user">
-                                    <a href="">{{item.fullName}} </a>
-                                  </div>
-                                  <div class="u-block@small meta--date" style="color: gray; font-size:13px">
-                                    <i class="fa fa-clock-o fa-fw"></i>
-                                    <span dir="ltr" title="03/06/2021 20:25:14 GMT"> منذ ساعة ودقيقتين</span>
-                                  </div>
-                                </h5>
-                              </div>
-                              <div class="o-layout__item u-7@large u-6@medium u-hidden@small">
-
-                              </div>
-
-                            </div>
-                          </div>
-                          <div class="discussion-message">
-                            <article class="comment reply_content replace_urls ">{{item.content}} </article>
-
-                          </div>
-                        </div>
-
-
-                      </div>
-                    </div>
-                  </div>
-                  <br>
-                  <div class="card " id="add_comment">
-                    <div class="card-head">
-                      <h4 style="float: right;margin: 0.3em;">أضف تعليق</h4>
-                    </div>
-                    <div class="card-body">
-                      <form id="commentable_form" [formGroup]="addCommentForm">
-                        <div class="u-margin-bottom">
-                          <textarea name="content" class="form-control" formControlName="content"
-                            [class.is-invalid]="content.invalid && content.touched" rows="5" clos="60"
-                            maxlength="2000"></textarea>
-                          <div *ngIf="content.errors && content.touched">
-                            <small class="text-danger" *ngIf="content.errors.required">Content is required</small>
-                          </div>
-                          <p class="c-form__hb" style="float: right;">
-                            <span>استخدم</span>&nbsp;
-                            <a href="https://suar.me" target="_blank" class="u-clr--primary">موقع صور</a>
-                            <span>عند حاجتك لرفع أو اضافة صورة لتعليقاتك.</span>
-                          </p>
-
-                        </div>
-                        <div style="clear: both;"></div>
-                        <div style="float: right;">
-
-                          <input type="checkbox" value="0">&nbsp;
-                          <span>التعليق لا يحتوي على معلومات اتصال خارجية ولا يخالف</span>&nbsp;
-                          <a href="" target="_blank" class="u-clr--primary">شروط موقع خمسات</a>
-
-                        </div>
-                        <div style="clear: both;"></div><br>
-                        <div>
-                          <button style="float: right;" type="submit" (click)="createcomment()"
-                            class="btn btn-success">أرسل</button>
-                        </div>
-
-                      </form>
-
-
-                    </div>
-                  </div>
-
-                </div>
-
-                <div class="o-layout__item u-3@large" id="community_sidebar">
-
-                  <div class="card u-margin-bottom--large" id="hidden">
-                    <div class="card-head">
-                      <h3 style="margin: 0.3em; float: right;font-weight: light;">آخر المساهمات</h3>
-                    </div>
-                    <div class="card-body">
-                      <div class="o-media" *ngFor="let item of latestContributions">
-                        <div class="o-media__right">
-                          <a href="" title="">
-                            <img class="rounded-circle" src="{{item.image}}" width="65 px" height="65px"
-                              style="vertical-align:middle;">
-
-                          </a>
-                        </div>
-                        <div class="o-media__body">
-                          <h5><a href="">
-                              {{item.title}}</a></h5>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-
-
-
-                </div>
-              </div>
             </div>
           </div>
 
         </div>
       </div>
     </div>
-  </header>
-</body>
+    <div class="page-navbar u-hidden@large u-hidden@medium u-12@small u-12@tiny u-text--right">
+      <div class="page-navbar--tablet">
+        <a class="c-button c-button--primary" href="#add_comment">
+          <i class="fa fa-comment"></i>
+          <span>أضف تعليق</span>
+        </a>
+      </div>
+    </div>
 
-</html>
+
+
+    <div class="o-wrapper ">
+
+      <div class="content inside">
+        <div class="o-layout o-layout--flex">
+          <div class="o-layout__item u-12@medium u-12@tiny">
+          </div>
+
+
+          <div class="o-layout__item u-9@large u-12@medium u-12@small u-12@tiny js-page">
+            <div class="c-card">
+              <div class="c-card__body">
+                <article class="replace_urls">
+                  {{Khamsat.content}}
+                </article>
+              </div>
+            </div>
+
+            <div class="c-card  " data-commentable="true" data-commentable-type="forum_post"
+              data-commentable-id="516712">
+              <div class="c-card__head">
+                <h3>التعليقات ({{length}})</h3>
+              </div>
+              <div class="c-card__body u-no--padding" id="post_replies">
+                <div class="comments">
+
+                  <div class="discussion-item comment" *ngFor="let item of Khamsat._Comments ; let i=index;"
+                    data-id="5792818" id="post_reply-5792818">
+                    <div class="profile-details">
+                      <div class="o-media">
+                        <div class="o-media__right meta--avatar">
+                          <a href="">
+                            <img class="u-circle u-avatar@small img-thumbnail img--small" src="{{item.image}}">
+                          </a>
+                        </div>
+                        <div class="o-media__body">
+                          <div class="o-layout o-layout--flex">
+                            <div class="o-layout__item u-5@large u-6@medium u-12@small">
+                              <h5 class="u-margin-bottom--tiny">
+                                <div class="meta--user">
+                                  <a href=""> {{item.fullName}}</a>
+                                </div>
+                                <div class="u-block@small meta--date">
+                                  <i class="fa fa-clock-o fa-fw"></i>
+                                  <span dir="ltr"> {{item.date}} </span>
+                                </div>
+                              </h5>
+                            </div>
+                            <div class="o-layout__item u-7@large u-6@medium u-hidden@small">
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="discussion-message">
+                      <article class="content replace_urls">
+                        <article class="comment reply_content replace_urls ">
+                          {{item.content}}
+                        </article>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="c-card u-margin-bottom--large u-margin-bottom@small" id="add_comment">
+              <div class="c-card__head">
+                <h3>أضف تعليق</h3>
+              </div>
+              <div class="c-card__body">
+                <form id="commentable_form" [formGroup]="addCommentForm">
+                  <div class="u-margin-bottom">
+                    <textarea name="content" class="c-form__control" rows="5" formControlName="content"
+                      [class.is-invalid]="content.invalid && content.touched" rows="5" clos="60"
+                      maxlength="2000"></textarea>
+                    <div *ngIf="content.errors && content.touched">
+                      <small class="text-danger" *ngIf="content.errors.required">Content is required</small>
+                    </div>
+                    <p class="c-form__hb">
+                      <span>استخدم</span>
+                      <a href="https://suar.me" target="_blank" class="u-clr--primary">موقع صور</a>
+                      <span>عند حاجتك لرفع أو اضافة صورة لتعليقاتك.</span>
+                    </p>
+
+                  </div>
+
+                  <div class="u-margin-bottom u-checkbox">
+                    <label for="confirm">
+                      <input name="confirm" id="confirm" type="checkbox" value="0">
+                      <span>التعليق لا يحتوي على معلومات اتصال خارجية ولا يخالف</span>
+                      <a href="" target="_blank" class="u-clr--primary">شروط موقع خمسات</a>
+                    </label>
+                  </div>
+                  <div class="u-margin-bottom">
+                    <input id="user_token" type="hidden" name="token" value="b91fc0c6972e0f4597fb37a1fa9040a5eabbb530">
+                    <button type="submit" id="commentable_submit" class="c-button c-button--primary" type="submit"
+                      (click)="createcomment()">أرسل</button>
+                  </div>
+
+                </form>
+
+
+              </div>
+            </div>
+
+          </div>
+
+          <div class="o-layout__item u-3@large" id="community_sidebar">
+
+            <div class="c-card u-margin-bottom--large">
+              <div class="c-card__head">
+                <h3>آخر المساهمات</h3>
+              </div>
+              <div class="c-card__body">
+                <div class="o-media" *ngFor="let item of latestContributions">
+                  <div class="o-media__right">
+                    <a href="" title="Ramzi Med">
+                      <img class="u-circle img-thumbnail img--small" src="{{item.image}}">
+                    </a>
+                  </div>
+                  <div class="o-media__body">
+                    <h5><a href="">{{item.title}}
+                      </a></h5>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+          </div>
+        </div><!--  END o-layout -->
+      </div>
+      <!--  END content -->
+    </div>
+    <!--  END o-wrapper -->
+  </div>
+</div>

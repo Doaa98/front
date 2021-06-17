@@ -10,15 +10,14 @@ import { KhamsatCommunityService } from 'src/Services/KhamsatCommunityService';
   styleUrls: ['./models-implemented-details.component.css']
 })
 export class ModelsImplementedDetailsComponent implements OnInit {
-
-
-
   constructor(private fb: FormBuilder, private KhamsatService: KhamsatCommunityService, private route: ActivatedRoute, private router: Router) { }
   addCommentForm: any;
   errorMsg: any;
   Khamsat: khamsatcommunity_withcomments;
   Comment: CommentViewModel;
   Id: number;
+  length: number;
+
   latestContributions: any;
   ngOnInit(): void {
     this.addCommentForm = this.fb.group({
@@ -26,14 +25,12 @@ export class ModelsImplementedDetailsComponent implements OnInit {
     });
     this.route.queryParams.subscribe(params => {
       this.Id = this.route.snapshot.params['id'];
-      this.KhamsatService.getKhamsatCommunityById(this.Id).subscribe(
+      this.KhamsatService.getKhamsatCommunityWithComment(this.Id).subscribe(
         (res) => {
           this.Khamsat = res;
-          console.log(this.Khamsat.title, this.Khamsat.userFullName, this.Khamsat.userImage
-            , this.Khamsat.content, this.Khamsat.date)
-          this.Khamsat._Comments.forEach(function (value) {
-            console.log(value);
-          });
+          console.log(this.Khamsat)
+
+          this.length = this.Khamsat._Comments.length;
         },
 
         (errorResponse) => {
@@ -72,9 +69,9 @@ export class ModelsImplementedDetailsComponent implements OnInit {
     );
   }
   getLatestContributions() {
-    this.KhamsatService.Gettypekhamsatcommunity(2).subscribe
+    this.KhamsatService.GetspesificCommunityType(2).subscribe
       (Community => {
-        for (let i = 0; i < Community.length / 2; i++) {
+        for (let i = 0; i < Community.length ; i++) {
           this.latestContributions = Community;
         }
         console.log(Community)

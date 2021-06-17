@@ -10,25 +10,26 @@ import { KhamsatCommunityService } from 'src/Services/KhamsatCommunityService';
   styleUrls: ['./user-experience-details.component.css']
 })
 export class UserExperienceDetailsComponent implements OnInit {
-
-
   constructor(private fb: FormBuilder, private KhamsatService: KhamsatCommunityService, private route: ActivatedRoute, private router: Router) { }
   addCommentForm: any;
   errorMsg: any;
   Khamsat: khamsatcommunity_withcomments;
   Comment: CommentViewModel;
-  Id: number; 
-  latestContributions:any;
+  Id: number;
+  length: number;
+  latestContributions: any;
   ngOnInit(): void {
     this.addCommentForm = this.fb.group({
       content: ['', [Validators.required]]
     });
     this.route.queryParams.subscribe(params => {
       this.Id = this.route.snapshot.params['id'];
-      this.KhamsatService.getKhamsatCommunityById(this.Id).subscribe(
+      this.KhamsatService.getKhamsatCommunityWithComment(this.Id).subscribe(
         (res) => {
           this.Khamsat = res;
           console.log(this.Khamsat)
+
+          this.length = this.Khamsat._Comments.length;
         },
 
         (errorResponse) => {
@@ -67,9 +68,9 @@ export class UserExperienceDetailsComponent implements OnInit {
     );
   }
   getLatestContributions() {
-    this.KhamsatService.Gettypekhamsatcommunity(2).subscribe
+    this.KhamsatService.GetspesificCommunityType(2).subscribe
       (Community => {
-        for (let i = 0; i < Community.length / 2; i++) {
+        for (let i = 0; i < Community.length; i++) {
           this.latestContributions = Community;
         }
         console.log(Community)

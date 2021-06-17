@@ -1,87 +1,87 @@
-
 <div class="hsoub-container">
   <div class="hsoub-content">
-
-
-
     <div class="o-wrapper ">
 
       <div class="content inside">
-       <div class="o-layout o-layout--flex">
+        <div class="o-layout o-layout--flex">
           <div class="o-layout__item u-12@medium u-12@tiny">
           </div>
 
-            <div class="o-layout__item u-12@tiny">
+          <div class="o-layout__item u-12@tiny">
 
             <div class="o-layout__item u-12@large u-12@tiny u-margin-bottom u-no--padding u-margin-top@small">
-<h1>
-<a href="">    تجارب وقصص المستخدمين</a>
-<a routerLink="/NewSubject" class="c-button c-button--primary u-pull--left new_forum"> <i class="fa fa-pencil"></i> <span>موضوع جديد</span></a>
-<a routerLink="/ModelImplementd" class="back-arrow" title="الرجوع الى المجتمع"> <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+              <h1>
+                <a href=""> تجارب وقصص المستخدمين</a>
+                <a routerLink="/NewSubject" class="c-button c-button--primary u-pull--left new_forum"> <i
+                    class="fa fa-pencil"></i> <span>موضوع جديد</span></a>
+                <a routerLink="/ModelImplementd" class="back-arrow" title="الرجوع الى المجتمع"> <i
+                    class="fa fa-chevron-right" aria-hidden="true"></i></a>
 
-</h1>
-</div>
+              </h1>
+            </div>
 
-<div class="c-card u-margin-bottom--large" id="forum_home">
-<div class="c-card__body u-no--padding" id="forum-general">
-<table id="forums_table">
-  <colgroup>
-    <col class="u-avatar-col">
-    <col width="auto">
-    <col class="u-lastreply-col u-hidden@medium u-hidden@small u-hidden@tiny">
-  </colgroup>
-  <tbody>
-        <tr id="forum_post-516712" class="forum_post" *ngFor="let item of communityList">
-  <td class="avatar-td u-text--center">
-    <a href="">
-      <img class="u-circle img-thumbnail img--medium" src="{{item.image}}" alt="servImg">
-    </a>
-  </td>
+            <div class="c-card u-margin-bottom--large" id="forum_home">
+              <div class="c-card__body u-no--padding" id="forum-general">
+                <table id="forums_table">
+                  <colgroup>
+                    <col class="u-avatar-col">
+                    <col width="auto">
+                    <col class="u-lastreply-col u-hidden@medium u-hidden@small u-hidden@tiny">
+                  </colgroup>
+                  <tbody>
+                    <tr id="forum_post-516712" class="forum_post" *ngFor="let item of communityList">
+                      <td class="avatar-td u-text--center">
+                        <a href="">
+                          <img class="u-circle img-thumbnail img--medium" src="{{item.image}}" alt="servImg">
+                        </a>
+                      </td>
 
-  <td class="details-td">
-    <h3 class="details-head"><a class="ajaxbtn" [routerLink]="['/ExpDetails/',item.id]"> {{item.title}}</a></h3>
-    <ul class="details-list">
-       <li>
-          <a class="user" href=""><i class="fa fa-fw fa-user"></i> {{item.fullName}}</a>
-       </li>
-       <li>
-          <i class="fa fa-fw fa-clock-o"></i>
-          <span dir="ltr" >{{item.date}}  
+                      <td class="details-td">
+                        <h3 class="details-head"><a class="ajaxbtn" [routerLink]="['/ExpDetails/',item.id]">
+                            {{item.title}}</a></h3>
+                        <ul class="details-list">
+                          <li>
+                            <a class="user" href=""><i class="fa fa-fw fa-user"></i> {{item.fullName}}</a>
+                          </li>
+                          <li>
+                            <i class="fa fa-fw fa-clock-o"></i>
+                            <span dir="ltr">{{item.date}}
 
-          </span>
-       </li>
-    </ul>
-  </td>
+                            </span>
+                          </li>
+                        </ul>
+                      </td>
 
-  <td class="u-hidden@medium u-hidden@small u-hidden@tiny">
-    <div class="o-media">
-      <div class="o-media__right u-no--margin u-no--padding ">
-        <div class="u-hidden@small">
-          <a href="">
-            <img class="u-circle img-thumbnail img--medium" src="{{item.comment.image}}" alt="UserImg">
-          </a>
-        </div>
-      </div>
-      <div class="o-media__body u-padding-right">
-        <h3 class="details-head">
-          <a class="user" href="">{{item.comment.fullName}}</a>
+                      <td class="u-hidden@medium u-hidden@small u-hidden@tiny">
+                        <div class="o-media" *ngIf="item.comment!=null">
+                          <div class="o-media__right u-no--margin u-no--padding ">
+                            <div class="u-hidden@small">
+                              <a href="">
+                                <img class="u-circle img-thumbnail img--medium" src="{{item.comment.image}}"
+                                  alt="UserImg">
+                              </a>
+                            </div>
+                          </div>
+                          <div class="o-media__body u-padding-right">
+                            <h3 class="details-head">
+                              <a class="user" href="">{{item.comment.fullName}}</a>
 
-        </h3>
-        <ul class="details-list">
-           <li>
-            <span ><i class="fa fa-fw fa-clock-o"></i>  {{item.comment.date}}</span>
-           </li>
-        </ul>
-      </div>
-    </div>
-  </td>
-</tr>
+                            </h3>
+                            <ul class="details-list">
+                              <li>
+                                <span><i class="fa fa-fw fa-clock-o"></i> {{item.comment.date}}</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
 
-  </tbody>
-  </table>
-</div>
+                  </tbody>
+                </table>
+              </div>
 
-</div>
+            </div>
 
           </div>
 

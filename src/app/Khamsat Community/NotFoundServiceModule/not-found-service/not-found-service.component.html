@@ -1,67 +1,96 @@
-<body>
-  <div class="container" style="margin-top: 1em;">
+<div class="hsoub-container">
+  <div class="hsoub-content">
+    <div class="o-wrapper ">
 
-    <div style="margin-top: 2em;">
-      <h5>
-        <a routerLink="/ModelImplementd" style="font-size: 1.5em;float: right;" class="back-arrow"
-          title="الرجوع الى المجتمع"> <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-      </h5>
-      <a href="" style="float: right;font-size: 2em;"> طلبات الخدمات غير الموجوده</a>
-
-      <a routerLink="/NewSubject" style="float: left;"><button class="btn btn-success">موضوع جديد</button></a>
-    </div>
-    <div style="clear: both;"></div>
-    <br>
-    <div class="card " id="forum_home">
-      <div class="card-body" id="forum-showcase">
-        <div *ngFor="let item of communityList">
-          <div *ngIf="item.subject==2">
-            <div class="media" style="float:right">
-
-              <a href="">
-                <img class="rounded-circle" src="" width="65px" height="65px"
-                  style="vertical-align:middle" />
-              </a>
-
-              <span>
-                <span>
-                  <a class="title" [routerLink]="['/ServiceDetails/',item.id]">
-                    {{item.title}} </a><br></span>
-
-
-                <ul class="details-list" style="display: inline;">
-                  <li>
-                    <a href="" style="color: gray;"><i class="fa fa-user"></i> {{item.fullName}}</a>
-                    &nbsp;
-                    <span><i class="fa fa-clock-o"></i> {{item.date}} </span>
-                  </li>
-                </ul>
-              </span>
-            </div>
-            <div class="media" id="hidden" style="float:left" *ngIf="item.comment!=null">
-
-              <a href="">
-                <img class="rounded-circle" src="" width="65px" height="65px"
-                  style="vertical-align:middle" />
-              </a>
-
-              <span>
-                <span>
-                  <a class="user" href="">{{item.comment.fullName}}</a> <br></span>
-
-
-                <ul class="details-list" style="display: inline;">
-                  <li>
-                    <span><i class="fa fa-clock-o"></i> {{item.comment.date}}</span>
-                  </li>
-                </ul>
-              </span>
-            </div>
-            <div style="clear: both;"></div>
+      <div class="content inside">
+        <div class="o-layout o-layout--flex">
+          <div class="o-layout__item u-12@medium u-12@tiny">
           </div>
-        </div>
+
+          <div class="o-layout__item u-12@tiny">
+
+            <div class="o-layout__item u-12@large u-12@tiny u-margin-bottom u-no--padding u-margin-top@small">
+              <h1>
+                <a href=""> طلبات الخدمات غير الموجودة</a>
+                <a routerLink="/NewSubject" class="c-button c-button--primary u-pull--left new_forum"> <i
+                    class="fa fa-pencil"></i> <span>موضوع جديد</span></a>
+                <a routerLink="/ModelImplementd" class="back-arrow" title="الرجوع الى المجتمع"> <i
+                    class="fa fa-chevron-right" aria-hidden="true"></i></a>
+
+              </h1>
+            </div>
+
+            <div class="c-card u-margin-bottom--large" id="forum_home">
+              <div class="c-card__body u-no--padding" id="forum-general">
+                <table id="forums_table">
+                  <colgroup>
+                    <col class="u-avatar-col">
+                    <col width="auto">
+                    <col class="u-lastreply-col u-hidden@medium u-hidden@small u-hidden@tiny">
+                  </colgroup>
+                  <tbody>
+                    <tr id="forum_post-516712" class="forum_post" *ngFor="let item of communityList">
+                      <td class="avatar-td u-text--center">
+                        <a href="">
+                          <img class="u-circle img-thumbnail img--medium" src="{{item.image}}" alt="servImg">
+                        </a>
+                      </td>
+
+                      <td class="details-td">
+                        <h3 class="details-head"><a class="ajaxbtn" [routerLink]="['/ServiceDetails/',item.id]">
+                            {{item.title}}</a></h3>
+                        <ul class="details-list">
+                          <li>
+                            <a class="user" href=""><i class="fa fa-fw fa-user"></i> {{item.fullName}}</a>
+                          </li>
+                          <li>
+                            <i class="fa fa-fw fa-clock-o"></i>
+                            <span dir="ltr">{{item.date}}
+
+                            </span>
+                          </li>
+                        </ul>
+                      </td>
+
+                      <td class="u-hidden@medium u-hidden@small u-hidden@tiny">
+                        <div class="o-media" *ngIf="item.comment!=null">
+                          <div class="o-media__right u-no--margin u-no--padding ">
+                            <div class="u-hidden@small">
+                              <a href="">
+                                <img class="u-circle img-thumbnail img--medium" src="{{item.comment.image}}"
+                                  alt="UserImg">
+                              </a>
+                            </div>
+                          </div>
+                          <div class="o-media__body u-padding-right">
+                            <h3 class="details-head">
+                              <a class="user" href="">{{item.comment.fullName}}</a>
+
+                            </h3>
+                            <ul class="details-list">
+                              <li>
+                                <span><i class="fa fa-fw fa-clock-o"></i> {{item.comment.date}}</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div><!--  END o-layout -->
       </div>
+      <!--  END content -->
     </div>
+    <!--  END o-wrapper -->
+
+
   </div>
-  <br><br>
-</body>
+</div>

@@ -10,6 +10,7 @@ import { KhamsatCommunityService } from 'src/Services/KhamsatCommunityService';
   styleUrls: ['./about-khamsat-details.component.css']
 })
 export class AboutKhamsatDetailsComponent implements OnInit {
+ 
 
 
   constructor(private fb: FormBuilder, private KhamsatService: KhamsatCommunityService, private route: ActivatedRoute, private router: Router) { }
@@ -17,7 +18,8 @@ export class AboutKhamsatDetailsComponent implements OnInit {
   errorMsg: any;
   Khamsat: khamsatcommunity_withcomments;
   Comment: CommentViewModel;
-  Id: number;
+  Id: number; 
+  length: number;
   latestContributions: any;
   ngOnInit(): void {
     this.addCommentForm = this.fb.group({
@@ -25,14 +27,12 @@ export class AboutKhamsatDetailsComponent implements OnInit {
     });
     this.route.queryParams.subscribe(params => {
       this.Id = this.route.snapshot.params['id'];
-      this.KhamsatService.getKhamsatCommunityById(this.Id).subscribe(
+      this.KhamsatService.getKhamsatCommunityWithComment(this.Id).subscribe(
         (res) => {
           this.Khamsat = res;
-          console.log(this.Khamsat.title, this.Khamsat.userFullName, this.Khamsat.userImage
-            , this.Khamsat.content, this.Khamsat.date)
-          this.Khamsat._Comments.forEach(function (value) {
-            console.log(value);
-          });
+          console.log(this.Khamsat)
+          this.length=this.Khamsat._Comments.length;
+           console.log(this.length)
         },
 
         (errorResponse) => {
@@ -58,22 +58,17 @@ export class AboutKhamsatDetailsComponent implements OnInit {
     }
     this.KhamsatService.addComment(this.Comment).subscribe(
       pro => {
-        console.log("1");
-        this.errorMsg = pro;
-        console.log("2");
-        console.log("res:" + this.errorMsg)//for test
       },
       errorResponse => {
-        console.log("3");
         this.errorMsg = errorResponse;
-        console.log(this.errorMsg);
       }
     );
+     // this.router.navigate(['/KhamsatDetalis']);
   }
   getLatestContributions() {
-    this.KhamsatService.Gettypekhamsatcommunity(2).subscribe
+    this.KhamsatService.GetspesificCommunityType(2).subscribe
       (Community => {
-        for (let i = 0; i < Community.length / 2; i++) {
+        for (let i = 0; i < Community.length ; i++) {
           this.latestContributions = Community;
         }
         console.log(Community)

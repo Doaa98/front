@@ -47,11 +47,11 @@ export  interface customcomment
 //use to create
 export interface  customkhamsat
 {
-     ID :number;
+     id :number;
      content:string; 
      title :string;
      subject : SubjectCategory;
-     Date :string;
+     date :string;
      userID :string;   
 }
 // to create comment

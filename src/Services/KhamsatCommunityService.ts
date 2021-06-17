@@ -22,15 +22,7 @@ export class KhamsatCommunityService {
 
     }
     console.log("service");
-    var obj = {
-      id: khamsatCommunity.ID,
-      content: khamsatCommunity.content,
-      title: khamsatCommunity.title,
-      subject: parseInt(khamsatCommunity.subject),
-      date: khamsatCommunity.Date,
-      userID: khamsatCommunity.userID
-    }
-    console.log("send:" + JSON.stringify(obj))
+    var obj = JSON.stringify(khamsatCommunity);
     return this.http.post(this.url, obj, httpOptions).pipe(catchError((err) => {
       console.log("service");
       return throwError(err.message || "Internal Server error contact site adminstarator");
@@ -57,16 +49,16 @@ export class KhamsatCommunityService {
   */
 
   //khamsatcommunity spesific without all for one type
-  Gettypekhamsatcommunity(id: any): Observable<KhamsatCommunityVM[]> {
+  GetspesificCommunityType(id: any): Observable<KhamsatCommunityVM[]> {
     console.log("service");
-    return this.http.get<KhamsatCommunityVM[]>("http://localhost:21491/api/KhamsatCommunity?s=" + id).pipe(catchError((err) => {
+    return this.http.get<KhamsatCommunityVM[]>("http://localhost:21491/api/KhamsatCommunity/spesificCommunityType?s=" + id).pipe(catchError((err) => {
       console.log("service");
       return throwError(err.message || "Internal Server error contact site adminstarator");
     }));
   }
 
   //khamsatcommunity spesific withcomment one by comment
-  getKhamsatCommunityById(id: number): Observable<khamsatcommunity_withcomments> {
+  getKhamsatCommunityWithComment(id: number): Observable<khamsatcommunity_withcomments> {
     console.log("service");
     return this.http.get<khamsatcommunity_withcomments>("http://localhost:21491/api/KhamsatCommunity/KhamsatCommunityWithComment/" + id).pipe(catchError((err) => {
       console.log("service");
