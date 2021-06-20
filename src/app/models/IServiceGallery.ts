@@ -1,14 +1,14 @@
 export interface IServiceGallery {
-    id: number
-    localImage: LocalImage[]
-    urlImage: URLImage[]
-    urlYoutube: URLYoutube[]
+    id?: number
+    localImage?: LocalImage[]
+    urlImage?: URLImage[]
+    urlYoutube?: URLYoutube[]
 }
 
 
 
-interface LocalImage {
-    id: number
+export interface LocalImage {
+    id?: number
     dbPath: string
 }
 

@@ -10,7 +10,7 @@ export interface IService {
 
     description:string
 
-    seriveGallery?: IServiceGallery
+    serviceGallery?: IServiceGallery
 
     keywords:string
 

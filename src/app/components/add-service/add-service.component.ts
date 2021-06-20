@@ -8,6 +8,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ICategory } from 'src/app/models/ICategory';
+import { LocalImage } from 'src/app/models/IServiceGallery';
 import { ISubCategory } from 'src/app/models/ISubCategory';
 import { CategoryService } from 'src/Services/category.service';
 import { ServiceService } from 'src/Services/service.service';
@@ -77,6 +78,7 @@ export class AddServiceComponent implements OnInit {
     InstructionsToBuyer: [''],
 
     addServiceDevelopment: this.fb.array([this.createServiceDevelopment()]),
+    userId: ['']
   });
 
   createServiceDevelopment(): FormGroup {
@@ -137,6 +139,10 @@ export class AddServiceComponent implements OnInit {
     return this.addServiceForm.get('addServiceDevelopment') as FormArray;
   }
 
+  get userId() {
+    return this.addServiceForm.get('userId');
+  }
+
   showModal() {
     this.isShowModal = !this.isShowModal;
   }
@@ -164,11 +170,20 @@ export class AddServiceComponent implements OnInit {
     // console.log(this.isShowGallery);
   }
 
-  hideGallery() {
-    console.log(this.isShowGallery);
-    // this.isShowGallery = false;
-    console.log(this.isShowGallery);
+  stopClickOuside(e: any) {
+    if(this.isShowGallery == false) {
+      e.stopPropagation()
+    }
+    else {
+      this.isShowGallery = true;
+    }
   }
+
+  // hideGallery() {
+    
+  //   this.isShowGallery = true;
+  //   console.log(this.isShowGallery);
+  // }
 
   // changeDisplayDialogOfGallery() {
   //   console.log(this.dialogOfGalleryStyle);
@@ -219,27 +234,50 @@ export class AddServiceComponent implements OnInit {
     });
   }
 
+  imagesFile: File[];
+  onFileChainge(e: any) {
+    if(e.target.files.length > 0)
+      this.imagesFile = e.target.files;
+
+      this.uploadFile(this.imagesFile);
+      this.isShowGallery = false;
+  }
+
+  // onSubmit() {
+    
+  // }
+
   addService(): void {
     console.log(this.service);
-    
-    console.log(this.subCategoryId);
-    
-    const serviceGallery = {
-      // localImage: this.response.dbPath
-    };
-    const data = <IService>{
-      title: this.title?.value,
-      subCategoryId: this.subCategoryId?.value,
-      description: this.description?.value,
-      // serviceGallery: serviceGallery,
-      keywords: this.keywords?.value,
-      duration: this.duration?.value,
-      instructionsToBuyer: this.InstructionsToBuyer?.value,
-      serviceDevelopmentsVM: this.addServiceDevelopment.value,
-      userID: '32kjkjkls;jdf',
-    };
+    var imagesName: LocalImage[] = []
+    for (let i = 0; i < this.imagesFile.length; i++) {
+      // imagesName.push(<LocalImage>{dbPath: this.imagesFile[i].name })
+      console.log(this.imagesFile[i].name);
+      
+    }
 
-    this.service.addService(data).subscribe(
+    
+    // console.log(this.subCategoryId);
+    
+    this.serviceGallery?.patchValue({
+      localImage: imagesName,      
+    });
+
+    this.userId?.patchValue('32kjkjkls;jdf');
+
+    // const data = <IService>{
+    //   title: this.title?.value,
+    //   subCategoryId: this.subCategoryId?.value,
+    //   description: this.description?.value,
+    //   serviceGallery: this.serviceGallery,
+    //   keywords: this.keywords?.value,
+    //   duration: this.duration?.value,
+    //   instructionsToBuyer: this.InstructionsToBuyer?.value,
+    //   serviceDevelopmentsVM: this.addServiceDevelopment.value,
+    //   userID: '32kjkjkls;jdf',
+    // };
+
+    this.service.addService(this.addServiceForm.value).subscribe(
       (data) => {
         console.log(data);
         this.router.navigate(['']);
@@ -248,16 +286,16 @@ export class AddServiceComponent implements OnInit {
     );
   }
 
-  createImgPath(serverPath: string) {
-    return `http://localhost:21491/${serverPath}`;
+  createImgPath(name: string) {
+    return `http://localhost:21491/StaticFiles/Images/${name}`;
   }
 
   images: any[];
   message: string;
   uploadFile(files: any) {
-      if (files.length === 0) {
-        return;
-      }
+      // if (files.length === 0) {
+      //   return;
+      // }
 
       this.isShowImgItem = true;
       // console.log(files);
@@ -279,18 +317,18 @@ export class AddServiceComponent implements OnInit {
         .subscribe(event => {
           // if (event.type === HttpEventType.UploadProgress)
           //   this.progress = Math.round(100 * event.loaded / event.total!);
-          if (event.type === HttpEventType.Response) {
-            this.message = 'Upload success.';
-            // this.onUploadFinished.emit(event.body);
-            console.log(this.message);
-            console.log('event-body' + event.body);
-          
-          }
+          // if (event.type === HttpEventType.Response) {
+          //   this.message = 'Upload success.';
+          //   // this.onUploadFinished.emit(event.body);
+          //   console.log(this.message);
+          //   console.log('event-body' + event.body);
+          // }
+
         });
     }
 
-  uploadFinished(event: any) {
-    this.response = event;
-    console.log(event);
-  }
+  // uploadFinished(event: any) {
+  //   this.response = event;
+  //   console.log(event);
+  // }
 }

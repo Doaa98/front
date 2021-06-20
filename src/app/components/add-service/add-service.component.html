@@ -235,7 +235,7 @@
 
                     <div
                     *ngIf="isShowGallery"
-                    (clickOutside)="hideGallery()"
+                    (clickOutside)="stopClickOuside($event)"
                     id="service_gallery_dialog"
                     class="dialog"
                     style="
@@ -343,7 +343,7 @@
                             height: 0px;
                             width: 0px;
                           "
-                          (change)="uploadFile(ImgUpload.files)"
+                          (change)="onFileChainge($event)"
                           #ImgUpload
                           formControlName="file"
                         />
@@ -358,7 +358,7 @@
                                         selected-image
                                         dz-preview dz-image-preview
                                       "
-                                      *ngFor='let img of images let i = index'
+                                      *ngFor='let img of imagesFile let i = index'
                                     >
                                       <div class="o-media">
                                         <div
@@ -368,9 +368,10 @@
                                           "
                                         >
                                           <img
+                                            class="imgPath"
                                             data-dz-thumbnail=""
                                             alt="1615720214011.jpg"
-                                            [src]="img"
+                                            [src]="createImgPath(img.name)"
                                           />
                                         </div>
                                         <div
