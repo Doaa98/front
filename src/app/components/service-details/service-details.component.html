@@ -51,7 +51,7 @@
                   class="fa fa-caret-down"></i></a>
               <div id="jq-dropdown" class="jq-dropdown jq-dropdown-tip" style="display: block; top: 124px;" *ngIf="isDropdown">
                 <ul class="jq-dropdown-menu">
-                  <li style="display: block;position: relative;"><a [routerLink]="['/message/new','serId:{{service.id}}' ,userId:{{service.userId}}]" routerLinkActive="router-link-active"  style="display: block;"><i class="fa fa-fw fa-envelope"></i> تواصل مع البائع</a></li>
+                  <li style="display: block;position: relative;"><a [routerLink]="['/message/new','service.id' ,service.userId]" routerLinkActive="router-link-active"  style="display: block;"><i class="fa fa-fw fa-envelope"></i> تواصل مع البائع</a></li>
                   <li><a id="add_to_collection" href="#"><i class="fa fa-briefcase fa-fw"></i> أضف الى مجموعة</a></li>
                 </ul>
               </div>
@@ -78,7 +78,7 @@
         <div id="jq-dropdown-mobile" class="jq-dropdown jq-dropdown-tip" style="display: block; top: 213.6px;"
         *ngIf="isDropdown">
           <ul class="jq-dropdown-menu">
-            <li><a [routerLink]="['/message/new',serId:{{service.id}} ,userId:{{service.userId}}]" routerLinkActive="router-link-active" ><i class="fa fa-fw fa-envelope"></i> تواصل مع البائع</a></li>
+            <li><a [routerLink]="['/message/new',service.id ,service.userId]" routerLinkActive="router-link-active" ><i class="fa fa-fw fa-envelope"></i> تواصل مع البائع</a></li>
             <li><a id="add_to_collection" href="#"><i class="fa fa-briefcase fa-fw"></i> أضف الى مجموعة</a></li>
           </ul>
         </div>
