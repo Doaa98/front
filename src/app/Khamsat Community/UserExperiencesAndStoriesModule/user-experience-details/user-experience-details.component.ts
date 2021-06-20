@@ -50,7 +50,7 @@ export class UserExperienceDetailsComponent implements OnInit {
       id: 0,
       content: this.content.value,
       date: "2021-06-06T10:41:18.690Z",
-      userID: "1a808256-1fa7-40b1-b3f2-1c3bdb5dd970",
+      userID: "1",
       khamsatcommunityID: this.Id,
     }
     this.KhamsatService.addComment(this.Comment).subscribe(

@@ -51,7 +51,8 @@
                       </td>
 
                       <td class="u-hidden@medium u-hidden@small u-hidden@tiny">
-                        <div class="o-media" *ngIf="item.comment!=null">
+                        <div class="o-media" *ngIf="item.comment!=null;then content else other_content"></div>
+                        <ng-template #content>
                           <div class="o-media__right u-no--margin u-no--padding ">
                             <div class="u-hidden@small">
                               <a href="">
@@ -71,7 +72,27 @@
                               </li>
                             </ul>
                           </div>
-                        </div>
+                        </ng-template>
+                        <ng-template #other_content>
+                          <div class="o-media__right u-no--margin u-no--padding ">
+                            <div class="u-hidden@small">
+                              <a href="">
+                                <img class="u-circle img-thumbnail img--medium" src="{{item.image}}" alt="UserImg">
+                              </a>
+                            </div>
+                          </div>
+                          <div class="o-media__body u-padding-right">
+                            <h3 class="details-head">
+                              <a class="user" href="">{{item.fullName}}</a>
+
+                            </h3>
+                            <ul class="details-list">
+                              <li>
+                                <span><i class="fa fa-fw fa-clock-o"></i> {{item.date}}</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </ng-template>
                       </td>
                     </tr>
 
