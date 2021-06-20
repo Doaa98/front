@@ -1,5 +1,10 @@
-import { HttpEventType } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import {
+  HttpClient,
+  HttpEventType,
+  HttpHeaders,
+  HttpResponse,
+} from '@angular/common/http';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ICategory } from 'src/app/models/ICategory';
@@ -15,7 +20,6 @@ import { IService } from '../../models/IService';
   styleUrls: ['./add-service.component.css'],
 })
 export class AddServiceComponent implements OnInit {
-
   isShowModal: boolean = false;
   isCategoryChanged: boolean = false;
   isShowGallery: boolean = false;
@@ -25,7 +29,6 @@ export class AddServiceComponent implements OnInit {
   isShowImgItem: boolean = false;
   isShowUploadImgBtn: boolean = false;
   isShowDurationOfServiceDev: boolean = true;
-  
 
   serviceDevStyle = 'none';
   durationOfServiceDevStyle = 'inline';
@@ -34,13 +37,17 @@ export class AddServiceComponent implements OnInit {
   subCategoryListLoaded: ISubCategory[] = [];
   selectedSubCategoryList: ISubCategory[] = [];
   progress: number = 0;
-  
+  public response: {dbPath: ''};
+
+
+
   constructor(
     private service: ServiceService,
     private categoryService: CategoryService,
     private subCategoryService: SubCategoryService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
@@ -53,31 +60,16 @@ export class AddServiceComponent implements OnInit {
     });
   }
 
-  // service:IService ={
-  //   description:"",
-  //   title:"",
-  //   duration:0,
-  //   id:0,
-  //   images:"",
-  //   instructionsToBuyer:"",
-  //   keywords:"",
-  //   subCategoryName:"",
-  //   userID:"",
-  //   serviceDevelopmentsVM:[]
-
-  // }
-
-  
-
   addServiceForm = this.fb.group({
     title: [''],
-    subCategoryName: [''],
+    subCategoryId: [''],
     description: [''],
 
     serviceGallery: this.fb.group({
-      localImage: this.fb.array([]),
-      urlImage: this.fb.array([]),
-      urlYoutube: this.fb.array([]),
+      file: [''],
+      localImage: [''],
+      urlImage: [''],
+      urlYoutube: [''],
     }),
 
     keywords: [''],
@@ -93,7 +85,7 @@ export class AddServiceComponent implements OnInit {
       price: [0],
       isIncreaseDuration: [true],
       duration: [0],
-      serviceId: [0],
+      // serviceId: [0],
     });
   }
 
@@ -101,12 +93,16 @@ export class AddServiceComponent implements OnInit {
     return this.addServiceForm.get('title');
   }
 
-  get subCategoryName() {
-    return this.addServiceForm.get('subCategoryName');
+  get subCategoryId() {
+    return this.addServiceForm.get('subCategoryId');
   }
 
   get description() {
     return this.addServiceForm.get('description');
+  }
+
+  get serviceGallery() {
+    return this.addServiceForm.get('serviceGallery');
   }
 
   get localImage() {
@@ -114,11 +110,15 @@ export class AddServiceComponent implements OnInit {
   }
 
   get urlImage() {
-    return this.addServiceForm['controls'].serviceGallery.get('urlImage');
+    return this.addServiceForm['controls'].serviceGallery.get(
+      'urlImage'
+    ) as FormArray;
   }
 
-  get youtubeVideo() {
-    return this.addServiceForm['controls'].serviceGallery.get('youtubeVideo');
+  get urlYoutube() {
+    return this.addServiceForm['controls'].serviceGallery.get(
+      'urlYoutube'
+    ) as FormArray;
   }
 
   get keywords() {
@@ -156,28 +156,23 @@ export class AddServiceComponent implements OnInit {
   }
 
   showGallery() {
-    console.log(this.isShowGallery);
     // if(this.isShowGallery = false)
-      this.isShowGallery = true;
-    // else 
+    this.isShowGallery = true;
+    // else
     // this.isShowGallery = false;
 
     // console.log(this.isShowGallery);
-
-
-      
   }
 
   hideGallery() {
     console.log(this.isShowGallery);
     // this.isShowGallery = false;
     console.log(this.isShowGallery);
-
   }
 
   // changeDisplayDialogOfGallery() {
   //   console.log(this.dialogOfGalleryStyle);
-    
+
   //   this.dialogOfGalleryStyle = 'none';
 
   //   console.log(this.dialogOfGalleryStyle);
@@ -207,10 +202,8 @@ export class AddServiceComponent implements OnInit {
   }
 
   addNewServiceDevelopment() {
-    if(this.serviceDevStyle == 'none')
-      this.serviceDevStyle = 'block';
-    else 
-      this.addServiceDevelopment.push(this.createServiceDevelopment());
+    if (this.serviceDevStyle == 'none') this.serviceDevStyle = 'block';
+    else this.addServiceDevelopment.push(this.createServiceDevelopment());
   }
   removeServiceDevelopment(index: number) {
     this.addServiceDevelopment.removeAt(index);
@@ -218,45 +211,86 @@ export class AddServiceComponent implements OnInit {
 
   changeDisplayDurationOfServiceDev(i: number) {
     const formGroup = this.addServiceDevelopment.controls[i] as FormGroup;
-    formGroup.controls['isIncreaseDuration'].valueChanges.subscribe(value => {
-        console.log(value);
-        if(formGroup.controls['isIncreaseDuration'].value == 'false')
-          this.isShowDurationOfServiceDev = false;
-        else 
-        this.isShowDurationOfServiceDev = true;
+    formGroup.controls['isIncreaseDuration'].valueChanges.subscribe((value) => {
+      console.log(value);
+      if (formGroup.controls['isIncreaseDuration'].value == 'false')
+        this.isShowDurationOfServiceDev = false;
+      else this.isShowDurationOfServiceDev = true;
     });
-     
   }
-  // addService() {
-  //   console.log(this.service)
-  //   this.serService.addService(this.service)
 
-  //     .subscribe(
-  //       data =>{ console.log(data);
-  //        // this.router.navigateByUrl("")
-  //       },
-  //       err => console.log(err)
-  //     )
-  // }
-
-
-  change(e: any) {
-    console.log(e.target.value);
+  addService(): void {
+    console.log(this.service);
     
+    console.log(this.subCategoryId);
+    
+    const serviceGallery = {
+      // localImage: this.response.dbPath
+    };
+    const data = <IService>{
+      title: this.title?.value,
+      subCategoryId: this.subCategoryId?.value,
+      description: this.description?.value,
+      // serviceGallery: serviceGallery,
+      keywords: this.keywords?.value,
+      duration: this.duration?.value,
+      instructionsToBuyer: this.InstructionsToBuyer?.value,
+      serviceDevelopmentsVM: this.addServiceDevelopment.value,
+      userID: '32kjkjkls;jdf',
+    };
+
+    this.service.addService(data).subscribe(
+      (data) => {
+        console.log(data);
+        this.router.navigate(['']);
+      },
+      (err) => console.log(err)
+    );
   }
 
+  createImgPath(serverPath: string) {
+    return `http://localhost:21491/${serverPath}`;
+  }
 
-
+  images: any[];
+  message: string;
   uploadFile(files: any) {
-    this.service.uploadImgs(files).subscribe(event => {
-          if (event.type === HttpEventType.UploadProgress)
-            this.progress = Math.round(100 * event.loaded / event.total!);
-          else if (event.type === HttpEventType.Response) {
-            // this.message = 'Upload success.';
+      if (files.length === 0) {
+        return;
+      }
+
+      this.isShowImgItem = true;
+      // console.log(files);
+
+      const formData = new FormData();
+
+      this.images = files;
+
+      Array.from(this.images).map((file, index) => {
+        return formData.append('file'+index, file, file.name);
+      });
+
+        // const headers = new HttpHeaders({
+        //   'Content-Type': 'application/json',
+        //   'Authorization': 'my-auth-token'
+        // });
+
+      this.http.post('http://localhost:21491/api/Upload', formData, {reportProgress: true, observe: 'events'})
+        .subscribe(event => {
+          // if (event.type === HttpEventType.UploadProgress)
+          //   this.progress = Math.round(100 * event.loaded / event.total!);
+          if (event.type === HttpEventType.Response) {
+            this.message = 'Upload success.';
             // this.onUploadFinished.emit(event.body);
+            console.log(this.message);
+            console.log('event-body' + event.body);
+          
           }
         });
     }
 
-
+  uploadFinished(event: any) {
+    this.response = event;
+    console.log(event);
+  }
 }

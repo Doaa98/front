@@ -87,21 +87,22 @@ export class ServiceService {
     );
   }
 
-  uploadImgs(files: any): Observable<HttpEvent<Object>> {
-    if (files.length !== 0) {
-      return new Observable();
-    }
+  // uploadImgs(files: any): Observable<HttpEvent<Object>> {
+  //   if (files.length !== 0) {
+  //     return;
+  //   }
 
-    let filesToUpload: File[] = files;
-    const formData = new FormData();
+  //   let filesToUpload: File[] = files;
+  //   const formData = new FormData();
 
-    Array.from(filesToUpload).map((file, index) => {
-      return formData.append('file' + index, file, file.name);
-    });
+  //   Array.from(filesToUpload).map((file, index) => {
+  //     return formData.append('file' + index, file, file.name);
+  //   });
 
-    return this.http.post('https://localhost:5001/api/upload', formData, {
-      reportProgress: true,
-      observe: 'events',
-    });
-  }
+  //   return this.http.post('https://localhost:5001/api/upload', formData, {
+  //     reportProgress: true,
+  //     observe: 'events',
+  //   });
+  // }
+  
 }

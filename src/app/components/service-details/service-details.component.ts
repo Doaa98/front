@@ -23,10 +23,9 @@ export class ServiceDetailsComponent implements OnInit {
     title: '',
     duration: 0,
     id: 0,
-    images: '',
     instructionsToBuyer: '',
     keywords: '',
-    subCategoryName: '',
+    subCategoryId: 0,
     userID: '',
     serviceDevelopmentsVM: [],
   };
@@ -55,7 +54,7 @@ export class ServiceDetailsComponent implements OnInit {
         console.log(data);
         this.keyWords = this.service.keywords.split(',');
         this.rateService
-          .getServiceRates(this.service.id)
+          .getServiceRates(this.serviceId)
           .subscribe((data) => (this.rates = data));
       },
       (err) => console.log(err)

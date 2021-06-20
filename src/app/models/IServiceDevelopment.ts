@@ -7,8 +7,8 @@ export interface IServiceDevelopment {
 
     isThatIncreaseDuration:boolean
 
-    NewDuration:number
+    duration:number
    
-    ServiceID:number
+    ServiceID?:number
 
 }
