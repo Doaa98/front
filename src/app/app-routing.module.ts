@@ -8,20 +8,28 @@ import { SubCategoryServiceListComponent } from './components/sub-category-servi
 import { HomeComponent } from './components/home/home.component';
 import { CartComponent } from './components/cart/cart.component';
 import { NotificationComponent } from './components/notification/notification.component';
+import { MessagesComponent } from './components/message/messages/messages.component';
+import { MessageComponent } from './components/message/message/message.component';
+import { NewChatComponent } from './components/message/new-chat/new-chat.component';
 
 const routes: Routes = [
   {
-    path:'ModelImplementd',component:ModelsImplementedComponent
+    path: 'ModelImplementd', component: ModelsImplementedComponent
   },
   {
-  path:'NewModel',component:AddnewModelImplementedComponent
-  }, 
+    path: 'NewModel', component: AddnewModelImplementedComponent
+  },
   { path: 'cart', component: CartComponent },
   { path: 'service/new', component: NewServiceComponent },
   { path: 'service/Details/:id', component: ServiceDetailsComponent },
   { path: 'SubCategory/:id', component: SubCategoryServiceListComponent },
   { path: 'Category/:catId', component: SubCategoryServiceListComponent },
   { path: 'notifications', component: NotificationComponent },
+  { path: 'message/new', component: NewChatComponent },
+
+  { path: 'messages', component: MessagesComponent },
+  { path: 'message/:ChatId', component: MessageComponent },
+  { path: 'message/new', component: NewChatComponent },
   { path: '', component: HomeComponent }
 ];
 

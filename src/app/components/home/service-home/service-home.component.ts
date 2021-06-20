@@ -17,7 +17,6 @@ export class ServiceHomeComponent implements OnInit {
   ngOnInit(): void {
     this.catService.getAllCategories().subscribe(
       data => { this.CatList = data;
-      
       for (let index = 0; index < this.CatList.length; index++) {
         
         this.serService.getCatServices(this.CatList[index].id)

@@ -37,6 +37,8 @@ export class ServiceDetailsComponent implements OnInit {
 
   keyWords: string[] = [];
 
+  isDropdown =false;
+
   constructor(private serService: ServiceService, private router: Router
     , private activatedroute: ActivatedRoute
     , private rateService: RateService
@@ -94,6 +96,10 @@ export class ServiceDetailsComponent implements OnInit {
   cancelClick() {
     this.alertModel.nativeElement.style.display = "none"
 
+  }
+
+  DropdownToggle(){
+    this.isDropdown = !this.isDropdown
   }
 
 }

@@ -24,6 +24,9 @@ import { ServiceHomeComponent } from './components/home/service-home/service-hom
 import { CartComponent } from './components/cart/cart.component';
 import { CustomDatePipe } from './Pipe/custom-date.pipe';
 import { NotificationComponent } from './components/notification/notification.component';
+import { MessagesComponent } from './components/message/messages/messages.component';
+import { MessageComponent } from './components/message/message/message.component';
+import { NewChatComponent } from './components/message/new-chat/new-chat.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,10 @@ import { NotificationComponent } from './components/notification/notification.co
     ServiceHomeComponent,
     CartComponent,
     CustomDatePipe,
-    NotificationComponent
+    NotificationComponent,
+    MessagesComponent,
+    MessageComponent,
+    NewChatComponent
     ],
   imports: [
     FormsModule,

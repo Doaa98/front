@@ -35,3 +35,13 @@
     text-decoration: none;
     cursor: pointer;
   }
+
+  .jq-dropdown .jq-dropdown-menu li>a, .jq-dropdown .jq-dropdown-menu label {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    line-height: 18px;
+    padding: 5px 14px;
+    margin: 0;
+    white-space: nowrap;
+}

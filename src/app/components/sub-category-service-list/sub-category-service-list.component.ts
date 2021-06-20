@@ -32,7 +32,6 @@ export class SubCategoryServiceListComponent implements OnInit {
     this.activatedroute.params.subscribe(data => {
       this.subCatId = data.id;
       this.CatId = data.catId;
-      console.log(data)
     })
 
 
