@@ -15,29 +15,17 @@ import { CartComponent } from './components/cart/cart.component';
 import { ServiceDetailsComponent } from './components/service-details/service-details.component';
 import { AddServiceComponent } from './components/add-service/add-service.component';
 import { ClickOutsideModule } from 'ng-click-outside';
-import { AboutKhamsatComponent } from './components/Khamsat Community/AboutKhamsatModule/about-khamsat/about-khamsat.component';
-import { NotFoundServiceComponent } from './components/Khamsat Community/NotFoundServiceModule/not-found-service/not-found-service.component';
-import { ModelsImplementedComponent } from './components/Khamsat Community/Business models implemented/models-implemented/models-implemented.component';
-import { UserExperiencesAndStoriesComponent } from './components/Khamsat Community/UserExperiencesAndStoriesModule/user-experiences-and-stories/user-experiences-and-stories.component';
-import { AddnewSubjectComponent } from './components/Khamsat Community/AboutKhamsatModule/addnew-subject/addnew-subject.component';
-import { AddnewNotFoundServiceComponent } from './components/Khamsat Community/NotFoundServiceModule/addnew-not-found-service/addnew-not-found-service.component';
-import { AddnewUserExperienceComponent } from './components/Khamsat Community/UserExperiencesAndStoriesModule/addnew-user-experience/addnew-user-experience.component';
-import { AboutKhamsatDetailsComponent } from './Khamsat Community/AboutKhamsatModule/about-khamsat-details/about-khamsat-details.component';
-import { ModelsImplementedDetailsComponent } from './Khamsat Community/Business models implemented/models-implemented-details/models-implemented-details.component';
-import { AServiceDetailsComponent } from './Khamsat Community/NotFoundServiceModule/aservice-details/aservice-details.component';
-import { UserExperienceDetailsComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/user-experience-details/user-experience-details.component';
-import { AddnewModelImplementedComponent } from './components/Khamsat Community/Business models implemented/addnew-model-implemented/addnew-model-implemented.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AboutKhamsatComponent,
-    NotFoundServiceComponent,
-    ModelsImplementedComponent,
-    UserExperiencesAndStoriesComponent,
-    AddnewSubjectComponent,
-    AddnewUserExperienceComponent,
-    AddnewNotFoundServiceComponent,
+    // AboutKhamsatComponent,
+    // NotFoundServiceComponent,
+    // ModelsImplementedComponent,
+    // UserExperiencesAndStoriesComponent,
+    // AddnewSubjectComponent,
+    // AddnewUserExperienceComponent,
+    // AddnewNotFoundServiceComponent,
     ServiceDetailsComponent,
     SubCategoryServiceListComponent,
     HeaderComponent,
@@ -50,11 +38,12 @@ import { AddnewModelImplementedComponent } from './components/Khamsat Community/
     AddServiceComponent,
     AddServiceComponent,
     ServiceDetailsComponent,
-    AboutKhamsatDetailsComponent,
-    ModelsImplementedDetailsComponent,
-    AServiceDetailsComponent,
-    UserExperienceDetailsComponent,
-    AddnewModelImplementedComponent
+  
+    // AboutKhamsatDetailsComponent,
+    // ModelsImplementedDetailsComponent,
+    // AServiceDetailsComponent,
+    // UserExperienceDetailsComponent,
+    // AddnewModelImplementedComponent
   ],
   imports: [
     FormsModule,

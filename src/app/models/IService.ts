@@ -1,16 +1,16 @@
 import { IServiceDevelopment } from "./IServiceDevelopment";
+import { IServiceGallery } from "./IServiceGallery";
 
 export interface IService {
-    
-    id:number
+    id?:number,
 
     title:string
 
-    subCategoryName:string
+    subCategoryId:number
 
     description:string
 
-    images:string
+    seriveGallery?: IServiceGallery
 
     keywords:string
 
@@ -18,7 +18,7 @@ export interface IService {
 
     instructionsToBuyer:string
 
-    serviceDevelopmentsVM:IServiceDevelopment[]
+    serviceDevelopmentsVM?: IServiceDevelopment[]
     
     userID:string
 
