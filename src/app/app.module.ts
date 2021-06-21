@@ -1,5 +1,7 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +16,9 @@ import { AddnewUserExperienceComponent } from './Khamsat Community/UserExperienc
 import { UserExperiencesAndStoriesComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/user-experiences-and-stories/user-experiences-and-stories.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { KhamsatDotComComponent } from './khamsat-dot-com/khamsat-dot-com.component';
+import { HsoubHeaderComponent } from './hsoub-header/hsoub-header.component';
 
 @NgModule({
   declarations: [
@@ -28,15 +33,21 @@ import { LoginComponent } from './login/login.component';
     AddnewUserExperienceComponent,
     RegisterComponent,
     LoginComponent,
+    KhamsatDotComComponent,
+    HsoubHeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
-    HttpClientModule
+    BrowserAnimationsModule,
+    BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   loading = false;
   submitted = false;
   error = '';
+  isAside:boolean=false;
   constructor(private formBuilder: FormBuilder,
     private _route: ActivatedRoute,
     private _router: Router,
@@ -31,6 +32,10 @@ export class RegisterComponent implements OnInit {
       password: ['', Validators.required],
 
     });
+  }
+  AsideToggle()
+  {
+      this.isAside=!this.isAside;
   }
   get formFields() { return this.registerForm.controls; }
 
@@ -51,8 +56,8 @@ export class RegisterComponent implements OnInit {
       username: this.formFields.username.value,
       email: this.formFields.email.value,
       passwordHash: this.formFields.password.value,
-
     }
+
     this._registerService.addNewUser(newUser)
       .pipe(first())
       .subscribe(

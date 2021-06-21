@@ -29,12 +29,15 @@
       crossorigin="anonymous"
     ></script>
 
+
    </head>
     <body class="body">
-      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-        <div class="container-xxl">
+      <app-hsoub-header></app-hsoub-header>
+        <div class="container-xxl" >
         <div class="page">
           <div class="container">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
             <div class="page-box row">
               <div class="right col-lg-7">
                 <p class="title">إنشاء حساب جديد</p>
@@ -228,14 +231,14 @@
 
               </div>
             </div>
+            <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+
+          </form>
           </div>
         </div>
       </div>
-      <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
 
-      </form>
     </body>
 </html>
-<router-outlet></router-outlet>
 
 

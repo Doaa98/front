@@ -3,7 +3,7 @@
 .body {background-color: #ECEFF4; direction:rtl; text-align:right}
 i {font-size: 30px;}
 
-.page {margin: 100px 0px;}
+.page {margin: 100px 50px;}
 .page .page-box {background-color: #fff;}
 .page .page-box .right, .page .page-box .left {padding: 50px;}
 
@@ -32,3 +32,22 @@ i {font-size: 30px;}
 .page .page-box .left ul li .photo-7 {background-color: #2EB8D7;}
 .page .page-box .left ul li .photo-8 {background-color: #F26A38;}
 .page .page-box .left ul li .photo-9 {background-color: #6B7685;}
+
+.aside-toggle
+{
+  transform:translateX(0px);
+  transform:translate3d(0px,0,0);
+  transition: transform 0.25s;
+}
+.sidebar-active
+{
+  -ms-transform: translateX(-220px);
+  transform:translate3d(-220px,0,0);
+  overflow: hidden;
+
+
+}
+
+
+
+

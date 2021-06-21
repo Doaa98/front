@@ -73,16 +73,20 @@
                   </div>
 
                   <div class="col-md-12 mt-4">
-                    <label for="password">كلمة المرور</label>
-                    <input type="password" formControlName="password" name="password"
+                    <label for="passwordHash">كلمة المرور</label>
+                    <input type="password" formControlName="passwordHash" name="passwordHash"
                     class="form-control" placeholder="أدخل كلمة المرور الخاصة بك"
-                    [class.is-invalid]="formFields.password?.invalid && formFields.password?.touched">
-                    <div *ngIf="formFields.password?.invalid && formFields.password?.touched">
-                        <small class="text-danger" *ngIf="formFields.password?.errors.required">كلمة المرور مطلوبة</small>
+                    [class.is-invalid]="formFields.passwordHash?.invalid && formFields.passwordHash?.touched">
+                    <div *ngIf="formFields.passwordHash?.invalid && formFields.passwordHash?.touched">
+                        <small class="text-danger" *ngIf="formFields.passwordHash?.errors.required">كلمة المرور مطلوبة</small>
                     </div>
                   </div>
+                  <button class="col-sm-3 btn btn-info mt-4 mr-3"
+                  [disabled]="loading">
+                  <span *ngIf="loading"
+                   class="spinner-border spinner-border-sm mr-1"></span>
 
-                  <a class="col-sm-3 btn btn-info mt-4 mr-3">الدخول</a>
+                   الدخول</button>
 
                 </div>
 

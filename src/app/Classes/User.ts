@@ -2,7 +2,9 @@ export class User {
   id: number;
   username: string;
   email: string;
-  password: string;
-  authdata?: string;
+  passwordHash: string;
+  // authdata?: string;
+  token?: string;
+
 
 }

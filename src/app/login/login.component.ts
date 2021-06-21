@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs/operators';
+import { AuthenticationService } from 'src/Services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -20,17 +22,18 @@ export class LoginComponent implements OnInit {
       private router: Router,
       private authenticationService: AuthenticationService
   ) {
+    //      redirect to home if already logged in
+  //   if (this.authenticationService.currentUserValue) {
+  //     this.router.navigate(['/']);
+  // }
 
   }
 
   ngOnInit() {
-      //redirect to home if already logged in
-      if (this.authenticationService.isLoggedIn()) {
-        this.router.navigate(['/']);
-        }
+
       this.loginForm = this.formBuilder.group({
           email: ['', Validators.required],
-          password: ['', Validators.required]
+          passwordHash: ['', Validators.required]
       });
 
       // get return url from route parameters or default to '/'
@@ -41,24 +44,50 @@ export class LoginComponent implements OnInit {
   get formFields() { return this.loginForm.controls; }
 
   onSubmit() {
-      this.submitted = true;
+    this.submitted = true;
 
-      // stop here if form is invalid
-      if (this.loginForm.invalid) {
-          return;
-      }
+    // stop here if form is invalid
+    if (this.loginForm.invalid) {
+        return;
+    }
 
-      this.loading = true;
-      this.authenticationService.login(this.formFields.username.value, this.formFields.password.value)
-          .pipe(first())
-          .subscribe(
-              data => {
-                  this.router.navigate([this.returnUrl]);
-              },
-              error => {
-                  this.error = error;
-                  this.loading = false;
-              });
-  }
+    this.loading = true;
+    this.authenticationService.login(this.formFields.email.value, this.formFields.passwordHash.value)
+        .pipe(first())
+        .subscribe({
+            next: () => {
+                // get return url from route parameters or default to '/'
+                const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+                this.router.navigate([returnUrl]);
+            },
+            error: error => {
+                this.error = error;
+                this.loading = false;
+            }
+        });
+}
+
+  // onSubmit() {
+  //     this.submitted = true;
+
+  //     // stop here if form is invalid
+  //     if (this.loginForm.invalid) {
+  //         return;
+  //     }
+
+  //     this.loading = true;
+  //     this.authenticationService.login(this.formFields.email.value, this.formFields.password.value)
+  //         .pipe(first())
+  //         .subscribe(
+  //             data => {
+  //               alert("Succesfully Login")
+
+  //                 this.router.navigate([this.returnUrl]);
+  //             },
+  //             error => {
+  //                 this.error = error;
+  //                 this.loading = false;
+  //             });
+  // }
 }
 

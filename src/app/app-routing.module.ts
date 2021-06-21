@@ -6,21 +6,16 @@ import { AddnewModelImplementedComponent } from './Khamsat Community/Business mo
 import { ModelsImplementedComponent } from './Khamsat Community/Business models implemented/models-implemented/models-implemented.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { KhamsatDotComComponent } from './khamsat-dot-com/khamsat-dot-com.component';
+import { HsoubHeaderComponent } from './hsoub-header/hsoub-header.component';
 
 const routes: Routes = [
-  // {
-  //   path:'ModelImplementd',component:ModelsImplementedComponent
-  // },
-  // {
-  // path:'NewModel',component:AddnewModelImplementedComponent
-  // },
-  // {
-  //   path:'aboutKhamsat',component:AboutKhamsatComponent
-  // },
-  {
-    path:'register',component:RegisterComponent
-  },
+
+  {path: '', component: KhamsatDotComComponent},
+
+  {path:'register',component:RegisterComponent},
   {path:'login', component: LoginComponent},
+  {path:'head',component:HsoubHeaderComponent}
 
 ];
 
