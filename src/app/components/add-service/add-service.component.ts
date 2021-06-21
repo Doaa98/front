@@ -67,7 +67,6 @@ export class AddServiceComponent implements OnInit {
     description: [''],
 
     serviceGallery: this.fb.group({
-      file: [''],
       localImage: [''],
       urlImage: [''],
       urlYoutube: [''],
@@ -274,7 +273,7 @@ export class AddServiceComponent implements OnInit {
        duration: this.duration?.value,
        instructionsToBuyer: this.InstructionsToBuyer?.value,
        serviceDevelopmentsVM: this.addServiceDevelopment.value,
-       userID: 'qq',
+       userID: '32kjkjkls;jdf',
      };
 
     this.service.addService(data).subscribe(
@@ -313,8 +312,8 @@ export class AddServiceComponent implements OnInit {
         //   'Authorization': 'my-auth-token'
         // });
 
-      this.http.post('http://localhost:21491/api/Upload', formData, {reportProgress: true, observe: 'events'})
-        .subscribe(event => {
+      this.http.post('http://localhost:21491/api/Upload', formData, {reportProgress: true, observe: 'events'});
+       // .subscribe(event => {
           // if (event.type === HttpEventType.UploadProgress)
           //   this.progress = Math.round(100 * event.loaded / event.total!);
           // if (event.type === HttpEventType.Response) {
@@ -324,7 +323,7 @@ export class AddServiceComponent implements OnInit {
           //   console.log('event-body' + event.body);
           // }
 
-        });
+        // });
     }
 
   // uploadFinished(event: any) {

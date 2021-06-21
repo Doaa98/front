@@ -345,7 +345,7 @@
                           "
                           (change)="onFileChainge($event)"
                           #ImgUpload
-                          formControlName="file"
+                          formControlName="localImage"
                         />
 
                               <div class="dz-default dz-message u-margin-top">
@@ -472,6 +472,7 @@
                                   id="image_url"
                                   class="c-form__control u-text--ltr"
                                   placeholder="رابط الصورة"
+                                  formControlName='urlImage'
                                 />
                               </div>
                               <button
@@ -495,6 +496,7 @@
                                   id="youtube_url"
                                   class="c-form__control u-text--ltr"
                                   placeholder="رابط فيديو يوتيوب"
+                                  formControlName='urlYoutube'
                                 />
                               </div>
                               <button
@@ -755,7 +757,7 @@
                     <label>مدة التسليم:</label>
                     <div class="c-form__select">
                       <select name="in_days" formControlName="duration">
-                        <option value="1">يوم واحد</option>
+                        <option value="1" *ngIf='true'>يوم واحد</option>
                         <option value="2">يومين</option>
                         <option value="3">ثلاثة أيام</option>
                         <option value="4">أربعة أيام</option>
