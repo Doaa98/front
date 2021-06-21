@@ -1,8 +1,8 @@
 export interface IServiceGallery {
     id?: number
-    localImage?: LocalImage[]
-    urlImage?: URLImage[]
-    urlYoutube?: URLYoutube[]
+    type?: number
+    src?: string
+    
 }
 
 

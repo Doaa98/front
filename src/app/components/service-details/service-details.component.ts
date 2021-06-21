@@ -86,4 +86,12 @@ export class ServiceDetailsComponent implements OnInit {
   cancelClick() {
     this.alertModel.nativeElement.style.display = 'none';
   }
+
+  createImgPath(name: string) {
+    if (name != null) {
+          return `http://localhost:21491/StaticFiles/Images/${name}`;
+
+    }
+    else return `https://via.placeholder.com/644x450`
+  }
 }

@@ -77,6 +77,13 @@ export class SubCategoryServiceListComponent implements OnInit {
 
   }
   
+  createImgPath(name: string) {
+    if (name != null) {
+          return `http://localhost:21491/StaticFiles/Images/${name}`;
+
+    }
+    else return `https://via.placeholder.com/200`
+  }
 }
 
 
