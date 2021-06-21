@@ -11,10 +11,17 @@ import { ModelsImplementedDetailsComponent } from './Khamsat Community/Business 
 import { AboutKhamsatDetailsComponent } from './Khamsat Community/AboutKhamsatModule/about-khamsat-details/about-khamsat-details.component';
 import { AServiceDetailsComponent } from './Khamsat Community/NotFoundServiceModule/aservice-details/aservice-details.component';
 import { UserExperienceDetailsComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/user-experience-details/user-experience-details.component';
+import { SubCategoryServiceListComponent } from './components/sub-category-service-list/sub-category-service-list.component';
+import { HomeComponent } from './components/home/home.component';
+import { CartComponent } from './components/cart/cart.component';
+import { NotificationComponent } from './components/notification/notification.component';
+import { MessagesComponent } from './components/message/messages/messages.component';
+import { MessageComponent } from './components/message/message/message.component';
+import { NewChatComponent } from './components/message/new-chat/new-chat.component';
 
 const routes: Routes = [
   {
-    path:'ModelImplementd',component:ModelsImplementedComponent
+    path: 'ModelImplementd', component: ModelsImplementedComponent
   },
   {
     path:'ModelDetails/:id',component:ModelsImplementedDetailsComponent
@@ -42,9 +49,18 @@ const routes: Routes = [
   {
     path:'ExpDetails/:id',component:UserExperienceDetailsComponent
   },
+  { path: 'cart', component: CartComponent },
   { path: 'service/new', component: NewServiceComponent },
-  { path: 'service/Details/:id', component: ServiceDetailsComponent }
+  { path: 'service/Details/:id', component: ServiceDetailsComponent },
+  { path: 'SubCategory/:id', component: SubCategoryServiceListComponent },
+  { path: 'Category/:catId', component: SubCategoryServiceListComponent },
+  { path: 'notifications', component: NotificationComponent },
+  { path: 'message/new', component: NewChatComponent },
 
+  { path: 'messages', component: MessagesComponent },
+  { path: 'message/:ChatId', component: MessageComponent },
+  { path: 'message/new/:id', component: NewChatComponent },
+  { path: '', component: HomeComponent }
 ];
 
 @NgModule({

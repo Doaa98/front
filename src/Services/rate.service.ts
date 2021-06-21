@@ -19,7 +19,7 @@ export class RateService {
  
       return this.http.get<IRate[]>(this.Url+"/Service/"+id )
 
-    };
+    }
 
     
   addRate(rate: IRate) {

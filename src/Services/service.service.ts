@@ -21,6 +21,17 @@ export class ServiceService {
     };
     return this.http.get<Iservice[]>(this.Url , httpOptions)
   }
+
+  getSubCatServices(id:number): Observable<Iservice[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+        // ,'Authorization': 'my-auth-token'
+      })
+    };
+    return this.http.get<Iservice[]>(this.Url +"/cat/"+id, httpOptions)
+  }
+
   getService(id : number): Observable<Iservice> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -50,10 +61,39 @@ export class ServiceService {
 
   }
 
+  getCatServices(id:number): Observable<Iservice[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+        // ,'Authorization': 'my-auth-token'
+      })
+    };
+    return this.http.get<Iservice[]>(this.Url +"/category/"+id, httpOptions)
+  }
 
-  deleteCategory(id:number) {
+  GetPageRecords(pageSize:number , pageNumber:number): Observable<Iservice[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+        // ,'Authorization': 'my-auth-token'
+      })
+    };
+    return this.http.get<Iservice[]>(`${this.Url}/${pageSize}/${pageNumber}`, httpOptions)
+  }
+
+  deleteService(id:number) {
    
     return this.http.delete(`${this.Url}/${id}` )
+  }
+
+  getCatAllServices(id:number): Observable<Iservice[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+        // ,'Authorization': 'my-auth-token'
+      })
+    };
+    return this.http.get<Iservice[]>(this.Url +"/category/All/"+id, httpOptions)
   }
 
 }

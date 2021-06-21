@@ -1,0 +1,145 @@
+<div class="hsoub-container" style="padding: 3%; margin-top: 35px;">
+    <div class="hsoub-content">
+
+
+
+        <div class="o-wrapper ">
+
+            <div class="content inside">
+
+
+                <div class="o-layout o-layout--flex">
+                    <div class="o-layout__item u-12@medium u-12@tiny">
+                    </div>
+
+                    <div class="o-layout__item u-12@tiny">
+
+                        <div class="o-layout__item o-layout o-layout--flex u-no--padding">
+                            <div
+                                class="o-layout__item u-12@large u-12@tiny u-margin-bottom u-no--padding u-margin-top@small">
+                                <h1 class="u-block-inline">
+                                    الرسائل
+                                </h1>
+                                <div class="u-pull--left filter-sort">
+                                    <div class="filter-sort u-pull--left desc_asc_sort" > 
+                                        <a  class="c-button c-button--secondary dropdown-button jq-dropdown-open"
+                                            data-jq-dropdown="#jq-filter-sort" (click)="ToggleDropDown()">
+                                            <span class="text">الأحدث</span>
+                                            <i class="fa fa-caret-down"></i>
+                                        </a>
+                                        <div id="jq-filter-sort" class="jq-dropdown jq-dropdown-tip" *ngIf="isDropdown"
+                                        style="display: block; top: 114px;">
+                                            <ul class="jq-dropdown-menu" >
+                                                <li><a (click)="sortDes()" data-sort="desc" class="filter active">الأحدث</a></li>
+                                                <li><a (click)="sortAsc()" data-sort="asc" class="filter ">الأقدم</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <a href="#"
+                                    class="c-button c-button--primary c-button--ghost js-filter-sidebar-button u-pull--left u-hidden@medium u-hidden@large">
+                                    <i class="fa fa-sliders"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="o-layout o-layout--flex u-margin-bottom@medium u-margin-bottom@small">
+                            <div class="o-layout__item u-3@large u-3@medium u-no--padding">
+                                <div class="js-filter-sidebar-group">
+                                    <div class="filter-back-button u-hidden@medium u-hidden@large">
+                                        <a href="#" class="js-filter-sidebar-button">
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
+                                    </div>
+                                    <div class="c-card">
+                                        <div class="c-card__head">
+                                            <h4 class="main_section_head"><span>نوع الرسالة</span></h4>
+                                        </div>
+                                        <div class="c-card__body">
+                                            <ul class="c-list c-list--vert c-list--filter filters-list  ">
+                                                <li class="c-list__item u-checkbox">
+                                                    <label for="inboxdir_filter">
+                                                        <input type="checkbox" value="inbox" name="dir" [(ngModel)]="showInbox" (change)="toggleInbox()"
+                                                            id="inboxdir_filter" class="filter">
+                                                        <span> الرسائل الواردة </span>
+                                                        <span class="c-badge u-pull--left">{{inboxMsgs.length}}</span>
+                                                    </label>
+                                                </li>
+                                                <li class="c-list__item u-checkbox">
+                                                    <label for="outboxdir_filter">
+                                                        <input type="checkbox" value="outbox" name="dir" [(ngModel)]="showOut" (change)="toggleOutbox()"
+                                                            id="outboxdir_filter" class="filter">
+                                                        <span> الرسائل الصادرة </span>
+                                                        <span class="c-badge u-pull--left">{{outboxMsgs.length}}</span>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="o-layout__item u-9@large u-12@medium u-12@tiny js-page">
+                                <div id="loading" class="hidden filter-loading">
+                                    <p align="center"><img
+                                            src="https://khamsat.hsoubcdn.com/assets/images/loading-b9f326901e161822ce76a37af0f8d0dfb8d2e913ff9782c13eb5d72bbda199c2.gif"
+                                            alt="يرجى الإنتظار">
+                                    </p>
+                                </div>
+                                <div class="c-card" id="messages-card">
+                                    <div class="c-card__body u-no--padding">
+                                        <table id="messages_table">
+                                            <colgroup>
+                                                <col class="u-avatar-col">
+                                                <col width="auto">
+                                            </colgroup>
+                                            <tbody>
+                                                <tr id="message-{{chat.id}}" class="message " *ngFor="let chat of displayMsgs" >
+                                                    <td class="avatar-td u-text--center"><a
+                                                            href="/user/azoooz11111"><img
+                                                                class="u-circle img-thumbnail img--medium"
+                                                                src="https://avatars.hsoubcdn.com/6048019056eea385a42c2b8c697273f4?s=128"></a>
+                                                    </td>
+
+                                                    <td class="details-td" >
+                                                        <h3 class="details-head"><a routerLink="/message/{{chat.id}}">استفسار عن:
+                                                                {{chat.serviceTitle}}</a></h3>
+                                                        <ul class="details-list">
+                                                            <li>
+                                                                <a class="user" href="/user/azoooz11111"><i
+                                                                        class="fa fa-fw fa-user"></i> {{chat.userfullname}}</a>
+                                                            </li>
+                                                            <li>
+                                                                <i class="fa fa-fw fa-clock-o"></i> <span
+                                                                    title="16/06/2021 09:18:39 GMT">{{chat.date |customDate}}</span>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="c-card__footer" style="display: none;">
+                                        <div id="more_content" class="u-text--center">
+                                            <button id="load_more_content" type="button"
+                                                class="c-button c-button--primary c-button--ghost">عرض المزيد</button>
+                                        </div>
+                                    </div>
+                                    <input id="page_url" type="hidden" value="/messages">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div><!--  END o-layout -->
+            </div>
+            <!--  END content -->
+        </div>
+        <!--  END o-wrapper -->
+
+
+    </div>
+</div>

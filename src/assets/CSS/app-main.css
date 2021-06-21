@@ -10146,196 +10146,196 @@ https://flickity.metafizzy.co
   }
   .step__description > .step__description-icon {
     min-height: 123px;
-}
-.step__description > .step__description-icon img {
-  width: 100%;
-  max-width: 49px;
-}
+  }
+  .step__description > .step__description-icon img {
+    width: 100%;
+    max-width: 49px;
+  }
 }
 @media screen and (max-width: 460px) {
-.services .o-layout__item {
-  margin-bottom: 10px;
-}
-.services .o-layout__item:last-child {
-  margin-bottom: 30px;
-}
-.blogger .c-box {
-  margin-bottom: 10px;
-}
+  .services .o-layout__item {
+    margin-bottom: 10px;
+  }
+  .services .o-layout__item:last-child {
+    margin-bottom: 30px;
+  }
+  .blogger .c-box {
+    margin-bottom: 10px;
+  }
 }
 @media (max-width: 360px) {
-.hero__content {
-  padding-top: 77px;
-}
-.step__description > .step__description-icon {
-  min-height: 123px;
-}
+  .hero__content {
+    padding-top: 77px;
+  }
+  .step__description > .step__description-icon {
+    min-height: 123px;
+  }
 }
 .faq__title {
-width: 100%;
-position: relative;
-margin-bottom: 40px;
-text-align: center;
+  width: 100%;
+  position: relative;
+  margin-bottom: 40px;
+  text-align: center;
 }
 .faq__category .faq__title {
-margin-top: 20px;
-margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .faq__category .faq__description p {
-display: block;
-margin-top: 0 !important;
-line-height: 28px;
-font-size: 17px;
+  display: block;
+  margin-top: 0 !important;
+  line-height: 28px;
+  font-size: 17px;
 }
 .faq__title-text {
-font-size: 24px;
-position: relative;
-text-align: center;
-display: inline-block;
-margin: 0;
+  font-size: 24px;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  margin: 0;
 }
 .faq {
-font-family: "Noto Kufi Arabic", "Open Sans", sans-serif;
+  font-family: "Noto Kufi Arabic", "Open Sans", sans-serif;
 }
 .faq__container {
-width: 100%;
-margin: auto;
-padding: 0;
+  width: 100%;
+  margin: auto;
+  padding: 0;
 }
 .faq__container--small .faq__line-head {
-padding: 0 0 0 50px;
+  padding: 0 0 0 50px;
 }
 .faq__container--small .faq__line p,
 .faq__container--small .faq__line-body {
-padding: 15px 0;
+  padding: 15px 0;
 }
 .faq__list {
-padding: 0;
+  padding: 0;
 }
 #faq__list .o-layout__item {
-margin-right: 0;
+  margin-right: 0;
 }
 .faq__container > .clearfix {
-margin-right: -15px;
-margin-left: -15px;
-display: flex;
-flex-flow: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  display: flex;
+  flex-flow: wrap;
 }
 .faq__list .o-layout__item {
-margin-right: 0;
+  margin-right: 0;
 }
 .faq__line {
-width: 100%;
-padding: 0;
-height: 65px;
-overflow: hidden;
-border-bottom: 1px solid #c1c1c1;
+  width: 100%;
+  padding: 0;
+  height: 65px;
+  overflow: hidden;
+  border-bottom: 1px solid #c1c1c1;
 }
 .faq__line:last-child {
-border-bottom: none;
+  border-bottom: none;
 }
 .c-card__body .faq__line {
-border-bottom: 1px solid #eceff4;
+  border-bottom: 1px solid #eceff4;
 }
 .c-card__body .faq__line:last-child {
-border-bottom: none;
+  border-bottom: none;
 }
 .faq__line-head {
-padding-left: 50px;
-width: 100%;
-height: 65px;
-display: flex;
-align-items: center;
-cursor: pointer;
-position: relative;
-font-family: "Noto Kufi Arabic", "Open Sans", sans-serif;
+  padding-left: 50px;
+  width: 100%;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  font-family: "Noto Kufi Arabic", "Open Sans", sans-serif;
 }
 .faq__line p,
 .faq__line-body {
-display: block;
-margin-top: 0 !important;
-line-height: 28px;
-font-size: 17px;
-margin-bottom: 20px;
+  display: block;
+  margin-top: 0 !important;
+  line-height: 28px;
+  font-size: 17px;
+  margin-bottom: 20px;
 }
 .faq__line ul {
-list-style: square;
-list-style-position: inside;
+  list-style: square;
+  list-style-position: inside;
 }
 .faq__line ol {
-list-style-type: decimal;
-list-style-position: inside;
+  list-style-type: decimal;
+  list-style-position: inside;
 }
 .faq__line ul li,
 .faq__line ol li {
-margin: 0 0 10px;
-line-height: 26px;
-font-size: 17px;
-font-family: "Noto Naskh Arabic", "Open Sans", serif;
+  margin: 0 0 10px;
+  line-height: 26px;
+  font-size: 17px;
+  font-family: "Noto Naskh Arabic", "Open Sans", serif;
 }
 .faq__line-element {
-display: block;
-margin-bottom: 18px;
+  display: block;
+  margin-bottom: 18px;
 }
 .active_faq {
-height: auto !important;
+  height: auto !important;
 }
 .active_faq > div i {
--webkit-transform: rotateZ(180deg);
--ms-transform: rotateZ(180deg);
--o-transform: rotateZ(180deg);
--moz-transform: rotateZ(180deg);
-transform: rotateZ(180deg);
+  -webkit-transform: rotateZ(180deg);
+  -ms-transform: rotateZ(180deg);
+  -o-transform: rotateZ(180deg);
+  -moz-transform: rotateZ(180deg);
+  transform: rotateZ(180deg);
 }
 .faq__line-head i {
-position: absolute;
-left: 20px;
+  position: absolute;
+  left: 20px;
 }
 @media (max-width: 767px) {
-.faq__category .faq__description p,
-.faq__line p,
-.faq__line-body,
-.faq__line ol,
-.faq__line ul {
-  padding: 0 15px;
-}
-.faq__line-head {
-  padding: 0 15px 0 50px;
-}
-.c-card__body .faq__line-head {
-  padding: 0 0 0 50px;
-}
+  .faq__category .faq__description p,
+  .faq__line p,
+  .faq__line-body,
+  .faq__line ol,
+  .faq__line ul {
+    padding: 0 15px;
+  }
+  .faq__line-head {
+    padding: 0 15px 0 50px;
+  }
+  .c-card__body .faq__line-head {
+    padding: 0 0 0 50px;
+  }
 }
 .c-footer {
-background: #fff;
+  background: #fff;
 }
 .c-footer .o-wrapper {
-padding: 20px;
+  padding: 20px;
 }
 .c-footer__bottom {
-background: #f1f1f1;
+  background: #f1f1f1;
 }
 .c-footer__bottom ul li {
-margin-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 .c-footer__bottom ul li a {
-font-family: "Noto Naskh Arabic", "Open Sans", serif;
-font-size: 14px;
+  font-family: "Noto Naskh Arabic", "Open Sans", serif;
+  font-size: 14px;
 }
 .c-footer__copyright {
-font-size: 12px;
-direction: ltr;
-font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  direction: ltr;
+  font-family: "Open Sans", sans-serif;
 }
 @media screen and (max-width: 767px) {
-.c-footer {
-  margin-top: 40px;
-}
-.c-footer__bottom {
-  background: rgba(240, 240, 240, 0.5);
-}
-.c-footer__copyright {
-  text-align: center;
-  margin: 20px 0 !important;
-}
+  .c-footer {
+    margin-top: 40px;
+  }
+  .c-footer__bottom {
+    background: rgba(240, 240, 240, 0.5);
+  }
+  .c-footer__copyright {
+    text-align: center;
+    margin: 20px 0 !important;
+  }
 }

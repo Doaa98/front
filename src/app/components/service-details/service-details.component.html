@@ -1,4 +1,4 @@
-<div class="hsoub-container">
+<div class="hsoub-container" style=" margin-top: 60px;">
   <div class="hsoub-content">
 
 
@@ -25,11 +25,12 @@
 
                 <ul class="page-meta u-12@large ">
                   <li>
-                    <a class="user" href="/user/walaa_mahfoud"><i class="fa fa-fw fa-user"></i> {{service.userFullName}}</a>
+                    <a class="user" href="/user/walaa_mahfoud"><i class="fa fa-fw fa-user"></i>
+                      {{service.userFullName}}</a>
                   </li>
                   <li class="u-hidden@small">
                     <i class="fa fa-bars fa-fw"></i>
-                  
+
                     <a href="#">
                       <span>&nbsp;&nbsp;{{service.subCategoryName}}&nbsp;&nbsp;</span>
                     </a>
@@ -45,15 +46,16 @@
 
           <div class="o-layout__item u-3@large u-4@medium u-hidden@small u-hidden@tiny">
             <div class="page-header-buttons">
-              <a href="#" class="c-button c-button--primary dropdown-button" data-jq-dropdown="#jq-dropdown"> <i
+              <a  class="c-button c-button--primary dropdown-button jq-dropdown-open" data-jq-dropdown="#jq-dropdown"
+              (click)="DropdownToggle()"> <i
                   class="fa fa-caret-down"></i></a>
-              <div id="jq-dropdown" class="jq-dropdown jq-dropdown-tip">
+              <div id="jq-dropdown" class="jq-dropdown jq-dropdown-tip" style="display: block; top: 124px;" *ngIf="isDropdown">
                 <ul class="jq-dropdown-menu">
-                  <li><a href="/message/new/1748333"><i class="fa fa-fw fa-envelope"></i> تواصل مع البائع</a></li>
+                  <li style="display: block;position: relative;"><a [routerLink]="['/message/new',service.id ]" routerLinkActive="router-link-active"  style="display: block;"><i class="fa fa-fw fa-envelope"></i> تواصل مع البائع</a></li>
                   <li><a id="add_to_collection" href="#"><i class="fa fa-briefcase fa-fw"></i> أضف الى مجموعة</a></li>
                 </ul>
               </div>
-              <a class="c-button c-button--primary" href="#add_to_cart">
+              <a class="c-button c-button--primary" (click)="DropdownToggle()">
                 <i class="fa fa-shopping-cart"></i>
                 <span>اشتري الخدمة </span>
               </a>
@@ -66,15 +68,17 @@
     </div>
     <div class="page-navbar u-hidden@large u-hidden@medium u-12@small u-12@tiny u-text--right">
       <div class="page-navbar--tablet">
-        <a class="c-button c-button--primary" href="#add_to_cart">
+        <a class="c-button c-button--primary" (click)="DropdownToggle()">
           <i class="fa fa-shopping-cart"></i>
           <span>اشتري الخدمة </span>
         </a>
-        <a href="#" class="c-button c-button--primary dropdown-button" data-jq-dropdown="#jq-dropdown-mobile"> <i
+        <a class="c-button c-button--primary dropdown-button jq-dropdown-open" data-jq-dropdown="#jq-dropdown-mobile"
+        (click)="DropdownToggle()"> <i
             class="fa fa-caret-down"></i></a>
-        <div id="jq-dropdown-mobile" class="jq-dropdown jq-dropdown-tip">
+        <div id="jq-dropdown-mobile" class="jq-dropdown jq-dropdown-tip" style="display: block; top: 213.6px;"
+        *ngIf="isDropdown">
           <ul class="jq-dropdown-menu">
-            <li><a href="/message/new/1748333"><i class="fa fa-fw fa-envelope"></i> تواصل مع البائع</a></li>
+            <li><a [routerLink]="['/message/new',service.id ]" routerLinkActive="router-link-active" ><i class="fa fa-fw fa-envelope"></i> تواصل مع البائع</a></li>
             <li><a id="add_to_collection" href="#"><i class="fa fa-briefcase fa-fw"></i> أضف الى مجموعة</a></li>
           </ul>
         </div>
@@ -154,7 +158,7 @@
                       </td>
                       <td>
                         {{dev.description}}
-                       </td>
+                      </td>
                       <td width="15%">
                         <span class="number" title="عدد الأيام الذي سيضاف الى مدة تسليم الخدمة">+ يومين</span>
                       </td>
@@ -163,7 +167,7 @@
                           data-price="10.00">+ ${{dev.price}}</span>
                       </td>
                     </tr>
-                   
+
                   </tbody>
                 </table>
               </div>
@@ -218,7 +222,7 @@
             </div>
             <div class="c-card" id="add_to_cart">
               <div class="c-card__head">
-                <a href="/message/new/1748333" class="c-button c-button--minimal">تواصل مع البائع</a>
+                <a [routerLink]="['/message/new',service.id ,service.userID]" routerLinkActive="router-link-active"  class="c-button c-button--minimal">تواصل مع البائع</a>
                 <h3>
                   اشتري الخدمة
                 </h3>
@@ -229,7 +233,7 @@
                     <span>عدد مرات الطلب</span>
                     <div
                       class="c-form__select c-form__select--small u-block@small u-margin-top@small u-margin-bottom@small">
-                      <select id="service_quantity" name="service_quantity">
+                      <select id="service_quantity" name="service_quantity" #qu (change)="calculatePrice( qu.value)">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -243,9 +247,10 @@
                       </select>
                     </div>
                     <span>المبلغ النهائي</span>
-                    <span class="total_order_price">5</span>$
+                    <span class="total_order_price">{{calculatePrice( qu.value)}}</span>$
                   </h3>
-                  <button type="button" id="add_to_cart_btn" class="c-button c-button--primary " data-banned-country="">
+                  <button type="button" id="add_to_cart_btn" class="c-button c-button--primary " data-banned-country=""
+                    (click)="addToCart(qu.value)">
                     <i class="fa fa-shopping-cart"></i>
                     <span>أضف الى سلة المشتريات</span>
                   </button>
@@ -261,7 +266,7 @@
                 <div class="c-card__body">
                   <div class="o-layout o-layout--flex u-margin-bottom--large u-margin-bottom@small">
                     <div class="o-layout__item u-6@large u-6@medium u-12@small u-12@tiny u-margin-top@small">
-                      <div class="o-media">
+                      <div class="o-media" >
                         <div class="o-media__right">
                           <a
                             href="/business/legal-services/791926-%D8%B5%D9%8A%D8%A7%D8%BA%D8%A9-%D8%B4%D8%B1%D9%88%D8%B7-%D9%88%D8%B3%D9%8A%D8%A7%D8%B3%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D9%88%D8%A7%D9%82%D8%B9-%D9%88%D8%A7%D9%84%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A9">
@@ -364,6 +369,8 @@
                           </h5>
                         </div>
                       </div>
+
+                      
                     </div>
                   </div>
                 </div>
@@ -408,7 +415,7 @@
                       <article>
                         {{rate.content }}
                       </article>
-                     
+
                     </div>
                   </div>
 
@@ -424,11 +431,10 @@
               <div class="c-card__body">
                 <ul class="c-list c-list--tags">
 
-                  <li class="c-list__item" *ngFor="let keyWord of keyWords">
-                    <a class="c-button c-button--default c-button--ghost tag"
-                      href="#">{{keyWord}}</a>
+                  <li class="c-list__item" *ngFor="let keyWord of keyWords" style="margin-left: 5px;">
+                    <a class="c-button c-button--default c-button--ghost tag" href="#">{{keyWord}}</a>
                   </li>
-                  
+
                 </ul>
               </div>
             </div>
@@ -539,5 +545,27 @@
     </div>
     <!--  END o-wrapper -->
 
+  </div>
+</div>
+
+
+
+<div class="alertify " style="display: none;" #alertModel>
+  <div class="ajs-dimmer"></div>
+  <div class="ajs-modal" tabindex="0" style="">
+    <div class="ajs-dialog" tabindex="0"><button class="ajs-reset"></button>
+      <div class="ajs-commands"><button class="ajs-pin"></button><button class="ajs-maximize"></button><button
+          class="ajs-close"></button></div>
+      <div class="ajs-header">إشعار</div>
+      <div class="ajs-body">
+        <div class="ajs-content">تم إضافة الخدمة الى سلة المشتريات</div>
+      </div>
+      <div class="ajs-footer">
+        <div class="ajs-auxiliary ajs-buttons"></div>
+        <div class="ajs-primary ajs-buttons"><button class="ajs-button ajs-ok" (click)="buyNowClick()">ادفع الآن</button><button
+            class="ajs-button ajs-cancel" (click)="cancelClick()">تصفح المزيد</button></div>
+      </div>
+      <div class="ajs-handle"></div><button class="ajs-reset"></button>
+    </div>
   </div>
 </div>

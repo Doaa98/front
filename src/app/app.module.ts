@@ -15,6 +15,19 @@ import { AServiceDetailsComponent } from './Khamsat Community/NotFoundServiceMod
 import { UserExperienceDetailsComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/user-experience-details/user-experience-details.component';
 import { NewServiceComponent } from './components/new-service/new-service.component';
 import { ServiceDetailsComponent } from './components/service-details/service-details.component';
+import { SubCategoryServiceListComponent } from './components/sub-category-service-list/sub-category-service-list.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { HsoubFooterComponent } from './layout/hsoub-footer/hsoub-footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { AllServicesHomeComponent } from './components/home/all-services-home/all-services-home.component';
+import { ServiceHomeComponent } from './components/home/service-home/service-home.component';
+import { CartComponent } from './components/cart/cart.component';
+import { CustomDatePipe } from './Pipe/custom-date.pipe';
+import { NotificationComponent } from './components/notification/notification.component';
+import { MessagesComponent } from './components/message/messages/messages.component';
+import { MessageComponent } from './components/message/message/message.component';
+import { NewChatComponent } from './components/message/new-chat/new-chat.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +42,21 @@ import { ServiceDetailsComponent } from './components/service-details/service-de
     AServiceDetailsComponent,
     UserExperienceDetailsComponent,
     NewServiceComponent,
-    ServiceDetailsComponent
-  ],
+    ServiceDetailsComponent,
+    SubCategoryServiceListComponent,
+    HeaderComponent,
+    FooterComponent,
+    HsoubFooterComponent,
+    HomeComponent,
+    AllServicesHomeComponent,
+    ServiceHomeComponent,
+    CartComponent,
+    CustomDatePipe,
+    NotificationComponent,
+    MessagesComponent,
+    MessageComponent,
+    NewChatComponent
+    ],
   imports: [
     FormsModule,
     HttpClientModule,

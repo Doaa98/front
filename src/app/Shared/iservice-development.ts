@@ -10,4 +10,5 @@ export interface IServiceDevelopment {
     NewDuration:number
    
     ServiceID:number
+
 }
