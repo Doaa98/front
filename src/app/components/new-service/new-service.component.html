@@ -1,0 +1,479 @@
+<div class="hsoub-container">
+  <div class="hsoub-content">
+
+
+
+    <div class="o-wrapper ">
+
+      <div class="content inside">
+        <div id="loading" class="hidden">
+          <p align="center"><img
+              src="https://khamsat.hsoubcdn.com/assets/images/loading-b9f326901e161822ce76a37af0f8d0dfb8d2e913ff9782c13eb5d72bbda199c2.gif"
+              alt="يرجى الإنتظار">
+          </p>
+        </div>
+
+
+        <div class="o-layout o-layout--flex">
+          <div class="o-layout__item u-12@medium u-12@tiny">
+          </div>
+
+          <div class="o-layout__item u-12@tiny u-8@large u-2--offset@large">
+
+            <div id="message" class="c-alert c-alert--error">
+              <span>لا تستطيع إضافة خدمة جديدة حاليا قبل أن تنتقل <a href="/levels">للمستوى التالي</a></span>
+            </div>
+            <div class="o-layout__item u-12@large u-12@tiny u-margin-bottom u-no--padding u-margin-top@small">
+              <h1>أضف خدمة جديدة
+
+                <a href="#" id="tips_button" data-videoid="RpblZBFRr1k"
+                  class="tips_button c-button c-button--primary c-button--ghost tips_button">
+                  <i class="fa fa-info-circle"></i>
+                  <span>نصائح لقبول خدماتك</span>
+                </a>
+
+              </h1>
+            </div>
+
+            <div class="c-card">
+              <div class="c-card__body">
+                <form id="accountform" action="/service/new" enctype="multipart/form-data" method="post">
+                  <div class="u-margin-bottom">
+                    <label>ماذا ستفعل مقابل 5$ دولار:</label>
+                    <input type="text" name="title" class="c-form__control" maxlength="60"  [(ngModel)]="service.title">
+                    <p class="c-form__hb">أدخل عنواناً واضحاً باللغة العربية يصف الخدمة التي تريد أن تقدمها. لا تدخل
+                      رموزاً أو كلمات مثل "حصرياً"، "لأول مرة"، "لفترة محدود".. الخ.</p>
+                  </div>
+
+                  <div class="u-margin-bottom">
+                    <label>التصنيف:</label>
+                    <div class="o-layout o-layout--flex">
+                      <div class="o-layout__item u-6@large u-6@medium u-12@tiny">
+                        <div class="c-form__select">
+                          <select id="main_category" name="category" class="main_category smallselect right">
+                            <option value="" selected="selected">اختر التصنيف</option>
+                            <option value="business">أعمال</option>
+                            <option value="programming">برمجة وتطوير</option>
+                            <option value="marketing">تسويق الكتروني</option>
+                            <option value="training">تدريب عن بعد</option>
+                            <option value="video-design">تصميم فيديو</option>
+                            <option value="designing">تصميم</option>
+                            <option value="audio">صوتيات</option>
+                            <option value="writing">كتابة وترجمة</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="o-layout__item u-6@large u-6@medium u-12@tiny u-margin-top@small">
+                        <div class="c-form__select">
+                          <select id="sub_categories-" class="sub_category smallselect smallselect_left"
+                            name="sub_category">
+                            <option value="" selected="selected">اختر التصنيف الفرعي</option>
+                          </select>
+                          <select id="sub_categories-business" class="sub_category smallselect smallselect_left hidden">
+                            <option value="data-entry">ادخال بيانات</option>
+                            <option value="business-tips">استشارات أعمال</option>
+                            <option value="ecommerce-services">تجارة الكترونية</option>
+                            <option value="legal-services">خدمات قانونية</option>
+                            <option value="finance-services">خدمات مالية</option>
+                            <option value="research-services">دراسات وأبحاث</option>
+                            <option value="virtual-assistant">مساعد افتراضي</option>
+                            <option value="business-services">أخرى</option>
+                          </select>
+                          <select id="sub_categories-programming"
+                            class="sub_category smallselect smallselect_left hidden">
+                            <option value="content-management-systems">أنظمة ادارة المحتوى</option>
+                            <option value="beta-testing">اختبارات تجريبية</option>
+                            <option value="linux">السيرفرات ولينكس</option>
+                            <option value="css-html">برمجة CSS و HTML</option>
+                            <option value="java-dot-net">برمجة Java و .NET</option>
+                            <option value="php-programming">برمجة PHP</option>
+                            <option value="python-programming">برمجة بايثون</option>
+                            <option value="mobile-development">برمجة تطبيقات الجوال</option>
+                            <option value="desktop-app">تطبيقات سطح المكتب</option>
+                            <option value="ecommerce-development">تطوير متاجر إلكترونية</option>
+                            <option value="blogger">خدمات مدونات بلوجر</option>
+                            <option value="wordpress">خدمات ووردبريس</option>
+                            <option value="it-support">دعم فني تقني</option>
+                            <option value="programming-services">أخرى</option>
+                          </select>
+                          <select id="sub_categories-marketing"
+                            class="sub_category smallselect smallselect_left hidden">
+                            <option value="advertising">إعلانات المواقع</option>
+                            <option value="marketing-advice">استشارات تسويقية</option>
+                            <option value="mobile-marketing">الإعلانات والتسويق على الجوال</option>
+                            <option value="reviews">التسويق بالمحتوى</option>
+                            <option value="email-marketing">التسويق عبر البريد الإلكتروني</option>
+                            <option value="instagram-marketing">التسويق عبر انستقرام</option>
+                            <option value="search-engine-marketing">التسويق عبر محركات البحث SEM</option>
+                            <option value="twitter-marketing">التسويق على تويتر</option>
+                            <option value="snapchat-marketing">التسويق على سناب شات</option>
+                            <option value="facebook-marketing">التسويق على فيسبوك</option>
+                            <option value="youtube-marketing">التسويق على يوتيوب</option>
+                            <option value="web-analytics">تحليلات المواقع</option>
+                            <option value="seo-services">خدمات SEO</option>
+                            <option value="marketing-services">أخرى</option>
+                          </select>
+                          <select id="sub_categories-training" class="sub_category smallselect smallselect_left hidden">
+                            <option value="personal-advice">استشارات شخصية</option>
+                            <option value="health-tips">الصحة واللياقة البدنية</option>
+                            <option value="learn-programming">تعلم البرمجة</option>
+                            <option value="learn-marketing">تعلم التسويق الالكتروني</option>
+                            <option value="learn-designing">تعلم التصميم</option>
+                            <option value="learn-languages">تعلم اللغات</option>
+                            <option value="learn-english">تعلم اللغة الإنجليزية</option>
+                            <option value="learn-frensh">تعلم اللغة الفرنسية</option>
+                            <option value="arts">فنون وحرف</option>
+                            <option value="school-help">مساعدة بحل الواجبات</option>
+                            <option value="travel-advice">نصائح سياحة وسفر</option>
+                            <option value="training-services">أخرى</option>
+                          </select>
+                          <select id="sub_categories-video-design"
+                            class="sub_category smallselect smallselect_left hidden">
+                            <option value="gif">تصميم صور متحركة</option>
+                            <option value="video-intro">تصميم مقدمات فيديو</option>
+                            <option value="motion-graphics">موشن جرافيك</option>
+                            <option value="video-editing">مونتاج فيديو</option>
+                            <option value="white-board">وايت بورد</option>
+                            <option value="video-design-services">أخرى</option>
+                          </select>
+                          <select id="sub_categories-designing"
+                            class="sub_category smallselect smallselect_left hidden">
+                            <option value="covers-design">أغلفة كتب ومجلات</option>
+                            <option value="banners-design">تصميم بانرات إعلانية</option>
+                            <option value="business-cards">تصميم بطاقات أعمال</option>
+                            <option value="t-shirts">تصميم تيشرتات</option>
+                            <option value="logo-design">تصميم شعار</option>
+                            <option value="presentation">تصميم عروض تقديمية</option>
+                            <option value="architectural-design">تصميم معماري وديكور</option>
+                            <option value="photo-editing">خدمات تعديل الصور</option>
+                            <option value="cartoons">رسوم كارتونية</option>
+                            <option value="brochure-flyer">فلاير وبرشور ورول اب</option>
+                            <option value="designing-services">أخرى</option>
+                          </select>
+                          <select id="sub_categories-audio" class="sub_category smallselect smallselect_left hidden">
+                            <option value="audiobook-production">إنتاج كتب صوتية</option>
+                            <option value="mixing">المعالجة الصوتية</option>
+                            <option value="podcast-editing">تحرير بودكاست</option>
+                            <option value="voice-over">تعليق صوتي</option>
+                            <option value="audio-services">أخرى</option>
+                          </select>
+                          <select id="sub_categories-writing" class="sub_category smallselect smallselect_left hidden">
+                            <option value="creative-writing">الكتابة الإبداعية</option>
+                            <option value="transcriptions">تفريغ نصوص</option>
+                            <option value="proofreading">خدمات تدقيق لغوي</option>
+                            <option value="translation">خدمات ترجمة</option>
+                            <option value="summarizing">خدمات تلخيص</option>
+                            <option value="resume-writing">كتابة السيرة الذاتية</option>
+                            <option value="sales-copy">كتابة النصوص الإعلانية</option>
+                            <option value="script-writing">كتابة سيناريو</option>
+                            <option value="specialized-writing">كتابة محتوى متخصص</option>
+                            <option value="website-content">كتابة محتوى مواقع</option>
+                            <option value="copywriting">كتابة مقالات ومراجعات</option>
+                            <option value="writing-services">أخرى</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="u-margin-bottom">
+                    <label>وصف الخدمة:</label>
+                    <textarea name="description" class="c-form__control" rows="15" clos="60" maxlength="900"
+                    [(ngModel)]="service.description"></textarea>
+                    <p class="c-form__hb">أدخل وصف الخدمة بدقة يتضمن جميع المعلومات والشروط . يمنع وضع البريد
+                      الالكتروني، رقم الهاتف أو أي معلومات اتصال أخرى.</p>
+                  </div>
+
+                  <div class="u-margin-bottom">
+                    <label>معرض الخدمة:</label>
+                    <div id="service_gallery">
+                      <div id="gallery_new" class="">
+                        <div class="u-margin-bottom">
+                          <a href="#" class="gitem_add_btn c-button c-button--primary">
+                            <i class="fa fa-picture-o"></i>
+                            <span>أضف صورة أو فيديو</span>
+                          </a>
+                        </div>
+                        <p class="u-margin-bottom--small">القياس: (800x470) بكسل · الحجم الأقصى: 5MB. العدد المسموح: 10
+                          ملفات</p>
+                        <p class="padding3">اختيار فيديو أو صورة مصممة بشكل جيد ستظهر خدمتك بشكل احترافي وتزيد من
+                          مبيعاتك.</p>
+                      </div>
+                      <div id="gallery_edit" class="hidden" style="display: none;">
+                        <div id="gallery_edit_btns">
+                          <a href="#" class="gitem_add_btn">
+                            <i class="fa fa-picture-o"></i>
+                            <span>أضف المزيد</span>
+                          </a>
+                          <a href="#" class="gitem_edit_btn">
+                            <i class="fa fa-edit"></i> تعديل
+                          </a>
+                          <a href="#" class="gitem_delete_btn">
+                            <i class="fa fa-times"></i> حذف
+                          </a>
+                        </div>
+                      </div>
+                      <div id="gallery_items" class="flickity-enabled flickity-rtl" tabindex="0">
+                        <div class="flickity-viewport" style="height: 0px; touch-action: pan-y;">
+                          <div class="flickity-slider" style="right: 0px;"></div>
+                        </div><button class="flickity-button flickity-prev-next-button previous" type="button"
+                          disabled="" aria-label="Previous" style="display: none;"><svg class="flickity-button-icon"
+                            viewBox="0 0 100 100">
+                            <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow"
+                              transform="translate(100, 100) rotate(180) "></path>
+                          </svg></button><button class="flickity-button flickity-prev-next-button next" type="button"
+                          disabled="" aria-label="Next" style="display: none;"><svg class="flickity-button-icon"
+                            viewBox="0 0 100 100">
+                            <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow"></path>
+                          </svg></button>
+                      </div>
+                    </div>
+
+                    <div id="service_gallery_dialog" class="hidden">
+                      <div id="service_gallery_form_wrapper"
+                        class="dialog_form o-layout__item u-12@tiny u-8@large u-2--offset@large">
+                        <div class="c-card">
+                          <div class="c-card__head">
+                            <h2>أضف صورة أو فيديو</h2>
+                          </div>
+                          <div class="c-card__body">
+                            <div class="c-alert c-alert--danger dialog_message hidden"></div>
+                            <div class="gallery_uploader">
+                              <div class="u-margin-bottom@small gallery_uploader_option">
+                                <label for="add_image_from_device">
+                                  <input type="radio" name="add_gitem" id="add_image_from_device" value="image"
+                                    checked="checked">
+                                  <span>صورة من جهازي</span>
+                                </label>
+                              </div>
+                              <div class="u-margin-bottom@small gallery_uploader_option">
+                                <label for="add_image_url">
+                                  <input type="radio" name="add_gitem" id="add_image_url" value="image_url">
+                                  <span>صورة من رابط</span>
+                                </label>
+                              </div>
+                              <div class="gallery_uploader_option">
+                                <label for="add_youtube_url">
+                                  <input type="radio" name="add_gitem" id="add_youtube_url" value="youtube">
+                                  <span>فيديو من يوتيوب</span>
+                                </label>
+                              </div>
+                            </div>
+
+                            <div id="add_gitem_image" class="row add_gitem_input">
+                              <div id="gitem_image_upload" class="tcenter ">
+                                <div class="dz-default dz-message u-margin-top">
+                                  <div class="selected-images u-margin-bottom"></div>
+                                  <a
+                                    class="c-button c-button--primary mainbtn service_image_u_btn dz-max-files-reached">
+                                    <i class="fa fa-folder"></i> اختيار الصور
+                                  </a>
+                                  <a class="c-button c-button--primary mainbtn upload_seleted_images_btn hidden">
+                                    <i class="fa fa-upload"></i> رفع الصور
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                            <div id="add_gitem_image_url" class="row add_gitem_input hidden">
+                              <div class="u-margin-bottom">
+                                <input type="text" id="image_url" class="c-form__control u-text--ltr"
+                                  placeholder="رابط الصورة">
+                              </div>
+                              <button type="button" class="c-button c-button--primary remote_image_btn">
+                                <i class="fa fa-upload"></i> أضف الصورة
+                              </button>
+                            </div>
+                            <div id="add_gitem_youtube" class="row add_gitem_input hidden">
+                              <div class="u-margin-bottom">
+                                <input type="text" id="youtube_url" class="c-form__control u-text--ltr"
+                                  placeholder="رابط فيديو يوتيوب">
+                              </div>
+                              <button type="button" class="c-button c-button--primary remote_image_btn">
+                                <i class="fa fa-upload"></i> أضف الفيديو
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div id="alert_dialog" class="hidden">
+                      <div id="alert_form_wrapper" class="dialog_form">
+                        <h2 class="dialog_title"></h2>
+                        <div class="dialog_message hidden"></div>
+                        <div class="dialog_content"></div>
+                        <div class="dialog_buttons"></div>
+                      </div>
+                    </div>
+
+
+                    <div id="service_gallery_temaplate" class="hidden">
+                      <div class="selected-image dz-preview">
+                        <div class="o-media">
+                          <div class="o-media__right u-no--margin u-no--padding">
+                            <img data-dz-thumbnail="">
+                          </div>
+                          <div class="o-media__body u-padding-right">
+                            <h5 class="u-margin-bottom--small">
+                              <span class="dz-success-mark u-clr--primary" style="display:none;">
+                                <i class="fa fa-check-circle-o"></i>
+                              </span>
+                              <span data-dz-name="" class="pull-right dz-name"></span>
+                              <span class="pull-left">
+                                <a data-dz-remove="" class="c-button c-button--danger dz-delete-button">
+                                  <i class="fa fa-times"></i> حذف
+                                </a></span>
+                            </h5>
+                            <div class="u-margin-bottom--small pull-right clear">
+                              <span class="dz-size"> حجم الملف:
+                                <span data-dz-size=""></span>
+                              </span>
+                            </div>
+                            <div class="dz-error-message clear" data-dz-errormessage=""></div>
+                            <div class="dz-progress ">
+                              <span class="dz-upload" data-dz-uploadprogress=""></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="u-margin-bottom">
+                    <label>كلمات مفتاحية:</label>
+                    <input type="text" name="tags" class="c-form__control" maxlength="100" [(ngModel)]="service.keywords">
+                    <p class="c-form__hb">مثال: تطوير مواقع, ووردبريس, تصميم</p>
+                  </div>
+
+                  <div class="u-margin-bottom">
+                    <label>مدة التسليم:</label>
+                    <div class="c-form__select">
+                      <select name="in_days" [(ngModel)]="service.duration">
+                        <option value="01">يوم واحد</option>
+                        <option value="02">يومين</option>
+                        <option value="03">ثلاثة أيام</option>
+                        <option value="04">أربعة أيام</option>
+                        <option value="05">خمسة أيام</option>
+                        <option value="06">ستة أيام</option>
+                        <option value="07">أسبوع</option>
+                        <option value="14">أسبوعين</option>
+                        <option value="21">ثلاثة أسابيع</option>
+                        <option value="30">شهر</option>
+                      </select>
+                    </div>
+                    <p class="c-form__hb">حدد مدة تسليم مناسبة لك. يستطيع المشتري إلغاء الخدمة مباشرة في حال التأخر
+                      بتسليم الخدمة في الموعد المحدد.</p>
+                  </div>
+
+                  <div class="u-margin-bottom">
+                    <label>تعليمات للمشتري:</label>
+                    <textarea name="instructions" class="c-form__control" rows="5" clos="60" maxlength="600"
+                    [(ngModel)]="service.instructionsToBuyer"></textarea>
+                    <p class="c-form__hb">المعلومات التي تحتاجها من المشتري لتنفيذ الخدمة. تظهر هذه المعلومات بعد شراء
+                      الخدمة فقط.</p>
+                  </div>
+
+
+                  <div class="u-margin-bottom" id="upgrade_service_wrapper">
+                    <div id="upgrade_service" class="hidden">
+                      <label>أضف تطويراً لهذه الخدمة:</label>
+                      <div id="upgrade_service_inputs_wrapper">
+                        <div id="upgrade_service_inputs_0" class="upgrade_service_inputs">
+                          <div class="remove_upgrade">
+                            <a href="#" class="remove_upgrade_btn no_underline"><i class="fa fa-times"></i></a>
+                          </div>
+
+                          <div class="u-margin-bottom">
+                            <input type="text" name="service_upgrade_title_0"
+                              class="c-form__control service_upgrade_title" maxlength="100" value="">
+                            <p class="c-form__hb">
+                              <span>تطويرات الخدمة المقدمة اختيارية فقط ولا يمكن أن تجبر المشتري على طلبها. </span>
+                              <a href="/service-upgrades" target="_blank" class="u-clr--primary">اعرف طريقة استخدامها
+                                بشكل صحيح</a>
+                            </p>
+                          </div>
+
+                          <div class="u-margin-bottom">
+                            <div class="c-form__select">
+                              <select name="service_upgrade_price_0" class="service_upgrade_price">
+                                <option value="5">مقابل 5 دولار اضافة لسعر الخدمة</option>
+                                <option value="10">مقابل 10 دولار اضافة لسعر الخدمة</option>
+                                <option value="15">مقابل 15 دولار اضافة لسعر الخدمة</option>
+                                <option value="20">مقابل 20 دولار اضافة لسعر الخدمة</option>
+                                <option value="25">مقابل 25 دولار اضافة لسعر الخدمة</option>
+                                <option value="30">مقابل 30 دولار اضافة لسعر الخدمة</option>
+                                <option value="35">مقابل 35 دولار اضافة لسعر الخدمة</option>
+                                <option value="40">مقابل 40 دولار اضافة لسعر الخدمة</option>
+                                <option value="45">مقابل 45 دولار اضافة لسعر الخدمة</option>
+                                <option value="50">مقابل 50 دولار اضافة لسعر الخدمة</option>
+                                <option value="75">مقابل 75 دولار اضافة لسعر الخدمة</option>
+                                <option value="100">مقابل 100 دولار اضافة لسعر الخدمة</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div class="o-layout o-layout--flex">
+                            <div class="o-layout__item u-margin-bottom u-6@large u-12@tiny">
+                              <div class="c-form__select">
+                                <select name="service_upgrade_days_change_0" class="service_upgrade_days_change">
+                                  <option value="add">سيزيد من مدة تنفيذ الخدمة</option>
+                                  <option value="same">لن يغيّر من مدة تنفيذ هذه الخدمة</option>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="o-layout__item u-margin-bottom u-6@large u-12@tiny">
+                              <div class="c-form__select">
+                                <select name="service_upgrade_days_0" class="service_upgrade_days">
+                                  <option value="01">يوم واحد</option>
+                                  <option value="02">يومين</option>
+                                  <option value="03">ثلاثة أيام</option>
+                                  <option value="04">أربعة أيام</option>
+                                  <option value="05">خمسة أيام</option>
+                                  <option value="06">ستة أيام</option>
+                                  <option value="07">أسبوع</option>
+                                  <option value="14">أسبوعين</option>
+                                  <option value="21">ثلاثة أسابيع</option>
+                                  <option value="30">شهر</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="upgrade_service_btn_wrapper" class="u-margin-bottom">
+                    <div class="u-text--left">
+                      <a href="#" id="upgrade_service_btn" class="c-button c-button--primary c-button--ghost">
+                        <i class="fa fa-plus"></i>
+                        <span>أضف تطويراً لهذه الخدمة</span>
+                      </a>
+                    </div>
+                  </div>
+                  <div>
+                    <input id="user_token" type="hidden" name="token" value="2fc3268f89a77b1c1f6bfcdcb9e8c9abfb29be79">
+                    <button type="button" class="c-button c-button--primary"
+                      (click)="addService()">أضف الخدمة
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <script type="text/javascript">
+              show_sub_categories();
+            </script>
+
+          </div>
+
+        </div><!--  END o-layout -->
+      </div>
+      <!--  END content -->
+    </div>
+    <!--  END o-wrapper -->
+
+  </div>
+</div>

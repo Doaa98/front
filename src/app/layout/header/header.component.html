@@ -1,0 +1,789 @@
+<header class="hsoub-header" style="" #navbar [ngClass]="{'sidebar-active': isAside}">
+  <div class="hsoub-box"><a class="hsoub-bars hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile"
+      (click)="AsideToggle()">
+      <i class="hsoub-bars-icon"></i>
+    </a><a routerLink="/" class="hsoub-logo"><img class="hsoub-logo-img hsoub--visible-h hsoub-desktop hsoub-tablet "
+        src="https://khamsat.hsoubcdn.com/assets/images/logo-73045c76e830509d4dbe03ea6172d22f047c708fed5435e93ffd47f80ee5ffa4.png"><img
+        class="hsoub-logo-img hsoub--visible-h   hsoub-mobile"
+        src="https://khamsat.hsoubcdn.com/assets/images/logo-mobile-215fffeb86f5121a190d2551c62feea201ca1b4e0d5ea7feef9f5aa04a55dac4.png"></a>
+    <ul class="hsoub-menu ">
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop  ">
+        <a class="hsoub-menu-item-link     " routerLink="/service/new">
+          <i class="hsoub-menu-item-link-icon fa fa-plus"></i>
+          <span>أضف خدمة</span>
+        </a>
+      </li>
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet ">
+        <a class="hsoub-menu-item-link " (click)="dropdownMenuToggle()">
+          <i class="hsoub-menu-item-link-icon fa fa-cubes"></i>
+          <span>التصنيفات</span>
+        </a>
+      </li>
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop  ">
+        <a class="hsoub-menu-item-link     " href="/purchases">
+          <i class="hsoub-menu-item-link-icon fa fa-folder-open"></i>
+          <span>المشتريات</span>
+        </a>
+      </li>
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop  ">
+        <a class="hsoub-menu-item-link     " href="/orders">
+          <i class="hsoub-menu-item-link-icon fa fa-truck"></i>
+          <span>الطلبات الواردة</span>
+        </a>
+      </li>
+    </ul>
+    <div class="hsoub-megamenu " [ngClass]="{'hsoub-megamenu-active': isAcctive}">
+      <div class="hsoub-megamenu-row">
+        <div class="hsoub-megamenu-column">
+          <ul class="hsoub-bullets">
+            <li class="hsoub-bullet-head">
+              <a class="hsoub-bullet-link" href="/business">
+                أعمال
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/business/data-entry">
+                ادخال بيانات
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/business/business-tips">
+                استشارات أعمال
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/business/ecommerce-services">
+                تجارة الكترونية
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/business/legal-services">
+                خدمات قانونية
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/business/finance-services">
+                خدمات مالية
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/business/research-services">
+                دراسات وأبحاث
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/business/virtual-assistant">
+                مساعد افتراضي
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/business/business-services">
+                أخرى
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="hsoub-megamenu-column">
+          <ul class="hsoub-bullets">
+            <li class="hsoub-bullet-head">
+              <a class="hsoub-bullet-link" href="/programming">
+                برمجة وتطوير
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/programming/content-management-systems">
+                أنظمة ادارة المحتوى
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/programming/beta-testing">
+                اختبارات تجريبية
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/programming/linux">
+                السيرفرات ولينكس
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/programming/css-html">
+                برمجة CSS و HTML
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/programming/java-dot-net">
+                برمجة Java و .NET
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/programming/php-programming">
+                برمجة PHP
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/programming/python-programming">
+                برمجة بايثون
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/programming/mobile-development">
+                برمجة تطبيقات الجوال
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/programming/desktop-app">
+                تطبيقات سطح المكتب
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/programming/ecommerce-development">
+                تطوير متاجر إلكترونية
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/programming/blogger">
+                خدمات مدونات بلوجر
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/programming/wordpress">
+                خدمات ووردبريس
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/programming/it-support">
+                دعم فني تقني
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/programming/programming-services">
+                أخرى
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="hsoub-megamenu-column">
+          <ul class="hsoub-bullets">
+            <li class="hsoub-bullet-head">
+              <a class="hsoub-bullet-link" href="/marketing">
+                تسويق الكتروني
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/marketing/advertising">
+                إعلانات المواقع
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/marketing/marketing-advice">
+                استشارات تسويقية
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/marketing/mobile-marketing">
+                الإعلانات والتسويق على الجوال
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/marketing/reviews">
+                التسويق بالمحتوى
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/marketing/email-marketing">
+                التسويق عبر البريد الإلكتروني
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/marketing/instagram-marketing">
+                التسويق عبر انستقرام
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/marketing/search-engine-marketing">
+                التسويق عبر محركات البحث SEM
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/marketing/twitter-marketing">
+                التسويق على تويتر
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/marketing/snapchat-marketing">
+                التسويق على سناب شات
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/marketing/facebook-marketing">
+                التسويق على فيسبوك
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/marketing/youtube-marketing">
+                التسويق على يوتيوب
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/marketing/web-analytics">
+                تحليلات المواقع
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/marketing/seo-services">
+                خدمات SEO
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/marketing/marketing-services">
+                أخرى
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="hsoub-megamenu-column">
+          <ul class="hsoub-bullets">
+            <li class="hsoub-bullet-head">
+              <a class="hsoub-bullet-link" href="/training">
+                تدريب عن بعد
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/training/personal-advice">
+                استشارات شخصية
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/training/health-tips">
+                الصحة واللياقة البدنية
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/training/learn-programming">
+                تعلم البرمجة
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/training/learn-marketing">
+                تعلم التسويق الالكتروني
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/training/learn-designing">
+                تعلم التصميم
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/training/learn-languages">
+                تعلم اللغات
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/training/learn-english">
+                تعلم اللغة الإنجليزية
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/training/learn-frensh">
+                تعلم اللغة الفرنسية
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/training/arts">
+                فنون وحرف
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/training/school-help">
+                مساعدة بحل الواجبات
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/training/travel-advice">
+                نصائح سياحة وسفر
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/training/training-services">
+                أخرى
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="hsoub-megamenu-row">
+        <div class="hsoub-megamenu-column">
+          <ul class="hsoub-bullets">
+            <li class="hsoub-bullet-head">
+              <a class="hsoub-bullet-link" href="/video-design">
+                تصميم فيديو
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/video-design/gif">
+                تصميم صور متحركة
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/video-design/video-intro">
+                تصميم مقدمات فيديو
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/video-design/motion-graphics">
+                موشن جرافيك
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/video-design/video-editing">
+                مونتاج فيديو
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/video-design/white-board">
+                وايت بورد
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/video-design/video-design-services">
+                أخرى
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="hsoub-megamenu-column">
+          <ul class="hsoub-bullets">
+            <li class="hsoub-bullet-head">
+              <a class="hsoub-bullet-link" href="/designing">
+                تصميم
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/designing/covers-design">
+                أغلفة كتب ومجلات
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/designing/banners-design">
+                تصميم بانرات إعلانية
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/designing/business-cards">
+                تصميم بطاقات أعمال
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/designing/t-shirts">
+                تصميم تيشرتات
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/designing/logo-design">
+                تصميم شعار
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/designing/presentation">
+                تصميم عروض تقديمية
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/designing/architectural-design">
+                تصميم معماري وديكور
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/designing/photo-editing">
+                خدمات تعديل الصور
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/designing/cartoons">
+                رسوم كارتونية
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/designing/brochure-flyer">
+                فلاير وبرشور ورول اب
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/designing/designing-services">
+                أخرى
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="hsoub-megamenu-column">
+          <ul class="hsoub-bullets">
+            <li class="hsoub-bullet-head">
+              <a class="hsoub-bullet-link" href="/audio">
+                صوتيات
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/audio/audiobook-production">
+                إنتاج كتب صوتية
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/audio/mixing">
+                المعالجة الصوتية
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/audio/podcast-editing">
+                تحرير بودكاست
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/audio/voice-over">
+                تعليق صوتي
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/audio/audio-services">
+                أخرى
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="hsoub-megamenu-column">
+          <ul class="hsoub-bullets">
+            <li class="hsoub-bullet-head">
+              <a class="hsoub-bullet-link" href="/writing">
+                كتابة وترجمة
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/writing/creative-writing">
+                الكتابة الإبداعية
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/writing/transcriptions">
+                تفريغ نصوص
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/writing/proofreading">
+                خدمات تدقيق لغوي
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/writing/translation">
+                خدمات ترجمة
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/writing/summarizing">
+                خدمات تلخيص
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/writing/resume-writing">
+                كتابة السيرة الذاتية
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/writing/sales-copy">
+                كتابة النصوص الإعلانية
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/writing/script-writing">
+                كتابة سيناريو
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/writing/specialized-writing">
+                كتابة محتوى متخصص
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/writing/website-content">
+                كتابة محتوى مواقع
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/writing/copywriting">
+                كتابة مقالات ومراجعات
+              </a>
+            </li>
+            <li class="hsoub-bullet">
+              <a class="hsoub-bullet-link" href="/writing/writing-services">
+                أخرى
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <ul class="hsoub-menu hsoub-menu--is-minor">
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet ">
+        <a class="hsoub-menu-item-link hsoub-menu-item-link--is-large    " title="بحث">
+          <i class="hsoub-menu-item-link-icon fa fa-search"></i>
+
+        </a>
+      </li>
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile hide-xs-only">
+        <a class="hsoub-menu-item-link hsoub-menu-item-link--is-large    " routerLink="/cart" title="سلة المشتريات">
+          <span class="c-badge " style="background-color: #e75737; border-radius:20px;
+          bottom: 10px; position: relative;line-height: 1; " *ngIf="itemsNumber != 0">{{itemsNumber}}</span>
+
+          <i class="hsoub-menu-item-link-icon fa fa-shopping-cart"></i>
+
+        </a>
+        <div class="hsoub-list hsoub-list-right">
+          <ul class="hsoub-list-group" data-empty="لا توجد أي خدمات بعد">
+            <li class="hsoub-list-item ">
+
+              <div class="hsoub-list-item-content">
+                <a class="hsoub-list-item-link"
+                  href="/business/legal-services/1205849-%D8%AA%D9%82%D8%AF%D9%8A%D9%85-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86%D9%8A%D8%A9-%D9%88%D8%B5%D9%8A%D8%A7%D8%BA%D8%A9-%D8%A7%D9%84%D8%B9%D9%82%D9%88%D8%AF">
+                  تقديم الاستشارات القانونية وصياغة العقود </a>
+                <div class="hsoub-list-item-date">
+
+                </div>
+              </div>
+            </li>
+          </ul><a class="hsoub-list-action-link" href="/cart"><i class="fa fa-fw fa-shopping-cart"></i> اعرض سلة
+            المشتريات</a>
+        </div>
+      </li>
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile">
+        <a class="hsoub-menu-item-link hsoub-menu-item-link--is-large    " routerLink="/messages" title="الرسائل">
+          <i class="hsoub-menu-item-link-icon fa fa-envelope"></i>
+
+        </a>
+        <div class="hsoub-list hsoub-list-right">
+          <ul class="hsoub-list-group" data-empty="لا جديد حتى اللحظة!">
+
+
+          </ul><a class="hsoub-list-action-link" routerLink="/messages"><i class="fa fa-fw fa-envelope"></i> جميع الرسائل</a>
+        </div>
+      </li>
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile">
+        <a class="hsoub-menu-item-link hsoub-menu-item-link--is-large    " title="الإشعارات" (click)="notfiyToggle()">
+          <span class="c-badge " style="background-color: #e75737; border-radius:20px;
+          bottom: 10px; position: relative;line-height: 1; " *ngIf="signalRService.newNotificationsCount != 0">
+            {{signalRService.newNotificationsCount}}</span>
+
+          <i class="hsoub-menu-item-link-icon fa fa-bell"></i>
+
+        </a>
+
+
+        <div class="hsoub-list hsoub-list-right" *ngIf="isNotifyShow" style="display: block;">
+          <ul class="hsoub-list-group" data-empty="لا جديد حتى اللحظة!">
+            <li class="hsoub-list-item " *ngFor="let notification of signalRService.Notifications">
+              <img class="hsoub-list-item-img" alt="Azoooz11111 Aziz"
+                src="https://avatars.hsoubcdn.com/6048019056eea385a42c2b8c697273f4?s=128">
+              <div class="hsoub-list-item-content">
+                {{ notification.message}}
+                <div class="hsoub-list-item-date">
+                  <time datetime="2021-06-07T23:15:20+00:00" title="2021-06-07T23:15:20+00:00"> <i
+                      class="fa fa-clock-o"></i> {{notification.date | customDate}} </time>
+                </div>
+              </div>
+            </li>
+          </ul><a class="hsoub-list-action-link" routerLink="/notifications"><i class="fa fa-fw fa-bell"></i> جميع
+            الإشعارات</a>
+        </div>
+
+
+      </li>
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile">
+        <a class="hsoub-menu-item-link     hsoub-menu-item-link--is-img" href="/user/programmer01" title="programmer01">
+          <img class="hsoub-menu-item-link-img"
+            src="https://avatars.hsoubcdn.com/d17a227615ef8f87cd2b4d063b1b6f47?s=128">
+
+        </a>
+        <ul class="hsoub-dropdown hsoub-dropdown-right">
+          <li class="hsoub-dropdown-item ">
+            <a class="hsoub-dropdown-item-link" href="/user/programmer01">
+              <i class="fa fa-fw fa-user"></i>
+              programmer01
+            </a>
+          </li>
+          <li class="hsoub-dropdown-item ">
+            <a class="hsoub-dropdown-item-link" href="/collections">
+              <i class="fa fa-fw fa-bookmark"></i>
+              مجموعاتي
+            </a>
+          </li>
+          <li class="hsoub-dropdown-item ">
+            <a class="hsoub-dropdown-item-link" href="/credit">
+              <i class="fa fa-fw fa-usd"></i>
+              الرصيد
+            </a>
+          </li>
+          <li class="hsoub-dropdown-item ">
+            <a class="hsoub-dropdown-item-link" href="/account">
+              <i class="fa fa-fw fa-sliders"></i>
+              الإعدادات
+            </a>
+          </li>
+          <li class="hsoub-dropdown-item hsoub-dropdown-divider">
+            <a class="hsoub-dropdown-item-link" href="https://accounts.hsoub.com/edit" target="_blank">
+              <i class="fa fa-fw fa-edit"></i>
+              تعديل الحساب
+            </a>
+          </li>
+          <li class="hsoub-dropdown-item ">
+            <a class="hsoub-dropdown-item-link" href="/r/helpdesk" target="_blank">
+              <i class="fa fa-fw fa-support"></i>
+              مساعدة
+            </a>
+          </li>
+          <li class="hsoub-dropdown-item hsoub-dropdown-divider">
+            <a class="hsoub-dropdown-item-link"
+              href="https://accounts.hsoub.com/logout?source=khamsat&amp;t=5e750cb84b98a8e95499eb82aff4aa3d">
+              <i class="fa fa-fw fa-sign-out"></i>
+              خروج
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<aside class="hsoub-sidebar" style="" [ngClass]="{'aside-toggle': isAside}">
+  <div class="hsoub-sidebar-wrapper">
+    <div class="hsoub-sidebar-search">
+      <form action="/search" accept-charset="UTF-8" method="get">
+        <input name="utf8" type="hidden" value="✓">
+        <input class="hsoub-search" type="search" name="q" placeholder="ابحث عن ..." value="">
+      </form>
+    </div>
+    <ul class="hsoub-sidebar-menu">
+      <li class="hsoub-sidebar-menu-item hsoub--visible-v   hsoub-mobile show-xs-only">
+        <a class="hsoub-sidebar-menu-item-link" href="/cart"><span class="c-badge " style="background-color: #e75737; border-radius:20px;
+          bottom: 10px; position: relative;line-height: 1; ">{{itemsNumber}}</span>
+          <i class="fa fa-fw fa-shopping-cart"></i>
+          سلة المشتريات
+        </a>
+      </li>
+      <li class="hsoub-sidebar-menu-item hsoub--visible-v  hsoub-tablet hsoub-mobile">
+        <a class="hsoub-sidebar-menu-item-link" routerLink="/service/new">
+          <i class="fa fa-fw fa-plus"></i>
+          أضف خدمة
+        </a>
+      </li>
+      <li class="hsoub-sidebar-menu-item hsoub--visible-v hsoub-desktop  ">
+        <a class="hsoub-sidebar-menu-item-link" href="/purchases">
+          <i class="fa fa-fw fa-folder-open"></i>
+          المشتريات
+        </a>
+      </li>
+      <li class="hsoub-sidebar-menu-item hsoub--visible-v hsoub-desktop  ">
+        <a class="hsoub-sidebar-menu-item-link" href="/orders">
+          <i class="fa fa-fw fa-truck"></i>
+          الطلبات الواردة
+        </a>
+      </li>
+      <li class="hsoub-sidebar-menu-item hsoub--visible-v  hsoub-tablet hsoub-mobile">
+        <a class="hsoub-sidebar-menu-item-link" href="/purchases">
+          <i class="fa fa-fw fa-folder-open"></i>
+          المشتريات
+        </a>
+      </li>
+      <li class="hsoub-sidebar-menu-item hsoub--visible-v  hsoub-tablet hsoub-mobile">
+        <a class="hsoub-sidebar-menu-item-link" href="/orders">
+          <i class="fa fa-fw fa-truck"></i>
+          الطلبات الواردة
+        </a>
+      </li>
+      <li class="hsoub-sidebar-menu-item hsoub--visible-v hsoub-mobile hsoub--active">
+        <a class="hsoub-sidebar-menu-item-link">
+          <i class="fa fa-fw fa-cubes"></i>
+          التصنيفات
+        </a>
+        <ul class="hsoub-sidebar-menu">
+          <li class="hsoub-sidebar-menu-item ">
+            <a class="hsoub-sidebar-menu-item-link" href="/business">
+
+              أعمال
+            </a>
+          </li>
+          <li class="hsoub-sidebar-menu-item ">
+            <a class="hsoub-sidebar-menu-item-link" href="/programming">
+
+              برمجة وتطوير
+            </a>
+          </li>
+          <li class="hsoub-sidebar-menu-item ">
+            <a class="hsoub-sidebar-menu-item-link" href="/marketing">
+
+              تسويق الكتروني
+            </a>
+          </li>
+          <li class="hsoub-sidebar-menu-item ">
+            <a class="hsoub-sidebar-menu-item-link" href="/training">
+
+              تدريب عن بعد
+            </a>
+          </li>
+          <li class="hsoub-sidebar-menu-item ">
+            <a class="hsoub-sidebar-menu-item-link" href="/video-design">
+
+              تصميم فيديو
+            </a>
+          </li>
+          <li class="hsoub-sidebar-menu-item ">
+            <a class="hsoub-sidebar-menu-item-link" href="/designing">
+
+              تصميم
+            </a>
+          </li>
+          <li class="hsoub-sidebar-menu-item ">
+            <a class="hsoub-sidebar-menu-item-link" href="/audio">
+
+              صوتيات
+            </a>
+          </li>
+          <li class="hsoub-sidebar-menu-item ">
+            <a class="hsoub-sidebar-menu-item-link" href="/writing">
+
+              كتابة وترجمة
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="hsoub-sidebar-menu-item hsoub--visible-v hsoub-desktop hsoub-tablet hsoub-mobile hsoub--active">
+        <a class="hsoub-sidebar-menu-item-link">
+          <i class="fa fa-fw fa-comments"></i>
+          مجتمع خمسات
+        </a>
+        <ul class="hsoub-sidebar-menu">
+          <li class="hsoub-sidebar-menu-item ">
+            <a class="hsoub-sidebar-menu-item-link" href="/community/showcase">
+
+              نماذج أعمال قمت بتنفيذها
+            </a>
+          </li>
+          <li class="hsoub-sidebar-menu-item ">
+            <a class="hsoub-sidebar-menu-item-link" href="/community/requests">
+
+              طلبات الخدمات غير الموجودة
+            </a>
+          </li>
+          <li class="hsoub-sidebar-menu-item ">
+            <a class="hsoub-sidebar-menu-item-link" href="/community/stories">
+
+              تجارب وقصص المستخدمين
+            </a>
+          </li>
+          <li class="hsoub-sidebar-menu-item ">
+            <a class="hsoub-sidebar-menu-item-link" href="/community/general">
+
+              أمور عامة حول خمسات
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</aside>

@@ -1,0 +1,288 @@
+<div class="hsoub-container"  style="padding: 3%; margin-top: 35px;">
+    <div class="hsoub-content">
+
+
+        <div class="page_header">
+            <div class="o-wrapper">
+                <div class="o-layout o-layout--flex">
+                    <div class="o-layout__item u-9@large u-8@medium u-12@tiny">
+                        <div class="o-media">
+                            <div class="o-media__right">
+                                <a href="/user/hoss_noor">
+                                    <img class="u-circle img-thumbnail img--medium"
+                                        src="https://avatars.hsoubcdn.com/0219c40b25755f9236e80008da9c95fb?s=128">
+                                </a>
+                            </div>
+
+                            <div class="o-media__body">
+                                <h1><a href="/message/16926925">استفسار عن: برمجة وتطوير إضافات وملحقات متصفح كروم
+                                        Chrome extension</a></h1>
+                                <ul class="page-meta u-12@large ">
+                                    <li>
+                                        <i class="fa fa-user"></i>
+                                        <a href="/user/hoss_noor">
+                                            حسام نور
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>آخر تفاعل: </span>
+                                        <span dir="ltr" title="27/02/2021 17:52:54 GMT">منذ 3 أشهر و22 يوم</span>
+                                    </li>
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="o-layout__item u-3@large u-4@medium u-hidden@small u-hidden@tiny">
+                        <div class="page-header-buttons">
+                            <a href="#" class="c-button c-button--primary dropdown-button"
+                                data-jq-dropdown="#jq-dropdown"> <i class="fa fa-caret-down"></i></a>
+                            <a class="c-button c-button--primary" id="report_spam_message" href="#">
+                                <i class="fa fa-ban"></i>
+                                <span>علم الرسالة كمزعجة</span>
+                            </a>
+                            <div id="jq-dropdown" class="jq-dropdown jq-dropdown-tip">
+                                <ul class="jq-dropdown-menu">
+                                    <li>
+                                        <a href="/r/helpdesk?goto=conversations" target="_blank">
+                                            <i class="fa fa-life-ring"></i> <span>أبلغ عن مشكلة</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="page-navbar u-hidden@large u-hidden@medium u-12@small u-12@tiny u-text--right">
+            <div class="page-navbar--tablet">
+                <a class="c-button c-button--primary" id="report_spam_message" href="#">
+                    <i class="fa fa-ban"></i>
+                    <span>علم الرسالة كمزعجة</span>
+                </a>
+                <a href="#" class="c-button c-button--primary dropdown-button" data-jq-dropdown="#jq-dropdown-mobile">
+                    <i class="fa fa-caret-down"></i></a>
+                <div id="jq-dropdown-mobile" class="jq-dropdown jq-dropdown-tip">
+                    <ul class="jq-dropdown-menu">
+                        <li>
+                            <a href="/r/helpdesk?goto=conversations" target="_blank">
+                                <i class="fa fa-life-ring"></i> <span>أبلغ عن مشكلة</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="o-wrapper ">
+
+            <div class="content inside">
+               
+                <div class="o-layout o-layout--flex">
+                    <div class="o-layout__item u-12@medium u-12@tiny">
+                    </div>
+
+                    <div class="o-layout__item u-12@tiny">
+
+
+                        <div class="c-card" data-commentable="true" data-commentable-type="message"
+                            data-commentable-id="16926925">
+                            <div class="c-card__body u-no--padding" >
+<div *ngIf="!!Chat">
+                                <div class="comments" *ngFor="let Msg of Chat.messages" >
+                                    <div class="discussion-item">
+                                        <div class="profile-details">
+                                            <div class="o-media">
+                                                <div class="o-media__right meta--avatar">
+                                                    <a href="/user/hoss_noor">
+                                                        <img class="u-circle u-avatar@small img-thumbnail img--small"
+                                                            src="https://avatars.hsoubcdn.com/0219c40b25755f9236e80008da9c95fb?s=128">
+                                                    </a>
+                                                </div>
+                                                <div class="o-media__body">
+                                                    <div class="o-layout o-layout--flex">
+                                                        <div class="o-layout__item u-12@large u-12@medium u-12@small">
+                                                            <h5 class="u-margin-bottom--tiny">
+                                                                <div class="meta--user">
+                                                                    <a href="/user/hoss_noor">حسام نور</a>
+                                                                </div>
+                                                                <div class="u-block@small meta--date">
+                                                                    <i class="fa fa-clock-o fa-fw"></i>
+                                                                    <span dir="ltr" title="27/02/2021 17:52:54 GMT">{{Msg.date|customDate}}</span>
+                                                                </div>
+                                                            </h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="discussion-message">
+                                            <article class="comment reply_content replace_urls ">{{Msg.content}}</article>
+                                        </div>
+                                    </div>
+
+                                </div>
+</div>
+
+                                <div class="comment-form">
+                                    <form id="commentable_form" action="/message/16926925" enctype="multipart/form-data"
+                                        method="post">
+                                        <div class="u-margin-bottom">
+                                            <textarea name="content" class="c-form__control" rows="5" clos="60"
+                                                maxlength="2000" [(ngModel)]="newMsg.content"></textarea>
+                                            <div class="o-layout__item u-12@large u-6@small u-12@tiny u-no--padding">
+                                                <a href="#" id="reply_attachments_btn"
+                                                    class="c-button c-button--default c-button--ghost attach-button">
+                                                    <i class="fa fa-paperclip"></i>
+                                                    <span>أرفق ملفات</span>
+                                                </a>
+
+                                                <a href="#" id="reply_voicemessage_btn"
+                                                    class="c-button c-button--default c-button--ghost attach-button">
+                                                    <i class="fa fa-microphone"></i>
+                                                    <span> أضف رسالة صوتية</span>
+                                                </a>
+                                            </div>
+
+                                            <div id="attachmentsUploader" class="dropzone-box hidden dz-clickable">
+                                                <div class="dz-default dz-message dropzone-box-message">
+                                                    <div class="o-media">
+                                                        <div class="o-media__right u-no--margin u-no--padding ">
+                                                            <i class="fa fa-fw fa-cloud-upload upload-icon"></i>
+                                                        </div>
+                                                        <div class="o-media__body">
+                                                            <h3 class="upload-title-drop">اسحب الملفات هنا</h3>
+                                                            <p class="upload-title-click">أو انقر للاختيار يدويا</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="voicemessageUploader" class="voicerecord-box hidden">
+                                                <div
+                                                    class="voicerecord-default voicerecord-message voicerecord-box-message">
+                                                    <div class="o-media">
+                                                        <span class="pull-left">
+                                                            <a class="c-button c-button--danger voicerecord-delete-button"
+                                                                style="display: none ">
+                                                                <i class="fa fa-times"></i> حذف
+                                                            </a>
+                                                        </span>
+
+                                                        <div class="o-media__right u-no--margin u-no--padding clickable"
+                                                            id="btn-start-recording">
+                                                            <div class="record-icon">
+                                                                <i class="fa fa-fw fa-microphone"></i>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="o-media__right u-no--margin u-no--padding clickable"
+                                                            style="display: none" id="btn-stop-recording">
+                                                            <div class="record-icon">
+                                                                <i class="fa fa-stop fa-fw recording"></i>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="o-media__body">
+                                                            <div class="record-title">
+                                                                <h3 id="voicemessage-title"> اضغط على الميكروفون لتبدأ
+                                                                    التسجيل</h3>
+                                                                <h3 id="voicemessage-click" style="display: none">الرجاء
+                                                                    النقر على زر التسجيل مرة أخرى لتمكين المتصفح من
+                                                                    استخدام الميكروفون</h3>
+                                                                <h3 id="voicemessage-recording" style="display: none">
+                                                                    جارى التسجيل
+                                                                    <i class="fa fa-fw fa-spinner fa-spin"></i>
+                                                                </h3>
+                                                                <h3 id="voicemessage-uploading" style="display: none">
+                                                                    جارى حفظ الرسالة
+                                                                    <i class="fa fa-fw fa-spinner fa-spin"></i>
+                                                                </h3>
+                                                                <h3 id="voicemessage-capture-permission"
+                                                                    style="display: none">أعطي المتصفح صلاحيات
+                                                                    الميكروفون</h3>
+                                                                <h3 id="voicemessage-listen" style="display: none">استمع
+                                                                    للرسالة</h3>
+
+                                                            </div>
+                                                            <div class="record-meta">
+                                                                <p id="voicemessage_meta-title">ستتمكن من مراجعة الرسالة
+                                                                    قبل إرسالها</p>
+                                                                <p id="voicemessage_meta-send" style="display: none">
+                                                                    اضغط زر أرسل لإرسال الرسالة الصوتية
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="u-margin-top voicemessage-container voicemessage-recorder-player"
+                                                            style="display: none" data-container="voicemessage-audio">
+                                                            <audio data-type="audio-player" controls="" crossorigin=""
+                                                                playsinline="" data-disable="true"></audio>
+                                                        </div>
+                                                        <input data-type="voicemessage" id="voicemessage"
+                                                            autocomplete="off" name="voicemessage" type="hidden">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="u-margin-top">
+                                            <div
+                                                class="o-layout__item u-2@large u-6@small u-12@tiny u-margin-bottom@small u-no--padding">
+                                                <input id="user_token" type="hidden" name="token"
+                                                    value="2fc3268f89a77b1c1f6bfcdcb9e8c9abfb29be79">
+                                                <button type="submit" id="commentable_submit"
+                                                    class="c-button c-button--primary c-button--block"
+                                                    (click)="sendMsg()" >أرسل</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+
+
+                                    <input id="message_id" name="message_id" value="16926925" type="hidden">
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="c-card u-margin-bottom@small">
+                            <div class="c-card__head">
+                                <h3 class="u-clr--danger">ملاحظات هامة لحماية حسابك</h3>
+                            </div>
+                            <div class="c-card__body">
+                                <ul>
+                                    <li>لا تتواصل مع أي مستخدم آخر خارج الموقع. موقع خمسات يحميك بابقاء تواصلك داخل
+                                        الموقع فقط.</li>
+                                    <li>لا تزود أي مستخدم تحت أي ظرف بأي معلومات حساسة أو عن حسابك في خمسات.</li>
+                                    <li>لا تعطي معلومات الدخول الخاصة ببريدك الالكتروني، حسابك في PayPal أو حساباتك على
+                                        الشبكات الاجتماعية.</li>
+                                    <li>تزويدك لأي مستخدم بمعلومات دخول لموقعك، جهازك الشخصي أو أي شيء آخر يتم على
+                                        مسؤوليتك الشخصية.</li>
+                                    <li>الرسائل مخصصة للاستفسار حول الخدمة فقط ولا يجب البدء في تنفيذ خدمة أو تسليمها
+                                        عبر الرسائل قبل شرائها.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div><!--  END o-layout -->
+            </div>
+            <!--  END content -->
+        </div>
+
+    </div>
+</div>

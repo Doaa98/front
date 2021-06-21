@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { KhamsatCommunity, SubjectCategory } from 'src/app/Classes/KhamsatCommunity';
+import { customkhamsat, SubjectCategory } from 'src/app/Classes/KhamsatCommunity';
 import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunityService';
 
 @Component({
@@ -11,61 +11,57 @@ import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunitySe
 })
 export class AddnewSubjectComponent implements OnInit {
 
-  constructor(private fb:FormBuilder,private khamsatCommunityService:KhamsatCommunityService,private router :Router) { }
-  communityList:KhamsatCommunity []=[];
+  constructor(private fb: FormBuilder, private khamsatCommunityService: KhamsatCommunityService, private router: Router) { }
   errorMsg: any;
-  dataSaved=false;
-  massage: string;
-  CommunityId: number=0;
-  addCommunityForm:any;
-  subject:SubjectCategory;
-  keys() : Array<string> {
-    var keys = Object.keys(this.subject);
-    return keys.slice(keys.length / 2);
-}
+  addCommunityForm: any;
+  newsubject: any;
+
+  Subjects: string[] = Object.values(SubjectCategory);
+
   ngOnInit(): void {
-    this.addCommunityForm=this.fb.group({
-      Content:['',[Validators.required]],
-      Title:['',[Validators.required]],
-      Subject:['',[Validators.required]],
-      //Comments:['',[Validators.required]],
-     // UserID:['',[Validators.required]],
-    })
-   this.getCommunity();
-  }
-  get Content(){
-    return this.addCommunityForm.get('Content')
-  }
-  get Title(){
-    return this.addCommunityForm.get('Title')
-  }
-  get Subject(){
-    return this.addCommunityForm.get('Subject')
-  }
-
-
-  getCommunity(){
-    this.khamsatCommunityService.returnAllCommunity().subscribe((Data)=>{
-      this.communityList=Data;
-    },(err)=>{
-    this.errorMsg=err;
+    this.addCommunityForm = this.fb.group({
+      content: ['', [Validators.required]],
+      title: ['', [Validators.required]],
+      subject: ['', [Validators.required]],
     })
   }
-Reset() {  
-  this.addCommunityForm.reset();  
- } 
-addcommunity(community: KhamsatCommunity) {  
-  debugger;  
-  community.ID = this.CommunityId;  
-  this.khamsatCommunityService.addKhamsatCommunity(community).subscribe(  
-   () => {  
-    this.dataSaved = true;  
-    this.massage = 'Record saved Successfully';  
-    this.Reset();  
-    this.CommunityId = 0; 
-    this.getCommunity();      
-   });  
-   this.router.navigate(['/aboutKhamsat']);
- } 
+  get content() {
+    return this.addCommunityForm.get('content')
+  }
+  get title() {
+    return this.addCommunityForm.get('title')
+  }
+  get Subject() {
+    return this.addCommunityForm.get('subject')
+  }
+
+  create() {
+    console.log(this.Subject.value)
+    console.log(this.addCommunityForm.get('subject').value)
+    this.newsubject = {
+      ID: 0,
+      content: this.content.value,
+      title: this.title.value,
+      subject: this.Subject.value,
+      Date: null,
+      userID: "2c20fb7b-f9bb-4ba5-9986-92bf67dc310a"
+
+    }
+    
+    console.log(this.newsubject);
+    this.khamsatCommunityService.addKhamsatCommunity(this.newsubject).subscribe(
+      pro => {
+        console.log("1");
+        this.errorMsg = pro;
+        console.log("res:" + this.errorMsg)//for test
+
+        this.router.navigate(['/aboutKhamsat']);
+      },
+      errorResponse => {
+        this.errorMsg = errorResponse;
+        console.log(this.errorMsg);
+      }
+    );
+  }
 
 }
