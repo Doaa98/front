@@ -22,7 +22,8 @@ export class ServiceHomeComponent implements OnInit {
         
         this.serService.getCatServices(this.CatList[index].id)
         .subscribe(
-          data=>{this.CatList[index].services = data},
+          data=>{this.CatList[index].services = data,
+          console.log(data)},
           err=>console.log(err)
         )
         
@@ -30,5 +31,11 @@ export class ServiceHomeComponent implements OnInit {
       }
     )
   }
+  createImgPath(name: string) {
+    if (name != null) {
+          return `http://localhost:21491/StaticFiles/Images/${name}`;
 
+    }
+    else return `https://via.placeholder.com/150`
+  }
 }

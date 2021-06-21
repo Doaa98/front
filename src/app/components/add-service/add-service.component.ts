@@ -8,7 +8,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ICategory } from 'src/app/models/ICategory';
-import { LocalImage } from 'src/app/models/IServiceGallery';
+import { IServiceGallery, LocalImage } from 'src/app/models/IServiceGallery';
 import { ISubCategory } from 'src/app/models/ISubCategory';
 import { CategoryService } from 'src/Services/category.service';
 import { ServiceService } from 'src/Services/service.service';
@@ -249,9 +249,9 @@ export class AddServiceComponent implements OnInit {
 
   addService(): void {
     console.log(this.service);
-    var imagesName: LocalImage[] = []
+    var imagesName: IServiceGallery[] = []
     for (let i = 0; i < this.imagesFile.length; i++) {
-      // imagesName.push(<LocalImage>{dbPath: this.imagesFile[i].name })
+       imagesName.push(<IServiceGallery>{src: this.imagesFile[i].name ,type:0})
       console.log(this.imagesFile[i].name);
       
     }
@@ -263,21 +263,21 @@ export class AddServiceComponent implements OnInit {
       localImage: imagesName,      
     });
 
-    this.userId?.patchValue('32kjkjkls;jdf');
+    this.userId?.patchValue('qq');
 
-    // const data = <IService>{
-    //   title: this.title?.value,
-    //   subCategoryId: this.subCategoryId?.value,
-    //   description: this.description?.value,
-    //   serviceGallery: this.serviceGallery,
-    //   keywords: this.keywords?.value,
-    //   duration: this.duration?.value,
-    //   instructionsToBuyer: this.InstructionsToBuyer?.value,
-    //   serviceDevelopmentsVM: this.addServiceDevelopment.value,
-    //   userID: '32kjkjkls;jdf',
-    // };
+     const data = <IService>{
+       title: this.title?.value,
+       subCategoryId: this.subCategoryId?.value,
+       description: this.description?.value,
+       serviceGallery: imagesName,
+       keywords: this.keywords?.value,
+       duration: this.duration?.value,
+       instructionsToBuyer: this.InstructionsToBuyer?.value,
+       serviceDevelopmentsVM: this.addServiceDevelopment.value,
+       userID: 'qq',
+     };
 
-    this.service.addService(this.addServiceForm.value).subscribe(
+    this.service.addService(data).subscribe(
       (data) => {
         console.log(data);
         this.router.navigate(['']);

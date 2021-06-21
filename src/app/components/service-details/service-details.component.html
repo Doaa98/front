@@ -108,12 +108,13 @@
                 <div id="service_gallery">
                   <div id="gallery_items" class="gallery_items flickity-enabled flickity-rtl" tabindex="0">
 
-                    <div class="flickity-viewport" style="height: 333.675px; touch-action: pan-y;">
+                    <div class="flickity-viewport" style="height: 500px; touch-action: pan-y;">
                       <div class="flickity-slider" style="right: 0px; transform: translateX(0%);">
                         <div class="gitem is-selected" id="gf-0" aria-selected="true"
                           style="position: absolute; right: 0%;">
-                          <img width="100%" attr-file="images/services/1943244/984b495ea7a5d2dec05a78df75a8f75d.jpg"
-                            src="https://khamsat.hsoubcdn.com/images/services/1943244/984b495ea7a5d2dec05a78df75a8f75d.jpg"
+                          <img width="100%" attr-file="images/services/1943244/984b495ea7a5d2dec05a78df75a8f75d.jpg" 
+                          style="width:100% ;height: 500px;"
+                          [src]="createImgPath(service.serviceGallery[0]?.src)"
                             class="keep-aspect-ratio">
                         </div>
                       </div>

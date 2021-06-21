@@ -45,6 +45,7 @@ export class ServiceService {
   }
 
   addService(service: IService) {
+    console.log(service)
     return this.http.post(this.baseURL, service, httpOptions).pipe(
       catchError((err) => {
         return throwError(err.message);
