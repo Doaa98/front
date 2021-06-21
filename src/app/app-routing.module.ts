@@ -6,7 +6,6 @@ import { AddnewSubjectComponent } from './Khamsat Community/AboutKhamsatModule/a
 import { ModelsImplementedComponent } from './Khamsat Community/Business models implemented/models-implemented/models-implemented.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { KhamsatDotComComponent } from './khamsat-dot-com/khamsat-dot-com.component';
 import { HsoubHeaderComponent } from './hsoub-header/hsoub-header.component';
 import { NotFoundServiceComponent } from './Khamsat Community/NotFoundServiceModule/not-found-service/not-found-service.component';
 import { UserExperiencesAndStoriesComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/user-experiences-and-stories/user-experiences-and-stories.component';
@@ -23,6 +22,7 @@ import { NotificationComponent } from './components/notification/notification.co
 import { MessagesComponent } from './components/message/messages/messages.component';
 import { NewChatComponent } from './components/message/new-chat/new-chat.component';
 import { MessageComponent } from './components/message/message/message.component';
+import { KhamsatDotComComponent } from './khamsat-dot-com/khamsat-dot-com.component';
 
 
 

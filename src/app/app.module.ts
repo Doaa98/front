@@ -47,8 +47,8 @@ import { NewChatComponent } from './components/message/new-chat/new-chat.compone
 
     RegisterComponent,
     LoginComponent,
-    KhamsatDotComComponent,
     HsoubHeaderComponent,
+    KhamsatDotComComponent,
 
     AboutKhamsatDetailsComponent,
     ModelsImplementedDetailsComponent,
