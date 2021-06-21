@@ -1,7 +1,7 @@
 export interface IMessage {
-    id: number
+    id?: number
     content: string
-    date?: Date
+    date: Date
     senderId: string
-    chatID:number
+    chatID?:number
 }

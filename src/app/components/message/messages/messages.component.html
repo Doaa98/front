@@ -21,17 +21,17 @@
                                     الرسائل
                                 </h1>
                                 <div class="u-pull--left filter-sort">
-                                    <div class="filter-sort u-pull--left desc_asc_sort">
-                                        <a href="#" class="c-button c-button--secondary dropdown-button"
-                                            data-jq-dropdown="#jq-filter-sort">
+                                    <div class="filter-sort u-pull--left desc_asc_sort" > 
+                                        <a  class="c-button c-button--secondary dropdown-button jq-dropdown-open"
+                                            data-jq-dropdown="#jq-filter-sort" (click)="ToggleDropDown()">
                                             <span class="text">الأحدث</span>
                                             <i class="fa fa-caret-down"></i>
                                         </a>
-                                        <div id="jq-filter-sort" class="jq-dropdown jq-dropdown-tip"
-                                            style="display: none; top: 119px;">
-                                            <ul class="jq-dropdown-menu">
-                                                <li><a href="#" data-sort="desc" class="filter active">الأحدث</a></li>
-                                                <li><a href="#" data-sort="asc" class="filter ">الأقدم</a></li>
+                                        <div id="jq-filter-sort" class="jq-dropdown jq-dropdown-tip" *ngIf="isDropdown"
+                                        style="display: block; top: 114px;">
+                                            <ul class="jq-dropdown-menu" >
+                                                <li><a (click)="sortDes()" data-sort="desc" class="filter active">الأحدث</a></li>
+                                                <li><a (click)="sortAsc()" data-sort="asc" class="filter ">الأقدم</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -60,7 +60,7 @@
                                             <ul class="c-list c-list--vert c-list--filter filters-list  ">
                                                 <li class="c-list__item u-checkbox">
                                                     <label for="inboxdir_filter">
-                                                        <input type="checkbox" value="inbox" name="dir"
+                                                        <input type="checkbox" value="inbox" name="dir" [(ngModel)]="showInbox" (change)="toggleInbox()"
                                                             id="inboxdir_filter" class="filter">
                                                         <span> الرسائل الواردة </span>
                                                         <span class="c-badge u-pull--left">{{inboxMsgs.length}}</span>
@@ -68,7 +68,7 @@
                                                 </li>
                                                 <li class="c-list__item u-checkbox">
                                                     <label for="outboxdir_filter">
-                                                        <input type="checkbox" value="outbox" name="dir"
+                                                        <input type="checkbox" value="outbox" name="dir" [(ngModel)]="showOut" (change)="toggleOutbox()"
                                                             id="outboxdir_filter" class="filter">
                                                         <span> الرسائل الصادرة </span>
                                                         <span class="c-badge u-pull--left">{{outboxMsgs.length}}</span>
@@ -95,7 +95,7 @@
                                                 <col width="auto">
                                             </colgroup>
                                             <tbody>
-                                                <tr id="message-{{chat.id}}" class="message " *ngFor="let chat of inboxMsgs" >
+                                                <tr id="message-{{chat.id}}" class="message " *ngFor="let chat of displayMsgs" >
                                                     <td class="avatar-td u-text--center"><a
                                                             href="/user/azoooz11111"><img
                                                                 class="u-circle img-thumbnail img--medium"
@@ -108,8 +108,7 @@
                                                         <ul class="details-list">
                                                             <li>
                                                                 <a class="user" href="/user/azoooz11111"><i
-                                                                        class="fa fa-fw fa-user"></i> Azoooz11111
-                                                                    Aziz</a>
+                                                                        class="fa fa-fw fa-user"></i> {{chat.userfullname}}</a>
                                                             </li>
                                                             <li>
                                                                 <i class="fa fa-fw fa-clock-o"></i> <span

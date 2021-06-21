@@ -38,8 +38,10 @@ export class CustomDatePipe implements PipeTransform {
     if (numyears > 10) year2 = numyears + " سنة";
     if (numMonths > 10) month2 = numMonths + " شهر";
 
-
-    if (year2 + month2 + day2 + hour2 == "") {
+    if (year2 + month2 + day2 + hour2 + minutes2 == "") {
+      return "منذ أقل من دقيقة"
+    }
+    else if (year2 + month2 + day2 + hour2 == "") {
       return `${start} ${minutes2}`
     } else if (year2 + month2 + day2 == "") {
       return `${start} ${hour2} و${minutes2}`
