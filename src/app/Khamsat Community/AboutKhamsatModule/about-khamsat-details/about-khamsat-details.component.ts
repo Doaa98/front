@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CommentViewModel, khamsatcommunity_withcomments } from 'src/app/Classes/KhamsatCommunity';
+import { CommentViewModel, khamsatcommunity_withcomments } from 'src/app/models/KhamsatCommunity';
 import { KhamsatCommunityService } from 'src/Services/KhamsatCommunityService';
 
 @Component({

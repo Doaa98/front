@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IChat } from 'src/app/Shared/ichat';
+import { IChat } from 'src/app/models/ichat';
 import { MessageService } from 'src/Services/message.service';
 
 @Component({

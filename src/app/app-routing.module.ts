@@ -28,6 +28,7 @@ import { AddServiceComponent } from './components/add-service/add-service.compon
 
 
 const routes: Routes = [
+  // { path: '', component: HomeComponent },
   {path: '', component: KhamsatDotComComponent},
 
   {path:'register',component:RegisterComponent},
@@ -85,7 +86,6 @@ const routes: Routes = [
   { path: 'messages', component: MessagesComponent },
   { path: 'message/:ChatId', component: MessageComponent },
   { path: 'message/new/:id', component: NewChatComponent },
-  { path: '', component: HomeComponent }
 ];
 
 @NgModule({

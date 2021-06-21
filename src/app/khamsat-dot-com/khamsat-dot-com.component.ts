@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class KhamsatDotComComponent implements OnInit {
 
-  isHidden:boolean = true;
+  isShowKhamsatDefinition:boolean = true;
   constructor() { }
 
   ngOnInit(): void {
@@ -15,7 +15,7 @@ export class KhamsatDotComComponent implements OnInit {
 
   dropdownMenuToggle()
   {
-    this.isHidden =! this.isHidden;
+    this.isShowKhamsatDefinition =! this.isShowKhamsatDefinition;
   }
 
 }

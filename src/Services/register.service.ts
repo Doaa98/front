@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { throwError } from 'rxjs/internal/observable/throwError';
 import { catchError } from 'rxjs/internal/operators/catchError';
-import { IUser } from 'src/app/Interfaces/IUser';
+import { IUser } from 'src/app/models/IUser';
 
 @Injectable({
   providedIn: 'root'

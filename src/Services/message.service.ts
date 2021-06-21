@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { IChat } from 'src/app/Shared/ichat';
 import { environment } from 'src/environments/environment';
-import { IMessage } from 'src/app/Shared/imessage';
+import { IChat } from 'src/app/models/ichat';
+import { IMessage } from 'src/app/models/imessage';
 
 @Injectable({
   providedIn: 'root'

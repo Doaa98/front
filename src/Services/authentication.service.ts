@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { User } from 'src/app/Classes/User';
+import { IUser } from 'src/app/models/IUser';
+import { User } from 'src/app/models/User';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {

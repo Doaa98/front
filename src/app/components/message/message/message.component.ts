@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IChat } from 'src/app/Shared/ichat';
-import { IMessage } from 'src/app/Shared/imessage';
+import { IChat } from 'src/app/models/ichat';
+import { IMessage } from 'src/app/models/imessage';
 import { MessageService } from 'src/Services/message.service';
 
 @Component({

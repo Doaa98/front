@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { RegisterService } from 'src/Services/register.service';
-import { IUser } from '../Interfaces/IUser';
+import { IUser } from '../models/IUser';
 
 @Component({
   selector: 'app-register',

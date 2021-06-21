@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { customkhamsat, SubjectCategory } from 'src/app/Classes/KhamsatCommunity';
+import { customkhamsat, SubjectCategory } from 'src/app/models/KhamsatCommunity';
 import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunityService';
 
 @Component({

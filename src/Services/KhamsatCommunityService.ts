@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { CommentViewModel, customkhamsat, KhamsatCommunityVM, khamsatcommunity_withcomments } from 'src/app/Classes/KhamsatCommunity';
+import { CommentViewModel, customkhamsat, KhamsatCommunityVM, khamsatcommunity_withcomments } from 'src/app/models/KhamsatCommunity';
 @Injectable({
   providedIn: 'root'
 })

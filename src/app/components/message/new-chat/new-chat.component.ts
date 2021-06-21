@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IChat } from 'src/app/Shared/ichat';
-import { IMessage } from 'src/app/Shared/imessage';
-import { Iservice } from 'src/app/Shared/iservice';
+import { IChat } from 'src/app/models/ichat';
+import { IMessage } from 'src/app/models/imessage';
+import { IService } from 'src/app/models/IService';
 import { MessageService } from 'src/Services/message.service';
 import { ServiceService } from 'src/Services/service.service';
 
@@ -14,7 +14,7 @@ import { ServiceService } from 'src/Services/service.service';
 export class NewChatComponent implements OnInit {
   serviceId!: number
   userId!: string
-  service!: Iservice
+  service!: IService
 
   newMsg: IMessage = {
     chatID: 0,
