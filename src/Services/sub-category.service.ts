@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ISubCategory } from 'src/app/Shared/isub-category';
+import { ISubCategory } from 'src/app/models/ISubCategory';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -17,7 +17,7 @@ export class SubCategoryService {
 
   getAllSubCategories( ): Observable<ISubCategory[]> {
  
-    return this.http.get<ISubCategory[]>(this.Url )
+    return this.http.get<ISubCategory[]>(this.Url)
 
   };
 

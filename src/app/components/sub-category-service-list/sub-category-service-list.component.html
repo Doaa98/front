@@ -272,7 +272,7 @@
                                         <div class="c-box">
                                             <a [routerLink]="['/service/Details/',ser.id]"  
                                                 title="{{ser.title}}" class="c-box__url">
-                                                <img src="https://khamsat.hsoubcdn.com/images/services/1294696/8966fcd3e95ff49e4a65d7749bb72ece_thumb.jpg"
+                                                <img    [src]="createImgPath(ser.serviceGallery[0]?.src)"
                                                     loading="lazy" class="c-box__image">
                                             </a>
 

@@ -9,7 +9,6 @@ import { RegisterComponent } from './register/register.component';
 import { HsoubHeaderComponent } from './hsoub-header/hsoub-header.component';
 import { NotFoundServiceComponent } from './Khamsat Community/NotFoundServiceModule/not-found-service/not-found-service.component';
 import { UserExperiencesAndStoriesComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/user-experiences-and-stories/user-experiences-and-stories.component';
-import { NewServiceComponent } from './components/new-service/new-service.component';
 import { ServiceDetailsComponent } from './components/service-details/service-details.component';
 import { ModelsImplementedDetailsComponent } from './Khamsat Community/Business models implemented/models-implemented-details/models-implemented-details.component';
 import { AboutKhamsatDetailsComponent } from './Khamsat Community/AboutKhamsatModule/about-khamsat-details/about-khamsat-details.component';
@@ -23,6 +22,7 @@ import { MessagesComponent } from './components/message/messages/messages.compon
 import { NewChatComponent } from './components/message/new-chat/new-chat.component';
 import { MessageComponent } from './components/message/message/message.component';
 import { KhamsatDotComComponent } from './khamsat-dot-com/khamsat-dot-com.component';
+import { AddServiceComponent } from './components/add-service/add-service.component';
 
 
 
@@ -63,7 +63,19 @@ const routes: Routes = [
     path:'ExpDetails/:id',component:UserExperienceDetailsComponent
   },
   { path: 'cart', component: CartComponent },
-  { path: 'service/new', component: NewServiceComponent },
+
+  { path: '', component: HomeComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'service/Details/:id', component: ServiceDetailsComponent },
+  { path: 'SubCategory/:id', component: SubCategoryServiceListComponent },
+  { path: 'Category/:catId', component: SubCategoryServiceListComponent },
+  { path: 'notifications', component: NotificationComponent },
+  { path: 'service/add', component: AddServiceComponent },
+  { path: 'service/Details/:id', component: ServiceDetailsComponent },
+  { path: 'SubCategory/:id', component: SubCategoryServiceListComponent },
+  { path: 'service/Details/:id', component: ServiceDetailsComponent },
+
+  { path: 'cart', component: CartComponent },
   { path: 'service/Details/:id', component: ServiceDetailsComponent },
   { path: 'SubCategory/:id', component: SubCategoryServiceListComponent },
   { path: 'Category/:catId', component: SubCategoryServiceListComponent },
@@ -78,6 +90,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

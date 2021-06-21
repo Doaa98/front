@@ -22,6 +22,9 @@
     "ngx-owl-carousel-o": "^5.1.0",
     "ngx-spinner": "^11.0.2",
     "@aspnet/signalr": "^1.0.27",
+    "@popperjs/core": "^2.9.2",
+    "bootstrap": "^5.0.0-beta3",
+    "ng-click-outside": "^8.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

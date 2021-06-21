@@ -5,7 +5,7 @@ import { SignalRService } from 'src/Services/signal-r.service';
 import { SubjectService } from 'src/Services/subject.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Notification } from 'src/app/Shared/notification';
+import { Notification } from 'src/app/models/notification';
 
 
 

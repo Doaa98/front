@@ -20,7 +20,6 @@ import { AboutKhamsatDetailsComponent } from './Khamsat Community/AboutKhamsatMo
 import { ModelsImplementedDetailsComponent } from './Khamsat Community/Business models implemented/models-implemented-details/models-implemented-details.component';
 import { AServiceDetailsComponent } from './Khamsat Community/NotFoundServiceModule/aservice-details/aservice-details.component';
 import { UserExperienceDetailsComponent } from './Khamsat Community/UserExperiencesAndStoriesModule/user-experience-details/user-experience-details.component';
-import { NewServiceComponent } from './components/new-service/new-service.component';
 import { ServiceDetailsComponent } from './components/service-details/service-details.component';
 import { SubCategoryServiceListComponent } from './components/sub-category-service-list/sub-category-service-list.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -35,6 +34,8 @@ import { NotificationComponent } from './components/notification/notification.co
 import { MessagesComponent } from './components/message/messages/messages.component';
 import { MessageComponent } from './components/message/message/message.component';
 import { NewChatComponent } from './components/message/new-chat/new-chat.component';
+import { ClickOutsideModule } from 'ng-click-outside';
+import { AddServiceComponent } from './components/add-service/add-service.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,6 @@ import { NewChatComponent } from './components/message/new-chat/new-chat.compone
     ModelsImplementedDetailsComponent,
     AServiceDetailsComponent,
     UserExperienceDetailsComponent,
-    NewServiceComponent,
     ServiceDetailsComponent,
     SubCategoryServiceListComponent,
     HeaderComponent,
@@ -68,8 +68,10 @@ import { NewChatComponent } from './components/message/new-chat/new-chat.compone
     NotificationComponent,
     MessagesComponent,
     MessageComponent,
-    NewChatComponent
-    ],
+    NewChatComponent,
+    AddServiceComponent,
+  ],
+
   imports: [
     FormsModule,
     HttpClientModule,
@@ -83,6 +85,8 @@ import { NewChatComponent } from './components/message/new-chat/new-chat.compone
   ],
   providers: [
      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    ReactiveFormsModule,
+    ClickOutsideModule
   ],
   bootstrap: [AppComponent]
 })
