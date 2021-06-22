@@ -1,10 +1,5 @@
-import {
-  HttpClient,
-  HttpEventType,
-  HttpHeaders,
-  HttpResponse,
-} from '@angular/common/http';
-import { Component, OnInit, Output } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ICategory } from 'src/app/models/ICategory';
@@ -21,9 +16,9 @@ import { IService } from '../../models/IService';
   styleUrls: ['./add-service.component.css'],
 })
 export class AddServiceComponent implements OnInit {
+  
   isShowModal: boolean = false;
   isCategoryChanged: boolean = false;
-  isShowGallery: boolean = false;
   isShowInputUrlImg: boolean = false;
   isShowInputYoutube: boolean = false;
   isShowChooseImg: boolean = true;
@@ -34,6 +29,8 @@ export class AddServiceComponent implements OnInit {
   serviceDevStyle = 'none';
   durationOfServiceDevStyle = 'inline';
   dialogOfGalleryStyle = 'inline';
+  galleryEditDisplay = 'none';
+  gelleryDialogDisplay = 'none';
   categoryList: ICategory[] = [];
   subCategoryListLoaded: ISubCategory[] = [];
   selectedSubCategoryList: ISubCategory[] = [];
@@ -160,38 +157,16 @@ export class AddServiceComponent implements OnInit {
     // console.log(this.selectedSubCategoryList);
   }
 
-  showGallery() {
-    // if(this.isShowGallery = false)
-    this.isShowGallery = true;
-    // else
-    // this.isShowGallery = false;
-
-    // console.log(this.isShowGallery);
+  showServiceGallery(e: Event) {
+    e.stopPropagation();
+    this.gelleryDialogDisplay = 'flex';
   }
 
-  stopClickOuside(e: any) {
-    if(this.isShowGallery == false) {
-      e.stopPropagation()
-    }
-    else {
-      this.isShowGallery = true;
-    }
+  hideGallery(e: Event) {
+    // console.log('Hello from hideGallery()');
+    // e.stopPropagation();
+    this.gelleryDialogDisplay = 'none';
   }
-
-  // hideGallery() {
-    
-  //   this.isShowGallery = true;
-  //   console.log(this.isShowGallery);
-  // }
-
-  // changeDisplayDialogOfGallery() {
-  //   console.log(this.dialogOfGalleryStyle);
-
-  //   this.dialogOfGalleryStyle = 'none';
-
-  //   console.log(this.dialogOfGalleryStyle);
-
-  // }
 
   showInputUrlImg() {
     this.isShowInputUrlImg = true;
@@ -211,9 +186,9 @@ export class AddServiceComponent implements OnInit {
     this.isShowInputUrlImg = false;
   }
 
-  onFileChange(e: any) {
-    if (e.target.files.length > 0) this.isShowImgItem = true;
-  }
+  // onFileChange(e: any) {
+  //   if (e.target.files.length > 0) this.isShowImgItem = true;
+  // }
 
   addNewServiceDevelopment() {
     if (this.serviceDevStyle == 'none') this.serviceDevStyle = 'block';
@@ -234,12 +209,12 @@ export class AddServiceComponent implements OnInit {
   }
 
   imagesFile: File[];
-  onFileChainge(e: any) {
+  onFileChange(e: any) {
+    this.isShowImgItem = true;
     if(e.target.files.length > 0)
       this.imagesFile = e.target.files;
 
       this.uploadFile(this.imagesFile);
-      this.isShowGallery = false;
   }
 
   // onSubmit() {
@@ -285,8 +260,12 @@ export class AddServiceComponent implements OnInit {
     );
   }
 
-  createImgPath(name: string) {
+  createImgPath(name: string) {    
     return `http://localhost:21491/StaticFiles/Images/${name}`;
+  }
+
+  removeImg(index: number) {
+    this.imagesFile.splice(index, 1);
   }
 
   images: any[];
@@ -296,7 +275,7 @@ export class AddServiceComponent implements OnInit {
       //   return;
       // }
 
-      this.isShowImgItem = true;
+      
       // console.log(files);
 
       const formData = new FormData();
@@ -312,8 +291,8 @@ export class AddServiceComponent implements OnInit {
         //   'Authorization': 'my-auth-token'
         // });
 
-      this.http.post('http://localhost:21491/api/Upload', formData, {reportProgress: true, observe: 'events'});
-       // .subscribe(event => {
+      this.http.post('http://localhost:21491/api/Upload', formData, {reportProgress: true, observe: 'events'})
+       .subscribe(event => {
           // if (event.type === HttpEventType.UploadProgress)
           //   this.progress = Math.round(100 * event.loaded / event.total!);
           // if (event.type === HttpEventType.Response) {
@@ -323,7 +302,7 @@ export class AddServiceComponent implements OnInit {
           //   console.log('event-body' + event.body);
           // }
 
-        // });
+        });
     }
 
   // uploadFinished(event: any) {

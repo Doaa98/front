@@ -34,8 +34,8 @@ import { NotificationComponent } from './components/notification/notification.co
 import { MessagesComponent } from './components/message/messages/messages.component';
 import { MessageComponent } from './components/message/message/message.component';
 import { NewChatComponent } from './components/message/new-chat/new-chat.component';
-import { ClickOutsideModule } from 'ng-click-outside';
 import { AddServiceComponent } from './components/add-service/add-service.component';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [
@@ -82,11 +82,12 @@ import { AddServiceComponent } from './components/add-service/add-service.compon
     ReactiveFormsModule,
     BrowserAnimationsModule,
     BrowserAnimationsModule,
+    ClickOutsideModule
   ],
   providers: [
      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     ReactiveFormsModule,
-    ClickOutsideModule
+    
   ],
   bootstrap: [AppComponent]
 })
