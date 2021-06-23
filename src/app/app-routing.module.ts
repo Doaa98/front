@@ -80,8 +80,8 @@ const routes: Routes = [
   { path: 'service/Details/:id', component: ServiceDetailsComponent },
   { path: 'SubCategory/:id', component: SubCategoryServiceListComponent },
   { path: 'Category/:catId', component: SubCategoryServiceListComponent },
-  { path: 'notifications', component: NotificationComponent },
-  { path: 'message/new', component: NewChatComponent },
+  { path: 'notifications', component: NotificationComponent,canActivate: [AuthGuard] },
+  { path: 'message/new', component: NewChatComponent,canActivate: [AuthGuard] },
 
   { path: 'messages', component: MessagesComponent },
   { path: 'message/:ChatId', component: MessageComponent },

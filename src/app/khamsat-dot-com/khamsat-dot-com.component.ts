@@ -7,15 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class KhamsatDotComComponent implements OnInit {
 
-  isShowKhamsatDefinition:boolean = true;
+  isShowKhamsatDefinition:boolean = false;
+  isShowBenefitFromKhamsat:boolean = false;
+  isShowKhamsatRights:boolean = false;
+  isShowWhatHappenAfterBuyServeice:boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  dropdownMenuToggle()
+  ShowKhamsatDefinition()
   {
     this.isShowKhamsatDefinition =! this.isShowKhamsatDefinition;
+  }
+  BenefitFromKhamsat()
+  {
+    this.isShowBenefitFromKhamsat =! this.isShowBenefitFromKhamsat;
+  }
+
+  ShowKhamsatRights()
+  {
+    this.isShowKhamsatRights =! this.isShowKhamsatRights;
+  }
+  WhatHappenAfterBuyServeice()
+  {
+    this.isShowWhatHappenAfterBuyServeice =! this.isShowWhatHappenAfterBuyServeice;
   }
 
 }

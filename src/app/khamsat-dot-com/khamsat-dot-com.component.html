@@ -201,17 +201,17 @@
     <h2 class="faq__title-text">أسئلة شائعة</h2>
   </div>
   <div class="faq__list">
-    <div class="faq__line ">
-      <div class="faq__line-head" (click)="dropdownMenuToggle" >
+    <div class="faq__line " [ngClass]="{'active_faq':isShowKhamsatDefinition}" >
+      <div class="faq__line-head" (click)="ShowKhamsatDefinition()" >
         <span >ما هو خمسات؟ </span>
-        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        <i class="fa fa-chevron-down" ></i>
       </div>
-      <p *ngIf="isShowKhamsatDefinition">
+      <p>
         خمسات هو أكبر سوق عربي لبيع وشراء الخدمات المصغرة. يجمع خمسات بين الشباب العربي الموهوب المستعد لتقديم خبراته ومهاراته على شكل خدمات مصغرة بأسعار تبدأ من 5 دولار، وبين الأفراد ورواد الأعمال الذين يحتاجون هذه الخدمات لتساعدهم في تنمية وتطوير أعمالهم.
       </p>
     </div>
-    <div class="faq__line ">
-      <div class="faq__line-head">
+    <div class="faq__line " [ngClass]="{'active_faq':isShowBenefitFromKhamsat}">
+      <div class="faq__line-head" (click)="BenefitFromKhamsat()">
           <span>كيف يمكن أن أستفيد من خمسات؟ </span>
         <i class="fa fa-chevron-down" aria-hidden="true"></i>
       </div>
@@ -222,8 +222,9 @@
         يوفّر خمسات كل الخدمات الإبداعية والاحترافية التي تحتاجها لتنمية وتطوير أعمالك، والتي يمكن طلبها من أشخاص موهوبين مستعدين لخدمتك في إنجاز مهامك بسهولة عبر الإنترنت وبأسعار اقتصادية تتناسب مع الأفراد ورواد الأعمال من أصحاب المشاريع الناشئة.
       </p>
     </div>
-    <div class="faq__line ">
-      <div class="faq__line-head">
+
+    <div class="faq__line " [ngClass]="{'active_faq':isShowKhamsatRights}">
+      <div class="faq__line-head" (click)="ShowKhamsatRights()">
           <span>كيف يضمن موقع خمسات حقوقي؟ </span>
         <i class="fa fa-chevron-down" aria-hidden="true"></i>
       </div>
@@ -231,8 +232,8 @@
         موقع خمسات يضمن لك حقوقك بشكل كامل، كن مطمئنا عند شراء أي خدمة معروضة في الموقع، يقوم خمسات بدور الوسيط بين المشتري والبائع ويحمي حقوق الطرفين المالية في حال الالتزام بشروط موقع خمسات وبنود الضمان والإبقاء على جميع التواصلات داخل الموقع.
       </p>
     </div>
-    <div class="faq__line ">
-      <div class="faq__line-head">
+     <div class="faq__line " [ngClass]="{'active_faq':isShowWhatHappenAfterBuyServeice}">
+      <div class="faq__line-head" (click)="WhatHappenAfterBuyServeice()">
           <span>ماذا سيحدث بعد شرائي لأحد الخدمات المعروضة في خمسات؟ </span>
         <i class="fa fa-chevron-down" aria-hidden="true"></i>
       </div>
@@ -240,8 +241,8 @@
         ستصلك رسالة بريدية لتأكيد عملية الشراء، وستتمكن من التواصل المباشر مع البائع ضمن صفحة الطلب. بعد قيام البائع بتنفيذ وتسليم الخدمة يمكنك تقييمها حتى يستفيد بقية المشترين من تجربتك، وفي حال تأخر البائع عن مدة تنفيذ الطلب الموضحة أو عدم التزامه بالوصف المحدد للخدمة يمكنك إلغاء الطلب واستعادة رصيدك كاملًا.
       </p>
     </div>
-    <div class="faq__line ">
-      <div class="faq__line-head">
+    <div class="faq__line " [ngClass]="{'active_faq':isShowWhatHappenAfterBuyServeice}">
+      <div class="faq__line-head" (click)="WhatHappenAfterBuyServeice()">
           <span>ماذا لو لم أكن راضيا عن مستوى الخدمة المستلمة؟ </span>
           <i class="fa fa-chevron-down" aria-hidden="true"></i>
       </div>

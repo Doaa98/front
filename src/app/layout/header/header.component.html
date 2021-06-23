@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <header
   class="hsoub-header"
   style=""
@@ -22,6 +23,19 @@
     <ul class="hsoub-menu">
       <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop">
         <a class="hsoub-menu-item-link" routerLink="/service/add">
+=======
+<header class="hsoub-header" style="" #navbar [ngClass]="{'sidebar-active': isAside}">
+  <div class="hsoub-box"><a class="hsoub-bars hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile"
+      (click)="AsideToggle()">
+      <i class="hsoub-bars-icon"></i>
+    </a><a routerLink="/" class="hsoub-logo"><img class="hsoub-logo-img hsoub--visible-h hsoub-desktop hsoub-tablet "
+        src="https://khamsat.hsoubcdn.com/assets/images/logo-73045c76e830509d4dbe03ea6172d22f047c708fed5435e93ffd47f80ee5ffa4.png"><img
+        class="hsoub-logo-img hsoub--visible-h   hsoub-mobile"
+        src="https://khamsat.hsoubcdn.com/assets/images/logo-mobile-215fffeb86f5121a190d2551c62feea201ca1b4e0d5ea7feef9f5aa04a55dac4.png"></a>
+    <ul class="hsoub-menu ">
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop  " *ngIf="isUserLoggedIn()">
+        <a class="hsoub-menu-item-link     " routerLink="/service/new">
+>>>>>>> Stashed changes
           <i class="hsoub-menu-item-link-icon fa fa-plus"></i>
           <span>أضف خدمة</span>
         </a>
@@ -32,14 +46,24 @@
           <span>التصنيفات</span>
         </a>
       </li>
+<<<<<<< Updated upstream
       <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop">
         <a class="hsoub-menu-item-link" href="/purchases">
+=======
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop  " *ngIf="isUserLoggedIn()">
+        <a class="hsoub-menu-item-link     " href="/purchases">
+>>>>>>> Stashed changes
           <i class="hsoub-menu-item-link-icon fa fa-folder-open"></i>
-          <span>المشتريات</span>
+          <span >المشتريات</span>
         </a>
       </li>
+<<<<<<< Updated upstream
       <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop">
         <a class="hsoub-menu-item-link" href="/orders">
+=======
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop  "*ngIf="isUserLoggedIn()">
+        <a class="hsoub-menu-item-link     " href="/orders">
+>>>>>>> Stashed changes
           <i class="hsoub-menu-item-link-icon fa fa-truck"></i>
           <span>الطلبات الواردة</span>
         </a>
@@ -583,7 +607,7 @@
           >
         </div>
       </li>
-      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile">
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile" *ngIf="isUserLoggedIn()">
         <a class="hsoub-menu-item-link hsoub-menu-item-link--is-large    " routerLink="/messages" title="الرسائل">
           <i class="hsoub-menu-item-link-icon fa fa-envelope"></i>
         </a>
@@ -594,7 +618,7 @@
           </ul><a class="hsoub-list-action-link" routerLink="/messages"><i class="fa fa-fw fa-envelope"></i> جميع الرسائل</a>
         </div>
       </li>
-      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile">
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile" *ngIf="isUserLoggedIn()">
         <a class="hsoub-menu-item-link hsoub-menu-item-link--is-large    " title="الإشعارات" (click)="notfiyToggle()">
           <span class="c-badge " style="background-color: #e75737; border-radius:20px;
           bottom: 10px; position: relative;line-height: 1; " *ngIf="signalRService.newNotificationsCount != 0">
@@ -604,9 +628,9 @@
         </a>
 
 
-        <div class="hsoub-list hsoub-list-right" *ngIf="isNotifyShow" style="display: block;">
+        <div class="hsoub-list hsoub-list-right" *ngIf="isNotifyShow"  style="display: block;">
           <ul class="hsoub-list-group" data-empty="لا جديد حتى اللحظة!">
-            <li class="hsoub-list-item " *ngFor="let notification of signalRService.Notifications">
+            <li class="hsoub-list-item "  *ngFor="let notification of signalRService.Notifications">
               <img class="hsoub-list-item-img" alt="Azoooz11111 Aziz"
                 src="https://avatars.hsoubcdn.com/6048019056eea385a42c2b8c697273f4?s=128">
               <div class="hsoub-list-item-content">
@@ -617,30 +641,16 @@
                 </div>
               </div>
             </li>
-          </ul><a class="hsoub-list-action-link" routerLink="/notifications"><i class="fa fa-fw fa-bell"></i> جميع
+          </ul>
+          <a class="hsoub-list-action-link" routerLink="/notifications" >
+            <i class="fa fa-fw fa-bell"></i> جميع
             الإشعارات</a>
         </div>
-
-
       </li>
-      <li
-        class="
-          hsoub-menu-item
-          hsoub--visible-h
-          hsoub-desktop
-          hsoub-tablet
-          hsoub-mobile
-        "
-      >
-        <a
-          class="hsoub-menu-item-link hsoub-menu-item-link--is-img"
-          href="/user/programmer01"
-          title="programmer01"
-        >
-          <img
-            class="hsoub-menu-item-link-img"
-            src="https://avatars.hsoubcdn.com/d17a227615ef8f87cd2b4d063b1b6f47?s=128"
-          />
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile" *ngIf="isUserLoggedIn()">
+        <a class="hsoub-menu-item-link     hsoub-menu-item-link--is-img" href="/user/programmer01" title="programmer01">
+          <img class="hsoub-menu-item-link-img"
+            src="https://avatars.hsoubcdn.com/d17a227615ef8f87cd2b4d063b1b6f47?s=128">
         </a>
         <ul class="hsoub-dropdown hsoub-dropdown-right">
           <li class="hsoub-dropdown-item">
@@ -698,6 +708,21 @@
           </li>
         </ul>
       </li>
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile" *ngIf="!isUserLoggedIn()">
+        <a class="hsoub-menu-item-link  hsoub-menu-item-link--is-button hsoub-menu-item-link--is-button-justified  " routerLink="/login">
+          <i class="hsoub-menu-item-link-icon fa fa-sign-in"></i>
+          <span>دخول</span>
+        </a>
+      </li>
+
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet " *ngIf="!isUserLoggedIn()">
+        <a class="hsoub-menu-item-link  hsoub-menu-item-link--is-button   " routerLink="/register">
+          <i class="hsoub-menu-item-link-icon fa fa-user-plus"></i>
+          <span>حساب جديد</span>
+        </a>
+      </li>
+
+
     </ul>
   </div>
 </header>
@@ -717,7 +742,7 @@
       </form>
     </div>
     <ul class="hsoub-sidebar-menu">
-      <li class="hsoub-sidebar-menu-item hsoub--visible-v   hsoub-mobile show-xs-only">
+      <li class="hsoub-sidebar-menu-item hsoub--visible-v   hsoub-mobile show-xs-only" >
         <a class="hsoub-sidebar-menu-item-link" href="/cart"><span class="c-badge " style="background-color: #e75737; border-radius:20px;
           bottom: 10px; position: relative;line-height: 1; ">{{itemsNumber}}</span>
           <i class="fa fa-fw fa-shopping-cart"></i>
