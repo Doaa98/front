@@ -10,7 +10,7 @@ import { MessageService } from 'src/Services/message.service';
 })
 export class MessagesComponent implements OnInit {
 
-  userId = this.authenticationService.currentUserValue.id
+  userId = "qq"
   isDropdown = false
 
   showInbox = true
