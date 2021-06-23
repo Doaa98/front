@@ -15,7 +15,7 @@ import { ServiceService } from 'src/Services/service.service';
 })
 export class NewChatComponent implements OnInit {
   serviceId!: number
-  userId = this.authenticationService.currentUserValue.id
+  userId = this.authenticationService.getUserId()
   service!: IService
 
   newMsg: IMessage = {
@@ -27,18 +27,19 @@ export class NewChatComponent implements OnInit {
 
   }
   constructor(private MsgService: MessageService, private activatedroute: ActivatedRoute
-    , private serService: ServiceService , private router: Router
+    , private serService: ServiceService, private router: Router
     , private authenticationService: AuthenticationService
     , private _registerService: RegisterService
 
   ) {
-
+    if (!authenticationService.isLoggedIn()) {
+      router.navigateByUrl("/login")
+    }
     this.activatedroute.params.subscribe(data => {
       this.serviceId = data.id;
       this.serService.getService(this.serviceId).subscribe(
         data => {
           this.service = data;
-          console.log(data)
         },
         err => console.log(err)
       )
@@ -47,9 +48,9 @@ export class NewChatComponent implements OnInit {
 
   ngOnInit(): void {
 
-this.authenticationService.currentUser.subscribe(d=>console.log(d))
+    this.authenticationService.currentUser.subscribe(d => console.log(d))
 
- this._registerService.getCurrentUser().subscribe(d=>console.log(d))
+    this._registerService.getCurrentUser().subscribe(d => console.log(d))
   }
 
   startchat() {
@@ -65,8 +66,8 @@ this.authenticationService.currentUser.subscribe(d=>console.log(d))
     this.MsgService.addChat(newChat).subscribe(
       d => {
 
-        this.router.navigate(["/message/"+d])
-        
+        this.router.navigate(["/message/" + d])
+
       },
       err => console.log(err)
     )

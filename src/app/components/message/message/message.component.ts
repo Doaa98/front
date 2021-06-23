@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IChat } from 'src/app/models/ichat';
 import { IMessage } from 'src/app/models/imessage';
 import { IUser } from 'src/app/models/IUser';
@@ -21,7 +21,7 @@ export class MessageComponent implements OnInit {
   newMsg: IMessage = {
     id: 0,
     content: "",
-    senderId: "aa",
+    senderId: this.authenticationService.getUserId(),
     chatID: this.chatId,
     date: new Date()
 
@@ -30,7 +30,11 @@ export class MessageComponent implements OnInit {
     , private activatedroute: ActivatedRoute
     , private authenticationService: AuthenticationService
     , private _registerService: RegisterService
+    , private router: Router
     ) {
+      if (!authenticationService.isLoggedIn()) {
+        router.navigateByUrl("/login")
+      }
     this.activatedroute.params.subscribe(data => {
       this.chatId = data.ChatId;
       this.newMsg.chatID = this.chatId;

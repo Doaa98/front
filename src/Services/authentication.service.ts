@@ -71,28 +71,28 @@ export class AuthenticationService {
     //     this.router.navigate(['/login']);
     // }
 
-    // public isLoggedIn() {
-    //     if(localStorage.getItem('token')){
-    //         let token = localStorage.getItem('token');
+     public isLoggedIn() {
+         if(localStorage.getItem('token')){
+             let token = localStorage.getItem('token');
 
-    //         console.log(token);
+             console.log(token);
 
-    //         let jwtData = token.split('.')[1]
+             let jwtData = token.split('.')[1]
 
-    //         let decodedJwtJsonData = window.atob(jwtData)
+             let decodedJwtJsonData = window.atob(jwtData)
 
-    //         let decodedJwtData = JSON.parse(decodedJwtJsonData)
+             let decodedJwtData = JSON.parse(decodedJwtJsonData)
 
-    //         let expirationDateInMills = decodedJwtData.exp * 1000;
+             let expirationDateInMills = decodedJwtData.exp * 1000;
 
-    //         let todayDateInMills = new Date().getTime();
+             let todayDateInMills = new Date().getTime();
 
-    //         if (expirationDateInMills >= todayDateInMills)
-    //             return true;
+             if (expirationDateInMills >= todayDateInMills)
+                 return true;
 
-    //     }
-    //     return false;
-    // }
+         }
+         return false;
+     }
 
     // isLoggedOut() {
     //     return !this.isLoggedIn();
@@ -110,19 +110,19 @@ export class AuthenticationService {
     //     }
     //     return "No Role";
     //   }
-    // getUserId(){
-    //     if(localStorage.getItem('token')){
-    //         let token = localStorage.getItem('token');
+     getUserId(){
+         if(localStorage.getItem('token')){
+             let token = localStorage.getItem('token');
 
-    //         let jwtData = token.split('.')[1]
+             let jwtData = token.split('.')[1]
 
-    //         let decodedJwtJsonData = window.atob(jwtData)
+             let decodedJwtJsonData = window.atob(jwtData)
 
-    //         let decodedJwtData = JSON.parse(decodedJwtJsonData)
-    //         let userID=decodedJwtData['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
-    //         return userID;
-    //     }
-    //     return null;
-   // }
+             let decodedJwtData = JSON.parse(decodedJwtJsonData)
+             let userID=decodedJwtData['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
+             return userID;
+         }
+         return null;
+    }
 
 }

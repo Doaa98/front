@@ -10,7 +10,7 @@ import { MessageService } from 'src/Services/message.service';
 })
 export class MessagesComponent implements OnInit {
 
-  userId = "qq"
+  userId = this.authenticationService.getUserId()
   isDropdown = false
 
   showInbox = true
@@ -24,6 +24,7 @@ export class MessagesComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    console.log(this.userId)
     this.MsgService.getInboxMessages(this.userId).subscribe(
       data => {this.inboxMsgs = data
           this.toggleInbox()
