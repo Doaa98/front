@@ -27,7 +27,7 @@
                                     <li>
                                         <i class="fa fa-clock-o"></i>
                                         <span>آخر تفاعل: </span>
-                                        <span dir="ltr" title="27/02/2021 17:52:54 GMT">منذ 3 أشهر و22 يوم</span>
+                                        <span dir="ltr" title="27/02/2021 17:52:54 GMT">{{Chat.date|customDate}}</span>
                                     </li>
 
 
@@ -98,7 +98,7 @@
                         <div class="c-card" data-commentable="true" data-commentable-type="message"
                             data-commentable-id="16926925">
                             <div class="c-card__body u-no--padding" >
-<div *ngIf="!!Chat">
+<div *ngIf="!!Chat || !!customer || !!freelancer">
                                 <div class="comments" *ngFor="let Msg of Chat.messages" >
                                     <div class="discussion-item">
                                         <div class="profile-details">
@@ -113,8 +113,11 @@
                                                     <div class="o-layout o-layout--flex">
                                                         <div class="o-layout__item u-12@large u-12@medium u-12@small">
                                                             <h5 class="u-margin-bottom--tiny">
-                                                                <div class="meta--user">
-                                                                    <a href="/user/hoss_noor">حسام نور</a>
+                                                                <div class="meta--user" *ngIf="Msg.senderId == Chat.freelancerID">
+                                                                    <a href="/user/hoss_noor">{{freelancer.firstName+ " " + freelancer.firstName}}</a>
+                                                                </div>
+                                                                <div class="meta--user" *ngIf="Msg.senderId == Chat.userID">
+                                                                    <a href="/user/hoss_noor">{{customer.firstName+ " " + customer.firstName}}</a>
                                                                 </div>
                                                                 <div class="u-block@small meta--date">
                                                                     <i class="fa fa-clock-o fa-fw"></i>

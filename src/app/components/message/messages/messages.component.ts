@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IChat } from 'src/app/models/ichat';
+import { AuthenticationService } from 'src/Services/authentication.service';
 import { MessageService } from 'src/Services/message.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { MessageService } from 'src/Services/message.service';
 })
 export class MessagesComponent implements OnInit {
 
-  userId = "qq"
+  userId = this.authenticationService.currentUserValue.id
   isDropdown = false
 
   showInbox = true
@@ -18,7 +19,9 @@ export class MessagesComponent implements OnInit {
   outboxMsgs:IChat[] =[]
   displayMsgs:IChat[] =[]
 
-  constructor(private MsgService:MessageService) { }
+  constructor(private MsgService:MessageService
+    ,   private authenticationService: AuthenticationService
+    ) { }
 
   ngOnInit(): void {
     this.MsgService.getInboxMessages(this.userId).subscribe(
