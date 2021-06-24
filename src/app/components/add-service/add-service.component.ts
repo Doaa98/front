@@ -7,6 +7,7 @@ import { ICategory } from 'src/app/models/ICategory';
 import { IServiceDevelopment } from 'src/app/models/IServiceDevelopment';
 import { IServiceGallery, LocalImage } from 'src/app/models/IServiceGallery';
 import { ISubCategory } from 'src/app/models/ISubCategory';
+import { AuthenticationService } from 'src/Services/authentication.service';
 import { CategoryService } from 'src/Services/category.service';
 import { ServiceService } from 'src/Services/service.service';
 import { SubCategoryService } from 'src/Services/sub-category.service';
@@ -18,17 +19,6 @@ import { IService } from '../../models/IService';
   styleUrls: ['./add-service.component.css'],
 })
 export class AddServiceComponent implements OnInit {
-  
-  @ViewChild('slides') slides: ElementRef;
-
-  ngAfterViewInit()
-  {
-   var s = document.createElement("script");
-   s.type="text/javascript";
-   s.src='../../../assets/slides-gallery.js' //external script
-   console.log(s.src);
-   
-  }
 
   isShowModal: boolean = false;
   isCategoryChanged: boolean = false;
@@ -62,6 +52,7 @@ export class AddServiceComponent implements OnInit {
     private service: ServiceService,
     private categoryService: CategoryService,
     private subCategoryService: SubCategoryService,
+    private authService: AuthenticationService,
     private fb: FormBuilder,
     private router: Router,
     private http: HttpClient
@@ -75,6 +66,8 @@ export class AddServiceComponent implements OnInit {
     this.subCategoryService.getAllSubCategories().subscribe((data) => {
       this.subCategoryListLoaded = data;
     });
+
+    this.userId = this.authService.getUserId();
   }
 
   addServiceForm = this.fb.group({
@@ -157,6 +150,10 @@ export class AddServiceComponent implements OnInit {
   get userId() {
     return this.addServiceForm.get('userId');
   }
+
+  set userId(value) {
+    this.userId = value;
+  } 
 
   showModal() {
     this.isShowModal = !this.isShowModal;
@@ -275,7 +272,7 @@ export class AddServiceComponent implements OnInit {
        duration: this.duration?.value,
        instructionsToBuyer: this.InstructionsToBuyer?.value,
        serviceDevelopmentsVM: this.addSD,
-       userID: '32kjkjkls;jdf',
+       userID: this.userId?.value,
      };
 
     this.service.addService(data).subscribe(
@@ -324,7 +321,11 @@ console.log('before' + this.imagesFile);
 
       const formData = new FormData();
 
-      this.images = files;
+      // this.images = files;
+      for (let i = 0; i < files.length; i++) {
+        Array.from(this.images).push(i);        
+      }
+      Array.from(this.images).push
 
       Array.from(this.images).map((file, index) => {
         return formData.append('file'+index, file, file.name);
