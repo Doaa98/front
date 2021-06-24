@@ -1,7 +1,9 @@
 import { isNgTemplate } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ICart } from 'src/app/models/icart';
 import { IService } from 'src/app/models/IService';
+import { AuthenticationService } from 'src/Services/authentication.service';
 import { CartService } from 'src/Services/cart.service';
 import { ServiceService } from 'src/Services/service.service';
 
@@ -17,9 +19,13 @@ export class CartComponent implements OnInit {
 
   serList: IService[] = []
   constructor(private serService: ServiceService,
-    private cartService: CartService) {
+    private cartService: CartService, private router: Router,
+    private authenticationService: AuthenticationService) {
 
-    this.cartService.getCartByUserId("qq").subscribe(
+      if (!authenticationService.isLoggedIn()) {
+        router.navigateByUrl("/login")
+      }
+    this.cartService.getCartByUserId(authenticationService.getUserId()).subscribe(
       data => {
         this.cart = data
         this.updateTotalPrice()
