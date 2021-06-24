@@ -35,6 +35,7 @@ import { MessagesComponent } from './components/message/messages/messages.compon
 import { MessageComponent } from './components/message/message/message.component';
 import { NewChatComponent } from './components/message/new-chat/new-chat.component';
 import { AddServiceComponent } from './components/add-service/add-service.component';
+//import { ClickOutsideModule } from 'ng-click-outside/lib_commonjs/click-outside.module';
 import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
@@ -82,12 +83,12 @@ import { ClickOutsideModule } from 'ng-click-outside';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     BrowserAnimationsModule,
-   // ClickOutsideModule
+    ClickOutsideModule
   ],
   providers: [
      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     ReactiveFormsModule,
-    
+
   ],
   bootstrap: [AppComponent]
 })

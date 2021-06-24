@@ -1,29 +1,3 @@
-<<<<<<< Updated upstream
-<header
-  class="hsoub-header"
-  style=""
-  #navbar
-  [ngClass]="{ 'sidebar-active': isAside }"
->
-  <div class="hsoub-box">
-    <a
-      class="
-        hsoub-bars hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile
-      "
-      (click)="AsideToggle()"
-    >
-      <i class="hsoub-bars-icon"></i> </a
-    ><a routerLink="/" class="hsoub-logo"
-      ><img
-        class="hsoub-logo-img hsoub--visible-h hsoub-desktop hsoub-tablet"
-        src="https://khamsat.hsoubcdn.com/assets/images/logo-73045c76e830509d4dbe03ea6172d22f047c708fed5435e93ffd47f80ee5ffa4.png" /><img
-        class="hsoub-logo-img hsoub--visible-h hsoub-mobile"
-        src="https://khamsat.hsoubcdn.com/assets/images/logo-mobile-215fffeb86f5121a190d2551c62feea201ca1b4e0d5ea7feef9f5aa04a55dac4.png"
-    /></a>
-    <ul class="hsoub-menu">
-      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop">
-        <a class="hsoub-menu-item-link" routerLink="/service/add">
-=======
 <header class="hsoub-header" style="" #navbar [ngClass]="{'sidebar-active': isAside}">
   <div class="hsoub-box"><a class="hsoub-bars hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile"
       (click)="AsideToggle()">
@@ -34,8 +8,7 @@
         src="https://khamsat.hsoubcdn.com/assets/images/logo-mobile-215fffeb86f5121a190d2551c62feea201ca1b4e0d5ea7feef9f5aa04a55dac4.png"></a>
     <ul class="hsoub-menu ">
       <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop  " *ngIf="isUserLoggedIn()">
-        <a class="hsoub-menu-item-link     " routerLink="/service/new">
->>>>>>> Stashed changes
+        <a class="hsoub-menu-item-link     " routerLink="/service/add">
           <i class="hsoub-menu-item-link-icon fa fa-plus"></i>
           <span>أضف خدمة</span>
         </a>
@@ -46,24 +19,14 @@
           <span>التصنيفات</span>
         </a>
       </li>
-<<<<<<< Updated upstream
-      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop">
-        <a class="hsoub-menu-item-link" href="/purchases">
-=======
       <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop  " *ngIf="isUserLoggedIn()">
-        <a class="hsoub-menu-item-link     " href="/purchases">
->>>>>>> Stashed changes
+        <a class="hsoub-menu-item-link     " routerLink="/purchases">
           <i class="hsoub-menu-item-link-icon fa fa-folder-open"></i>
           <span >المشتريات</span>
         </a>
       </li>
-<<<<<<< Updated upstream
-      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop">
-        <a class="hsoub-menu-item-link" href="/orders">
-=======
       <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop  "*ngIf="isUserLoggedIn()">
-        <a class="hsoub-menu-item-link     " href="/orders">
->>>>>>> Stashed changes
+        <a class="hsoub-menu-item-link     " routerLink="/orders">
           <i class="hsoub-menu-item-link-icon fa fa-truck"></i>
           <span>الطلبات الواردة</span>
         </a>
@@ -870,7 +833,7 @@
             </a>
           </li>
           <li class="hsoub-sidebar-menu-item">
-            <a class="hsoub-sidebar-menu-item-link" routerLink="aboutKhamsat">
+            <a class="hsoub-sidebar-menu-item-link" routerLink="/aboutKhamsat">
               أمور عامة حول خمسات
             </a>
           </li>

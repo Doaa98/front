@@ -43,11 +43,11 @@ export class AddnewSubjectComponent implements OnInit {
       content: this.content.value,
       title: this.title.value,
       subject: this.Subject.value,
-      Date: null,
+      Date: "",
       userID: "2c20fb7b-f9bb-4ba5-9986-92bf67dc310a"
 
     }
-    
+
     console.log(this.newsubject);
     this.khamsatCommunityService.addKhamsatCommunity(this.newsubject).subscribe(
       pro => {
