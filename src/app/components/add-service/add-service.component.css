@@ -1,12 +1,8 @@
 .imgPath {
     width: 100%;
-    height: auto;
+    height: 100px;
 }
 
 .hsoub-container {
     margin-top: 60px;
-}
-
-#service_gallery:hover #gallery_edit {
-    display: block;
 }

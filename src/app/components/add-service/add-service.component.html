@@ -590,7 +590,7 @@
                   <div class="u-margin-bottom">
                     <label>معرض الخدمة:</label>
                     <div id="service_gallery">
-                      <div id="gallery_new" class="">
+                      <div *ngIf='isShowAddImageBtn' id="gallery_new" class="">
                         <div class="u-margin-bottom">
                           <a
                             class="gitem_add_btn c-button c-button--primary"
@@ -612,9 +612,9 @@
                       <div
                         id="gallery_edit"
                         class="hidden"
-                        [style.display]="galleryEditDisplay"
+                        [style.display]='galleryEditDisplay'
                       >
-                        <div id="gallery_edit_btns">
+                        <div id="gallery_edit_btns" >
                           <a href="#" class="gitem_add_btn">
                             <i class="fa fa-picture-o"></i>
                             <span>أضف المزيد</span>
@@ -627,52 +627,25 @@
                           </a>
                         </div>
                       </div>
-                      <div
-                        id="gallery_items"
-                        class="flickity-enabled flickity-rtl"
-                        tabindex="0"
-                      >
-                        <div
-                          class="flickity-viewport"
-                          style="height: 0px; touch-action: pan-y"
-                        >
-                          <div class="flickity-slider" style="right: 0px"></div>
+                      <div  id="gallery_items" *ngIf='isShowGalleryItems' class="flickity-enabled flickity-rtl" tabindex="0">
+                        <div  class="flickity-viewport" style="height: 397.125px; touch-action: pan-y;">
+                          <div  class="flickity-slider" style="right: 0px; transform: translateX(0%);">
+                            <div  class="gitem is-selected" id="gf-0" aria-selected="true" style="position: absolute; right: 0%;">
+                              <img #slides class="slide-container active" *ngFor='let img of imagesFile let i = index' [src]="createImgPath(img.name)" width="100%" attr-file="uploads/22-06-2021/1846337-4c3dcac5ada7b.jpg">
+                            </div>
+                          </div>
                         </div>
-                        <button
-                          class="
-                            flickity-button flickity-prev-next-button
-                            previous
-                          "
-                          type="button"
-                          disabled=""
-                          aria-label="Previous"
-                          style="display: none"
-                        >
-                          <svg
-                            class="flickity-button-icon"
-                            viewBox="0 0 100 100"
-                          >
-                            <path
-                              d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z"
-                              class="arrow"
-                              transform="translate(100, 100) rotate(180) "
-                            ></path>
-                          </svg></button
-                        ><button
-                          class="flickity-button flickity-prev-next-button next"
-                          type="button"
-                          disabled=""
-                          aria-label="Next"
-                          style="display: none"
-                        >
-                          <svg
-                            class="flickity-button-icon"
-                            viewBox="0 0 100 100"
-                          >
-                            <path
-                              d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z"
-                              class="arrow"
-                            ></path>
+                        <button onclick="prev(slides)" *ngIf='isShowpreviousBtn' class="flickity-button flickity-prev-next-button previous" type="button" aria-label="Previous">
+                          <svg class="flickity-button-icon" viewBox="0 0 100 100">
+                            <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180) ">
+
+                            </path>
+                          </svg>
+                        </button>
+                        <button onclick="next(slides)" *ngIf='isShowNextBtn' class="flickity-button flickity-prev-next-button next" type="button" aria-label="Next">
+                          <svg class="flickity-button-icon" viewBox="0 0 100 100">
+                            <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow">
+                            </path>
                           </svg>
                         </button>
                       </div>
@@ -980,8 +953,9 @@
                 </form>
               </div>
             </div>
-            <script type="text/javascript">
-              show_sub_categories();
+
+            <script>
+              
             </script>
           </div>
         </div>
@@ -1128,10 +1102,10 @@
               <div class="dz-default dz-message u-margin-top">
                 <div class="selected-images u-margin-bottom">
 
-                  <div *ngIf='isShowImgItem'>
+                  <div *ngIf='isShowImgItem' class='selected-image dz-preview dz-image-preview'>
                     <div *ngFor='let img of imagesFile let i = index' class="o-media">
                        <div class="o-media__right u-no--margin u-no--padding">
-                         <img class='imgPath' data-dz-thumbnail="" alt="img.name" [src]="createImgPath(img.name)"/>
+                         <img class='imgPath' data-dz-thumbnail=""  [src]="createImgPath(img.name)"/>
                        </div>
                        <div class="o-media__body u-padding-right">
                          <h5 class="u-margin-bottom--small">
@@ -1140,7 +1114,7 @@
                            </span>
                            <span data-dz-name="" class="pull-right dz-name">{{img.name}}</span>
                            <span class="pull-left">
-                             <a (click)='removeImg(i)' data-dz-remove="" class="c-button c-button--danger dz-delete-button">
+                             <a (click)='removeImg(img)' data-dz-remove="" class="c-button c-button--danger dz-delete-button">
                                <i class="fa fa-times"></i> حذف
                              </a></span>
                          </h5>
@@ -1173,8 +1147,10 @@
                     c-button c-button--primary
                     mainbtn
                     upload_seleted_images_btn
-                    hidden
                   "
+                  style="margin-right: 2%;"
+                  [style.display]="uploadImgBtnDisplay"
+                  (click)='showGalleryItems()'
                 >
                   <i class="fa fa-upload"></i> رفع الصور
                 </a>
