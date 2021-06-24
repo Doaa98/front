@@ -10,7 +10,7 @@
         <div id="service-1721099" *ngFor="let ser of cat.services"
             class="o-layout__item u-12@tiny u-6@small u-3@large u-4@medium u-margin-bottom--large service-block   ">
             <div class="c-box">
-                <a routerLink="service/Details/{{ser.id}}"
+                <a routerLink="/service/Details/{{ser.id}}"
                     title="{{ser.title}}" class="c-box__url">
                     <img      [src]="createImgPath(ser.serviceGallery[0]?.src)"
 
@@ -19,11 +19,11 @@
 
                 <h3 class="c-box__title">
                     <a
-                        routerLink="service/Details/{{ser.id}}">{{ser.title}}</a>
+                        routerLink="/service/Details/{{ser.id}}">{{ser.title}}</a>
                 </h3>
 
                 <div class="c-box__meta">
-                    <a routerLink="service/Details/{{ser.id}}"
+                    <a routerLink="/service/Details/{{ser.id}}"
                         title="{{ser.title}}">
                         <span>{{ser.noOfBuyerServices||0}} اشترى هذه الخدمة</span>
                     </a>
