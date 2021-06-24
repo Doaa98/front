@@ -52,7 +52,6 @@ export class ServiceDetailsComponent implements OnInit {
     this.serService.getService(this.serviceId).subscribe(
       (data) => {
         this.service = data;
-        console.log(data);
         this.keyWords = this.service.keywords.split(',');
         this.rateService
           .getServiceRates(this.serviceId)

@@ -28,7 +28,7 @@ import { AddServiceComponent } from './components/add-service/add-service.compon
 
 
 const routes: Routes = [
-  // { path: '', component: HomeComponent },
+   { path: 'home', component: HomeComponent },
   {path: '', component: KhamsatDotComComponent},
 
   {path:'register',component:RegisterComponent},

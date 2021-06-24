@@ -48,9 +48,6 @@ export class NewChatComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.authenticationService.currentUser.subscribe(d => console.log(d))
-
-    this._registerService.getCurrentUser().subscribe(d => console.log(d))
   }
 
   startchat() {
