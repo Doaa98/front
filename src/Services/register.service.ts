@@ -20,7 +20,7 @@ export class RegisterService {
   }
 
   getUserById(id: string): Observable<IUser> {
-    let url = 'http://localhost:21491/api/account/${id}';
+    let url = `http://localhost:21491/api/account/${id}`;
     return this._http.get<IUser>(url).pipe(catchError((err) => {
       return throwError(err.message || "Internal Server error contact site adminstarator");
     }));

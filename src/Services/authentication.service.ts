@@ -134,7 +134,6 @@ export class AuthenticationService {
     // }
 
 
-
     // isLoggedOut() {
     //     return !this.isLoggedIn();
     // }
@@ -151,6 +150,5 @@ export class AuthenticationService {
     //     }
     //     return "No Role";
     //   }
-
 
 }
