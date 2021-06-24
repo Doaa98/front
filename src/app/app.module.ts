@@ -82,7 +82,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     BrowserAnimationsModule,
-   // ClickOutsideModule
+    ClickOutsideModule
   ],
   providers: [
      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

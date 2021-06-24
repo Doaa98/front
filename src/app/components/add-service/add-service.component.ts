@@ -248,7 +248,7 @@ export class AddServiceComponent implements OnInit {
        duration: this.duration?.value,
        instructionsToBuyer: this.InstructionsToBuyer?.value,
        serviceDevelopmentsVM: this.addServiceDevelopment.value,
-       userID: '32kjkjkls;jdf',
+       userID: 'qq',
      };
 
     this.service.addService(data).subscribe(
