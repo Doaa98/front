@@ -1,10 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { element } from 'protractor';
 import { ICategory } from 'src/app/models/ICategory';
+import { IServiceDevelopment } from 'src/app/models/IServiceDevelopment';
 import { IServiceGallery, LocalImage } from 'src/app/models/IServiceGallery';
 import { ISubCategory } from 'src/app/models/ISubCategory';
+import { AuthenticationService } from 'src/Services/authentication.service';
 import { CategoryService } from 'src/Services/category.service';
 import { ServiceService } from 'src/Services/service.service';
 import { SubCategoryService } from 'src/Services/sub-category.service';
@@ -16,7 +19,7 @@ import { IService } from '../../models/IService';
   styleUrls: ['./add-service.component.css'],
 })
 export class AddServiceComponent implements OnInit {
-  
+
   isShowModal: boolean = false;
   isCategoryChanged: boolean = false;
   isShowInputUrlImg: boolean = false;
@@ -25,7 +28,13 @@ export class AddServiceComponent implements OnInit {
   isShowImgItem: boolean = false;
   isShowUploadImgBtn: boolean = false;
   isShowDurationOfServiceDev: boolean = true;
-
+  chooseImgBtnStyle: boolean = false;
+  isShowGalleryItems: boolean = false;
+  isShowAddImageBtn: boolean = true;
+  isShowpreviousBtn: boolean = false;
+  isShowNextBtn: boolean = false;
+  
+  uploadImgBtnDisplay = 'none';
   serviceDevStyle = 'none';
   durationOfServiceDevStyle = 'inline';
   dialogOfGalleryStyle = 'inline';
@@ -43,6 +52,7 @@ export class AddServiceComponent implements OnInit {
     private service: ServiceService,
     private categoryService: CategoryService,
     private subCategoryService: SubCategoryService,
+    private authService: AuthenticationService,
     private fb: FormBuilder,
     private router: Router,
     private http: HttpClient
@@ -56,6 +66,8 @@ export class AddServiceComponent implements OnInit {
     this.subCategoryService.getAllSubCategories().subscribe((data) => {
       this.subCategoryListLoaded = data;
     });
+
+    this.userId = this.authService.getUserId();
   }
 
   addServiceForm = this.fb.group({
@@ -139,6 +151,10 @@ export class AddServiceComponent implements OnInit {
     return this.addServiceForm.get('userId');
   }
 
+  set userId(value) {
+    this.userId = value;
+  } 
+
   showModal() {
     this.isShowModal = !this.isShowModal;
   }
@@ -211,6 +227,9 @@ export class AddServiceComponent implements OnInit {
   imagesFile: File[];
   onFileChange(e: any) {
     this.isShowImgItem = true;
+    this.chooseImgBtnStyle = true;
+    this.uploadImgBtnDisplay = 'inline-block';
+
     if(e.target.files.length > 0)
       this.imagesFile = e.target.files;
 
@@ -221,6 +240,8 @@ export class AddServiceComponent implements OnInit {
     
   // }
 
+  addSD: any[];
+
   addService(): void {
     console.log(this.service);
     var imagesName: IServiceGallery[] = []
@@ -230,7 +251,10 @@ export class AddServiceComponent implements OnInit {
       
     }
 
-    
+
+    if(this.addServiceDevelopment.value) {
+      this.addSD = this.addServiceDevelopment.value;
+    }
     // console.log(this.subCategoryId);
     
     this.serviceGallery?.patchValue({
@@ -247,8 +271,8 @@ export class AddServiceComponent implements OnInit {
        keywords: this.keywords?.value,
        duration: this.duration?.value,
        instructionsToBuyer: this.InstructionsToBuyer?.value,
-       serviceDevelopmentsVM: this.addServiceDevelopment.value,
-       userID: 'qq',
+       serviceDevelopmentsVM: this.addSD,
+       userID: this.userId?.value,
      };
 
     this.service.addService(data).subscribe(
@@ -264,8 +288,25 @@ export class AddServiceComponent implements OnInit {
     return `http://localhost:21491/StaticFiles/Images/${name}`;
   }
 
-  removeImg(index: number) {
-    this.imagesFile.splice(index, 1);
+  removeImg(element: any) {
+    // this.imagesFile.forEach((value, index) => {
+    //   if(value == element) this.imagesFile.splice(index, 1);
+    // } )
+
+    // this.imagesFile = this.imagesFile.filter(img => img !== element);
+    // console.log(this.imagesFile);
+
+console.log('before' + this.imagesFile);
+
+
+    Array.from(this.imagesFile).forEach((value, index) => {
+      console.log('index' + index);
+      if(element == value) Array.from(this.imagesFile).splice(index, 1);
+      console.log('value' + value.name);
+      
+    })
+    console.log('after' + this.imagesFile);
+    
   }
 
   images: any[];
@@ -280,7 +321,11 @@ export class AddServiceComponent implements OnInit {
 
       const formData = new FormData();
 
-      this.images = files;
+      // this.images = files;
+      for (let i = 0; i < files.length; i++) {
+        Array.from(this.images).push(i);        
+      }
+      Array.from(this.images).push
 
       Array.from(this.images).map((file, index) => {
         return formData.append('file'+index, file, file.name);
@@ -308,5 +353,27 @@ export class AddServiceComponent implements OnInit {
   // uploadFinished(event: any) {
   //   this.response = event;
   //   console.log(event);
+  // }
+
+  showGalleryItems() {
+    this.isShowGalleryItems = true;
+    this.isShowAddImageBtn = false;
+    this.isShowpreviousBtn = true;
+    this.isShowNextBtn = true;
+    this.galleryEditDisplay = 'block';
+    this.gelleryDialogDisplay = 'none';
+  }
+
+  // index = 0;
+  // next(slides: any) {
+  //   slides[this.index].classList.remove('active');
+  //   this.index = (this.index + 1) % slides.length;
+  //   slides[this.index].classList.add('active');
+  // }
+
+  // prev(slides: any) {
+  //   slides[this.index].classList.remove('active');
+  //   this.index = (this.index - 1 + slides.length) % slides.length;
+  //   slides[this.index].classList.add('active');
   // }
 }
