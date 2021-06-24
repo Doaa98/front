@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ICart } from 'src/app/models/icart';
 import { environment } from 'src/environments/environment';
+import { AuthenticationService } from './authentication.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,12 @@ import { environment } from 'src/environments/environment';
 export class CartService {
   Url:string = environment.url_Api + "/api/ShoppingCartItems"
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient , private authService: AuthenticationService) { }
 
-  getCartByUserId( id:string ): Observable<ICart[]> {
+  userId = this.authService.getUserId()
+  getCartByUserId( ): Observable<ICart[]> {
  
-    return this.http.get<ICart[]>(`${this.Url}/user/${id}` )
+    return this.http.get<ICart[]>(`${this.Url}/user/${this.userId}` )
 
   };
 

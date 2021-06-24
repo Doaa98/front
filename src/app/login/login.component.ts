@@ -52,15 +52,20 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
+
     this.authenticationService.login(this.formFields.email.value, this.formFields.passwordHash.value)
         .pipe(first())
         .subscribe({
             next: () => {
+              console.log("ID = "+this.authenticationService.getUserId());
+              console.log("Role = "+this.authenticationService.isLoggedIn());
+
                 // get return url from route parameters or default to '/'
-                const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+                const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
                 this.router.navigate([returnUrl]);
             },
             error: error => {
+              alert(" فشلت عملية تسجيل الدخول");
                 this.error = error;
                 this.loading = false;
             }

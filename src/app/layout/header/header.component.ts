@@ -6,6 +6,7 @@ import { SubjectService } from 'src/Services/subject.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Notification } from 'src/app/models/notification';
+import { AuthenticationService } from '../../../Services/authentication.service';
 
 
 
@@ -29,8 +30,8 @@ export class HeaderComponent implements OnInit {
 
 
   constructor(private subjectService: SubjectService, private cartService: CartService
-    , public signalRService: SignalRService, private http: HttpClient) {
-    signalRService.getNotifyByUserId("qq")
+    , public signalRService: SignalRService, private http: HttpClient,public _authenticationService: AuthenticationService) {
+    signalRService.getNotifyByUserId()
   }
 
   ngOnInit(): void {
@@ -54,18 +55,13 @@ export class HeaderComponent implements OnInit {
     }
     this.isAcctive = this.isAside = this.isNotifyShow = false;
   }
-
-
-
-
-
-
-
-
+  isUserLoggedIn():boolean{
+    return this._authenticationService.isLoggedIn();
+  }
 
 
   calcItemsNum() {
-    this.cartService.getCartByUserId("qq")
+    this.cartService.getCartByUserId()
       .subscribe(d => this.itemsNumber = d.length)
   }
   ngOnDestroy() {

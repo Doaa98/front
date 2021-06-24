@@ -62,7 +62,7 @@ export class RegisterComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this._router.navigate([""]);
+          this._router.navigate(["/home"]);
           alert("Succesfully Added User details")
         },
         error => {

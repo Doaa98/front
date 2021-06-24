@@ -36,6 +36,68 @@ export class AuthenticationService {
       localStorage.removeItem('currentUser');
       this.currentUserSubject.next(null);
   }
+
+
+  getUserId(){
+    if(localStorage.getItem('currentUser')){
+        let token = localStorage.getItem('currentUser');
+        //console.log("JSON"+token);
+
+        let jwtData = token.split('.')[1];
+
+        let decodedJwtJsonData = window.atob(jwtData)
+
+        let decodedJwtData = JSON.parse(decodedJwtJsonData)
+
+       let userID=decodedJwtData['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
+       //debugger;
+      // console.log(userID);
+        return userID;
+    }
+    return null;
+}
+// getRole():string {
+//   if(localStorage.getItem('currentUser')){
+//       let token = localStorage.getItem('currentUser');
+
+//       let jwtData = token.split('.')[1]
+
+//       let decodedJwtJsonData = window.atob(jwtData)
+
+//       let decodedJwtData = JSON.parse(decodedJwtJsonData)
+//       return decodedJwtData.role;
+//   }
+//   return "No Role";
+// }
+
+  public isLoggedIn() {
+        if(localStorage.getItem('currentUser')){
+            let token = localStorage.getItem('currentUser');
+
+           // console.log(token);
+
+            let jwtData = token.split('.')[1]
+
+            let decodedJwtJsonData = window.atob(jwtData)
+
+            let decodedJwtData = JSON.parse(decodedJwtJsonData)
+
+            let expirationDateInMills = decodedJwtData.exp * 1000;
+
+            let todayDateInMills = new Date().getTime();
+
+            if (expirationDateInMills >= todayDateInMills)
+                return true;
+        }
+        return false;
+    }
+
+
+
+
+
+
+
     // private userSubject: BehaviorSubject<User>;
     // public user: Observable<User>;
     // constructor( private router: Router,private http: HttpClient) {
@@ -71,28 +133,6 @@ export class AuthenticationService {
     //     this.router.navigate(['/login']);
     // }
 
-    // public isLoggedIn() {
-    //     if(localStorage.getItem('token')){
-    //         let token = localStorage.getItem('token');
-
-    //         console.log(token);
-
-    //         let jwtData = token.split('.')[1]
-
-    //         let decodedJwtJsonData = window.atob(jwtData)
-
-    //         let decodedJwtData = JSON.parse(decodedJwtJsonData)
-
-    //         let expirationDateInMills = decodedJwtData.exp * 1000;
-
-    //         let todayDateInMills = new Date().getTime();
-
-    //         if (expirationDateInMills >= todayDateInMills)
-    //             return true;
-
-    //     }
-    //     return false;
-    // }
 
     // isLoggedOut() {
     //     return !this.isLoggedIn();
@@ -110,19 +150,5 @@ export class AuthenticationService {
     //     }
     //     return "No Role";
     //   }
-    // getUserId(){
-    //     if(localStorage.getItem('token')){
-    //         let token = localStorage.getItem('token');
-
-    //         let jwtData = token.split('.')[1]
-
-    //         let decodedJwtJsonData = window.atob(jwtData)
-
-    //         let decodedJwtData = JSON.parse(decodedJwtJsonData)
-    //         let userID=decodedJwtData['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
-    //         return userID;
-    //     }
-    //     return null;
-   // }
 
 }

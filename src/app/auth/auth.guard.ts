@@ -24,6 +24,23 @@ import { AuthenticationService } from 'src/Services/authentication.service';
     this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
     return false;
 
+  }
+
+    // checkUserLogin(route: ActivatedRouteSnapshot, url: any): boolean {
+    //   console.log("not logged")
+    //   if (this.authenticationService.isLoggedIn()) {
+    //     const userRole = this.authenticationService.getRole(); // user
+    //     if (route.data.role && route.data.role.indexOf(userRole) === -1) {
+    //       alert("unauthorized Link");
+    //       this.router.navigate(['/']);
+    //       return false;
+    //     }
+    //     return true;
+    //   }
+    //   this.router.navigate(['/login'], { queryParams: { returnUrl: url } });
+    //   return false;
+    // }
+
     // canActivate(
     //   route: ActivatedRouteSnapshot,
     //   state: RouterStateSnapshot): boolean {
@@ -50,6 +67,5 @@ import { AuthenticationService } from 'src/Services/authentication.service';
     //   }
     //   this.router.navigate(['/login'], { queryParams: { returnUrl: url } });
     //   return false;
-    }
 
   }

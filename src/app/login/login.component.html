@@ -38,6 +38,8 @@
         <div class="page">
           <div class="container">
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div *ngIf="error" class="alert alert-danger mt-3 mb-0"> فشلت عملية تسجيل الدخول
+              </div>
             <div class="page-box row d-flex justify-content-center align-items-center" style="background-color: #ECEFF4;">
               <div class="right col-lg-8" style="background-color: #fff;">
                 <p class="title">تسجيل الدخول</p>
@@ -100,7 +102,7 @@
                 </div>
               </div>
             </div>
-            <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+
 
             </form>
           </div>

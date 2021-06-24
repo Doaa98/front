@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Notification } from 'src/app/models/notification';
+import { AuthenticationService } from './authentication.service';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ import { Notification } from 'src/app/models/notification';
 })
 export class SignalRService {
   private connectionUrl = environment.url_Api + "/notification";
-  private userId = "qq"
+  private userId = this.authService.getUserId()
 
   public Notifications: Notification[] = []
   public newNotificationsCount = 0;
@@ -42,11 +43,12 @@ export class SignalRService {
   }
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient
+    , private authService: AuthenticationService) { }
 
-  getNotifyByUserId(id: string) {
+  getNotifyByUserId() {
 
-    this.http.get<Notification[]>(`${environment.url_Api}/api/Notifications/user/${id}`)
+    this.http.get<Notification[]>(`${environment.url_Api}/api/Notifications/user/${this.userId}`)
       .subscribe(data => this.Notifications = data);
 
   };

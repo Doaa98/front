@@ -21,8 +21,7 @@ export class ServiceHomeComponent implements OnInit {
         
         this.serService.getCatServices(this.CatList[index].id)
         .subscribe(
-          data=>{this.CatList[index].services = data,
-          console.log(data)},
+          data=>this.CatList[index].services = data,
           err=>console.log(err)
         )
         

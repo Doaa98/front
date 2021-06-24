@@ -3,7 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IChat } from 'src/app/models/ichat';
 import { IMessage } from 'src/app/models/imessage';
 import { IService } from 'src/app/models/IService';
+import { AuthenticationService } from 'src/Services/authentication.service';
 import { MessageService } from 'src/Services/message.service';
+import { RegisterService } from 'src/Services/register.service';
 import { ServiceService } from 'src/Services/service.service';
 
 @Component({
@@ -13,28 +15,31 @@ import { ServiceService } from 'src/Services/service.service';
 })
 export class NewChatComponent implements OnInit {
   serviceId!: number
-  userId!: string
+  userId = this.authenticationService.getUserId()
   service!: IService
 
   newMsg: IMessage = {
     chatID: 0,
     content: "",
-    senderId: "",
+    senderId: this.userId,
     date: new Date()
 
 
   }
   constructor(private MsgService: MessageService, private activatedroute: ActivatedRoute
-    , private serService: ServiceService , private router: Router
-  ) {
+    , private serService: ServiceService, private router: Router
+    , private authenticationService: AuthenticationService
+    , private _registerService: RegisterService
 
+  ) {
+    if (!authenticationService.isLoggedIn()) {
+      router.navigateByUrl("/login")
+    }
     this.activatedroute.params.subscribe(data => {
       this.serviceId = data.id;
-      this.userId = data.userID;
       this.serService.getService(this.serviceId).subscribe(
         data => {
           this.service = data;
-          console.log(data)
         },
         err => console.log(err)
       )
@@ -43,13 +48,12 @@ export class NewChatComponent implements OnInit {
 
   ngOnInit(): void {
 
-
   }
 
   startchat() {
     let newChat: IChat = {
       id: 0,
-      userID: "aa",
+      userID: this.userId,
       freelancerID: this.service.userID,
       messages: [this.newMsg],
       serviceID: this.serviceId,
@@ -59,8 +63,8 @@ export class NewChatComponent implements OnInit {
     this.MsgService.addChat(newChat).subscribe(
       d => {
 
-        this.router.navigate(["/message/"+d])
-        
+        this.router.navigate(["/message/" + d])
+
       },
       err => console.log(err)
     )
