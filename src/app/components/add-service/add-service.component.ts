@@ -278,7 +278,7 @@ export class AddServiceComponent implements OnInit {
     this.service.addService(data).subscribe(
       (data) => {
         console.log(data);
-        this.router.navigate(['']);
+        this.router.navigate(['/home']);
       },
       (err) => console.log(err)
     );
