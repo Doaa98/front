@@ -12,8 +12,8 @@ import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunitySe
 export class AddnewSubjectComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private khamsatCommunityService: KhamsatCommunityService, private router: Router
-    ,private authenticationService: AuthenticationService) { 
-     
+    ,private authenticationService: AuthenticationService) {
+
     }
   errorMsg: any;
   addCommunityForm: any;
@@ -48,7 +48,7 @@ export class AddnewSubjectComponent implements OnInit {
       userID: this.authenticationService.getUserId()
 
     }
-    
+
     console.log(this.newsubject);
     this.khamsatCommunityService.addKhamsatCommunity(this.newsubject).subscribe(
       pro => {

@@ -35,7 +35,10 @@ import { MessagesComponent } from './components/message/messages/messages.compon
 import { MessageComponent } from './components/message/message/message.component';
 import { NewChatComponent } from './components/message/new-chat/new-chat.component';
 import { AddServiceComponent } from './components/add-service/add-service.component';
+//import { ClickOutsideModule } from 'ng-click-outside/lib_commonjs/click-outside.module';
 import { ClickOutsideModule } from 'ng-click-outside';
+import { PrivacyStatementComponent } from './components/privacy-statement/privacy-statement.component';
+import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +73,8 @@ import { ClickOutsideModule } from 'ng-click-outside';
     MessageComponent,
     NewChatComponent,
     AddServiceComponent,
+    PrivacyStatementComponent,
+    TermsOfUseComponent,
   ],
 
   imports: [
@@ -87,7 +92,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
   providers: [
      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     ReactiveFormsModule,
-    
+
   ],
   bootstrap: [AppComponent]
 })

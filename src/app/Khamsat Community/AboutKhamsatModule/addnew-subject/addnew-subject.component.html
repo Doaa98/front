@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="hsoub-container">
     <div class="hsoub-content">
       <div class="o-wrapper ">
@@ -5,9 +6,9 @@
           <div class="o-layout o-layout--flex">
             <div class="o-layout__item u-12@medium u-12@tiny">
             </div>
-  
+
             <div class="o-layout__item u-12@tiny u-8@large u-2--offset@large">
-  
+
               <div class="o-layout__item u-12@large u-12@tiny u-margin-bottom u-no--padding u-margin-top@small">
                 <h1>إضافة موضوع جديد</h1>
               </div>
@@ -22,18 +23,18 @@
                         <small style="color: red;" *ngIf="title.errors.required">*Title is required</small>
                       </div>
                     </div>
-  
+
                     <div class="u-margin-bottom">
                       <label>التصنيف:</label>
                       <div class="c-form__select">
                         <select id="forum_name_select" name="forum" formControlName="subject" type="text"
                           class="form-control">
-  
+
                           <option  value="0"> نماذج اعمال قمت بتنفيذها </option>
                           <option  value="1">   طلبات الخدمات غير الموجودة </option>
                           <option  value="2">    تجارب وقصص المستخدمين </option>
                           <option  value="3">   امور عامة حول خمسات  </option>
-  
+
                         </select>
                       </div>
                       <input type="hidden" id="showcase_description"
@@ -47,7 +48,7 @@
                       <!-- <p id="forum_name_description" class="c-form__hb">لنشر أي أمور أخرى متعلقة بموقع خمسات كالاقتراحات
                         أو أي مشاكل واجهتك.</p> -->
                     </div>
-  
+
                     <div class="u-margin-bottom">
                       <label>محتوى الموضوع:</label>
                       <textarea name="content" class="c-form__control" rows="15" clos="60" maxlength="10000"
@@ -61,7 +62,7 @@
                         <span>عند حاجتك لرفع أو اضافة صورة لموضوعك.</span>
                       </p>
                     </div>
-  
+
                     <div class="u-margin-bottom u-checkbox">
                       <label for="confirm">
                         <input name="confirm" id="confirm" type="checkbox" value="0">
@@ -75,25 +76,26 @@
                         <span id="forum_post_confirmation">هذا الموضوع ذو فائدة ومتعلق بموقع خمسات</span>
                       </label>
                     </div>
-  
+
                     <div class="margin-bottom">
-  
+
                       <input id="user_token" type="hidden" name="token" value="b91fc0c6972e0f4597fb37a1fa9040a5eabbb530">
-  
+
                       <button type="submit" (click)="create()" class="c-button c-button--primary">نشر</button>
                     </div>
-  
+
                   </form>
                 </div>
               </div>
-  
+
             </div>
-  
+
           </div><!--  END o-layout -->
         </div>
         <!--  END content -->
       </div>
       <!--  END o-wrapper -->
-  
+
     </div>
   </div>
+  <app-footer></app-footer>

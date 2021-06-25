@@ -55,6 +55,7 @@ export class HeaderComponent implements OnInit {
     }
     this.isAcctive = this.isAside = this.isNotifyShow = false;
   }
+
   isUserLoggedIn():boolean{
     return this._authenticationService.isLoggedIn();
   }
