@@ -40,6 +40,17 @@ export class SignalRService {
         audio.play();
       }
     });
+    // public addTransferDataListener = () => {
+    //   this.hubConnection?.on('transferMsg', (data) => {
+    //     if (data.userID == this.userId) {
+    //       this.Notifications.unshift(<>{});
+    //       this.newNotificationsCount++;
+    //       let audio = new Audio();
+    //       audio.src = "../../../assets/audio/pristine-609.mp3";
+    //       audio.load();
+    //       audio.play();
+    //     }
+    //   });
   }
 
 
