@@ -1,9 +1,4 @@
-export enum  SubjectCategory {
-    UserExperiencesAndStories= "UserExperiencesAndStories",
-    AboutKhamsat= "AboutKhamsat",
-    NotFoundService= "NotFoundService",
-    ModelsImplemented= "ModelsImplemented"
-}
+
 export enum Subject {
     UserExperiencesAndStories,
     AboutKhamsat,
@@ -16,7 +11,7 @@ export interface KhamsatCommunityVM {
     content: string;
     title: string;
     subject: Subject;
-    date: string;
+    date: Date;
     comment:customcomment;
     userID: string;
     image: string; 
@@ -27,7 +22,7 @@ export interface khamsatcommunity_withcomments {
     id: number
     content: string;
     title: string;
-    date: string;
+    date: Date;
     _Comments:customcomment[];/// list
     userID: string;
     userImage: string;
@@ -41,7 +36,7 @@ export  interface customcomment
     khamsatcommunityID :number,
     userID :string,
     image :string,
-    date:string,
+    date:Date,
     fullName :string,
 }
 //use to create
@@ -50,8 +45,8 @@ export interface  customkhamsat
      id :number;
      content:string; 
      title :string;
-     subject : SubjectCategory;
-     date :string;
+     subject : string;
+     date :Date;
      userID :string;   
 }
 // to create comment
@@ -59,7 +54,7 @@ export interface CommentViewModel
 {
      id :number,
     content :string,   
-     date :string,
+     date :Date,
      userID:string, 
      khamsatcommunityID  :number,
 }
