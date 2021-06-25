@@ -37,6 +37,8 @@ import { NewChatComponent } from './components/message/new-chat/new-chat.compone
 import { AddServiceComponent } from './components/add-service/add-service.component';
 //import { ClickOutsideModule } from 'ng-click-outside/lib_commonjs/click-outside.module';
 import { ClickOutsideModule } from 'ng-click-outside';
+import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.component';
+import { PrivacyDataComponent } from './components/privacy-data/privacy-data.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +73,8 @@ import { ClickOutsideModule } from 'ng-click-outside';
     MessageComponent,
     NewChatComponent,
     AddServiceComponent,
+    TermsOfUseComponent,
+    PrivacyDataComponent,
   ],
 
   imports: [

@@ -33,7 +33,7 @@
     ></script>
 
    </head>
-    <body class="body">
+    <div class="body">
       <app-hsoub-header></app-hsoub-header>
       <div class="container-xxl">
         <div class="page">
@@ -45,7 +45,7 @@
               <div class="right col-lg-8" style="background-color: #fff;">
                 <p class="title">تسجيل الدخول</p>
 
-                <div class="media row d-flex justify-content-center align-items-center">
+                <!-- <div class="media row d-flex justify-content-center align-items-center">
                   <div class="google col-lg-5 mt-4">
                     <a class="btn d-flex justify-content-center align-items-center"> <i class="fab fa-google"></i> &nbsp; باستخدام جوجل </a>
                   </div>
@@ -59,7 +59,7 @@
                   <span class="line-one col-5"></span>
                   &nbsp; أو &nbsp;
                   <span class="line-two col-5"></span>
-                </div>
+                </div> -->
 
                 <div class="form row" style="background-color: #fff;">
 
@@ -96,7 +96,7 @@
                 <div class="help mt-3 mr-3">
                     <p>مساعدة</p>
                     <ul class="mr-5">
-                        <li><a href="#" class="text-decoration-none">لا أملك حساب بعد</a></li>
+                        <li><a routerLink="/register" class="text-decoration-none">لا أملك حساب بعد</a></li>
                         <li><a href="#" class="text-decoration-none">فقدت كلمة المرور</a></li>
                         <li><a href="#" class="text-decoration-none">لم يصلني رمز التفعيل</a></li>
                     </ul>
@@ -108,9 +108,11 @@
             </form>
           </div>
         </div>
+
+      <footer style="display: flex;justify-content: center;align-items: center;height: 70px;margin-top: -80px;">
+        <p class="copyrights">© 2021 حسوب. جميع الحقوق محفوظة.</p>
+        </footer>
       </div>
-    </body>
-</html>
-<router-outlet></router-outlet>
+
 
 

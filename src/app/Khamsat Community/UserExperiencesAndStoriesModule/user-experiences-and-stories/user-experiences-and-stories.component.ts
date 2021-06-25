@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  KhamsatCommunityVM, SubjectCategory } from 'src/app/models/KhamsatCommunity';
+import {  KhamsatCommunityVM } from 'src/app/models/KhamsatCommunity';
 import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunityService';
 
 @Component({

@@ -31,7 +31,7 @@
 
 
    </head>
-    <body class="body">
+    <div class="body">
       <app-hsoub-header></app-hsoub-header>
         <div class="container-xxl" >
         <div class="page">
@@ -42,7 +42,7 @@
               <div class="right col-lg-7">
                 <p class="title">إنشاء حساب جديد</p>
 
-                <div class="media row d-flex justify-content-center align-items-center">
+                <!-- <div class="media row d-flex justify-content-center align-items-center">
                   <div class="google col-lg-5 mt-4">
                     <a class="btn d-flex justify-content-center align-items-center"> <i class="fab fa-google"></i> &nbsp; باستخدام جوجل </a>
                   </div>
@@ -56,7 +56,7 @@
                   <span class="line-one col-5"></span>
                   &nbsp; أو &nbsp;
                   <span class="line-two col-5"></span>
-                </div>
+                </div> -->
 
                 <div class="form row">
                   <div class="col-md-6 mt-5">
@@ -119,8 +119,8 @@
 
                   <div class="col-md-12 mt-5">
                     <input type="checkbox">
-                    <span>قرأت وأوافق على  <a href="#" class="text-decoration-none">شروط الاستخدام  </a> و
-                      <a href="#" class="text-decoration-none">سياسية الخصوصية. </a></span>
+                    <span>قرأت وأوافق على  <a routerLink="/terms" class="text-decoration-none">شروط الاستخدام  </a> و
+                      <a routerLink="/privacy" class="text-decoration-none">سياسية الخصوصية. </a></span>
                   </div>
 
                   <button class="col-sm-4 btn btn-info mt-5 mr-3"
@@ -236,9 +236,14 @@
           </form>
           </div>
         </div>
+
       </div>
 
-    </body>
-</html>
+      <footer style="display: flex;justify-content: center;align-items: center;height: 70px;margin-top: -80px;">
+        <p class="copyrights">© 2021 حسوب. جميع الحقوق محفوظة.</p>
+        </footer>
+
+    </div>
+
 
 

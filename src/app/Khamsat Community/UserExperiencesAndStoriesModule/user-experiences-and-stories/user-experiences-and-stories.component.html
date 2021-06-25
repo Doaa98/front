@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="hsoub-container">
   <div class="hsoub-content">
     <div class="o-wrapper ">
@@ -45,7 +46,7 @@
                           </li>
                           <li>
                             <i class="fa fa-fw fa-clock-o"></i>
-                            <span dir="ltr">{{item.date}}
+                            <span dir="ltr">{{item.date | customDate}}
 
                             </span>
                           </li>
@@ -70,7 +71,7 @@
                             </h3>
                             <ul class="details-list">
                               <li>
-                                <span><i class="fa fa-fw fa-clock-o"></i> {{item.comment.date}}</span>
+                                <span><i class="fa fa-fw fa-clock-o"></i> {{item.comment.date | customDate}}</span>
                               </li>
                             </ul>
                           </div>
@@ -90,7 +91,7 @@
                             </h3>
                             <ul class="details-list">
                               <li>
-                                <span><i class="fa fa-fw fa-clock-o"></i> {{item.date}}</span>
+                                <span><i class="fa fa-fw fa-clock-o"></i> {{item.date | customDate}}</span>
                               </li>
                             </ul>
                           </div>
@@ -115,3 +116,4 @@
 
   </div>
 </div>
+<app-footer></app-footer>
