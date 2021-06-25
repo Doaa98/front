@@ -20,7 +20,7 @@ export class NotFoundServiceComponent implements OnInit {
 
   }
   getCommunity() {
-    this.communityService.GetspesificCommunityType(2).subscribe
+    this.communityService.GetspesificCommunityType(1).subscribe
     ( Community=>
       {
         this.communityList=Community;

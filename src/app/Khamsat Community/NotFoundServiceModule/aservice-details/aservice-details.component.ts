@@ -73,7 +73,7 @@ export class AServiceDetailsComponent implements OnInit {
     );
   }
   getLatestContributions() {
-    this.KhamsatService.GetspesificCommunityType(2).subscribe
+    this.KhamsatService.GetspesificCommunityType(1).subscribe
       (Community => {
         for (let i = 0; i < Community.length; i++) {
           this.latestContributions = Community;

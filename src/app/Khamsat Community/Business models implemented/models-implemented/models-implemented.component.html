@@ -29,9 +29,15 @@
                   <tbody>
                     <tr id="forum_post-516712" class="forum_post" *ngFor="let item of communityList">
                       <td class="avatar-td u-text--center">
-                        <a href="">
-                          <img class="u-circle img-thumbnail img--medium" src="{{item.image}}" alt="servImg">
-                        </a>
+                        <a href="" *ngIf="item.image!=null; then image else other_image"> </a>
+                        <ng-template #image>
+                          <img class="u-circle img-thumbnail img--medium" src="{{item.image}}"
+                             alt="UserImg">
+                        </ng-template>
+                        <ng-template #other_image>
+                          <img class="u-circle img-thumbnail img--medium" src="../../../assets/Images/user-avatar.png"
+                            alt="UserImg">
+                        </ng-template>
                       </td>
 
                       <td class="details-td">
@@ -55,10 +61,15 @@
                         <ng-template #content>
                           <div class="o-media__right u-no--margin u-no--padding ">
                             <div class="u-hidden@small">
-                              <a href="">
+                              <a href="" *ngIf="item.comment.image!=null; then image else other_image"> </a>
+                              <ng-template #image>
                                 <img class="u-circle img-thumbnail img--medium" src="{{item.comment.image}}"
                                   alt="UserImg">
-                              </a>
+                              </ng-template>
+                              <ng-template #other_image>
+                                <img class="u-circle img-thumbnail img--medium" src="../../../assets/Images/user-avatar.png"
+                                  alt="UserImg">
+                              </ng-template>
                             </div>
                           </div>
                           <div class="o-media__body u-padding-right">
@@ -76,9 +87,15 @@
                         <ng-template #other_content>
                           <div class="o-media__right u-no--margin u-no--padding ">
                             <div class="u-hidden@small">
-                              <a href="">
-                                <img class="u-circle img-thumbnail img--medium" src="{{item.image}}" alt="UserImg">
-                              </a>
+                              <a href="" *ngIf="item.image!=null; then image else other_image"> </a>
+                              <ng-template #image>
+                                <img class="u-circle img-thumbnail img--medium" src="{{item.image}}"
+                                  alt="UserImg">
+                              </ng-template>
+                              <ng-template #other_image>
+                                <img class="u-circle img-thumbnail img--medium" src="../../../assets/Images/user-avatar.png"
+                                  alt="UserImg">
+                              </ng-template>
                             </div>
                           </div>
                           <div class="o-media__body u-padding-right">

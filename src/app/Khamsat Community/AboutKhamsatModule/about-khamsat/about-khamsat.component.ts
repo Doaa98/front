@@ -21,7 +21,7 @@ export class AboutKhamsatComponent implements OnInit {
 
   }
   getCommunity() {
-    this.communityService.GetspesificCommunityType(1).subscribe
+    this.communityService.GetspesificCommunityType(3).subscribe
     ( Community=>
       {
         this.communityList=Community;

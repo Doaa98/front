@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/Services/authentication.service';
 import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunityService';
 
@@ -12,9 +12,12 @@ import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunitySe
 export class AddnewSubjectComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private khamsatCommunityService: KhamsatCommunityService, private router: Router
-    ,private authenticationService: AuthenticationService) { 
-     
-    }
+    , private authenticationService: AuthenticationService) {
+      if(!authenticationService.isLoggedIn()){
+        router.navigateByUrl("/login")
+      }
+
+  }
   errorMsg: any;
   addCommunityForm: any;
   newsubject: any;
@@ -43,20 +46,30 @@ export class AddnewSubjectComponent implements OnInit {
       ID: 0,
       content: this.content.value,
       title: this.title.value,
-      subject:  this.Subject.value,
+      subject: this.Subject.value,
       date: null,
       userID: this.authenticationService.getUserId()
 
     }
-    
+
     console.log(this.newsubject);
     this.khamsatCommunityService.addKhamsatCommunity(this.newsubject).subscribe(
       pro => {
         console.log("1");
         this.errorMsg = pro;
         console.log("res:" + this.errorMsg)//for test
-
-        // this.router.navigate(['/aboutKhamsat']);
+        if (this.newsubject.subject == "0"){
+          this.router.navigate(['/ModelImplementd']);
+        }
+        else  if (this.newsubject.subject == "1"){
+          this.router.navigate(['/NotFoundService']);
+        }
+        else  if (this.newsubject.subject == "2"){
+          this.router.navigate(['/UserExp']);
+        }
+        else  if (this.newsubject.subject == "3"){
+          this.router.navigate(['/aboutKhamsat']);
+        }
       },
       errorResponse => {
         this.errorMsg = errorResponse;
