@@ -42,7 +42,7 @@ export class AuthenticationService {
         let token = localStorage.getItem('currentUser');
         //console.log("JSON"+token);
 
-        let jwtData = token.split('.')[1];
+        let jwtData = token?.split('.')[1];
 
         let decodedJwtJsonData = window.atob(jwtData)
 
@@ -133,7 +133,6 @@ export class AuthenticationService {
     // }
 
 
-
     // isLoggedOut() {
     //     return !this.isLoggedIn();
     // }
@@ -150,6 +149,5 @@ export class AuthenticationService {
     //     }
     //     return "No Role";
     //   }
-
 
 }

@@ -86,10 +86,10 @@
                     $<span id="cart_total_amount_items">{{totalPrice}}.00
                     </span></div>
                   <div class="cart-info">
-                    $<span id="cart_fees">10.00
+                    $<span id="cart_fees">{{totalPrice*.2}}.00
                     </span></div>
                   <div class="cart-info">
-                    $<span id="cart_total_amount">{{totalPrice + 10}}.00
+                    $<span id="cart_total_amount">{{totalPrice + totalPrice*.2}}.00
                     </span></div>
                 </td>
                 <td class="u-hidden@small">&nbsp;</td>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { customkhamsat, SubjectCategory } from 'src/app/models/KhamsatCommunity';
+import { AuthenticationService } from 'src/Services/authentication.service';
 import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunityService';
 
 @Component({
@@ -11,7 +12,8 @@ import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunitySe
 })
 export class AddnewSubjectComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private khamsatCommunityService: KhamsatCommunityService, private router: Router) { }
+  constructor(private fb: FormBuilder, private khamsatCommunityService: KhamsatCommunityService, private router: Router
+    ,private authenticationService: AuthenticationService) { }
   errorMsg: any;
   addCommunityForm: any;
   newsubject: any;
@@ -42,9 +44,9 @@ export class AddnewSubjectComponent implements OnInit {
       ID: 0,
       content: this.content.value,
       title: this.title.value,
-      subject: this.Subject.value,
-      Date: "",
-      userID: "2c20fb7b-f9bb-4ba5-9986-92bf67dc310a"
+      subject:  0,
+      Date: null,
+      userID: this.authenticationService.getUserId()
 
     }
 

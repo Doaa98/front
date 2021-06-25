@@ -7,6 +7,7 @@ import { CartService } from 'src/Services/cart.service';
 import { RateService } from 'src/Services/rate.service';
 import { ServiceService } from 'src/Services/service.service';
 import { SubjectService } from 'src/Services/subject.service';
+import { AuthenticationService } from 'src/Services/authentication.service';
 
 @Component({
   selector: 'app-service-details',
@@ -40,7 +41,8 @@ export class ServiceDetailsComponent implements OnInit {
     , private activatedroute: ActivatedRoute
     , private rateService: RateService
     , private cartService: CartService
-    , private subjectService: SubjectService) {
+    , private subjectService: SubjectService
+    , private authService: AuthenticationService) {
     this.activatedroute.params.subscribe(data => {
       this.serviceId = data.id;
     });
@@ -50,7 +52,6 @@ export class ServiceDetailsComponent implements OnInit {
     this.serService.getService(this.serviceId).subscribe(
       (data) => {
         this.service = data;
-        console.log(data);
         this.keyWords = this.service.keywords.split(',');
         this.rateService
           .getServiceRates(this.serviceId)
@@ -66,7 +67,7 @@ export class ServiceDetailsComponent implements OnInit {
       serviceId: this.serviceId,
       quantity: parseInt(quantity),
       id: 0,
-      userId: 'qq',
+      userId: this.authService.getUserId(),
     };
     this.cartService.addCartItem(cartItem).subscribe((data) => {
       this.subjectService.sendClickEvent();

@@ -28,7 +28,7 @@ import { AddServiceComponent } from './components/add-service/add-service.compon
 
 
 const routes: Routes = [
-  // { path: '', component: HomeComponent },
+   { path: 'home', component: HomeComponent },
   {path: '', component: KhamsatDotComComponent},
   {path:'home', component: HomeComponent},
 
@@ -66,27 +66,14 @@ const routes: Routes = [
   },
   { path: 'cart', component: CartComponent },
 
-  { path: '', component: HomeComponent },
-  { path: 'cart', component: CartComponent },
   { path: 'service/Details/:id', component: ServiceDetailsComponent },
   { path: 'SubCategory/:id', component: SubCategoryServiceListComponent },
   { path: 'Category/:catId', component: SubCategoryServiceListComponent },
   { path: 'notifications', component: NotificationComponent },
   { path: 'service/add', component: AddServiceComponent },
-  { path: 'service/Details/:id', component: ServiceDetailsComponent },
-  { path: 'SubCategory/:id', component: SubCategoryServiceListComponent },
-  { path: 'service/Details/:id', component: ServiceDetailsComponent },
-
-  { path: 'cart', component: CartComponent },
-  { path: 'service/Details/:id', component: ServiceDetailsComponent },
-  { path: 'SubCategory/:id', component: SubCategoryServiceListComponent },
-  { path: 'Category/:catId', component: SubCategoryServiceListComponent },
-  { path: 'notifications', component: NotificationComponent,canActivate: [AuthGuard] },
-  { path: 'message/new', component: NewChatComponent,canActivate: [AuthGuard] },
-
   { path: 'messages', component: MessagesComponent },
   { path: 'message/:ChatId', component: MessageComponent },
-  { path: 'message/new/:id', component: NewChatComponent },
+  { path: 'message/new/:id', component: NewChatComponent,canActivate: [AuthGuard] },
 ];
 
 @NgModule({

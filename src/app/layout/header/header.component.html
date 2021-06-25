@@ -2,7 +2,7 @@
   <div class="hsoub-box"><a class="hsoub-bars hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile"
       (click)="AsideToggle()">
       <i class="hsoub-bars-icon"></i>
-    </a><a routerLink="/" class="hsoub-logo"><img class="hsoub-logo-img hsoub--visible-h hsoub-desktop hsoub-tablet "
+    </a><a routerLink="/home" class="hsoub-logo"><img class="hsoub-logo-img hsoub--visible-h hsoub-desktop hsoub-tablet "
         src="https://khamsat.hsoubcdn.com/assets/images/logo-73045c76e830509d4dbe03ea6172d22f047c708fed5435e93ffd47f80ee5ffa4.png"><img
         class="hsoub-logo-img hsoub--visible-h   hsoub-mobile"
         src="https://khamsat.hsoubcdn.com/assets/images/logo-mobile-215fffeb86f5121a190d2551c62feea201ca1b4e0d5ea7feef9f5aa04a55dac4.png"></a>
@@ -20,13 +20,13 @@
         </a>
       </li>
       <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop  " *ngIf="isUserLoggedIn()">
-        <a class="hsoub-menu-item-link     " routerLink="/purchases">
+        <a class="hsoub-menu-item-link     " href="/purchases">
           <i class="hsoub-menu-item-link-icon fa fa-folder-open"></i>
           <span >المشتريات</span>
         </a>
       </li>
       <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop  "*ngIf="isUserLoggedIn()">
-        <a class="hsoub-menu-item-link     " routerLink="/orders">
+        <a class="hsoub-menu-item-link     " href="/orders">
           <i class="hsoub-menu-item-link-icon fa fa-truck"></i>
           <span>الطلبات الواردة</span>
         </a>
@@ -37,45 +37,45 @@
         <div class="hsoub-megamenu-column">
           <ul class="hsoub-bullets">
             <li class="hsoub-bullet-head">
-              <a class="hsoub-bullet-link" href="/business"> أعمال </a>
+              <a class="hsoub-bullet-link" routerLink="/Category/1"> أعمال </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/business/data-entry">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/1">
                 ادخال بيانات
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/business/business-tips">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/2">
                 استشارات أعمال
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/business/ecommerce-services">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/3">
                 تجارة الكترونية
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/business/legal-services">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/4">
                 خدمات قانونية
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/business/finance-services">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/5">
                 خدمات مالية
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/business/research-services">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/6">
                 دراسات وأبحاث
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/business/virtual-assistant">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/7">
                 مساعد افتراضي
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/business/business-services">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/8">
                 أخرى
               </a>
             </li>
@@ -84,91 +84,89 @@
         <div class="hsoub-megamenu-column">
           <ul class="hsoub-bullets">
             <li class="hsoub-bullet-head">
-              <a class="hsoub-bullet-link" href="/programming">
+              <a class="hsoub-bullet-link" routerLink="/Category/2">
                 برمجة وتطوير
               </a>
             </li>
             <li class="hsoub-bullet">
               <a
                 class="hsoub-bullet-link"
-                href="/programming/content-management-systems"
+                routerLink="/SubCategory/9"
               >
                 أنظمة ادارة المحتوى
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/programming/beta-testing">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/10">
                 اختبارات تجريبية
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/programming/linux">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/11">
                 السيرفرات ولينكس
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/programming/css-html">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/12">
                 برمجة CSS و HTML
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/programming/java-dot-net">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/13">
                 برمجة Java و .NET
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/programming/php-programming">
+              <a class="hsoub-bullet-link"routerLink="/SubCategory/14">
                 برمجة PHP
               </a>
             </li>
             <li class="hsoub-bullet">
               <a
                 class="hsoub-bullet-link"
-                href="/programming/python-programming"
-              >
+                routerLink="/SubCategory/15"              >
                 برمجة بايثون
               </a>
             </li>
             <li class="hsoub-bullet">
               <a
                 class="hsoub-bullet-link"
-                href="/programming/mobile-development"
-              >
+                routerLink="/SubCategory/16"              >
                 برمجة تطبيقات الجوال
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/programming/desktop-app">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/17">
                 تطبيقات سطح المكتب
               </a>
             </li>
             <li class="hsoub-bullet">
               <a
                 class="hsoub-bullet-link"
-                href="/programming/ecommerce-development"
+                routerLink="/SubCategory/18"
               >
                 تطوير متاجر إلكترونية
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/programming/blogger">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/19">
                 خدمات مدونات بلوجر
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/programming/wordpress">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/20">
                 خدمات ووردبريس
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/programming/it-support">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/21">
                 دعم فني تقني
               </a>
             </li>
             <li class="hsoub-bullet">
               <a
                 class="hsoub-bullet-link"
-                href="/programming/programming-services"
+                routerLink="/SubCategory/22"
               >
                 أخرى
               </a>
@@ -178,39 +176,39 @@
         <div class="hsoub-megamenu-column">
           <ul class="hsoub-bullets">
             <li class="hsoub-bullet-head">
-              <a class="hsoub-bullet-link" href="/marketing">
+              <a class="hsoub-bullet-link" routerLink="/Category/3">
                 تسويق الكتروني
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/marketing/advertising">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/23">
                 إعلانات المواقع
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/marketing/marketing-advice">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/24">
                 استشارات تسويقية
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/marketing/mobile-marketing">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/25">
                 الإعلانات والتسويق على الجوال
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/marketing/reviews">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/26">
                 التسويق بالمحتوى
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/marketing/email-marketing">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/27">
                 التسويق عبر البريد الإلكتروني
               </a>
             </li>
             <li class="hsoub-bullet">
               <a
                 class="hsoub-bullet-link"
-                href="/marketing/instagram-marketing"
+                routerLink="/SubCategory/28"
               >
                 التسويق عبر انستقرام
               </a>
@@ -218,43 +216,43 @@
             <li class="hsoub-bullet">
               <a
                 class="hsoub-bullet-link"
-                href="/marketing/search-engine-marketing"
+                routerLink="/SubCategory/29"
               >
                 التسويق عبر محركات البحث SEM
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/marketing/twitter-marketing">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/30">
                 التسويق على تويتر
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/marketing/snapchat-marketing">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/31">
                 التسويق على سناب شات
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/marketing/facebook-marketing">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/32">
                 التسويق على فيسبوك
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/marketing/youtube-marketing">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/33">
                 التسويق على يوتيوب
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/marketing/web-analytics">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/34">
                 تحليلات المواقع
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/marketing/seo-services">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/35">
                 خدمات SEO
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/marketing/marketing-services">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/36">
                 أخرى
               </a>
             </li>
@@ -263,63 +261,63 @@
         <div class="hsoub-megamenu-column">
           <ul class="hsoub-bullets">
             <li class="hsoub-bullet-head">
-              <a class="hsoub-bullet-link" href="/training"> تدريب عن بعد </a>
+              <a class="hsoub-bullet-link" routerLink="/Category/4"> تدريب عن بعد </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/training/personal-advice">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/37">
                 استشارات شخصية
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/training/health-tips">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/38">
                 الصحة واللياقة البدنية
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/training/learn-programming">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/39">
                 تعلم البرمجة
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/training/learn-marketing">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/40">
                 تعلم التسويق الالكتروني
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/training/learn-designing">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/41">
                 تعلم التصميم
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/training/learn-languages">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/42">
                 تعلم اللغات
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/training/learn-english">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/43">
                 تعلم اللغة الإنجليزية
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/training/learn-frensh">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/44">
                 تعلم اللغة الفرنسية
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/training/arts"> فنون وحرف </a>
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/45"> فنون وحرف </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/training/school-help">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/46">
                 مساعدة بحل الواجبات
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/training/travel-advice">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/47">
                 نصائح سياحة وسفر
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/training/training-services">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/48">
                 أخرى
               </a>
             </li>
@@ -330,39 +328,39 @@
         <div class="hsoub-megamenu-column">
           <ul class="hsoub-bullets">
             <li class="hsoub-bullet-head">
-              <a class="hsoub-bullet-link" href="/video-design">
+              <a class="hsoub-bullet-link" routerLink="/Category/5">
                 تصميم فيديو
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/video-design/gif">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/49">
                 تصميم صور متحركة
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/video-design/video-intro">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/50">
                 تصميم مقدمات فيديو
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/video-design/motion-graphics">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/51">
                 موشن جرافيك
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/video-design/video-editing">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/52">
                 مونتاج فيديو
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/video-design/white-board">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/53">
                 وايت بورد
               </a>
             </li>
             <li class="hsoub-bullet">
               <a
                 class="hsoub-bullet-link"
-                href="/video-design/video-design-services"
+                routerLink="/SubCategory/54"
               >
                 أخرى
               </a>
@@ -372,63 +370,63 @@
         <div class="hsoub-megamenu-column">
           <ul class="hsoub-bullets">
             <li class="hsoub-bullet-head">
-              <a class="hsoub-bullet-link" href="/designing"> تصميم </a>
+              <a class="hsoub-bullet-link" routerLink="/Category/6"> تصميم </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/designing/covers-design">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/55">
                 أغلفة كتب ومجلات
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/designing/banners-design">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/56">
                 تصميم بانرات إعلانية
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/designing/business-cards">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/57">
                 تصميم بطاقات أعمال
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/designing/t-shirts">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/58">
                 تصميم تيشرتات
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/designing/logo-design">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/59">
                 تصميم شعار
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/designing/presentation">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/60">
                 تصميم عروض تقديمية
               </a>
             </li>
             <li class="hsoub-bullet">
               <a
                 class="hsoub-bullet-link"
-                href="/designing/architectural-design"
+                routerLink="/SubCategory/61"
               >
                 تصميم معماري وديكور
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/designing/photo-editing">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/62">
                 خدمات تعديل الصور
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/designing/cartoons">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/63">
                 رسوم كارتونية
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/designing/brochure-flyer">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/64">
                 فلاير وبرشور ورول اب
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/designing/designing-services">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/65">
                 أخرى
               </a>
             </li>
@@ -437,30 +435,30 @@
         <div class="hsoub-megamenu-column">
           <ul class="hsoub-bullets">
             <li class="hsoub-bullet-head">
-              <a class="hsoub-bullet-link" href="/audio"> صوتيات </a>
+              <a class="hsoub-bullet-link" routerLink="/Category/7"> صوتيات </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/audio/audiobook-production">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/66">
                 إنتاج كتب صوتية
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/audio/mixing">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/67">
                 المعالجة الصوتية
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/audio/podcast-editing">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/68">
                 تحرير بودكاست
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/audio/voice-over">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/69">
                 تعليق صوتي
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/audio/audio-services">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/70">
                 أخرى
               </a>
             </li>
@@ -469,65 +467,65 @@
         <div class="hsoub-megamenu-column">
           <ul class="hsoub-bullets">
             <li class="hsoub-bullet-head">
-              <a class="hsoub-bullet-link" href="/writing"> كتابة وترجمة </a>
+              <a class="hsoub-bullet-link" routerLink="/Category/8"> كتابة وترجمة </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/writing/creative-writing">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/71">
                 الكتابة الإبداعية
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/writing/transcriptions">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/72">
                 تفريغ نصوص
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/writing/proofreading">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/73">
                 خدمات تدقيق لغوي
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/writing/translation">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/74">
                 خدمات ترجمة
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/writing/summarizing">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/75">
                 خدمات تلخيص
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/writing/resume-writing">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/76">
                 كتابة السيرة الذاتية
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/writing/sales-copy">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/77">
                 كتابة النصوص الإعلانية
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/writing/script-writing">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/78">
                 كتابة سيناريو
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/writing/specialized-writing">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/79">
                 كتابة محتوى متخصص
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/writing/website-content">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/80">
                 كتابة محتوى مواقع
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/writing/copywriting">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/81">
                 كتابة مقالات ومراجعات
               </a>
             </li>
             <li class="hsoub-bullet">
-              <a class="hsoub-bullet-link" href="/writing/writing-services">
+              <a class="hsoub-bullet-link" routerLink="/SubCategory/82">
                 أخرى
               </a>
             </li>
@@ -611,13 +609,13 @@
         </div>
       </li>
       <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile" *ngIf="isUserLoggedIn()">
-        <a class="hsoub-menu-item-link     hsoub-menu-item-link--is-img" href="/user/programmer01" title="programmer01">
+        <a class="hsoub-menu-item-link     hsoub-menu-item-link--is-img"  title="programmer01">
           <img class="hsoub-menu-item-link-img"
-            src="https://avatars.hsoubcdn.com/d17a227615ef8f87cd2b4d063b1b6f47?s=128">
+            src="../../../assets/Images/user-avatar.png">
         </a>
         <ul class="hsoub-dropdown hsoub-dropdown-right">
           <li class="hsoub-dropdown-item">
-            <a class="hsoub-dropdown-item-link" href="/user/programmer01">
+            <a class="hsoub-dropdown-item-link" >
               <i class="fa fa-fw fa-user"></i>
               programmer01
             </a>
@@ -712,29 +710,29 @@
           سلة المشتريات
         </a>
       </li>
-      <li
+      <li *ngIf="isUserLoggedIn()"
         class="
           hsoub-sidebar-menu-item hsoub--visible-v hsoub-tablet hsoub-mobile
         "
       >
-        <a class="hsoub-sidebar-menu-item-link" routerLink="/service/new">
+        <a class="hsoub-sidebar-menu-item-link" routerLink="/service/add">
           <i class="fa fa-fw fa-plus"></i>
           أضف خدمة
         </a>
       </li>
-      <li class="hsoub-sidebar-menu-item hsoub--visible-v hsoub-desktop">
+      <li class="hsoub-sidebar-menu-item hsoub--visible-v hsoub-desktop" *ngIf="isUserLoggedIn()">
         <a class="hsoub-sidebar-menu-item-link" href="/purchases">
           <i class="fa fa-fw fa-folder-open"></i>
           المشتريات
         </a>
       </li>
-      <li class="hsoub-sidebar-menu-item hsoub--visible-v hsoub-desktop">
+      <li class="hsoub-sidebar-menu-item hsoub--visible-v hsoub-desktop" *ngIf="isUserLoggedIn()">
         <a class="hsoub-sidebar-menu-item-link" href="/orders">
           <i class="fa fa-fw fa-truck"></i>
           الطلبات الواردة
         </a>
       </li>
-      <li
+      <li *ngIf="isUserLoggedIn()"
         class="
           hsoub-sidebar-menu-item hsoub--visible-v hsoub-tablet hsoub-mobile
         "
@@ -744,7 +742,7 @@
           المشتريات
         </a>
       </li>
-      <li
+      <li *ngIf="isUserLoggedIn()"
         class="
           hsoub-sidebar-menu-item hsoub--visible-v hsoub-tablet hsoub-mobile
         "
@@ -765,38 +763,38 @@
         </a>
         <ul class="hsoub-sidebar-menu">
           <li class="hsoub-sidebar-menu-item">
-            <a class="hsoub-sidebar-menu-item-link" href="/business"> أعمال </a>
+            <a class="hsoub-sidebar-menu-item-link" routerLink="/Category/1"> أعمال </a>
           </li>
           <li class="hsoub-sidebar-menu-item">
-            <a class="hsoub-sidebar-menu-item-link" href="/programming">
+            <a class="hsoub-sidebar-menu-item-link" routerLink="/Category/2">
               برمجة وتطوير
             </a>
           </li>
           <li class="hsoub-sidebar-menu-item">
-            <a class="hsoub-sidebar-menu-item-link" href="/marketing">
+            <a class="hsoub-sidebar-menu-item-link" routerLink="/Category/3">
               تسويق الكتروني
             </a>
           </li>
           <li class="hsoub-sidebar-menu-item">
-            <a class="hsoub-sidebar-menu-item-link" href="/training">
+            <a class="hsoub-sidebar-menu-item-link" routerLink="/Category/4">
               تدريب عن بعد
             </a>
           </li>
           <li class="hsoub-sidebar-menu-item">
-            <a class="hsoub-sidebar-menu-item-link" href="/video-design">
+            <a class="hsoub-sidebar-menu-item-link" routerLink="/Category/5">
               تصميم فيديو
             </a>
           </li>
           <li class="hsoub-sidebar-menu-item">
-            <a class="hsoub-sidebar-menu-item-link" href="/designing">
+            <a class="hsoub-sidebar-menu-item-link" routerLink="/Category/6">
               تصميم
             </a>
           </li>
           <li class="hsoub-sidebar-menu-item">
-            <a class="hsoub-sidebar-menu-item-link" href="/audio"> صوتيات </a>
+            <a class="hsoub-sidebar-menu-item-link" routerLink="/Category/7"> صوتيات </a>
           </li>
           <li class="hsoub-sidebar-menu-item">
-            <a class="hsoub-sidebar-menu-item-link" href="/writing">
+            <a class="hsoub-sidebar-menu-item-link" routerLink="/Category/8">
               كتابة وترجمة
             </a>
           </li>

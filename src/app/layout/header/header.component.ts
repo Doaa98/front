@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private subjectService: SubjectService, private cartService: CartService
     , public signalRService: SignalRService, private http: HttpClient,public _authenticationService: AuthenticationService) {
-    signalRService.getNotifyByUserId("qq")
+    signalRService.getNotifyByUserId()
   }
 
   ngOnInit(): void {
@@ -61,16 +61,8 @@ export class HeaderComponent implements OnInit {
   }
 
 
-
-
-
-
-
-
-
-
   calcItemsNum() {
-    this.cartService.getCartByUserId("qq")
+    this.cartService.getCartByUserId()
       .subscribe(d => this.itemsNumber = d.length)
   }
   ngOnDestroy() {

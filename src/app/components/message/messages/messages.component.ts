@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IChat } from 'src/app/models/ichat';
+import { AuthenticationService } from 'src/Services/authentication.service';
 import { MessageService } from 'src/Services/message.service';
 
 @Component({
@@ -9,7 +11,7 @@ import { MessageService } from 'src/Services/message.service';
 })
 export class MessagesComponent implements OnInit {
 
-  userId = "qq"
+  userId = this.authService.getUserId()
   isDropdown = false
 
   showInbox = true
@@ -18,9 +20,17 @@ export class MessagesComponent implements OnInit {
   outboxMsgs:IChat[] =[]
   displayMsgs:IChat[] =[]
 
-  constructor(private MsgService:MessageService) { }
+  constructor(private MsgService:MessageService
+    ,   private authService: AuthenticationService , private router: Router
+    ) {
+      
+      if (!authService.isLoggedIn()) {
+        router.navigateByUrl("/login")
+      }
+     }
 
   ngOnInit(): void {
+    console.log(this.userId)
     this.MsgService.getInboxMessages(this.userId).subscribe(
       data => {this.inboxMsgs = data
           this.toggleInbox()

@@ -18,7 +18,7 @@ export class SubCategoryServiceListComponent implements OnInit {
   CatId!: number;
   Cat!: ICategory;
   subcat!: ISubCategory;
-  subCatList: ISubCategory[] = []
+  subCatList: ISubCategory[] 
   CatList: ICategory[] = []
 
   subCatServiceList: IService[] = [];
