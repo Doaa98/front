@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommentViewModel, khamsatcommunity_withcomments } from 'src/app/models/KhamsatCommunity';
+import { AuthenticationService } from 'src/Services/authentication.service';
 import { KhamsatCommunityService } from 'src/Services/KhamsatCommunityService';
 
 @Component({
@@ -10,8 +11,13 @@ import { KhamsatCommunityService } from 'src/Services/KhamsatCommunityService';
   styleUrls: ['./aservice-details.component.css']
 })
 export class AServiceDetailsComponent implements OnInit {
-  constructor(private fb: FormBuilder, private KhamsatService: KhamsatCommunityService, private route: ActivatedRoute, private router: Router) { }
-  addCommentForm: any;
+  constructor(private fb: FormBuilder, private authService: AuthenticationService , private KhamsatService: KhamsatCommunityService, private route: ActivatedRoute, private router: Router) {
+    if (!authService.isLoggedIn()) {
+      this.IsLogging=false;
+    }
+   }
+  IsLogging:boolean=true;
+   addCommentForm: any;
   errorMsg: any;
   Khamsat: khamsatcommunity_withcomments;
   Comment: CommentViewModel;
@@ -50,8 +56,8 @@ export class AServiceDetailsComponent implements OnInit {
     this.Comment = {
       id: 0,
       content: this.content.value,
-      date: "2021-06-06T10:41:18.690Z",
-      userID: "2",
+      date: new Date(),
+      userID: this.authService.getUserId(),
       khamsatcommunityID: this.Id,
     }
     this.KhamsatService.addComment(this.Comment).subscribe(

@@ -29,7 +29,10 @@
                         <select id="forum_name_select" name="forum" formControlName="subject" type="text"
                           class="form-control">
   
-                          <option *ngFor="let c of Subjects , index as i" value="{{i}}">{{c}} </option>
+                          <option  value="0"> نماذج اعمال قمت بتنفيذها </option>
+                          <option  value="1">   طلبات الخدمات غير الموجودة </option>
+                          <option  value="2">    تجارب وقصص المستخدمين </option>
+                          <option  value="3">   امور عامة حول خمسات  </option>
   
                         </select>
                       </div>

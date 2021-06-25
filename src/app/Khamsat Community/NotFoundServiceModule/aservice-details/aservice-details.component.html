@@ -21,7 +21,7 @@
                   </li>
                   <li>
                     <i class="fa fa-clock-o fa-fw"></i>
-                    <span dir="ltr">{{Khamsat.date}}</span>
+                    <span dir="ltr">{{Khamsat.date | customDate}}</span>
                   </li>
 
                 </ul>
@@ -96,7 +96,7 @@
                                 </div>
                                 <div class="u-block@small meta--date">
                                   <i class="fa fa-clock-o fa-fw"></i>
-                                  <span dir="ltr"> {{item.date}} </span>
+                                  <span dir="ltr"> {{item.date | customDate}} </span>
                                 </div>
                               </h5>
                             </div>
@@ -112,7 +112,7 @@
                         <article class="comment reply_content replace_urls ">
                           {{item.content}}
                         </article>
-                        </article>
+                      </article>
                     </div>
                   </div>
                 </div>
@@ -123,15 +123,14 @@
               <div class="c-card__head">
                 <h3>أضف تعليق</h3>
               </div>
-              <div class="c-card__body">
+              <hr>
+              <div class="c-card__body" *ngIf="IsLogging ;then content else other_content"></div>
+              <ng-template #content>
                 <form id="commentable_form" [formGroup]="addCommentForm">
                   <div class="u-margin-bottom">
-                    <textarea name="content" class="c-form__control" rows="5" formControlName="content"
-                      [class.is-invalid]="content.invalid && content.touched" rows="5" clos="60"
-                      maxlength="2000"></textarea>
-                    <div *ngIf="content.errors && content.touched">
-                      <small class="text-danger" *ngIf="content.errors.required">Content is required</small>
-                    </div>
+                    <textarea name="content" class="c-form__control" rows="5" formControlName="content" rows="5"
+                      clos="60" maxlength="2000"></textarea>
+
                     <p class="c-form__hb">
                       <span>استخدم</span>
                       <a href="https://suar.me" target="_blank" class="u-clr--primary">موقع صور</a>
@@ -148,14 +147,25 @@
                     </label>
                   </div>
                   <div class="u-margin-bottom">
+                    <input id="user_token" type="hidden" name="token" value="b91fc0c6972e0f4597fb37a1fa9040a5eabbb530">
                     <button type="submit" id="commentable_submit" class="c-button c-button--primary" type="submit"
                       (click)="createcomment()">أرسل</button>
                   </div>
 
                 </form>
 
-
-              </div>
+              </ng-template>
+              <ng-template #other_content>
+                <p class="u-text--center">سجّل دخول لتتمكن من إضافة تعليق على هذا الموضوع.</p>
+                <div class="o-layout o-layout--flex o-layout--center u-margin-top">
+                  <div class="o-layout__item u-3@large u-6@small u-12@tiny u-margin-bottom@small">
+                    <a routerLink="/login" class="c-button c-button--block c-button--primary c-button--ghost">دخول</a>
+                  </div>
+                  <div class="o-layout__item u-3@large u-6@small u-12@tiny">
+                    <a routerLink="/register" class="c-button c-button--block c-button--primary">حساب جديد</a>
+                  </div>
+                </div>
+              </ng-template>
             </div>
 
           </div>

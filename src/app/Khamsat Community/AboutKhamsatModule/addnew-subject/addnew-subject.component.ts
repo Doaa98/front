@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { customkhamsat, SubjectCategory } from 'src/app/models/KhamsatCommunity';
 import { AuthenticationService } from 'src/Services/authentication.service';
 import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunityService';
 
@@ -13,12 +12,12 @@ import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunitySe
 export class AddnewSubjectComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private khamsatCommunityService: KhamsatCommunityService, private router: Router
-    ,private authenticationService: AuthenticationService) { }
+    ,private authenticationService: AuthenticationService) { 
+     
+    }
   errorMsg: any;
   addCommunityForm: any;
   newsubject: any;
-
-  Subjects: string[] = Object.values(SubjectCategory);
 
   ngOnInit(): void {
     this.addCommunityForm = this.fb.group({
@@ -44,8 +43,8 @@ export class AddnewSubjectComponent implements OnInit {
       ID: 0,
       content: this.content.value,
       title: this.title.value,
-      subject: parseInt( this.Subject.value),
-      Date: null,
+      subject:  this.Subject.value,
+      date: null,
       userID: this.authenticationService.getUserId()
 
     }
@@ -57,7 +56,7 @@ export class AddnewSubjectComponent implements OnInit {
         this.errorMsg = pro;
         console.log("res:" + this.errorMsg)//for test
 
-        this.router.navigate(['/aboutKhamsat']);
+        // this.router.navigate(['/aboutKhamsat']);
       },
       errorResponse => {
         this.errorMsg = errorResponse;
