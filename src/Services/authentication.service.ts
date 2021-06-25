@@ -12,6 +12,7 @@ export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
+
   constructor(private http: HttpClient) {
       this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
       this.currentUser = this.currentUserSubject.asObservable();
@@ -36,14 +37,12 @@ export class AuthenticationService {
       localStorage.removeItem('currentUser');
       this.currentUserSubject.next(null);
   }
-
-
   getUserId(){
     if(localStorage.getItem('currentUser')){
         let token = localStorage.getItem('currentUser');
         //console.log("JSON"+token);
 
-        let jwtData = token?.split('.')[1];
+        let jwtData = token.split('.')[1];
 
         let decodedJwtJsonData = window.atob(jwtData)
 

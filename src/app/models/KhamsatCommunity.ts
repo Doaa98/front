@@ -14,7 +14,7 @@ export interface KhamsatCommunityVM {
     date: Date;
     comment:customcomment;
     userID: string;
-    image: string; 
+    image: string;
     fullName: string;
 }
 //get one by comments
@@ -43,19 +43,19 @@ export  interface customcomment
 export interface  customkhamsat
 {
      id :number;
-     content:string; 
+     content:string;
      title :string;
      subject : string;
      date :Date;
-     userID :string;   
+     userID :string;
 }
 // to create comment
 export interface CommentViewModel
 {
      id :number,
-    content :string,   
+    content :string,
      date :Date,
-     userID:string, 
+     userID:string,
      khamsatcommunityID  :number,
 }
 

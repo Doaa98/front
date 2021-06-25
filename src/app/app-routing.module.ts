@@ -23,11 +23,16 @@ import { NewChatComponent } from './components/message/new-chat/new-chat.compone
 import { MessageComponent } from './components/message/message/message.component';
 import { KhamsatDotComComponent } from './khamsat-dot-com/khamsat-dot-com.component';
 import { AddServiceComponent } from './components/add-service/add-service.component';
+import { PrivacyStatementComponent } from './components/privacy-statement/privacy-statement.component';
+import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.component';
 
 
 
 
 const routes: Routes = [
+  {path: 'privacy',component:PrivacyStatementComponent},
+  {path: 'terms',component:TermsOfUseComponent},
+
    { path: 'home', component: HomeComponent },
   {path: '', component: KhamsatDotComComponent},
 

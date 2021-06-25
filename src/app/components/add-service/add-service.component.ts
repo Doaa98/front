@@ -2,9 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { element } from 'protractor';
 import { ICategory } from 'src/app/models/ICategory';
-import { IServiceDevelopment } from 'src/app/models/IServiceDevelopment';
 import { IServiceGallery, LocalImage } from 'src/app/models/IServiceGallery';
 import { ISubCategory } from 'src/app/models/ISubCategory';
 import { AuthenticationService } from 'src/Services/authentication.service';
@@ -66,8 +64,6 @@ export class AddServiceComponent implements OnInit {
     this.subCategoryService.getAllSubCategories().subscribe((data) => {
       this.subCategoryListLoaded = data;
     });
-
-    this.userId = this.authService.getUserId();
   }
 
   addServiceForm = this.fb.group({
@@ -95,7 +91,6 @@ export class AddServiceComponent implements OnInit {
       price: [0],
       isIncreaseDuration: [true],
       duration: [0],
-      // serviceId: [0],
     });
   }
 
@@ -149,10 +144,6 @@ export class AddServiceComponent implements OnInit {
 
   get userId() {
     return this.addServiceForm.get('userId');
-  }
-
-  set userId(value) {
-    this.userId = value;
   } 
 
   showModal() {
@@ -272,13 +263,13 @@ export class AddServiceComponent implements OnInit {
        duration: this.duration?.value,
        instructionsToBuyer: this.InstructionsToBuyer?.value,
        serviceDevelopmentsVM: this.addSD,
-       userID: this.userId?.value,
+       userID: this.authService.getUserId(),
      };
 
     this.service.addService(data).subscribe(
       (data) => {
         console.log(data);
-        this.router.navigate(['']);
+        this.router.navigate(['/home']);
       },
       (err) => console.log(err)
     );

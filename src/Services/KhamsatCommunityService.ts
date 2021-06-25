@@ -10,6 +10,8 @@ export class KhamsatCommunityService {
 
   constructor(private http: HttpClient) { }
   url = 'http://localhost:21491/api/KhamsatCommunity';
+
+
   commenturl = 'http://localhost:21491/api/Comment';
   addKhamsatCommunity(khamsatCommunity: customkhamsat): Observable<any> {
     const httpOptions = {

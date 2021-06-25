@@ -62,7 +62,6 @@ export class ServiceDetailsComponent implements OnInit {
   }
 
   addToCart(quantity: string) {
-    console.log(quantity);
     let cartItem: ICart = {
       serviceId: this.serviceId,
       quantity: parseInt(quantity),
