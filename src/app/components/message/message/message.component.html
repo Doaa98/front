@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="hsoub-container"  style="padding: 3%; margin-top: 35px;">
+<div class="hsoub-container" style="padding: 3%; margin-top: 35px;">
     <div class="hsoub-content">
 
 
@@ -39,7 +39,7 @@
 
                     <div class="o-layout__item u-3@large u-4@medium u-hidden@small u-hidden@tiny">
                         <div class="page-header-buttons">
-                          
+
 
                         </div>
                     </div>
@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="page-navbar u-hidden@large u-hidden@medium u-12@small u-12@tiny u-text--right">
-            
+
 
         </div>
 
@@ -67,45 +67,52 @@
 
                         <div class="c-card" data-commentable="true" data-commentable-type="message"
                             data-commentable-id="16926925">
-                            <div class="c-card__body u-no--padding" >
-<div *ngIf="!!Chat || !!customer || !!freelancer">
-                                <div class="comments" *ngFor="let Msg of Chat.messages" >
-                                    <div class="discussion-item">
-                                        <div class="profile-details">
-                                            <div class="o-media">
-                                                <div class="o-media__right meta--avatar">
-                                                    <a href="/user/hoss_noor">
-                                                        <img class="u-circle u-avatar@small img-thumbnail img--small"
-                                                            src="../../../../assets/Images/user-avatar.png">
-                                                    </a>
-                                                </div>
-                                                <div class="o-media__body">
-                                                    <div class="o-layout o-layout--flex">
-                                                        <div class="o-layout__item u-12@large u-12@medium u-12@small">
-                                                            <h5 class="u-margin-bottom--tiny">
-                                                                <div class="meta--user" *ngIf="Msg.senderId == Chat.freelancerID">
-                                                                    <a href="/user/hoss_noor">{{freelancer.firstName+ " " + freelancer.lastName}}</a>
-                                                                </div>
-                                                                <div class="meta--user" *ngIf="Msg.senderId == Chat.userID">
-                                                                    <a href="/user/hoss_noor">{{customer.firstName+ " " + customer.lastName}}</a>
-                                                                </div>
-                                                                <div class="u-block@small meta--date">
-                                                                    <i class="fa fa-clock-o fa-fw"></i>
-                                                                    <span dir="ltr" title="27/02/2021 17:52:54 GMT">{{Msg.date|customDate}}</span>
-                                                                </div>
-                                                            </h5>
+                            <div class="c-card__body u-no--padding">
+                                <div *ngIf="!!Chat || customer != null || freelancer != null">
+                                    <div class="comments" *ngFor="let Msg of Chat.messages">
+                                        <div class="discussion-item">
+                                            <div class="profile-details">
+                                                <div class="o-media">
+                                                    <div class="o-media__right meta--avatar">
+                                                        <a href="/user/hoss_noor">
+                                                            <img class="u-circle u-avatar@small img-thumbnail img--small"
+                                                                src="../../../../assets/Images/user-avatar.png">
+                                                        </a>
+                                                    </div>
+                                                    <div class="o-media__body">
+                                                        <div class="o-layout o-layout--flex">
+                                                            <div
+                                                                class="o-layout__item u-12@large u-12@medium u-12@small">
+                                                                <h5 class="u-margin-bottom--tiny">
+                                                                    <div class="meta--user"
+                                                                        *ngIf="Msg.senderId == Chat.freelancerID">
+                                                                        <a href="/user/hoss_noor">{{freelancer.firstName+
+                                                                            " " + freelancer.lastName}}</a>
+                                                                    </div>
+                                                                    <div class="meta--user"
+                                                                        *ngIf="Msg.senderId == Chat.userID">
+                                                                        <a href="/user/hoss_noor">{{customer.firstName+
+                                                                            " " + customer.lastName}}</a>
+                                                                    </div>
+                                                                    <div class="u-block@small meta--date">
+                                                                        <i class="fa fa-clock-o fa-fw"></i>
+                                                                        <span dir="ltr"
+                                                                            title="27/02/2021 17:52:54 GMT">{{Msg.date|customDate}}</span>
+                                                                    </div>
+                                                                </h5>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="discussion-message">
+                                                <article class="comment reply_content replace_urls ">{{Msg.content}}
+                                                </article>
+                                            </div>
                                         </div>
-                                        <div class="discussion-message">
-                                            <article class="comment reply_content replace_urls ">{{Msg.content}}</article>
-                                        </div>
-                                    </div>
 
+                                    </div>
                                 </div>
-</div>
 
                                 <div class="comment-form">
                                     <form id="commentable_form" action="/message/16926925" enctype="multipart/form-data"
@@ -114,11 +121,11 @@
                                             <textarea name="content" class="c-form__control" rows="5" clos="60"
                                                 maxlength="2000" [(ngModel)]="newMsg.content"></textarea>
                                             <div class="o-layout__item u-12@large u-6@small u-12@tiny u-no--padding">
-                                               
+
                                             </div>
 
                                             <div id="attachmentsUploader" class="dropzone-box hidden dz-clickable">
-                                               
+
                                             </div>
 
                                             <div id="voicemessageUploader" class="voicerecord-box hidden">
@@ -147,7 +154,7 @@
                                                         </div>
 
                                                         <div class="o-media__body">
-                                                            
+
                                                         </div>
                                                         <div class="u-margin-top voicemessage-container voicemessage-recorder-player"
                                                             style="display: none" data-container="voicemessage-audio">
@@ -168,7 +175,7 @@
                                                     value="2fc3268f89a77b1c1f6bfcdcb9e8c9abfb29be79">
                                                 <button type="submit" id="commentable_submit"
                                                     class="c-button c-button--primary c-button--block"
-                                                    (click)="sendMsg()" >أرسل</button>
+                                                    (click)="sendMsg()">أرسل</button>
                                             </div>
                                         </div>
 

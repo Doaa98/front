@@ -125,11 +125,65 @@
                                 </div>
                             </a>
                             <div class="c-card__body u-no--padding">
-                                <div class="comments">
-
+                                <div class="comments" *ngIf="chat != null">
+                                    <div class="comments" *ngFor="let Msg of chat.messages" >
+                                        <div class="discussion-item">
+                                            <div class="profile-details">
+                                                <div class="o-media">
+                                                    <div class="o-media__right meta--avatar">
+                                                        <a >
+                                                            <img class="u-circle u-avatar@small img-thumbnail img--small"
+                                                                src="../../../../assets/Images/user-avatar.png">
+                                                        </a>
+                                                    </div>
+                                                    <div class="o-media__body">
+                                                        <div class="o-layout o-layout--flex">
+                                                            <div class="o-layout__item u-12@large u-12@medium u-12@small">
+                                                                <h5 class="u-margin-bottom--tiny">
+                                                                    <div class="meta--user" *ngIf="Msg.senderId == chat.freelancerID">
+                                                                        <a >{{buyer.firstName+ " " + buyer.lastName}}</a>
+                                                                    </div>
+                                                                    <div class="meta--user" *ngIf="Msg.senderId == chat.userID">
+                                                                        <a >{{seller.firstName+ " " + seller.lastName}}</a>
+                                                                    </div>
+                                                                    <div class="u-block@small meta--date">
+                                                                        <i class="fa fa-clock-o fa-fw"></i>
+                                                                        <span dir="ltr" title="27/02/2021 17:52:54 GMT">{{Msg.date|customDate}}</span>
+                                                                    </div>
+                                                                </h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="discussion-message">
+                                                <article class="comment reply_content replace_urls ">{{Msg.content}}</article>
+                                            </div>
+                                        </div>
+    
+                                    </div>
 
                                 </div>
+                                <div class="comment-form">
+                                    <form id="commentable_form"  enctype="multipart/form-data" method="post">
+                            <div class="u-margin-bottom">
+                                <textarea name="content" class="c-form__control" rows="10" clos="60" maxlength="1200"
+                                [(ngModel)]="newMsg.content"></textarea>        
+
                             </div>
+                        
+                                <div class="u-margin-top">
+                                    <div class="o-layout__item u-2@large u-6@small u-12@tiny u-margin-bottom@small u-no--padding">
+                                        <button type="submit" class="c-button c-button--primary" (click)="startchat()">أرسل الرسالة</button>
+                                    </div>
+                                </div>
+                        
+                        </form>
+                        
+                        
+                                </div>
+                            </div>
+                        
                         </div>
 
 
