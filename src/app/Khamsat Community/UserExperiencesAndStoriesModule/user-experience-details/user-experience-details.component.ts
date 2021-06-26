@@ -20,7 +20,7 @@ export class UserExperienceDetailsComponent implements OnInit {
   addCommentForm: any;
   errorMsg: any;
   Khamsat: khamsatcommunity_withcomments;
-  Comment: CommentViewModel;
+  Comment: any;
   Id: number;
   length: number;
   latestContributions: any;
@@ -51,6 +51,9 @@ export class UserExperienceDetailsComponent implements OnInit {
   get content() {
     return this.addCommentForm.get('content')
   }
+  Reset() {
+    this.addCommentForm.reset();
+  }
   createcomment() {
     this.Comment = {
       id: 0,
@@ -61,13 +64,10 @@ export class UserExperienceDetailsComponent implements OnInit {
     }
     this.KhamsatService.addComment(this.Comment).subscribe(
       pro => {
-        console.log("1");
-        this.errorMsg = pro;
-        console.log("2");
-        console.log("res:" + this.errorMsg)//for test
+        this.Khamsat._Comments.push(this.Comment);
+        this.Reset();
       },
       errorResponse => {
-        console.log("3");
         this.errorMsg = errorResponse;
         console.log(this.errorMsg);
       }
@@ -76,6 +76,7 @@ export class UserExperienceDetailsComponent implements OnInit {
   getLatestContributions() {
     this.KhamsatService.GetspesificCommunityType(1).subscribe
       (Community => {
+
         for (let i = 0; i < Community.length; i++) {
           this.latestContributions = Community;
         }

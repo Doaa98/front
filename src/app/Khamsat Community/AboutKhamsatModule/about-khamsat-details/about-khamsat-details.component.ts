@@ -11,34 +11,35 @@ import { KhamsatCommunityService } from 'src/Services/KhamsatCommunityService';
   styleUrls: ['./about-khamsat-details.component.css']
 })
 export class AboutKhamsatDetailsComponent implements OnInit {
- 
 
 
-  constructor(private fb: FormBuilder, private authService: AuthenticationService , private KhamsatService: KhamsatCommunityService, private route: ActivatedRoute, private router: Router) {
+
+  constructor(private fb: FormBuilder, private authService: AuthenticationService, private KhamsatService: KhamsatCommunityService, private route: ActivatedRoute, private router: Router) {
     if (!authService.isLoggedIn()) {
-      this.IsLogging=false;
+      this.IsLogging = false;
     }
-   }
-  IsLogging:boolean=true;
+  }
+  IsLogging: boolean = true;
   addCommentForm: any;
   errorMsg: any;
   Khamsat: khamsatcommunity_withcomments;
-  Comment: CommentViewModel;
-  Id: number; 
+  Comment: any;
+  Id: number;
   length: number;
   latestContributions: any;
   ngOnInit(): void {
     this.addCommentForm = this.fb.group({
       content: ['', [Validators.required]]
     });
+
     this.route.queryParams.subscribe(params => {
       this.Id = this.route.snapshot.params['id'];
       this.KhamsatService.getKhamsatCommunityWithComment(this.Id).subscribe(
         (res) => {
           this.Khamsat = res;
           console.log(this.Khamsat)
-          this.length=this.Khamsat._Comments.length;
-           console.log(this.length)
+          this.length = this.Khamsat._Comments.length;
+          console.log(this.length)
         },
 
         (errorResponse) => {
@@ -54,6 +55,9 @@ export class AboutKhamsatDetailsComponent implements OnInit {
   get content() {
     return this.addCommentForm.get('content')
   }
+  Reset() {
+    this.addCommentForm.reset();
+  }
   createcomment() {
     this.Comment = {
       id: 0,
@@ -64,17 +68,19 @@ export class AboutKhamsatDetailsComponent implements OnInit {
     }
     this.KhamsatService.addComment(this.Comment).subscribe(
       pro => {
+        this.Khamsat._Comments.push(this.Comment);
+        this.Reset();
       },
       errorResponse => {
         this.errorMsg = errorResponse;
       }
     );
-     // this.router.navigate(['/KhamsatDetalis']);
+    // this.router.navigate(['/KhamsatDetalis']);
   }
   getLatestContributions() {
     this.KhamsatService.GetspesificCommunityType(1).subscribe
       (Community => {
-        for (let i = 0; i < Community.length ; i++) {
+        for (let i = 0; i < Community.length; i++) {
           this.latestContributions = Community;
         }
         console.log(Community)
