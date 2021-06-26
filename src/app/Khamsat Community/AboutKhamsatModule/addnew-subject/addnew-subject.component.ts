@@ -12,18 +12,12 @@ import { KhamsatCommunityService } from '../../../../Services/KhamsatCommunitySe
 export class AddnewSubjectComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private khamsatCommunityService: KhamsatCommunityService, private router: Router
-<<<<<<< HEAD
     , private authenticationService: AuthenticationService) {
       if(!authenticationService.isLoggedIn()){
         router.navigateByUrl("/login")
       }
 
   }
-=======
-    ,private authenticationService: AuthenticationService) {
-
-    }
->>>>>>> 2f93004b355cb4c0f4566309d08eedda19c81d62
   errorMsg: any;
   addCommunityForm: any;
   newsubject: any;
