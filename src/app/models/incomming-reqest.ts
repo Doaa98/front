@@ -8,4 +8,5 @@ export interface IncommingReqest {
     price?:number
     buyerID: string
     serviceTitle?:string
+    userFullName?:string
 }

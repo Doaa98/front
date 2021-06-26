@@ -106,15 +106,15 @@ export class CartComponent implements OnInit {
         id: 0,
         date: new Date(),
         serviceID: this.serList[i].id,
-        status:0,
-        sellerID:this.authenticationService.getUserId(),
-        price:this.cart[i].quantity *5
+        status: 0,
+        sellerID: this.authenticationService.getUserId(),
+        price: this.cart[i].quantity * 5
 
       }
-console.log(order)
+      console.log(order)
       this.orderService.addIncommingReqest(order).subscribe(
-        d=>console.log("success")
-      
+        d => console.log("success")
+
       )
 
     }
