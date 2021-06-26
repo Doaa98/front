@@ -46,7 +46,6 @@ export class MessageComponent implements OnInit {
     this.MsgService.getChat(this.chatId).subscribe(
       data => {
         this.Chat = data
-        console.log(data)
         this._registerService.getUserById(this.Chat.userID).subscribe(
           user => this.customer = user
         )

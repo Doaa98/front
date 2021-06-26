@@ -77,6 +77,7 @@ export class SubCategoryServiceListComponent implements OnInit {
   }
   
   createImgPath(name: string) {
+    console.log(this.subCatServiceList)
     if (name != null) {
           return `http://localhost:21491/StaticFiles/Images/${name}`;
 
