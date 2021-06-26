@@ -1,0 +1,260 @@
+<app-header></app-header>
+
+<div class="hsoub-container" style="padding: 3%; margin-top: 35px;">
+    <div class="hsoub-content">
+
+
+        <div class="page_header">
+            <div class="o-wrapper">
+                <div class="o-layout o-layout--flex">
+                    <div class="o-layout__item u-9@large u-8@medium u-12@tiny">
+                        <div class="o-media">
+                            <div class="o-media__body">
+                                <h1 class="page_header--title" >
+                                    <span class="label label-declined" *ngIf="Order.status == 4">طلب ملغي</span>
+                                    <span class="label label-waiting" *ngIf="Order.status == 0">بانتظار التعليمات </span>
+                                    <span class="label label-executing" *ngIf="Order.status == 1">جاري التنفيذ </span>
+                                    <span class="label label-delivering" *ngIf="Order.status == 2">بانتظار الاستلام </span>
+                                    <span class="label label-finished" *ngIf="Order.status == 3">تم التسليم </span>
+
+                                    <a href="/service/Details/{{service.id}}"
+                                        title="{{service.title}}">{{service.title}}</a>
+                                </h1>
+                                <ul class="page-meta u-12@large ">
+                                    <li>
+                                        <i class="fa fa-bookmark"></i>
+                                        <span>رقم الطلب: {{Order.id}}
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-user"></i>
+                                        <span>المشتري:
+                                            <a>
+                                                {{seller.firstName+" "+seller.lastName}}
+                                            </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-usd"></i>
+                                        <span>{{Order.price}}</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>تاريخ الشراء:</span>
+                                        <span>{{Order.date|date:'M/d/yyyy'}}</span>
+                                    </li>
+
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="o-layout__item u-3@large u-4@medium u-hidden@small u-hidden@tiny">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="page-navbar u-hidden@large u-hidden@medium u-12@small u-12@tiny u-text--right">
+
+        </div>
+
+
+
+        <div class="o-wrapper ">
+
+            <div class="content inside">
+                <div id="loading" class="hidden">
+                    <p align="center"><img
+                            src="https://khamsat.hsoubcdn.com/assets/images/loading-b9f326901e161822ce76a37af0f8d0dfb8d2e913ff9782c13eb5d72bbda199c2.gif"
+                            alt="يرجى الإنتظار">
+                    </p>
+                </div>
+
+
+                <div class="o-layout o-layout--flex">
+                    <div class="o-layout__item u-12@medium u-12@tiny">
+                    </div>
+
+                    <div class="o-layout__item u-12@tiny">
+
+
+                        <div class="c-card">
+                            <div class="c-card__body">
+                                <article class="replace_urls">
+                                    {{service.description}}
+                                </article>
+                            </div>
+                        </div>
+
+
+                        <div class="c-card">
+                            <div class="c-card__head">
+                                <h3>تعليماتك لمشتري الخدمة</h3>
+                            </div>
+                            <div class="c-card__body">
+                                <div class="o-media">
+                                    <div class="o-media__right">
+                                        <a title="{{buyer.firstName+' '+buyer.lastName}}">
+                                            <img class="u-circle img-thumbnail img--small"
+                                                src="../../../../assets/Images/user-avatar.png">
+                                        </a>
+                                    </div>
+                                    <div class="o-media__body">
+                                        <h5>
+                                            <a title="{{buyer.firstName+' '+buyer.lastName}}">
+                                                {{buyer.firstName+' '+buyer.lastName}}
+                                            </a>
+                                        </h5>
+                                        <article class="replace_urls">
+                                            {{service.instructionsToBuyer}} </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="c-card" data-commentable="false" data-commentable-type="order"
+                            data-commentable-id="1876029">
+                            <a routerLink="/message/new/{{service.id}}">
+                                <div class="c-card__head">
+                                    <h3>الرسائل</h3>
+                                </div>
+                            </a>
+                            <div class="c-card__body u-no--padding">
+                                <div class="comments">
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="c-card manage-order" id="manage_order">
+                            <div class="c-card__head">
+                                <h3>إدارة الطلب</h3>
+                            </div>
+                            <div class="c-card__body">
+                                <input id="order_id" name="order_id" type="hidden" value="1876029">
+                                <div class="o-layout o-layout--flex manage-order-body">
+
+                                    <div *ngIf="Order.status == 4"
+                                        class="o-layout__item u-6@large u-6@medium u-12@small u-12@tiny u-margin-top@tiny">
+                                        <h4 class="order-status">الحالة: طلب ملغي </h4>
+                                        <h4 class="order-status-message"> تم إلغاء هذا الطلب </h4>
+
+                                    </div>
+                                    <div *ngIf="Order.status == 0"
+                                        class="o-layout__item u-6@large u-6@medium u-12@small u-12@tiny u-margin-top@tiny">
+                                        <h4 class="order-status">الحالة: طلب بانتظار التعيمات </h4>
+                                        <h4 class="order-status-message"> بانتظار تعليمات المشتري </h4>
+
+                                    </div>
+                                    <div *ngIf="Order.status == 1"
+                                        class="o-layout__item u-6@large u-6@medium u-12@small u-12@tiny u-margin-top@tiny">
+                                        <h4 class="order-status">الحالة:جاري التنفيذ </h4>
+                                        <h4 class="order-status-message"> يرجى مراسلة المشتري قبل التسليم</h4>
+
+                                    </div>
+                                    <div *ngIf="Order.status == 2"
+                                        class="o-layout__item u-6@large u-6@medium u-12@small u-12@tiny u-margin-top@tiny">
+                                        <h4 class="order-status">الحالة: بانتظار الاستلام </h4>
+                                        <h4 class="order-status-message"> بانتظار استلام المشتري للطلب </h4>
+
+                                    </div>
+                                    <div *ngIf="Order.status == 3"
+                                        class="o-layout__item u-6@large u-6@medium u-12@small u-12@tiny u-margin-top@tiny">
+                                        <h4 class="order-status">الحالة: طلب مكتمل </h4>
+                                        <h4 class="order-status-message"> تم تسليم هذا الطلب.   </h4>
+
+                                    </div>
+
+                                    <div
+                                        class="o-layout__item u-6@large u-6@medium u-12@small u-12@tiny u-margin-top@small order-buttons-row">
+                                        <div class="o-layout o-layout--flex order-buttons">
+                                            <div class="o-layout__item u-4@large u-12@small u-12@tiny u-margin-top@small" (click)="cancelOrder()">
+                                                <a  id="decline_order_main"
+                                                    class="c-button c-button--danger c-button--ghost c-button--block">ألغي
+                                                    الطلب</a>
+                                            </div>                                       
+                                            <div class="o-layout__item u-4@large u-12@small u-12@tiny" (click)="sendAcceptRequest()" *ngIf="userId == Order.buyerID && Order.status == 1">
+                                                <a  id="deliver_order"
+                                                    class="c-button c-button--primary c-button--block">أرسل طلب استلام</a>
+                                            </div>
+                                            <div class="o-layout__item u-4@large u-12@small u-12@tiny" (click)="AcceptOrder()" *ngIf="userId == Order.sellerID && Order.status == 2">
+                                                <a  id="deliver_order"
+                                                    class="c-button c-button--primary c-button--block">استلام الطلب</a>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div id="decline_order_wrapper" class="u-margin-top hidden">
+                                    <div class="u-margin-bottom">
+                                        <label>أخبر المشتري بأسباب إلغاء الطلب:</label>
+                                        <textarea id="decline_reasons" class="c-form__control" name="decline_reasons"
+                                            rows="5" clos="60" maxlength="600"></textarea>
+                                    </div>
+                                    <div class="o-layout o-layout--flex">
+                                        <div class="o-layout__item u-2@large u-6@small u-12@tiny">
+                                            <a href="#decline" id="decline_order"
+                                                class="c-button c-button--danger c-button--block">ألغي الطلب</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="hidden" id="manage-order-template">
+                                <div class="o-layout__item u-6@large u-6@medium u-12@small u-12@tiny u-margin-top@tiny">
+                                    <h4 class="order-status"></h4>
+                                    <h4 class="order-status-message"></h4>
+                                    <h4 class="order-status-date">
+                                        تاريخ التسليم المتوقع:
+                                        <span></span>
+                                        <span class="order-delivery-date"></span>
+                                    </h4>
+                                </div>
+                                <div
+                                    class="o-layout__item u-6@large u-6@medium u-12@small u-12@tiny u-margin-top@small order-buttons-row">
+                                    <div class="o-layout o-layout--flex order-buttons" style="display: block;">
+                                        <div class="o-layout__item u-4@large u-12@small u-12@tiny">
+                                            <a href="#deliver" id="deliver_order"
+                                                class="c-button c-button--primary c-button--block">أرسل طلب استلام</a>
+                                        </div>
+
+                                        <div class="o-layout__item u-4@large u-12@small u-12@tiny u-margin-top@small">
+                                            <a href="#decline" id="decline_order_main"
+                                                class="c-button c-button--danger c-button--ghost c-button--block">ألغي
+                                                الطلب</a>
+                                        </div>
+
+                                        <div
+                                            class="o-layout__item u-4@large u-12@small u-12@tiny u-margin-top@small pl-0">
+                                            <a href="/r/helpdesk?goto=conversations" target="_blank"
+                                                class="c-button c-button--danger c-button--ghost c-button--block">
+                                                <i class="fa fa-life-ring"></i>
+                                                <span>أبلغ عن مشكلة</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div><!--  END o-layout -->
+            </div>
+            <!--  END content -->
+        </div>
+        <!--  END o-wrapper -->
+
+
+    </div>
+</div>
+<app-footer></app-footer>

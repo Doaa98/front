@@ -32,19 +32,7 @@
                                     المشتريات
                                 </h1>
                                 <div class="u-pull--left filter-sort">
-                                    <div class="filter-sort u-pull--left desc_asc_sort">
-                                        <a href="#" class="c-button c-button--secondary dropdown-button"
-                                            data-jq-dropdown="#jq-filter-sort">
-                                            <span class="text">الأحدث</span>
-                                            <i class="fa fa-caret-down"></i>
-                                        </a>
-                                        <div id="jq-filter-sort" class="jq-dropdown jq-dropdown-tip">
-                                            <ul class="jq-dropdown-menu">
-                                                <li><a href="#" data-sort="desc" class="filter active">الأحدث</a></li>
-                                                <li><a href="#" data-sort="asc" class="filter ">الأقدم</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    
 
                                 </div>
                                 <a href="#"
@@ -72,42 +60,47 @@
                                             <ul class="c-list c-list--vert c-list--filter filters-list  ">
                                                 <li class="c-list__item u-checkbox">
                                                     <label for="waitingstatus_filter">
-                                                        <input type="checkbox" value="waiting" name="status"
+                                                        <input type="checkbox" value="waiting" name="status" [(ngModel)]="AwaitingInstructions"
+                                                        (change)="filiterList()"
                                                             id="waitingstatus_filter" class="filter">
                                                         <span> بانتظار التعليمات </span>
-                                                        <span class="c-badge u-pull--left">0</span>
+                                                        <span class="c-badge u-pull--left">{{calculateCount(0)}}</span>
                                                     </label>
                                                 </li>
                                                 <li class="c-list__item u-checkbox">
                                                     <label for="executingstatus_filter">
-                                                        <input type="checkbox" value="executing" name="status"
+                                                        <input type="checkbox" value="executing" name="status" [(ngModel)]="BeingImplemented"
+                                                        (change)="filiterList()"
                                                             id="executingstatus_filter" class="filter">
                                                         <span> جاري تنفيذها </span>
-                                                        <span class="c-badge u-pull--left">0</span>
+                                                        <span class="c-badge u-pull--left">{{calculateCount(1)}}</span>
                                                     </label>
                                                 </li>
                                                 <li class="c-list__item u-checkbox">
                                                     <label for="deliveringstatus_filter">
-                                                        <input type="checkbox" value="delivering" name="status"
+                                                        <input type="checkbox" value="delivering" name="status" [(ngModel)]="AwaitingReceipt"
+                                                        (change)="filiterList()"
                                                             id="deliveringstatus_filter" class="filter">
                                                         <span> بانتظار الاستلام </span>
-                                                        <span class="c-badge u-pull--left">0</span>
+                                                        <span class="c-badge u-pull--left">{{calculateCount(2)}}</span>
                                                     </label>
                                                 </li>
                                                 <li class="c-list__item u-checkbox">
                                                     <label for="finishedstatus_filter">
-                                                        <input type="checkbox" value="finished" name="status"
+                                                        <input type="checkbox" value="finished" name="status" [(ngModel)]="ItHasBeenDelivred"
+                                                        (change)="filiterList()"
                                                             id="finishedstatus_filter" class="filter">
                                                         <span> تم تسليمها </span>
-                                                        <span class="c-badge u-pull--left">1</span>
+                                                        <span class="c-badge u-pull--left">{{calculateCount(3)}}</span>
                                                     </label>
                                                 </li>
                                                 <li class="c-list__item u-checkbox">
                                                     <label for="declinedstatus_filter">
-                                                        <input type="checkbox" value="declined" name="status"
+                                                        <input type="checkbox" value="declined" name="status" [(ngModel)]="Canceled"
+                                                        (change)="filiterList()"
                                                             id="declinedstatus_filter" class="filter">
                                                         <span> ملغية </span>
-                                                        <span class="c-badge u-pull--left">1</span>
+                                                        <span class="c-badge u-pull--left">{{calculateCount(4)}}</span>
                                                     </label>
                                                 </li>
                                             </ul>
@@ -140,7 +133,7 @@
 
                                                     <td class="details-td">
                                                         <h3 class="details-head"><a class="ajaxbtn"
-                                                                href="/order/1876029">{{orderd.serviceTitle}}</a></h3>
+                                                                href="/order/{{orderd.id}}">{{orderd.serviceTitle}}</a></h3>
                                                         <ul class="details-list">
                                                             <li>
                                                                 <a class="user" ><i
@@ -150,7 +143,12 @@
                                                                 <i class="fa fa-usd"></i> <span dir="ltr">{{orderd.price}}</span>
                                                             </li>
                                                             <li class="">
-                                                                <i class="fa fa-fw fa-info-circle"></i> <span>{{orderd.status}}</span>
+                                                                <i class="fa fa-fw fa-info-circle" ></i>
+                                                                 <span *ngIf="orderd.status == 0">بانتظار التعليمات</span>
+                                                                 <span *ngIf="orderd.status == 1"> جاري التنفيذ </span>
+                                                                 <span *ngIf="orderd.status == 2">بانتظار الاستلام</span>
+                                                                 <span *ngIf="orderd.status == 3">تم التسليم </span>
+                                                                 <span *ngIf="orderd.status == 4">ملغى </span>
                                                             </li>
                                                             <li>
                                                                 <i class="fa fa-fw fa-clock-o"></i> <span

@@ -26,6 +26,7 @@ import { AddServiceComponent } from './components/add-service/add-service.compon
 import { PrivacyStatementComponent } from './components/privacy-statement/privacy-statement.component';
 import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.component';
 import { OrdersComponent } from './components/order/orders/orders.component';
+import { OrderComponent } from './components/order/order/order.component';
 
 
 
@@ -79,7 +80,9 @@ const routes: Routes = [
   { path: 'messages', component: MessagesComponent },
   { path: 'message/:ChatId', component: MessageComponent },
   { path: 'message/new/:id', component: NewChatComponent,canActivate: [AuthGuard] },
-  { path: 'orders/:type', component: OrdersComponent }
+  { path: 'orders/:type', component: OrdersComponent },
+  { path: 'order/:id', component: OrderComponent }
+
 
 ];
 

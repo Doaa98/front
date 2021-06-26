@@ -34,6 +34,16 @@ export class OrderService {
 
   }
 
+  getIncommingReqest( id:number): Observable<IncommingReqest> {
+ 
+    return this.http.get<IncommingReqest>(this.Url+"/"+id ).pipe(catchError((err)=>
+    {
+  
+      return throwError(err.message ||"Internal Server error contact site adminstarator");
+    }));
+
+  }
+
   getPurchases( id:string): Observable<IncommingReqest[]> {
  
     return this.http.get<IncommingReqest[]>(this.Url+"/seller/"+id ).pipe(catchError((err)=>

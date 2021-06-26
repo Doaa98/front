@@ -40,6 +40,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
 import { PrivacyStatementComponent } from './components/privacy-statement/privacy-statement.component';
 import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.component';
 import { OrdersComponent } from './components/order/orders/orders.component';
+import { OrderComponent } from './components/order/order/order.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { OrdersComponent } from './components/order/orders/orders.component';
     PrivacyStatementComponent,
     TermsOfUseComponent,
     OrdersComponent,
+    OrderComponent,
   ],
 
   imports: [
