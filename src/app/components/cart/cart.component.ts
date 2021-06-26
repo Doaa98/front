@@ -48,7 +48,13 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  createImgPath(name: string) {
+    if (name != null) {
+          return `http://localhost:21491/StaticFiles/Images/${name}`;
 
+    }
+    else return `https://via.placeholder.com/644x450`
+  }
   calculatePrice(item: ICart, quan: string) {
 
     item.quantity = parseInt(quan)
