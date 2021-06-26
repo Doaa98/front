@@ -12,34 +12,42 @@ import { OrderService } from 'src/Services/order.service';
 export class OrdersComponent implements OnInit {
 
   userId = this.authService.getUserId()
-  type:number
-  incomming:IncommingReqest[]
-  purchases:IncommingReqest[]
-  DisplayList:IncommingReqest[]
+  type: number
+  incomming: IncommingReqest[]
+  purchases: IncommingReqest[]
+  DisplayList: IncommingReqest[]
 
-  constructor(private orderService : OrderService , private authService: AuthenticationService  
-     , private activatedroute: ActivatedRoute
-    ) {
+  constructor(private orderService: OrderService, private authService: AuthenticationService
+    , private activatedroute: ActivatedRoute
+  ) {
 
-      this.activatedroute.params.subscribe(data => {
-        this.type = data.type;
-      });
-
-   }
-
-  ngOnInit(): void {
-if (this.type == 0) {
-  this.orderService.getIncommingReqests(this.userId)
-  .subscribe(data=> this.incomming = data)
-
-}
-else 
-{
-  this.orderService.getPurchases(this.userId)
-  .subscribe(data=> this.purchases = data)
-
-}
+    this.activatedroute.params.subscribe(data => {
+      this.type = data.type;
+    });
 
   }
 
+  ngOnInit(): void {
+    if (this.type == 0) {
+      this.orderService.getIncommingReqests(this.userId)
+        .subscribe(
+          data => {
+            this.incomming = this.DisplayList= data;
+            console.log(data);
+          }
+          ,err=>console.log(err)
+        )
+
+    }
+    else {
+      this.orderService.getPurchases(this.userId)
+        .subscribe(data => { this.purchases = this.DisplayList= data;
+      console.log(data);
+    }
+    ,err=>console.log(err)
+    )}
+  }
+
 }
+
+

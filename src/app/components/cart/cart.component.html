@@ -91,7 +91,8 @@
       <div class="c-card__footer">
         <form action="/cart/checkout" method="post" id="cart_checkout_form">
           <div class="u-text--center">
-            <button type="submit" class="c-button c-button--primary checkout-button u-block@small">ادفع الآن</button>
+            <button type="submit" class="c-button c-button--primary checkout-button u-block@small"
+            (click)="BuyBtnClick()">ادفع الآن</button>
           </div>
           <input id="user_token" type="hidden" name="token" value="2fc3268f89a77b1c1f6bfcdcb9e8c9abfb29be79">
         </form>

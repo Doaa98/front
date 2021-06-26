@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<div class="hsoub-container">
+<div class="hsoub-container" style="padding: 3%; margin-top: 35px;">
     <div class="hsoub-content">
 
 
@@ -25,8 +25,11 @@
                         <div class="o-layout__item o-layout o-layout--flex u-no--padding">
                             <div
                                 class="o-layout__item u-12@large u-12@tiny u-margin-bottom u-no--padding u-margin-top@small">
-                                <h1 class="u-block-inline">
+                                <h1 class="u-block-inline" *ngIf="type == 0">
                                     الطلبات الواردة
+                                </h1>
+                                <h1 class="u-block-inline" *ngIf="type != 0">
+                                    المشتريات
                                 </h1>
                                 <div class="u-pull--left filter-sort">
                                     <div class="filter-sort u-pull--left desc_asc_sort">
@@ -130,32 +133,29 @@
                                             <tbody>
                                                 <tr id="order-1876029" class="order " *ngFor="let orderd of DisplayList">
                                                     <td class="avatar-td u-text--center"><a
-                                                            href="/user/azoooz11111"><img
+                                                            ><img
                                                                 class="u-circle img-thumbnail img--medium"
-                                                                src="https://avatars.hsoubcdn.com/6048019056eea385a42c2b8c697273f4?s=128"></a>
+                                                                src="../../../../assets/Images/user-avatar.png"></a>
                                                     </td>
 
                                                     <td class="details-td">
                                                         <h3 class="details-head"><a class="ajaxbtn"
-                                                                href="/order/1876029">برمجة وتطوير إضافات وملحقات متصفح
-                                                                كروم Chrome extension</a></h3>
+                                                                href="/order/1876029">{{orderd.serviceTitle}}</a></h3>
                                                         <ul class="details-list">
                                                             <li>
-                                                                <a class="user" href="/user/azoooz11111"><i
+                                                                <a class="user" ><i
                                                                         class="fa fa-fw fa-user"></i> Azoooz11111
                                                                     Aziz</a>
                                                             </li>
                                                             <li>
-                                                                <i class="fa fa-usd"></i> <span dir="ltr">5.00</span>
+                                                                <i class="fa fa-usd"></i> <span dir="ltr">{{orderd.price}}</span>
                                                             </li>
                                                             <li class="">
-                                                                <i class="fa fa-fw fa-info-circle"></i> <span>طلب
-                                                                    ملغي</span>
+                                                                <i class="fa fa-fw fa-info-circle"></i> <span>{{orderd.status}}</span>
                                                             </li>
                                                             <li>
                                                                 <i class="fa fa-fw fa-clock-o"></i> <span
-                                                                    title="14/06/2021 00:50:53 GMT">منذ 9 أيام و23
-                                                                    ساعة</span>
+                                                                    title="14/06/2021 00:50:53 GMT">{{orderd.date | customDate}}</span>
                                                             </li>
                                                         </ul>
                                                     </td>

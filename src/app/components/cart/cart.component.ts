@@ -5,7 +5,9 @@ import { ICart } from 'src/app/models/icart';
 import { IService } from 'src/app/models/IService';
 import { AuthenticationService } from 'src/Services/authentication.service';
 import { CartService } from 'src/Services/cart.service';
+import { OrderService } from 'src/Services/order.service';
 import { ServiceService } from 'src/Services/service.service';
+import { IncommingReqest } from 'src/app/models/incomming-reqest';
 
 @Component({
   selector: 'app-cart',
@@ -20,11 +22,12 @@ export class CartComponent implements OnInit {
   serList: IService[] = []
   constructor(private serService: ServiceService,
     private cartService: CartService, private router: Router,
-    private authenticationService: AuthenticationService) {
+    private authenticationService: AuthenticationService,
+    private orderService: OrderService) {
 
-      if (!authenticationService.isLoggedIn()) {
-        router.navigateByUrl("/login")
-      }
+    if (!authenticationService.isLoggedIn()) {
+      router.navigateByUrl("/login")
+    }
     this.cartService.getCartByUserId().subscribe(
       data => {
         this.cart = data
@@ -50,7 +53,7 @@ export class CartComponent implements OnInit {
 
   createImgPath(name: string) {
     if (name != null) {
-          return `http://localhost:21491/StaticFiles/Images/${name}`;
+      return `http://localhost:21491/StaticFiles/Images/${name}`;
 
     }
     else return `https://via.placeholder.com/644x450`
@@ -85,6 +88,38 @@ export class CartComponent implements OnInit {
   removeItem(id: number) {
     this.cartService.deleteCartItem(id)
       .subscribe()
+  }
+
+  BuyBtnClick() {
+
+
+    if (this.serList.length == 0) {
+      alert("يجب عليك اضافة بعض الخدمات الى السلة اولا")
+      return
+    }
+
+    let orders: IncommingReqest[]
+
+    for (let i = 0; i < this.serList.length; i++) {
+      let order: IncommingReqest = {
+        buyerID: this.serList[i].userID,
+        id: 0,
+        date: new Date(),
+        serviceID: this.serList[i].id,
+        status:0,
+        sellerID:this.authenticationService.getUserId(),
+        price:this.cart[i].quantity *5
+
+      }
+console.log(order)
+      this.orderService.addIncommingReqest(order).subscribe(
+        d=>console.log("success")
+      
+      )
+
+    }
+
+
   }
 
 }
