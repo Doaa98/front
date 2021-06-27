@@ -24,20 +24,14 @@
 
                 <ul class="page-meta u-12@large">
                   <li>
-                    <a class="user" href="/user/walaa_mahfoud"
-                      ><i class="fa fa-fw fa-user"></i>
-                      {{ service.userFullName }}</a
-                    >
+                    <a class="user" ><i class="fa fa-fw fa-user"></i>
+                      {{service.userFullName}}</a>
                   </li>
                   <li class="u-hidden@small">
                     <i class="fa fa-bars fa-fw"></i>
 
-                    <a href="#">
-                      <span
-                        >&nbsp;&nbsp;{{
-                          service.subCategoryId
-                        }}&nbsp;&nbsp;</span
-                      >
+                    <a >
+                      <span>&nbsp;&nbsp;{{service.subCategoryId}}&nbsp;&nbsp;</span>
                     </a>
                   </li>
                   <li>
@@ -49,72 +43,50 @@
             </div>
           </div>
 
-          <div
-          class="
-            page-navbar
-            u-hidden@large u-hidden@medium u-12@small u-12@tiny
-            u-text--right
-          "
-        >
-          <div class="page-navbar--tablet">
-            <a class="c-button c-button--primary" (click)="DropdownToggle()">
-              <i class="fa fa-shopping-cart"></i>
-              <span>اشتري الخدمة </span>
-            </a>
-            <a
-              class="c-button c-button--primary dropdown-button jq-dropdown-open"
-              data-jq-dropdown="#jq-dropdown-mobile"
-              (click)="DropdownToggle()"
-            >
-              <i class="fa fa-caret-down"></i
-            ></a>
-            <div
-              id="jq-dropdown-mobile"
-              class="jq-dropdown jq-dropdown-tip"
-              style="display: block; top: 213.6px"
-              *ngIf="isDropdown"
-            >
-              <ul class="jq-dropdown-menu">
-                <li>
-                  <a
-                    [routerLink]="['/message/new', service.id]"
-                    routerLinkActive="router-link-active"
-                    ><i class="fa fa-fw fa-envelope"></i> تواصل مع البائع</a
-                  >
-                </li>
-                <li>
-                  <a id="add_to_collection" href="#"
-                    ><i class="fa fa-briefcase fa-fw"></i> أضف الى مجموعة</a
-                  >
-                </li>
-              </ul>
+          <div class="o-layout__item u-3@large u-4@medium u-hidden@small u-hidden@tiny">
+            <div class="page-header-buttons">
+              <a  class="c-button c-button--primary dropdown-button jq-dropdown-open" data-jq-dropdown="#jq-dropdown"
+              (click)="DropdownToggle()"> <i
+                  class="fa fa-caret-down"></i></a>
+              <div id="jq-dropdown" class="jq-dropdown jq-dropdown-tip" style="display: block; top: 124px;" *ngIf="isDropdown">
+                <ul class="jq-dropdown-menu">
+                  <li style="display: block;position: relative;"><a [routerLink]="['/message/new',service.id ]" routerLinkActive="router-link-active"  style="display: block;"><i class="fa fa-fw fa-envelope"></i> تواصل مع البائع</a></li>
+                </ul>
+              </div>
+              <a class="c-button c-button--primary" (click)="DropdownToggle()">
+                <i class="fa fa-shopping-cart"></i>
+                <span>اشتري الخدمة </span>
+              </a>
+
             </div>
           </div>
         </div>
-        
-          <!-- <div
-          class="
-            o-layout__item
-            u-3@large u-4@medium u-hidden@small u-hidden@tiny
-          "
-        >
-          <div class="page-header-buttons">
-            <a
-              class="c-button c-button--primary"
-              routerLink="/service/1784628/edit"
-            >
-              <i class="fa fa-edit"></i>
-              <span>تعديل الخدمة</span>
-            </a>
-          </div>
-        </div> -->
+      </div>
+    </div>
+    <div class="page-navbar u-hidden@large u-hidden@medium u-12@small u-12@tiny u-text--right">
+      <div class="page-navbar--tablet">
+        <a class="c-button c-button--primary" (click)="DropdownToggle()">
+          <i class="fa fa-shopping-cart"></i>
+          <span>اشتري الخدمة </span>
+        </a>
+        <a class="c-button c-button--primary dropdown-button jq-dropdown-open" data-jq-dropdown="#jq-dropdown-mobile"
+        (click)="DropdownToggle()"> <i
+            class="fa fa-caret-down"></i></a>
+        <div id="jq-dropdown-mobile" class="jq-dropdown jq-dropdown-tip" style="display: block; top: 213.6px;"
+        *ngIf="isDropdown">
+          <ul class="jq-dropdown-menu">
+            <li><a [routerLink]="['/message/new',service.id ]" routerLinkActive="router-link-active" ><i class="fa fa-fw fa-envelope"></i> تواصل مع البائع</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
 
        
 
       </div>
     </div>
-  </div>
+  
 
           
    

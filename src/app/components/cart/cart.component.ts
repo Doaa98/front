@@ -93,7 +93,7 @@ export class CartComponent implements OnInit {
   BuyBtnClick() {
 
 
-    if (this.serList.length == 0) {
+    if (this.cart.length == 0) {
       alert("يجب عليك اضافة بعض الخدمات الى السلة اولا")
       return
     }
@@ -106,16 +106,17 @@ export class CartComponent implements OnInit {
         id: 0,
         date: new Date(),
         serviceID: this.serList[i].id,
-        status:0,
-        sellerID:this.authenticationService.getUserId(),
-        price:this.cart[i].quantity *5
+        status: 0,
+        sellerID: this.authenticationService.getUserId(),
+        price: this.cart[i].quantity * 5
 
       }
-console.log(order)
-      this.orderService.addIncommingReqest(order).subscribe(
-        d=>console.log("success")
-      
-      )
+      for (let index = 0; index < this.cart.length; index++) {
+        this.cartService.deleteCartItem( this.cart[index].id).subscribe()
+        
+      }
+      this.router.navigateByUrl("/orders/1")
+      this.orderService.addIncommingReqest(order).subscribe()
 
     }
 

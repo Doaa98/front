@@ -39,7 +39,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
 import { PrivacyStatementComponent } from './components/privacy-statement/privacy-statement.component';
 import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.component';
 import { OrdersComponent } from './components/order/orders/orders.component';
-import { YouTubePlayerModule } from '@angular/youtube-player';
+import { OrderComponent } from './components/order/order/order.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +77,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     PrivacyStatementComponent,
     TermsOfUseComponent,
     OrdersComponent,
+    OrderComponent,
   ],
 
   imports: [
@@ -90,7 +91,6 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     BrowserAnimationsModule,
     BrowserAnimationsModule,
     ClickOutsideModule,
-    YouTubePlayerModule
   ],
   providers: [
      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

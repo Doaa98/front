@@ -8,4 +8,14 @@ export interface IncommingReqest {
     price?:number
     buyerID: string
     serviceTitle?:string
+    userFullName?:string
+    chatID?:number
+
+}
+enum States{
+    AwaitingInstructions,
+    BeingImplemented,
+    AwaitingReceipt,
+    ItHasBeenDelivred,
+    Canceled
 }
