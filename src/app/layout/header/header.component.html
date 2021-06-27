@@ -8,25 +8,24 @@
         src="https://khamsat.hsoubcdn.com/assets/images/logo-mobile-215fffeb86f5121a190d2551c62feea201ca1b4e0d5ea7feef9f5aa04a55dac4.png"></a>
     <ul class="hsoub-menu ">
       <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop  " *ngIf="isUserLoggedIn()">
-        <a class="hsoub-menu-item-link     " routerLink="/service/add">
+        <a class="hsoub-menu-item-link" (click)="setTitle('أضف خدمة جديدة - خمسات')" routerLink="/service/add">
           <i class="hsoub-menu-item-link-icon fa fa-plus"></i>
           <span>أضف خدمة</span>
         </a>
       </li>
       <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet">
-        <a class="hsoub-menu-item-link" (click)="dropdownMenuToggle()">
+        <a class="hsoub-menu-item-link"  (click)="dropdownMenuToggle()">
           <i class="hsoub-menu-item-link-icon fa fa-cubes"></i>
           <span>التصنيفات</span>
         </a>
       </li>
-      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop  " *ngIf="isUserLoggedIn()">
-        <a class="hsoub-menu-item-link     " href="/purchases">
-          <i class="hsoub-menu-item-link-icon fa fa-folder-open"></i>
+      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop" *ngIf="isUserLoggedIn()">
+        <a class="hsoub-menu-item-link" (click)="setTitle('المشتريات - خمسات')" routerLink="/order/0">
           <span >المشتريات</span>
         </a>
       </li>
       <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop  "*ngIf="isUserLoggedIn()">
-        <a class="hsoub-menu-item-link     " href="/orders">
+        <a class="hsoub-menu-item-link" (click)="setTitle('الطلبات الواردة - خمسات')" routerLink="/orders/1">
           <i class="hsoub-menu-item-link-icon fa fa-truck"></i>
           <span>الطلبات الواردة</span>
         </a>
@@ -595,7 +594,8 @@
               <img class="hsoub-list-item-img" alt="Azoooz11111 Aziz"
                 src="https://avatars.hsoubcdn.com/6048019056eea385a42c2b8c697273f4?s=128">
               <div class="hsoub-list-item-content">
-                {{ notification.message}}
+               {{ notification.message}}
+                
                 <div class="hsoub-list-item-date">
                   <time datetime="2021-06-07T23:15:20+00:00" title="2021-06-07T23:15:20+00:00"> <i
                       class="fa fa-clock-o"></i> {{notification.date | customDate}} </time>
@@ -721,13 +721,13 @@
         </a>
       </li>
       <li class="hsoub-sidebar-menu-item hsoub--visible-v hsoub-desktop" *ngIf="isUserLoggedIn()">
-        <a class="hsoub-sidebar-menu-item-link" href="/purchases">
+        <a class="hsoub-sidebar-menu-item-link" href="/orders/1">
           <i class="fa fa-fw fa-folder-open"></i>
           المشتريات
         </a>
       </li>
       <li class="hsoub-sidebar-menu-item hsoub--visible-v hsoub-desktop" *ngIf="isUserLoggedIn()">
-        <a class="hsoub-sidebar-menu-item-link" href="/orders">
+        <a class="hsoub-sidebar-menu-item-link" href="/orders/0">
           <i class="fa fa-fw fa-truck"></i>
           الطلبات الواردة
         </a>
@@ -737,7 +737,7 @@
           hsoub-sidebar-menu-item hsoub--visible-v hsoub-tablet hsoub-mobile
         "
       >
-        <a class="hsoub-sidebar-menu-item-link" href="/purchases">
+        <a class="hsoub-sidebar-menu-item-link" href="/orders/1">
           <i class="fa fa-fw fa-folder-open"></i>
           المشتريات
         </a>
@@ -747,7 +747,7 @@
           hsoub-sidebar-menu-item hsoub--visible-v hsoub-tablet hsoub-mobile
         "
       >
-        <a class="hsoub-sidebar-menu-item-link" href="/orders">
+        <a class="hsoub-sidebar-menu-item-link" href="/orders/0">
           <i class="fa fa-fw fa-truck"></i>
           الطلبات الواردة
         </a>
@@ -816,22 +816,22 @@
         </a>
         <ul class="hsoub-sidebar-menu">
           <li class="hsoub-sidebar-menu-item">
-            <a class="hsoub-sidebar-menu-item-link" routerLink="/ModelImplementd">
+            <a class="hsoub-sidebar-menu-item-link" (click)="setTitle('مجتمع خمسات - نماذج الأعمال')" routerLink="/ModelImplementd">
               نماذج أعمال قمت بتنفيذها
             </a>
           </li>
           <li class="hsoub-sidebar-menu-item">
-            <a class="hsoub-sidebar-menu-item-link" routerLink="/NotFoundService">
+            <a class="hsoub-sidebar-menu-item-link"(click)="setTitle('مجتمع خمسات - طلبات الخدمات')" routerLink="/NotFoundService">
               طلبات الخدمات غير الموجودة
             </a>
           </li>
           <li class="hsoub-sidebar-menu-item">
-            <a class="hsoub-sidebar-menu-item-link" routerLink="/UserExp">
+            <a class="hsoub-sidebar-menu-item-link" (click)="setTitle('مجتمع خمسات - تجارب وقصص')" routerLink="/UserExp">
               تجارب وقصص المستخدمين
             </a>
           </li>
           <li class="hsoub-sidebar-menu-item">
-            <a class="hsoub-sidebar-menu-item-link" routerLink="/aboutKhamsat">
+            <a class="hsoub-sidebar-menu-item-link" (click)="setTitle('مجتمع خمسات - أمور عامة')" routerLink="/aboutKhamsat">
               أمور عامة حول خمسات
             </a>
           </li>

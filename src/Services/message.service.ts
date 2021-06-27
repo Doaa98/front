@@ -23,9 +23,9 @@ export class MessageService {
     }));
 
   }
-  addChat( chat:IChat): Observable<IChat> {
+  addChat( chat:IChat): Observable<number> {
  
-    return this.http.post<IChat>(this.Url ,chat).pipe(catchError((err)=>
+    return this.http.post<number>(this.Url ,chat).pipe(catchError((err)=>
     {
   
       return throwError(err.message ||"Internal Server error contact site adminstarator");

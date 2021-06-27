@@ -17,6 +17,7 @@ import { AuthenticationService } from 'src/Services/authentication.service';
 export class ServiceDetailsComponent implements OnInit {
   @ViewChild('alertModel')
   alertModel!: ElementRef;
+  isShowBuyService: boolean = false;
 
   serviceId!: number;
   service: IService = {
@@ -68,6 +69,7 @@ export class ServiceDetailsComponent implements OnInit {
       id: 0,
       userId: this.authService.getUserId(),
     };
+
     this.cartService.addCartItem(cartItem).subscribe((data) => {
       this.subjectService.sendClickEvent();
       this.alertModel.nativeElement.style.display = 'block';
