@@ -35,11 +35,11 @@ import { MessagesComponent } from './components/message/messages/messages.compon
 import { MessageComponent } from './components/message/message/message.component';
 import { NewChatComponent } from './components/message/new-chat/new-chat.component';
 import { AddServiceComponent } from './components/add-service/add-service.component';
-//import { ClickOutsideModule } from 'ng-click-outside/lib_commonjs/click-outside.module';
 import { ClickOutsideModule } from 'ng-click-outside';
 import { PrivacyStatementComponent } from './components/privacy-statement/privacy-statement.component';
 import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.component';
 import { OrdersComponent } from './components/order/orders/orders.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 @NgModule({
   declarations: [
@@ -89,7 +89,8 @@ import { OrdersComponent } from './components/order/orders/orders.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     BrowserAnimationsModule,
-    ClickOutsideModule
+    ClickOutsideModule,
+    YouTubePlayerModule
   ],
   providers: [
      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ICategory } from 'src/app/models/ICategory';
 import { IServiceGallery, LocalImage } from 'src/app/models/IServiceGallery';
@@ -20,7 +20,6 @@ export class AddServiceComponent implements OnInit {
 
   isShowModal: boolean = false;
   isCategoryChanged: boolean = false;
-  isShowInputUrlImg: boolean = false;
   isShowInputYoutube: boolean = false;
   isShowChooseImg: boolean = true;
   isShowImgItem: boolean = false;
@@ -31,6 +30,8 @@ export class AddServiceComponent implements OnInit {
   isShowAddImageBtn: boolean = true;
   isShowpreviousBtn: boolean = false;
   isShowNextBtn: boolean = false;
+  isShowServiceStatus: boolean = false;
+  isShowYoutubePlayer: boolean = false;
   
   uploadImgBtnDisplay = 'none';
   serviceDevStyle = 'none';
@@ -43,7 +44,6 @@ export class AddServiceComponent implements OnInit {
   selectedSubCategoryList: ISubCategory[] = [];
   progress: number = 0;
   public response: {dbPath: ''};
-
 
 
   constructor(
@@ -64,22 +64,21 @@ export class AddServiceComponent implements OnInit {
     this.subCategoryService.getAllSubCategories().subscribe((data) => {
       this.subCategoryListLoaded = data;
     });
+
   }
 
   addServiceForm = this.fb.group({
-    title: [''],
-    subCategoryId: [''],
-    description: [''],
+    title: ['', [Validators.required, Validators.minLength(2)]],
+    subCategoryId: ['', Validators.required],
+    description: ['', [Validators.required, Validators.minLength(1)]],
 
     serviceGallery: this.fb.group({
-      localImage: [''],
-      urlImage: [''],
-      urlYoutube: [''],
+      localImage: ['', Validators.required],
     }),
 
-    keywords: [''],
-    duration: [''],
-    InstructionsToBuyer: [''],
+    keywords: ['', Validators.required],
+    duration: ['', Validators.required],
+    InstructionsToBuyer: ['', Validators.required],
 
     addServiceDevelopment: this.fb.array([this.createServiceDevelopment()]),
     userId: ['']
@@ -111,21 +110,10 @@ export class AddServiceComponent implements OnInit {
   }
 
   get localImage() {
-    return this.addServiceForm['controls'].serviceGallery.get('localImage');
+    return this.addServiceForm['controls'].serviceGallery.get('localImage') as FormArray;
   }
 
-  get urlImage() {
-    return this.addServiceForm['controls'].serviceGallery.get(
-      'urlImage'
-    ) as FormArray;
-  }
-
-  get urlYoutube() {
-    return this.addServiceForm['controls'].serviceGallery.get(
-      'urlYoutube'
-    ) as FormArray;
-  }
-
+  
   get keywords() {
     return this.addServiceForm.get('keywords');
   }
@@ -157,11 +145,14 @@ export class AddServiceComponent implements OnInit {
       (subCategory) => subCategory.categoryID == selectedCategoryId
     );
 
-    if (this.selectedSubCategoryList.length == 0)
+    this.subCategoryId?.setValue(this.subCategoryId.value);
+    
+    if (this.selectedSubCategoryList.length == 0) {
       this.isCategoryChanged = false;
+      this.subCategoryId?.setValue(null);
+    }
 
-    // console.log(this.selectedCategoryId);
-    // console.log(this.selectedSubCategoryList);
+      this.subCategoryId?.updateValueAndValidity();
   }
 
   showServiceGallery(e: Event) {
@@ -170,32 +161,19 @@ export class AddServiceComponent implements OnInit {
   }
 
   hideGallery(e: Event) {
-    // console.log('Hello from hideGallery()');
-    // e.stopPropagation();
     this.gelleryDialogDisplay = 'none';
-  }
-
-  showInputUrlImg() {
-    this.isShowInputUrlImg = true;
-    this.isShowChooseImg = false;
-    this.isShowInputYoutube = false;
   }
 
   showInputYoutube() {
     this.isShowInputYoutube = true;
     this.isShowChooseImg = false;
-    this.isShowInputUrlImg = false;
   }
 
   showLocalImg() {
     this.isShowChooseImg = true;
     this.isShowInputYoutube = false;
-    this.isShowInputUrlImg = false;
   }
 
-  // onFileChange(e: any) {
-  //   if (e.target.files.length > 0) this.isShowImgItem = true;
-  // }
 
   addNewServiceDevelopment() {
     if (this.serviceDevStyle == 'none') this.serviceDevStyle = 'block';
@@ -225,14 +203,12 @@ export class AddServiceComponent implements OnInit {
       this.imagesFile = e.target.files;
 
       this.uploadFile(this.imagesFile);
+      console.log(this.imagesFile);
+      
   }
 
-  // onSubmit() {
-    
-  // }
 
   addSD: any[];
-
   addService(): void {
     console.log(this.service);
     var imagesName: IServiceGallery[] = []
@@ -242,7 +218,6 @@ export class AddServiceComponent implements OnInit {
       
     }
 
-
     if(this.addServiceDevelopment.value) {
       this.addSD = this.addServiceDevelopment.value;
     }
@@ -251,8 +226,6 @@ export class AddServiceComponent implements OnInit {
     this.serviceGallery?.patchValue({
       localImage: imagesName,      
     });
-
-    this.userId?.patchValue('qq');
 
      const data = <IService>{
        title: this.title?.value,
@@ -269,7 +242,11 @@ export class AddServiceComponent implements OnInit {
     this.service.addService(data).subscribe(
       (data) => {
         console.log(data);
-        this.router.navigate(['/home']);
+        // console.log(data.id);
+        
+        this.router.navigate(['service/Details/', data]);
+        if(this.addServiceForm.valid)
+          this.isShowServiceStatus = true;
       },
       (err) => console.log(err)
     );
@@ -279,26 +256,7 @@ export class AddServiceComponent implements OnInit {
     return `http://localhost:21491/StaticFiles/Images/${name}`;
   }
 
-  removeImg(element: any) {
-    // this.imagesFile.forEach((value, index) => {
-    //   if(value == element) this.imagesFile.splice(index, 1);
-    // } )
 
-    // this.imagesFile = this.imagesFile.filter(img => img !== element);
-    // console.log(this.imagesFile);
-
-console.log('before' + this.imagesFile);
-
-
-    Array.from(this.imagesFile).forEach((value, index) => {
-      console.log('index' + index);
-      if(element == value) Array.from(this.imagesFile).splice(index, 1);
-      console.log('value' + value.name);
-      
-    })
-    console.log('after' + this.imagesFile);
-    
-  }
 
   images: any[];
   message: string;
@@ -312,12 +270,9 @@ console.log('before' + this.imagesFile);
 
       const formData = new FormData();
 
-      // this.images = files;
-      for (let i = 0; i < files.length; i++) {
-        Array.from(this.images).push(i);        
-      }
-      Array.from(this.images).push
-
+      this.images = files;
+      console.log(this.images);
+      
       Array.from(this.images).map((file, index) => {
         return formData.append('file'+index, file, file.name);
       });
@@ -349,22 +304,31 @@ console.log('before' + this.imagesFile);
   showGalleryItems() {
     this.isShowGalleryItems = true;
     this.isShowAddImageBtn = false;
-    this.isShowpreviousBtn = true;
-    this.isShowNextBtn = true;
     this.galleryEditDisplay = 'block';
     this.gelleryDialogDisplay = 'none';
+
   }
 
-  // index = 0;
-  // next(slides: any) {
-  //   slides[this.index].classList.remove('active');
-  //   this.index = (this.index + 1) % slides.length;
-  //   slides[this.index].classList.add('active');
-  // }
+  index = 0;
+  slides = document.querySelectorAll('.slide-container');
+  next() {
+    this.slides[this.index].classList.remove('active');
+    this.index = (this.index + 1) % this.slides.length;
+    this.slides[this.index].classList.add('active');
+  }
 
-  // prev(slides: any) {
-  //   slides[this.index].classList.remove('active');
-  //   this.index = (this.index - 1 + slides.length) % slides.length;
-  //   slides[this.index].classList.add('active');
-  // }
+  prev() {
+    this.slides[this.index].classList.remove('active');
+    this.index = (this.index - 1 + this.slides.length) % this.slides.length;
+    this.slides[this.index].classList.add('active');
+  }
+
+  editInServiceGallery(e: Event) {
+    e.stopPropagation();
+    this.gelleryDialogDisplay = 'flex';
+    console.log('inside edit service gallery');
+    
+  }
+
+  
 }
