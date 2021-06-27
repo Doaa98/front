@@ -63,7 +63,7 @@
         </div>
       </div>
     </div>
-    <div class="page-navbar u-hidden@large u-hidden@medium u-12@small u-12@tiny u-text--right">
+    <div *ngIf="isShowBuyService" class="page-navbar u-hidden@large u-hidden@medium u-12@small u-12@tiny u-text--right">
       <div class="page-navbar--tablet">
         <a class="c-button c-button--primary" (click)="DropdownToggle()">
           <i class="fa fa-shopping-cart"></i>
@@ -723,8 +723,7 @@
       <!--  END content -->
     </div>
     <!--  END o-wrapper -->
-  </div>
-</div>
+  
 
 <div class="alertify" style="display: none" #alertModel>
   <div class="ajs-dimmer"></div>

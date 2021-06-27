@@ -20,12 +20,12 @@
         </a>
       </li>
       <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop" *ngIf="isUserLoggedIn()">
-        <a class="hsoub-menu-item-link" (click)="setTitle('المشتريات - خمسات')" routerLink="/purchases">
+        <a class="hsoub-menu-item-link" (click)="setTitle('المشتريات - خمسات')" routerLink="/order/0">
           <span >المشتريات</span>
         </a>
       </li>
       <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop  "*ngIf="isUserLoggedIn()">
-        <a class="hsoub-menu-item-link" (click)="setTitle('الطلبات الواردة - خمسات')" routerLink="/orders">
+        <a class="hsoub-menu-item-link" (click)="setTitle('الطلبات الواردة - خمسات')" routerLink="/orders/1">
           <i class="hsoub-menu-item-link-icon fa fa-truck"></i>
           <span>الطلبات الواردة</span>
         </a>
