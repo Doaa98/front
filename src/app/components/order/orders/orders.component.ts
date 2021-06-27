@@ -58,7 +58,7 @@ export class OrdersComponent implements OnInit {
           this.AllList = JSON.parse(JSON.stringify( data))
           this.DisplayList = JSON.parse(JSON.stringify( data))
         }
-          , err => console.log(err)
+      
         )
     }
   }
