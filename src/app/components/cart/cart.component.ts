@@ -102,16 +102,18 @@ export class CartComponent implements OnInit {
 
     for (let i = 0; i < this.serList.length; i++) {
       let order: IncommingReqest = {
-        buyerID: this.serList[i].userID,
+        buyerID: "",
         id: 0,
         date: new Date(),
-        serviceID: this.serList[i].id,
+        serviceID: 0,
         status: 0,
         sellerID: this.authenticationService.getUserId(),
         price: this.cart[i].quantity * 5
 
       }
       for (let index = 0; index < this.cart.length; index++) {
+        order.serviceID = this.cart[index].service?.id
+        order.buyerID = this.cart[index].service?.userID||"qq"
         this.cartService.deleteCartItem( this.cart[index].id).subscribe()
         
       }
