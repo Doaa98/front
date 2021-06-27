@@ -26,6 +26,7 @@ export class HeaderComponent implements OnInit {
   isAcctive = false;
   isAside = false;
   isNotifyShow = false;
+  userName=""
   
 
   clickEventsubscription: Subscription = new Subscription();
@@ -36,6 +37,7 @@ export class HeaderComponent implements OnInit {
     public signalRService: SignalRService,
     private http: HttpClient,
     public _authenticationService: AuthenticationService,
+    private registrationService:RegisterService,
     private titlePage: Title
   ) {
     signalRService.getNotifyByUserId();
