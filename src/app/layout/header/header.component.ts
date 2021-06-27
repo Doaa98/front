@@ -8,6 +8,9 @@ import { environment } from 'src/environments/environment';
 import { Notification } from 'src/app/models/notification';
 import { AuthenticationService } from '../../../Services/authentication.service';
 import { Title } from '@angular/platform-browser';
+import { RegisterService } from 'src/Services/register.service';
+
+
 
 @Component({
   selector: 'app-header',
@@ -45,6 +48,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     window.addEventListener('scroll', this.scroll, true);
     window.addEventListener('click', this.hideAll, true);
+    this.registrationService.getUserById(this.GetUserID()).subscribe(result=>{this.userName=result.userName;console.log(this.userName)});
+
+
 
     this.clickEventsubscription = this.subjectService
       .getClickEvent()
@@ -101,4 +107,9 @@ export class HeaderComponent implements OnInit {
     this.isNotifyShow = !this.isNotifyShow;
     this.signalRService.newNotificationsCount = 0;
   }
+  GetUserID() {
+    var userId =  this._authenticationService.getUserId();
+    return userId;
+  }
+
 }

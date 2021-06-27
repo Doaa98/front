@@ -19,6 +19,7 @@ export class AuthenticationService {
   }
 
   public get currentUserValue(): User {
+
       return this.currentUserSubject.value;
   }
 
@@ -56,20 +57,21 @@ export class AuthenticationService {
     }
     return null;
 }
+getRole():string {
+  if(localStorage.getItem('currentUser')){
+      let token = localStorage.getItem('currentUser');
 
-// getRole():string {
-//   if(localStorage.getItem('currentUser')){
-//       let token = localStorage.getItem('currentUser');
+      let jwtData = token.split('.')[1]
 
-//       let jwtData = token.split('.')[1]
+      let decodedJwtJsonData = window.atob(jwtData)
 
-//       let decodedJwtJsonData = window.atob(jwtData)
+      let decodedJwtData = JSON.parse(decodedJwtJsonData)
+      let role=decodedJwtData['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
 
-//       let decodedJwtData = JSON.parse(decodedJwtJsonData)
-//       return decodedJwtData.role;
-//   }
-//   return "No Role";
-// }
+      return role;
+  }
+  return "No Role";
+}
 
   public isLoggedIn() {
         if(localStorage.getItem('currentUser')){

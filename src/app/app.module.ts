@@ -40,6 +40,8 @@ import { PrivacyStatementComponent } from './components/privacy-statement/privac
 import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.component';
 import { OrdersComponent } from './components/order/orders/orders.component';
 import { OrderComponent } from './components/order/order/order.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -91,6 +93,9 @@ import { OrderComponent } from './components/order/order/order.component';
     BrowserAnimationsModule,
     BrowserAnimationsModule,
     ClickOutsideModule,
+    CarouselModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule,
   ],
   providers: [
      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

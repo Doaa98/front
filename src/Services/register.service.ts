@@ -65,4 +65,16 @@ export class RegisterService {
       return throwError(err.message || "Internal Server error contact site adminstarator");
     }));
   }
+  getAccountsCount(): Observable<number> {
+    let url = 'http://localhost:21491/api/account/count';
+    return this._http.get<number>(url).pipe(catchError((err) => {
+      return throwError(err.message || "Internal Server error contact site adminstarator");
+    }));
+  }
+  getAccountsByPage(pageSize: number, pageNumber: number): Observable<IUser[]> {
+    let url = `http://localhost:21491/api/account/${pageSize}/${pageNumber}`;
+    return this._http.get<IUser[]>(url).pipe(catchError((err) => {
+      return throwError(err.message || "Internal Server error contact site adminstarator");
+    }));
+}
 }

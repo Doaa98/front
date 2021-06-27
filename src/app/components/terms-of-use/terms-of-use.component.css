@@ -1,8 +1,11 @@
 *{margin: 0; padding: 0; box-sizing: border-box;}
 
-.body {background-color: #ECEFF4; direction:rtl; text-align:right;height: auto;}
+
+
+.body {background-color: #ECEFF4; direction:rtl; text-align:right;margin-top: -40px;}
 i {font-size: 30px;}
 
+.page {margin: 100px 0px;padding-top: 10px;}
 h1, h2, h3, h4, h5, h6{
   font-family: "Noto Kufi Arabic","Open Sans","Helvetica Neue",Helvetica,Arial,serif;
   font-weight: 400;
@@ -13,7 +16,7 @@ h2{font-size: 24px;line-height: 150%;
   margin-bottom: 15px;}
 ul li{list-style-type: disc;}
 
-.page {margin: 100px 50px;}
+
 .page .page-box {background-color: #fff;padding:70px;}
 .page .page-box .right, .page .page-box .left {padding: 50px;}
 

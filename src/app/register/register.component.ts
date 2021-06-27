@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      username: ['', Validators.required],
+      userName: ['', Validators.required],
 
       email: ['', Validators.required],
       password: ['', Validators.required],
@@ -53,9 +53,15 @@ export class RegisterComponent implements OnInit {
       id: "",
       firstName: this.formFields.firstName.value,
       lastName: this.formFields.lastName.value,
-      username: this.formFields.username.value,
+      userName: this.formFields.userName.value,
       email: this.formFields.email.value,
       passwordHash: this.formFields.password.value,
+      phoneNumber:"",
+      country:"",
+      birthDate :null,
+      gender:"",
+      Image:"./assets/images/avtar.png"
+
     }
 
     this._registerService.addNewUser(newUser)

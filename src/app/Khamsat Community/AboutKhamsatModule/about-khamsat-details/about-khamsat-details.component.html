@@ -151,12 +151,10 @@
                       <label for="confirm">
                         <input name="confirm" id="confirm" type="checkbox" value="0">
                         <span>التعليق لا يحتوي على معلومات اتصال خارجية ولا يخالف</span>
-                        &nbsp; <a href="" target="_blank" class="u-clr--primary">شروط موقع خمسات</a>
+                        &nbsp; <a routerLink="/terms" target="_blank" class="u-clr--primary">شروط موقع خمسات</a>
                       </label>
                     </div>
                     <div class="u-margin-bottom">
-                      <input id="user_token" type="hidden" name="token"
-                        value="b91fc0c6972e0f4597fb37a1fa9040a5eabbb530">
                       <button type="submit" id="commentable_submit" class="c-button c-button--primary" type="submit"
                         (click)="createcomment()">أرسل</button>
                     </div>

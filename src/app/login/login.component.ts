@@ -58,7 +58,8 @@ export class LoginComponent implements OnInit {
         .subscribe({
             next: () => {
               console.log("ID = "+this.authenticationService.getUserId());
-              console.log("Role = "+this.authenticationService.isLoggedIn());
+              console.log("IsLoggin = "+this.authenticationService.isLoggedIn());
+              console.log("Role = "+this.authenticationService.getRole());
 
                 // get return url from route parameters or default to '/'
                 const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';

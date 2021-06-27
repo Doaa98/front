@@ -533,14 +533,7 @@
       </div>
     </div>
     <ul class="hsoub-menu hsoub-menu--is-minor">
-      <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet">
-        <a
-          class="hsoub-menu-item-link hsoub-menu-item-link--is-large"
-          title="بحث"
-        >
-          <i class="hsoub-menu-item-link-icon fa fa-search"></i>
-        </a>
-      </li>
+
       <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile hide-xs-only">
         <a class="hsoub-menu-item-link hsoub-menu-item-link--is-large    " routerLink="/cart" title="سلة المشتريات">
           <span class="c-badge " style="background-color: #e75737; border-radius:20px;
@@ -609,15 +602,15 @@
         </div>
       </li>
       <li class="hsoub-menu-item hsoub--visible-h hsoub-desktop hsoub-tablet hsoub-mobile" *ngIf="isUserLoggedIn()">
-        <a class="hsoub-menu-item-link     hsoub-menu-item-link--is-img"  title="programmer01">
+        <a class="hsoub-menu-item-link     hsoub-menu-item-link--is-img"
+         [title]="userName" >
           <img class="hsoub-menu-item-link-img"
-            src="../../../assets/Images/user-avatar.png">
+            src="../assets/images/user-avatar.png" alt="">
         </a>
         <ul class="hsoub-dropdown hsoub-dropdown-right">
           <li class="hsoub-dropdown-item">
             <a class="hsoub-dropdown-item-link" >
               <i class="fa fa-fw fa-user"></i>
-              programmer01
             </a>
           </li>
           <li class="hsoub-dropdown-item">
