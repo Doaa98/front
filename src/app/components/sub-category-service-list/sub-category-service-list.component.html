@@ -7,306 +7,170 @@
         <div class="o-wrapper ">
 
 
-                <div class="o-layout o-layout--flex">
-                    <div class="o-layout__item u-12@medium u-12@tiny">
-                    </div>
-                    <div class="o-layout__item u-12@medium u-12@tiny" *ngIf="subcat != null">
-                        <div
-                            class="o-layout__item u-12@large u-12@tiny u-margin-bottom u-no--padding u-margin-top@small">
-                            <div class="o-layout o-layout--flex">
-                                <div class="o-layout__item u-12@large u-12@medium u-12@small u-12@tiny">
-                                    <h1 class="category-title">
-                                        <a href="#">
-                                            {{subcat.arabicName}}
-                                        </a>
-                                    </h1>
-                                    <div class="filter-sort u-pull--left search_sort u-hidden@small">
-                                        <a  class="c-button c-button--secondary dropdown-button"
-                                            data-jq-dropdown="#jq-filter-sort">
-                                            <span class="text">خدمات مميزة</span>
-                                            <i class="fa fa-caret-down"></i>
-                                        </a>
-                                        <div id="jq-filter-sort" class="jq-dropdown jq-dropdown-tip">
-                                            <ul class="jq-dropdown-menu">
-                                                <li><a  data-sort="featured" class="filter active">خدمات
-                                                        مميزة</a></li>
-                                                <li><a  data-sort="recent" class="filter ">أضيفت حديثاً</a></li>
-                                                <li><a  data-sort="trending" class="filter ">خدمات صاعدة</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <a href="#"
-                                        class="c-button c-button--secondary  js-filter-sidebar-button u-pull--left u-hidden@medium u-hidden@large">
-                                        <i class="fa fa-sliders"></i>
+            <div class="o-layout o-layout--flex">
+                <div class="o-layout__item u-12@medium u-12@tiny">
+                </div>
+                <div class="o-layout__item u-12@medium u-12@tiny" *ngIf="subcat != null">
+                    <div class="o-layout__item u-12@large u-12@tiny u-margin-bottom u-no--padding u-margin-top@small">
+                        <div class="o-layout o-layout--flex">
+                            <div class="o-layout__item u-12@large u-12@medium u-12@small u-12@tiny">
+                                <h1 class="category-title">
+                                    <a href="#">
+                                        {{subcat.arabicName}}
                                     </a>
+                                </h1>
+                                <div class="filter-sort u-pull--left search_sort u-hidden@small">
+                                    
                                 </div>
-                            </div>
-                        </div>
-                        <div class="category-content--top">
-                            رسّخ قواعد نجاح عملك بمساعدة مستشاري أعمال خبراء
-                        </div>
 
-                    </div>
-
-                    <div class="o-layout__item u-12@medium u-12@tiny" *ngIf="Cat != null">
-                        <div
-                            class="o-layout__item u-12@large u-12@tiny u-margin-bottom u-no--padding u-margin-top@small">
-                            <div class="o-layout o-layout--flex">
-                                <div class="o-layout__item u-12@large u-12@medium u-12@small u-12@tiny">
-                                    <h1 class="category-title">
-                                        <a href="#">
-                                            {{Cat.arabicName}}
-                                        </a>
-                                    </h1>
-                                    <div class="filter-sort u-pull--left search_sort u-hidden@small">
-                                        <a  class="c-button c-button--secondary dropdown-button"
-                                            data-jq-dropdown="#jq-filter-sort">
-                                            <span class="text">خدمات مميزة</span>
-                                            <i class="fa fa-caret-down"></i>
-                                        </a>
-                                        <div id="jq-filter-sort" class="jq-dropdown jq-dropdown-tip">
-                                            <ul class="jq-dropdown-menu">
-                                                <li><a href="#" data-sort="featured" class="filter active">خدمات
-                                                        مميزة</a></li>
-                                                <li><a href="#" data-sort="recent" class="filter ">أضيفت حديثاً</a></li>
-                                                <li><a href="#" data-sort="trending" class="filter ">خدمات صاعدة</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <a href="#"
-                                        class="c-button c-button--secondary  js-filter-sidebar-button u-pull--left u-hidden@medium u-hidden@large">
-                                        <i class="fa fa-sliders"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="category-content--top">
-                            رسّخ قواعد نجاح عملك بمساعدة مستشاري أعمال خبراء
-                        </div>
-
-                    </div>
-
-
-                    <div class="o-layout__item u-3@medium u-3@large u-no--padding">
-                        <div class="js-filter-sidebar-group">
-                            <div class="filter-back-button u-hidden@medium u-hidden@large">
-                                <a href="#" class="js-filter-sidebar-button">
-                                    <i class="fa fa-chevron-right"></i>
+                                <a href="#"
+                                    class="c-button c-button--secondary  js-filter-sidebar-button u-pull--left u-hidden@medium u-hidden@large">
+                                    <i class="fa fa-sliders"></i>
                                 </a>
                             </div>
-                            <div class="c-card">
-                                <div class="c-card__head">
-                                    <h4 class="main_section_head"><span>الأقسام</span></h4>
-                                </div>
-                                <div class="c-card__body">
-                                    <ul class="c-list c-list--vert c-list--filter filters-list  ">
-                                        <li class="c-list__item main_filter " data-filter-id="3" data-sub-filter-id=""
-                                        *ngFor="let cat of CatList">
-                                            <a  class="c-list__link c-list__link--category " [ngClass]="{'is-active': cat.isShow}"
-                                                data-deselect-others="true" (click)="cat.isShow = !cat.isShow" >
-                                                <span>{{cat.arabicName}}</span>
-                                                <span class="c-badge u-pull--left">{{countServices(cat.id) || 0}}</span>
-                                            </a>
-                                            <ul class="c-list c-list--vert c-list--sub " *ngIf="cat.isShow">
-                                                <li data-filter-id="3" data-sub-filter-id="20" class="c-list__item "
-                                                *ngFor="let subcat of subCatList">
-
-                                                    <a href="/SubCategory/{{subcat.id}}" routerLinkActive="router-link-active"  class="c-list__link "
-                                                        data-deselect-others="true" *ngIf="subcat.categoryID == cat.id">
-                                                        <span>{{subcat.arabicName}}</span>
-                                                        <span class="c-badge u-pull--left">{{subcat.servicesCount }}</span>
-                                                    </a>
-                                                </li>
-
-
-                                            </ul>
-                                        </li>
-
-
-
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="c-card">
-                                <div class="c-card__head">
-                                    <a href="#" data-clear="sr" class="reset-filter">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                    <h4><span>تقييم الخدمة</span></h4>
-                                </div>
-                                <div class="c-card__body">
-                                    <ul class="c-list c-list--vert c-list--filter filters-list service-rate ">
-                                        <li class="c-list__item u-checkbox">
-                                            <label for="5sr_filter">
-                                                <input type="radio" value="5" name="sr" id="5sr_filter" class="filter">
-                                                <span> <i class="fa fa-star clr--warning"></i><i
-                                                        class="fa fa-star clr--warning"></i><i
-                                                        class="fa fa-star clr--warning"></i><i
-                                                        class="fa fa-star clr--warning"></i><i
-                                                        class="fa fa-star clr--warning"></i> </span>
-                                                <span class="c-badge u-pull--left">94</span>
-                                            </label>
-                                        </li>
-                                        <li class="c-list__item u-checkbox">
-                                            <label for="4sr_filter">
-                                                <input type="radio" value="4" name="sr" id="4sr_filter" class="filter">
-                                                <span> <i class="fa fa-star clr--warning"></i><i
-                                                        class="fa fa-star clr--warning"></i><i
-                                                        class="fa fa-star clr--warning"></i><i
-                                                        class="fa fa-star clr--warning"></i> أو أكثر </span>
-                                                <span class="c-badge u-pull--left">5</span>
-                                            </label>
-                                        </li>
-                                        <li class="c-list__item u-checkbox">
-                                            <label for="3sr_filter">
-                                                <input type="radio" value="3" name="sr" id="3sr_filter" class="filter">
-                                                <span> <i class="fa fa-star clr--warning"></i><i
-                                                        class="fa fa-star clr--warning"></i><i
-                                                        class="fa fa-star clr--warning"></i> أو أكثر </span>
-                                                <span class="c-badge u-pull--left">5</span>
-                                            </label>
-                                        </li>
-                                        <li class="c-list__item u-checkbox">
-                                            <label for="2sr_filter">
-                                                <input type="radio" value="2" name="sr" id="2sr_filter" class="filter">
-                                                <span> <i class="fa fa-star clr--warning"></i><i
-                                                        class="fa fa-star clr--warning"></i> أو أكثر </span>
-                                                <span class="c-badge u-pull--left">0</span>
-                                            </label>
-                                        </li>
-                                        <li class="c-list__item u-checkbox">
-                                            <label for="1sr_filter">
-                                                <input type="radio" value="1" name="sr" id="1sr_filter" class="filter">
-                                                <span> <i class="fa fa-star clr--warning"></i> أو أكثر </span>
-                                                <span class="c-badge u-pull--left">0</span>
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="c-card">
-                                <div class="c-card__head">
-                                    <a href="#" data-clear="sl" class="reset-filter">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                    <h4><span>مستوى البائع</span></h4>
-                                </div>
-                                <div class="c-card__body">
-                                    <ul class="c-list c-list--vert c-list--filter filters-list  ">
-                                        <li class="c-list__item u-checkbox">
-                                            <label for="s3sl_filter">
-                                                <input type="checkbox" value="s3" name="sl" id="s3sl_filter"
-                                                    class="filter">
-                                                <span> بائع موثوق / مميز </span>
-                                                <span class="c-badge u-pull--left">58</span>
-                                            </label>
-                                        </li>
-                                        <li class="c-list__item u-checkbox">
-                                            <label for="s2sl_filter">
-                                                <input type="checkbox" value="s2" name="sl" id="s2sl_filter"
-                                                    class="filter">
-                                                <span> بائع نشيط </span>
-                                                <span class="c-badge u-pull--left">79</span>
-                                            </label>
-                                        </li>
-                                        <li class="c-list__item u-checkbox">
-                                            <label for="s1sl_filter">
-                                                <input type="checkbox" value="s1" name="sl" id="s1sl_filter"
-                                                    class="filter">
-                                                <span> بائع جديد </span>
-                                                <span class="c-badge u-pull--left">87</span>
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="c-card">
-                                <div class="c-card__head">
-                                    <a href="#" data-clear="[:so, :siv]" class="reset-filter">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                    <h4><span>حالة البائع</span></h4>
-                                </div>
-                                <div class="c-card__body">
-                                    <ul class="c-list c-list--vert c-list--filter filters-list  ">
-                                        <li class="c-list__item u-checkbox">
-                                            <label for="trueso_filter">
-                                                <input type="checkbox" value="true" name="so" id="trueso_filter"
-                                                    class="filter">
-                                                <span> متواجد حالياً </span>
-                                                <span class="c-badge u-pull--left">25</span>
-                                            </label>
-                                        </li>
-                                        <li class="c-list__item u-checkbox">
-                                            <label for="truesiv_filter">
-                                                <input type="checkbox" value="true" name="siv" id="truesiv_filter"
-                                                    class="filter" checked="checked">
-                                                <span> هوية موثقة </span>
-                                                <span class="c-badge u-pull--left">224</span>
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
-
+                    </div>
+                    <div class="category-content--top">
+                        رسّخ قواعد نجاح عملك بمساعدة مستشاري أعمال خبراء
                     </div>
 
-                    <div class="o-layout__item u-9@large u-12@medium u-12@small u-12@tiny js-page">
+                </div>
 
-                        <div id="loading" class="hidden filter-loading" style="display: block;" *ngIf="subCatList == null">
-                            <p align="center"><img
-                                    src="https://khamsat.hsoubcdn.com/assets/images/loading-b9f326901e161822ce76a37af0f8d0dfb8d2e913ff9782c13eb5d72bbda199c2.gif"
-                                    alt="يرجى الإنتظار">
-                            </p>
-                        </div>
-                        <div id="services_home">
-                            <div id="category-business-tips" class="category">
-                                <div class="o-layout o-layout--flex services_block_list">
-
-                                    <div id="service-1583822" *ngFor="let ser of subCatServiceList"
-                                        class="o-layout__item u-12@tiny u-6@small u-4@large u-4@medium u-margin-bottom--large service-block   ">
-                                        <div class="c-box">
-                                            <a [routerLink]="['/service/Details/',ser.id]"
-                                                title="{{ser.title}}" class="c-box__url">
-                                                <img    [src]="createImgPath(ser.serviceGallery[0]?.src)"
-                                                    loading="lazy" class="c-box__image">
-                                            </a>
-
-                                            <h3 class="c-box__title">
-                                                <a
-                                                    [routerLink]="['/service/Details/',ser.id]"  >
-                                                  {{ser.title}} </a>
-                                            </h3>
-
-                                            <div class="c-box__meta">
-                                                <a [routerLink]="['/service/Details/',ser.id]"
-                                                    title="{{ser.title}}">
-                                                    <span>{{ser.noOfBuyerServices||0}} اشتروا هذه الخدمة</span>
-                                                </a>
-                                            </div>
-                                        </div>
+                <div class="o-layout__item u-12@medium u-12@tiny" *ngIf="Cat != null">
+                    <div class="o-layout__item u-12@large u-12@tiny u-margin-bottom u-no--padding u-margin-top@small">
+                        <div class="o-layout o-layout--flex">
+                            <div class="o-layout__item u-12@large u-12@medium u-12@small u-12@tiny">
+                                <h1 class="category-title">
+                                    <a href="#">
+                                        {{Cat.arabicName}}
+                                    </a>
+                                </h1>
+                                <div class="filter-sort u-pull--left search_sort u-hidden@small">
+                                    <a class="c-button c-button--secondary dropdown-button"
+                                        data-jq-dropdown="#jq-filter-sort">
+                                        <span class="text">خدمات مميزة</span>
+                                        <i class="fa fa-caret-down"></i>
+                                    </a>
+                                    <div id="jq-filter-sort" class="jq-dropdown jq-dropdown-tip">
+                                        <ul class="jq-dropdown-menu">
+                                            <li><a href="#" data-sort="featured" class="filter active">خدمات
+                                                    مميزة</a></li>
+                                            <li><a href="#" data-sort="recent" class="filter ">أضيفت حديثاً</a></li>
+                                            <li><a href="#" data-sort="trending" class="filter ">خدمات صاعدة</a>
+                                            </li>
+                                        </ul>
                                     </div>
-
-
-
                                 </div>
-                                <div id="more_content" class="u-text--center">
-                                    <input id="page_url" type="hidden" value="/business/business-tips?">
-                                    <button id="load_more_content" type="button"
-                                        class="c-button c-button--primary c-button--ghost">عرض المزيد</button>
-                                </div>
+
+                                <a href="#"
+                                    class="c-button c-button--secondary  js-filter-sidebar-button u-pull--left u-hidden@medium u-hidden@large">
+                                    <i class="fa fa-sliders"></i>
+                                </a>
                             </div>
-                            <input id="no_keyword" type="hidden" value="true">
+                        </div>
+                    </div>
+                    <div class="category-content--top">
+                        رسّخ قواعد نجاح عملك بمساعدة مستشاري أعمال خبراء
+                    </div>
+
+                </div>
+
+
+                <div class="o-layout__item u-3@medium u-3@large u-no--padding">
+                    <div class="js-filter-sidebar-group">
+                        <div class="filter-back-button u-hidden@medium u-hidden@large">
+                            <a href="#" class="js-filter-sidebar-button">
+                                <i class="fa fa-chevron-right"></i>
+                            </a>
+                        </div>
+                        <div class="c-card">
+                            <div class="c-card__head">
+                                <h4 class="main_section_head"><span>الأقسام</span></h4>
+                            </div>
+                            <div class="c-card__body">
+                                <ul class="c-list c-list--vert c-list--filter filters-list  ">
+                                    <li class="c-list__item main_filter " data-filter-id="3" data-sub-filter-id=""
+                                        *ngFor="let cat of CatList">
+                                        <a class="c-list__link c-list__link--category "
+                                            [ngClass]="{'is-active': cat.isShow}" data-deselect-others="true"
+                                            (click)="cat.isShow = !cat.isShow">
+                                            <span>{{cat.arabicName}}</span>
+                                            <span class="c-badge u-pull--left">{{countServices(cat.id) || 0}}</span>
+                                        </a>
+                                        <ul class="c-list c-list--vert c-list--sub " *ngIf="cat.isShow">
+                                            <li data-filter-id="3" data-sub-filter-id="20" class="c-list__item "
+                                                *ngFor="let subcat of subCatList">
+
+                                                <a href="/SubCategory/{{subcat.id}}"
+                                                    routerLinkActive="router-link-active" class="c-list__link "
+                                                    data-deselect-others="true" *ngIf="subcat.categoryID == cat.id">
+                                                    <span>{{subcat.arabicName}}</span>
+                                                    <span class="c-badge u-pull--left">{{subcat.servicesCount }}</span>
+                                                </a>
+                                            </li>
+
+
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
                         </div>
 
 
                     </div>
 
                 </div>
+
+                <div class="o-layout__item u-9@large u-12@medium u-12@small u-12@tiny js-page">
+
+                    <div id="loading" class="hidden filter-loading" style="display: block;" *ngIf="subCatList == null">
+                        <p align="center"><img
+                                src="https://khamsat.hsoubcdn.com/assets/images/loading-b9f326901e161822ce76a37af0f8d0dfb8d2e913ff9782c13eb5d72bbda199c2.gif"
+                                alt="يرجى الإنتظار">
+                        </p>
+                    </div>
+                    <div id="services_home">
+                        <div id="category-business-tips" class="category">
+                            <div class="o-layout o-layout--flex services_block_list">
+
+                                <div id="service-1583822" *ngFor="let ser of subCatServiceList"
+                                    class="o-layout__item u-12@tiny u-6@small u-4@large u-4@medium u-margin-bottom--large service-block   ">
+                                    <div class="c-box">
+                                        <a [routerLink]="['/service/Details/',ser.id]" title="{{ser.title}}"
+                                            class="c-box__url">
+                                            <img [src]="createImgPath(ser.serviceGallery[0]?.src)" loading="lazy"
+                                                class="c-box__image">
+                                        </a>
+
+                                        <h3 class="c-box__title">
+                                            <a [routerLink]="['/service/Details/',ser.id]">
+                                                {{ser.title}} </a>
+                                        </h3>
+
+                                        <div class="c-box__meta">
+                                            <a [routerLink]="['/service/Details/',ser.id]" title="{{ser.title}}">
+                                                <span>{{ser.noOfBuyerServices||0}} اشتروا هذه الخدمة</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                            <div id="more_content" class="u-text--center">
+                                <input id="page_url" type="hidden" value="/business/business-tips?">
+                                <button id="load_more_content" type="button"
+                                    class="c-button c-button--primary c-button--ghost">عرض المزيد</button>
+                            </div>
+                        </div>
+                        <input id="no_keyword" type="hidden" value="true">
+                    </div>
+
+
+                </div>
+
             </div>
-            <app-footer></app-footer>
+        </div>
+        <app-footer></app-footer>

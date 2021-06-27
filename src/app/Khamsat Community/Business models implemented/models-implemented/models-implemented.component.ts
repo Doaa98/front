@@ -21,7 +21,7 @@ export class ModelsImplementedComponent implements OnInit {
 
   }
   getCommunity() {
-    this.communityService.GetspesificCommunityType(3).subscribe
+    this.communityService.GetspesificCommunityType(0).subscribe
     ( Community=>
       {
         this.communityList=Community;

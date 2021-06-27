@@ -18,7 +18,7 @@ export class UserExperiencesAndStoriesComponent implements OnInit {
     this.getCommunity();
   }
   getCommunity() {
-    this.communityService.GetspesificCommunityType(0).subscribe
+    this.communityService.GetspesificCommunityType(2).subscribe
       ( Community=>
         {
           this.communityList=Community;

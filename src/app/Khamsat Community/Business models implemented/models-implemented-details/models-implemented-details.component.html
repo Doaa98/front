@@ -84,9 +84,15 @@
                     <div class="profile-details">
                       <div class="o-media">
                         <div class="o-media__right meta--avatar">
-                          <a href="">
-                            <img class="u-circle u-avatar@small img-thumbnail img--small" src="{{item.image}}">
-                          </a>
+                          <a href="" *ngIf="item.image!=null; then image else other_image"> </a>
+                          <ng-template #image>
+                            <img class="u-circle img-thumbnail img--medium" src="{{item.image}}"
+                              alt="UserImg">
+                          </ng-template>
+                          <ng-template #other_image>
+                            <img class="u-circle img-thumbnail img--medium" src="../../../assets/Images/user-avatar.png"
+                              alt="UserImg">
+                          </ng-template>
                         </div>
                         <div class="o-media__body">
                           <div class="o-layout o-layout--flex">
@@ -124,46 +130,49 @@
               <div class="c-card__head">
                 <h3>أضف تعليق</h3>
               </div>
-              <hr>
-              <div class="c-card__body" *ngIf="IsLogging ;then content else other_content"></div>
+              <div *ngIf="IsLogging ;then content else other_content"></div>
+
               <ng-template #content>
-                <form id="commentable_form" [formGroup]="addCommentForm">
-                  <div class="u-margin-bottom">
-                    <textarea name="content" class="c-form__control" rows="5" formControlName="content" rows="5"
-                      clos="60" maxlength="2000"></textarea>
+                <div class="c-card__body">
+                  <form id="commentable_form" [formGroup]="addCommentForm">
+                    <div class="u-margin-bottom">
+                      <textarea name="content" class="c-form__control" rows="5" formControlName="content" rows="5"
+                        clos="60" maxlength="2000"></textarea>
 
-                    <p class="c-form__hb">
-                      <span>استخدم</span>
-                      <a href="https://suar.me" target="_blank" class="u-clr--primary">موقع صور</a>
-                      <span>عند حاجتك لرفع أو اضافة صورة لتعليقاتك.</span>
-                    </p>
+                      <p class="c-form__hb">
+                        <span>استخدم</span>&nbsp;
+                        <a href="https://suar.me" target="_blank" class="u-clr--primary">موقع صور</a>
+                        <span>عند حاجتك لرفع أو اضافة صورة لتعليقاتك.</span>
+                      </p>
 
-                  </div>
+                    </div>
 
-                  <div class="u-margin-bottom u-checkbox">
-                    <label for="confirm">
-                      <input name="confirm" id="confirm" type="checkbox" value="0">
-                      <span>التعليق لا يحتوي على معلومات اتصال خارجية ولا يخالف</span>
-                      <a href="" target="_blank" class="u-clr--primary">شروط موقع خمسات</a>
-                    </label>
-                  </div>
-                  <div class="u-margin-bottom">
-                    <input id="user_token" type="hidden" name="token" value="b91fc0c6972e0f4597fb37a1fa9040a5eabbb530">
-                    <button type="submit" id="commentable_submit" class="c-button c-button--primary" type="submit"
-                      (click)="createcomment()">أرسل</button>
-                  </div>
+                    <div class="u-margin-bottom u-checkbox">
+                      <label for="confirm">
+                        <input name="confirm" id="confirm" type="checkbox" value="0">
+                        <span>التعليق لا يحتوي على معلومات اتصال خارجية ولا يخالف</span>
+                        &nbsp; <a routerLink="/terms" target="_blank" class="u-clr--primary">شروط موقع خمسات</a>
+                      </label>
+                    </div>
+                    <div class="u-margin-bottom">
+                      <button type="submit" id="commentable_submit" class="c-button c-button--primary" type="submit"
+                        (click)="createcomment()">أرسل</button>
+                    </div>
 
-                </form>
-
+                  </form>
+                </div>
               </ng-template>
+
               <ng-template #other_content>
-                <p class="u-text--center">سجّل دخول لتتمكن من إضافة تعليق على هذا الموضوع.</p>
-                <div class="o-layout o-layout--flex o-layout--center u-margin-top">
-                  <div class="o-layout__item u-3@large u-6@small u-12@tiny u-margin-bottom@small">
-                    <a routerLink="/login" class="c-button c-button--block c-button--primary c-button--ghost">دخول</a>
-                  </div>
-                  <div class="o-layout__item u-3@large u-6@small u-12@tiny">
-                    <a routerLink="/register" class="c-button c-button--block c-button--primary">حساب جديد</a>
+                <div class="c-card__body">
+                  <p class="u-text--center">سجّل دخول لتتمكن من إضافة تعليق على هذا الموضوع.</p>
+                  <div class="o-layout o-layout--flex o-layout--center u-margin-top">
+                    <div class="o-layout__item u-3@large u-6@small u-12@tiny u-margin-bottom@small">
+                      <a routerLink="/login" class="c-button c-button--block c-button--primary c-button--ghost">دخول</a>
+                    </div>
+                    <div class="o-layout__item u-3@large u-6@small u-12@tiny">
+                      <a routerLink="/register" class="c-button c-button--block c-button--primary">حساب جديد</a>
+                    </div>
                   </div>
                 </div>
               </ng-template>
@@ -180,9 +189,15 @@
               <div class="c-card__body">
                 <div class="o-media" *ngFor="let item of latestContributions">
                   <div class="o-media__right">
-                    <a href="" title="Ramzi Med">
-                      <img class="u-circle img-thumbnail img--small" src="{{item.image}}">
-                    </a>
+                    <a href="" *ngIf="item.image!=null; then image else other_image"> </a>
+                    <ng-template #image>
+                      <img class="u-circle img-thumbnail img--medium" src="{{item.image}}"
+                        alt="UserImg">
+                    </ng-template>
+                    <ng-template #other_image>
+                      <img class="u-circle img-thumbnail img--medium" src="../../../assets/Images/user-avatar.png"
+                        alt="UserImg">
+                    </ng-template>
                   </div>
                   <div class="o-media__body">
                     <h5><a [routerLink]="['/ServiceDetails/',item.id]">{{item.title}}

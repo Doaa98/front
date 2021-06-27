@@ -3,19 +3,7 @@
   <div class="o-layout__item u-12@large u-12@tiny u-margin-bottom u-no--padding u-margin-top@small">
     <h1>سلة المشتريات
       <div class="u-pull--left cart_button">
-        <div class="filter-sort u-pull--left">
-          <a routerLink="/cart" class="c-button c-button--primary dropdown-button c-button--ghost"
-            data-jq-dropdown="#jq-filter-sort">
-            <span class="text">خيارات</span>
-            <i class="fa fa-caret-down"></i>
-          </a>
-          <div id="jq-filter-sort" class="jq-dropdown jq-dropdown-tip" style="display: none; top: 114px;">
-            <ul class="jq-dropdown-menu">
-              <li><a href="#" class="filter" id="add_cart_to_collection"><i class="fa fa-briefcase fa-fw"></i> حفظ السلة
-                  في مجموعة</a></li>
-            </ul>
-          </div>
-        </div>
+       
       </div>
     </h1>
   </div>
@@ -103,7 +91,8 @@
       <div class="c-card__footer">
         <form action="/cart/checkout" method="post" id="cart_checkout_form">
           <div class="u-text--center">
-            <button type="submit" class="c-button c-button--primary checkout-button u-block@small">ادفع الآن</button>
+            <button type="submit" class="c-button c-button--primary checkout-button u-block@small"
+            (click)="BuyBtnClick()">ادفع الآن</button>
           </div>
           <input id="user_token" type="hidden" name="token" value="2fc3268f89a77b1c1f6bfcdcb9e8c9abfb29be79">
         </form>
@@ -118,7 +107,8 @@
           <div class="c-box">
             <a routerLink="/service/Details/{{ser.id}}"
               title="{{ser.title}}" class="c-box__url">
-              <img src="https://khamsat.hsoubcdn.com/images/services/964851/f237928e96720e6113ce28a39722c8b8_thumb.jpg"
+              <img        [src]="createImgPath(ser.serviceGallery[0]?.src)"
+
                 loading="lazy" class="c-box__image">
             </a>
 

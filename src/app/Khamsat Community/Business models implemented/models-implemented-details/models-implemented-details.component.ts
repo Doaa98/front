@@ -11,16 +11,16 @@ import { KhamsatCommunityService } from 'src/Services/KhamsatCommunityService';
   styleUrls: ['./models-implemented-details.component.css']
 })
 export class ModelsImplementedDetailsComponent implements OnInit {
-  constructor(private fb: FormBuilder, private authService: AuthenticationService , private KhamsatService: KhamsatCommunityService, private route: ActivatedRoute, private router: Router) {
+  constructor(private fb: FormBuilder, private authService: AuthenticationService, private KhamsatService: KhamsatCommunityService, private route: ActivatedRoute, private router: Router) {
     if (!authService.isLoggedIn()) {
-      this.IsLogging=false;
+      this.IsLogging = false;
     }
-   }
-  IsLogging:boolean=true;
+  }
+  IsLogging: boolean = true;
   addCommentForm: any;
   errorMsg: any;
   Khamsat: khamsatcommunity_withcomments;
-  Comment: CommentViewModel;
+  Comment: any;
   Id: number;
   length: number;
 
@@ -52,6 +52,9 @@ export class ModelsImplementedDetailsComponent implements OnInit {
   get content() {
     return this.addCommentForm.get('content')
   }
+  Reset() {
+    this.addCommentForm.reset();
+  }
   createcomment() {
     this.Comment = {
       id: 0,
@@ -62,10 +65,8 @@ export class ModelsImplementedDetailsComponent implements OnInit {
     }
     this.KhamsatService.addComment(this.Comment).subscribe(
       pro => {
-        console.log("1");
-        this.errorMsg = pro;
-        console.log("2");
-        console.log("res:" + this.errorMsg)//for test
+        this.Khamsat._Comments.push(this.Comment);
+        this.Reset();
       },
       errorResponse => {
         console.log("3");
@@ -75,9 +76,9 @@ export class ModelsImplementedDetailsComponent implements OnInit {
     );
   }
   getLatestContributions() {
-    this.KhamsatService.GetspesificCommunityType(2).subscribe
+    this.KhamsatService.GetspesificCommunityType(1).subscribe
       (Community => {
-        for (let i = 0; i < Community.length ; i++) {
+        for (let i = 0; i < Community.length; i++) {
           this.latestContributions = Community;
         }
         console.log(Community)
