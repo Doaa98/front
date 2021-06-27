@@ -1,8 +1,6 @@
 <app-header></app-header>
-<div class="hsoub-container" style=" margin-top: 60px;">
+<div class="hsoub-container" style="margin-top: 60px">
   <div class="hsoub-content">
-
-
     <div class="page_header">
       <div class="o-wrapper">
         <div class="o-layout o-layout--flex">
@@ -11,18 +9,20 @@
               <div class="o-media__right">
                 <a href="/user/walaa_mahfoud">
                   <div class="relative">
-                    <img class="u-circle img-thumbnail img--medium"
-                      src="../../../assets/Images/user-avatar.png">
-
+                    <img
+                      class="u-circle img-thumbnail img--medium"
+                      src="../../../assets/Images/user-avatar.png"
+                    />
                   </div>
                 </a>
               </div>
 
               <div class="o-media__body">
                 <h1>
-                  {{service.title}}</h1>
+                  {{ service.title }}
+                </h1>
 
-                <ul class="page-meta u-12@large ">
+                <ul class="page-meta u-12@large">
                   <li>
                     <a class="user" ><i class="fa fa-fw fa-user"></i>
                       {{service.userFullName}}</a>
@@ -36,7 +36,7 @@
                   </li>
                   <li>
                     <i class="fa fa-clock-o fa-fw"></i>
-                    <span>مدة التسليم: &nbsp;{{service.duration}} يوم</span>
+                    <span>مدة التسليم: &nbsp;{{ service.duration }} يوم</span>
                   </li>
                 </ul>
               </div>
@@ -60,11 +60,10 @@
 
             </div>
           </div>
-
         </div>
       </div>
     </div>
-    <div class="page-navbar u-hidden@large u-hidden@medium u-12@small u-12@tiny u-text--right">
+    <div *ngIf="isShowBuyService" class="page-navbar u-hidden@large u-hidden@medium u-12@small u-12@tiny u-text--right">
       <div class="page-navbar--tablet">
         <a class="c-button c-button--primary" (click)="DropdownToggle()">
           <i class="fa fa-shopping-cart"></i>
@@ -83,58 +82,103 @@
     </div>
 
 
+       
 
-    <div class="o-wrapper ">
+      </div>
+    </div>
+  
 
+          
+   
+
+    <div class="o-wrapper">
       <div class="content inside">
         <div id="loading" class="hidden">
-          <p align="center"><img
+          <p align="center">
+            <img
               src="https://khamsat.hsoubcdn.com/assets/images/loading-b9f326901e161822ce76a37af0f8d0dfb8d2e913ff9782c13eb5d72bbda199c2.gif"
-              alt="يرجى الإنتظار">
+              alt="يرجى الإنتظار"
+            />
           </p>
         </div>
 
-
         <div class="o-layout o-layout--flex">
-          <div class="o-layout__item u-12@medium u-12@tiny">
-          </div>
+          <div class="o-layout__item u-12@medium u-12@tiny"></div>
 
-
-          <div class="o-layout__item u-9@large u-12@medium u-12@small u-12@tiny js-page">
-
-
+          <div
+            class="
+              o-layout__item
+              u-9@large u-12@medium u-12@small u-12@tiny
+              js-page
+            "
+          >
             <div class="c-card">
               <div class="c-card__body">
                 <div id="service_gallery">
-                  <div id="gallery_items" class="gallery_items flickity-enabled flickity-rtl" tabindex="0">
-
-                    <div class="flickity-viewport" style="height: 500px; touch-action: pan-y;">
-                      <div class="flickity-slider" style="right: 0px; transform: translateX(0%);">
-                        <div class="gitem is-selected" id="gf-0" aria-selected="true"
-                          style="position: absolute; right: 0%;">
-                          <img width="100%" attr-file="images/services/1943244/984b495ea7a5d2dec05a78df75a8f75d.jpg"
-                          style="width:100% ;height: 500px;"
-                          [src]="createImgPath(service.serviceGallery[0]?.src)"
-                            class="keep-aspect-ratio">
+                  <div
+                    id="gallery_items"
+                    class="gallery_items flickity-enabled flickity-rtl"
+                    tabindex="0"
+                  >
+                    <div
+                      class="flickity-viewport"
+                      style="height: 500px; touch-action: pan-y"
+                    >
+                      <div
+                        class="flickity-slider"
+                        style="right: 0px; transform: translateX(0%)"
+                      >
+                        <div
+                          class="gitem is-selected"
+                          id="gf-0"
+                          aria-selected="true"
+                          style="position: absolute; right: 0%"
+                        >
+                          <img
+                            width="100%"
+                            attr-file="images/services/1943244/984b495ea7a5d2dec05a78df75a8f75d.jpg"
+                            style="width: 100%; height: 500px"
+                            [src]="
+                              createImgPath(service.serviceGallery[0]?.src)
+                            "
+                            class="keep-aspect-ratio"
+                          />
                         </div>
                       </div>
-                    </div><button class="flickity-button flickity-prev-next-button previous" type="button" disabled=""
-                      aria-label="Previous" style="display: none;"><svg class="flickity-button-icon"
-                        viewBox="0 0 100 100">
-                        <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow"
-                          transform="translate(100, 100) rotate(180) "></path>
-                      </svg></button><button class="flickity-button flickity-prev-next-button next" type="button"
-                      disabled="" aria-label="Next" style="display: none;"><svg class="flickity-button-icon"
-                        viewBox="0 0 100 100">
-                        <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow"></path>
-                      </svg></button>
+                    </div>
+                    <button
+                      class="flickity-button flickity-prev-next-button previous"
+                      type="button"
+                      disabled=""
+                      aria-label="Previous"
+                      style="display: none"
+                    >
+                      <svg class="flickity-button-icon" viewBox="0 0 100 100">
+                        <path
+                          d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z"
+                          class="arrow"
+                          transform="translate(100, 100) rotate(180) "
+                        ></path>
+                      </svg></button
+                    ><button
+                      class="flickity-button flickity-prev-next-button next"
+                      type="button"
+                      disabled=""
+                      aria-label="Next"
+                      style="display: none"
+                    >
+                      <svg class="flickity-button-icon" viewBox="0 0 100 100">
+                        <path
+                          d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z"
+                          class="arrow"
+                        ></path>
+                      </svg>
+                    </button>
                   </div>
                 </div>
 
                 <article class="u-margin-top--large replace_urls">
-
-                  {{service.description}}
-
+                  {{ service.description }}
                 </article>
               </div>
             </div>
@@ -149,28 +193,39 @@
                     <tr *ngFor="let dev of service.serviceDevelopmentsVM">
                       <td width="5%" class="u-checkbox">
                         <label for="upgrade-1167402" class="u-no--margin">
-                          <input type="checkbox" class="service_upgrade_check" id="upgrade-1167402"
-                            name="service_upgrade_check" value="1167402">
+                          <input
+                            type="checkbox"
+                            class="service_upgrade_check"
+                            id="upgrade-1167402"
+                            name="service_upgrade_check"
+                            value="1167402"
+                          />
                           <span></span>
                         </label>
                       </td>
                       <td>
-                        {{dev.description}}
+                        {{ dev.description }}
                       </td>
                       <td width="15%">
-                        <span class="number" title="عدد الأيام الذي سيضاف الى مدة تسليم الخدمة">+ يومين</span>
+                        <span
+                          class="number"
+                          title="عدد الأيام الذي سيضاف الى مدة تسليم الخدمة"
+                          >+ يومين</span
+                        >
                       </td>
                       <td width="15%">
-                        <span title="السعر الذي سيضاف لسعر الخدمة الأساسي" class="service_upgrade_price"
-                          data-price="10.00">+ ${{dev.price}}</span>
+                        <span
+                          title="السعر الذي سيضاف لسعر الخدمة الأساسي"
+                          class="service_upgrade_price"
+                          data-price="10.00"
+                          >+ ${{ dev.price }}</span
+                        >
                       </td>
                     </tr>
-
                   </tbody>
                 </table>
               </div>
             </div>
-
 
             <div class="c-card u-hidden@medium u-hidden@large">
               <div class="c-card__head">
@@ -187,51 +242,78 @@
 
                 <ul class="c-list c-list--thumbs">
                   <li class="c-list__item">
-                    <span class="u-block u-text--large u-margin-bottom--tiny"><i class="fa fa-thumbs-up"></i></span>
+                    <span class="u-block u-text--large u-margin-bottom--tiny"
+                      ><i class="fa fa-thumbs-up"></i
+                    ></span>
                     <span>1 ايجابي</span>
                   </li>
                   <li class="c-list__item">
-                    <span class="u-block u-text--large u-margin-bottom--tiny"><i class="fa fa-thumbs-down"></i></span>
+                    <span class="u-block u-text--large u-margin-bottom--tiny"
+                      ><i class="fa fa-thumbs-down"></i
+                    ></span>
                     <span>0 سلبي</span>
                   </li>
                 </ul>
 
-                <ul class="c-list c-list--vert c-list--service-meta  u-no--padding u-no--margin u-no--background">
+                <ul
+                  class="
+                    c-list c-list--vert c-list--service-meta
+                    u-no--padding u-no--margin u-no--background
+                  "
+                >
                   <li class="c-list__item">
                     <i class="fa fa-reply fa-fw"></i>
                     <span>م. سرعة رد</span>
                     <span class="meta-dots u-hidden">:</span>
-                    <span class="u-block u-text--medium service-meta__value"> ساعتين</span>
+                    <span class="u-block u-text--medium service-meta__value">
+                      ساعتين</span
+                    >
                   </li>
                   <li class="c-list__item">
                     <i class="fa fa-shopping-cart fa-fw"></i>
                     <span>تم شرائها</span>
                     <span class="meta-dots u-hidden">:</span>
-                    <span class="u-block u-text--medium service-meta__value">{{service.noOfBuyerServices}} مرة</span>
+                    <span class="u-block u-text--medium service-meta__value"
+                      >{{ service.noOfBuyerServices }} مرة</span
+                    >
                   </li>
                   <li class="c-list__item">
                     <i class="fa fa-truck fa-fw"></i>
                     <span>يعمل على </span>
                     <span class="meta-dots u-hidden">:</span>
-                    <span class="u-block u-text--medium service-meta__value">0 طلب</span>
+                    <span class="u-block u-text--medium service-meta__value"
+                      >0 طلب</span
+                    >
                   </li>
                 </ul>
               </div>
             </div>
             <div class="c-card" id="add_to_cart">
               <div class="c-card__head">
-                <a [routerLink]="['/message/new',service.id ,service.userID]" routerLinkActive="router-link-active"  class="c-button c-button--minimal">تواصل مع البائع</a>
-                <h3>
-                  اشتري الخدمة
-                </h3>
+                <a
+                  [routerLink]="['/message/new', service.id, service.userID]"
+                  routerLinkActive="router-link-active"
+                  class="c-button c-button--minimal"
+                  >تواصل مع البائع</a
+                >
+                <h3>اشتري الخدمة</h3>
               </div>
               <div class="c-card__body">
                 <div class="u-text--center">
                   <h3 class="u-margin-bottom">
                     <span>عدد مرات الطلب</span>
                     <div
-                      class="c-form__select c-form__select--small u-block@small u-margin-top@small u-margin-bottom@small">
-                      <select id="service_quantity" name="service_quantity" #qu (change)="calculatePrice( qu.value)">
+                      class="
+                        c-form__select c-form__select--small
+                        u-block@small u-margin-top@small u-margin-bottom@small
+                      "
+                    >
+                      <select
+                        id="service_quantity"
+                        name="service_quantity"
+                        #qu
+                        (change)="calculatePrice(qu.value)"
+                      >
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -245,10 +327,18 @@
                       </select>
                     </div>
                     <span>المبلغ النهائي</span>
-                    <span class="total_order_price">{{calculatePrice( qu.value)}}</span>$
+                    <span class="total_order_price">{{
+                      calculatePrice(qu.value)
+                    }}</span
+                    >$
                   </h3>
-                  <button type="button" id="add_to_cart_btn" class="c-button c-button--primary " data-banned-country=""
-                    (click)="addToCart(qu.value)">
+                  <button
+                    type="button"
+                    id="add_to_cart_btn"
+                    class="c-button c-button--primary"
+                    data-banned-country=""
+                    (click)="addToCart(qu.value)"
+                  >
                     <i class="fa fa-shopping-cart"></i>
                     <span>أضف الى سلة المشتريات</span>
                   </button>
@@ -262,113 +352,171 @@
                   <h3>خدمات مقترحة</h3>
                 </div>
                 <div class="c-card__body">
-                  <div class="o-layout o-layout--flex u-margin-bottom--large u-margin-bottom@small">
-                    <div class="o-layout__item u-6@large u-6@medium u-12@small u-12@tiny u-margin-top@small">
-                      <div class="o-media" >
+                  <div
+                    class="
+                      o-layout o-layout--flex
+                      u-margin-bottom--large
+                      u-margin-bottom@small
+                    "
+                  >
+                    <div
+                      class="
+                        o-layout__item
+                        u-6@large
+                        u-6@medium
+                        u-12@small
+                        u-12@tiny
+                        u-margin-top@small
+                      "
+                    >
+                      <div class="o-media">
                         <div class="o-media__right">
                           <a
-                            href="/business/legal-services/791926-%D8%B5%D9%8A%D8%A7%D8%BA%D8%A9-%D8%B4%D8%B1%D9%88%D8%B7-%D9%88%D8%B3%D9%8A%D8%A7%D8%B3%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D9%88%D8%A7%D9%82%D8%B9-%D9%88%D8%A7%D9%84%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A9">
+                            href="/business/legal-services/791926-%D8%B5%D9%8A%D8%A7%D8%BA%D8%A9-%D8%B4%D8%B1%D9%88%D8%B7-%D9%88%D8%B3%D9%8A%D8%A7%D8%B3%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D9%88%D8%A7%D9%82%D8%B9-%D9%88%D8%A7%D9%84%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A9"
+                          >
                             <img
                               src="https://khamsat.hsoubcdn.com/images/services/732588/73a6799b2061f3c65bcfe93ef79f1c35_thumb.jpg"
-                              width="95" height="56">
+                              width="95"
+                              height="56"
+                            />
                           </a>
                         </div>
                         <div class="o-media__body">
                           <h5>
-                            <a href="/business/legal-services/791926-%D8%B5%D9%8A%D8%A7%D8%BA%D8%A9-%D8%B4%D8%B1%D9%88%D8%B7-%D9%88%D8%B3%D9%8A%D8%A7%D8%B3%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D9%88%D8%A7%D9%82%D8%B9-%D9%88%D8%A7%D9%84%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A9"
-                              title="صياغة شروط وسياسات المواقع والتطبيقات الالكترونية">صياغة شروط وسياسات المواقع
-                              والتطبيقات الالكترونية</a>
+                            <a
+                              href="/business/legal-services/791926-%D8%B5%D9%8A%D8%A7%D8%BA%D8%A9-%D8%B4%D8%B1%D9%88%D8%B7-%D9%88%D8%B3%D9%8A%D8%A7%D8%B3%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D9%88%D8%A7%D9%82%D8%B9-%D9%88%D8%A7%D9%84%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A9"
+                              title="صياغة شروط وسياسات المواقع والتطبيقات الالكترونية"
+                              >صياغة شروط وسياسات المواقع والتطبيقات
+                              الالكترونية</a
+                            >
                           </h5>
                         </div>
                       </div>
                       <div class="o-media">
                         <div class="o-media__right">
                           <a
-                            href="/programming/wordpress/777947-%D8%A3%D8%B3%D8%A7%D8%B9%D8%AF%D9%83-%D9%81%D9%8A-%D8%AD%D9%84-%D9%88%D8%A5%D8%B5%D9%84%D8%A7%D8%AD-%D8%AC%D9%85%D9%8A%D8%B9-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D9%88%D9%88%D8%B1%D8%AF%D8%A8%D8%B1%D9%8A%D8%B3-%D8%A3%D9%88-%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D9%85-%D8%A8%D8%B9%D9%85%D9%84-%D9%85%D8%AE%D8%B5%D8%B5-%D9%82%D8%B6%D9%8A%D8%A9-%D9%88%D8%A7%D8%AD%D8%AF%D8%A9">
+                            href="/programming/wordpress/777947-%D8%A3%D8%B3%D8%A7%D8%B9%D8%AF%D9%83-%D9%81%D9%8A-%D8%AD%D9%84-%D9%88%D8%A5%D8%B5%D9%84%D8%A7%D8%AD-%D8%AC%D9%85%D9%8A%D8%B9-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D9%88%D9%88%D8%B1%D8%AF%D8%A8%D8%B1%D9%8A%D8%B3-%D8%A3%D9%88-%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D9%85-%D8%A8%D8%B9%D9%85%D9%84-%D9%85%D8%AE%D8%B5%D8%B5-%D9%82%D8%B6%D9%8A%D8%A9-%D9%88%D8%A7%D8%AD%D8%AF%D8%A9"
+                          >
                             <img
                               src="https://khamsat.hsoubcdn.com/images/services/852249/95cf0c823d812404621125afa381fc1e_thumb.jpg"
-                              width="95" height="56">
+                              width="95"
+                              height="56"
+                            />
                           </a>
                         </div>
                         <div class="o-media__body">
                           <h5>
-                            <a href="/programming/wordpress/777947-%D8%A3%D8%B3%D8%A7%D8%B9%D8%AF%D9%83-%D9%81%D9%8A-%D8%AD%D9%84-%D9%88%D8%A5%D8%B5%D9%84%D8%A7%D8%AD-%D8%AC%D9%85%D9%8A%D8%B9-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D9%88%D9%88%D8%B1%D8%AF%D8%A8%D8%B1%D9%8A%D8%B3-%D8%A3%D9%88-%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D9%85-%D8%A8%D8%B9%D9%85%D9%84-%D9%85%D8%AE%D8%B5%D8%B5-%D9%82%D8%B6%D9%8A%D8%A9-%D9%88%D8%A7%D8%AD%D8%AF%D8%A9"
-                              title="أساعدك في حل وإصلاح جميع مشاكل ووردبريس أو القيام بعمل مخصص  قضية واحدة">أساعدك في
-                              حل وإصلاح جميع مشاكل ووردبريس أو القيام بعمل مخصص قضية واحدة</a>
+                            <a
+                              href="/programming/wordpress/777947-%D8%A3%D8%B3%D8%A7%D8%B9%D8%AF%D9%83-%D9%81%D9%8A-%D8%AD%D9%84-%D9%88%D8%A5%D8%B5%D9%84%D8%A7%D8%AD-%D8%AC%D9%85%D9%8A%D8%B9-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D9%88%D9%88%D8%B1%D8%AF%D8%A8%D8%B1%D9%8A%D8%B3-%D8%A3%D9%88-%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D9%85-%D8%A8%D8%B9%D9%85%D9%84-%D9%85%D8%AE%D8%B5%D8%B5-%D9%82%D8%B6%D9%8A%D8%A9-%D9%88%D8%A7%D8%AD%D8%AF%D8%A9"
+                              title="أساعدك في حل وإصلاح جميع مشاكل ووردبريس أو القيام بعمل مخصص  قضية واحدة"
+                              >أساعدك في حل وإصلاح جميع مشاكل ووردبريس أو القيام
+                              بعمل مخصص قضية واحدة</a
+                            >
                           </h5>
                         </div>
                       </div>
                       <div class="o-media">
                         <div class="o-media__right">
                           <a
-                            href="/designing/logo-design/1544772-%D8%A7%D9%84%D8%AA%D8%B9%D8%AF%D9%8A%D9%84-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D8%B4%D8%B9%D8%A7%D8%B1-%D9%88-%D8%A5%D8%B9%D8%A7%D8%AF%D8%A9-%D8%AA%D8%B5%D9%85%D9%8A%D9%85%D9%87-%D8%A8%D8%AC%D9%88%D8%AF%D8%A9-%D8%B9%D8%A7%D9%84%D9%8A%D8%A9-%D8%AC%D8%AF%D8%A7">
+                            href="/designing/logo-design/1544772-%D8%A7%D9%84%D8%AA%D8%B9%D8%AF%D9%8A%D9%84-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D8%B4%D8%B9%D8%A7%D8%B1-%D9%88-%D8%A5%D8%B9%D8%A7%D8%AF%D8%A9-%D8%AA%D8%B5%D9%85%D9%8A%D9%85%D9%87-%D8%A8%D8%AC%D9%88%D8%AF%D8%A9-%D8%B9%D8%A7%D9%84%D9%8A%D8%A9-%D8%AC%D8%AF%D8%A7"
+                          >
                             <img
                               src="https://khamsat.hsoubcdn.com/images/services/1604604/e55eab5af99058850d586104807190db_thumb.jpg"
-                              width="95" height="56">
+                              width="95"
+                              height="56"
+                            />
                           </a>
                         </div>
                         <div class="o-media__body">
                           <h5>
-                            <a href="/designing/logo-design/1544772-%D8%A7%D9%84%D8%AA%D8%B9%D8%AF%D9%8A%D9%84-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D8%B4%D8%B9%D8%A7%D8%B1-%D9%88-%D8%A5%D8%B9%D8%A7%D8%AF%D8%A9-%D8%AA%D8%B5%D9%85%D9%8A%D9%85%D9%87-%D8%A8%D8%AC%D9%88%D8%AF%D8%A9-%D8%B9%D8%A7%D9%84%D9%8A%D8%A9-%D8%AC%D8%AF%D8%A7"
-                              title="التعديل على الشعار و إعادة تصميمه بجودة عالية جدا">التعديل على الشعار و إعادة
-                              تصميمه بجودة عالية جدا</a>
+                            <a
+                              href="/designing/logo-design/1544772-%D8%A7%D9%84%D8%AA%D8%B9%D8%AF%D9%8A%D9%84-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D8%B4%D8%B9%D8%A7%D8%B1-%D9%88-%D8%A5%D8%B9%D8%A7%D8%AF%D8%A9-%D8%AA%D8%B5%D9%85%D9%8A%D9%85%D9%87-%D8%A8%D8%AC%D9%88%D8%AF%D8%A9-%D8%B9%D8%A7%D9%84%D9%8A%D8%A9-%D8%AC%D8%AF%D8%A7"
+                              title="التعديل على الشعار و إعادة تصميمه بجودة عالية جدا"
+                              >التعديل على الشعار و إعادة تصميمه بجودة عالية
+                              جدا</a
+                            >
                           </h5>
                         </div>
                       </div>
                     </div>
                     <div
-                      class="o-layout__item u-6@large u-6@medium u-12@small u-12@tiny u-margin-top@small odd_services_block">
+                      class="
+                        o-layout__item
+                        u-6@large
+                        u-6@medium
+                        u-12@small
+                        u-12@tiny
+                        u-margin-top@small
+                        odd_services_block
+                      "
+                    >
                       <div class="o-media">
                         <div class="o-media__right">
                           <a
-                            href="/programming/php-programming/1630231-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A7%D9%84%D9%85%D9%88%D8%A7%D9%82%D8%B9-%D9%85%D9%86-%D8%A7%D9%84%D8%B5%D9%81%D8%B1-%D8%A8-html5-css3-php-mysqli">
+                            href="/programming/php-programming/1630231-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A7%D9%84%D9%85%D9%88%D8%A7%D9%82%D8%B9-%D9%85%D9%86-%D8%A7%D9%84%D8%B5%D9%81%D8%B1-%D8%A8-html5-css3-php-mysqli"
+                          >
                             <img
                               src="https://khamsat.hsoubcdn.com/images/services/1696977/1132db714f8f0a52e3587d0662e5457e_thumb.jpg"
-                              width="95" height="56">
+                              width="95"
+                              height="56"
+                            />
                           </a>
                         </div>
                         <div class="o-media__body">
                           <h5>
-                            <a href="/programming/php-programming/1630231-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A7%D9%84%D9%85%D9%88%D8%A7%D9%82%D8%B9-%D9%85%D9%86-%D8%A7%D9%84%D8%B5%D9%81%D8%B1-%D8%A8-html5-css3-php-mysqli"
-                              title="تصميم وبرمجة المواقع من الصفر ب HTML5 &amp; CSS3 &amp; PHP &amp; MYSQLI">تصميم
-                              وبرمجة المواقع من الصفر ب HTML5 &amp; CSS3 &amp; PHP &amp; MYSQLI</a>
+                            <a
+                              href="/programming/php-programming/1630231-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A7%D9%84%D9%85%D9%88%D8%A7%D9%82%D8%B9-%D9%85%D9%86-%D8%A7%D9%84%D8%B5%D9%81%D8%B1-%D8%A8-html5-css3-php-mysqli"
+                              title="تصميم وبرمجة المواقع من الصفر ب HTML5 &amp; CSS3 &amp; PHP &amp; MYSQLI"
+                              >تصميم وبرمجة المواقع من الصفر ب HTML5 &amp; CSS3
+                              &amp; PHP &amp; MYSQLI</a
+                            >
                           </h5>
                         </div>
                       </div>
                       <div class="o-media">
                         <div class="o-media__right">
                           <a
-                            href="/programming/php-programming/1350300-%D8%A5%D8%B5%D9%84%D8%A7%D8%AD-%D8%AE%D9%85%D8%B3%D8%A9-%D8%A3%D8%AE%D8%B7%D8%A7%D8%A1-%D8%AF%D8%A7%D8%AE%D9%84-%D8%B3%D9%83%D8%B1%D9%8A%D8%A8%D8%AA">
+                            href="/programming/php-programming/1350300-%D8%A5%D8%B5%D9%84%D8%A7%D8%AD-%D8%AE%D9%85%D8%B3%D8%A9-%D8%A3%D8%AE%D8%B7%D8%A7%D8%A1-%D8%AF%D8%A7%D8%AE%D9%84-%D8%B3%D9%83%D8%B1%D9%8A%D8%A8%D8%AA"
+                          >
                             <img
                               src="https://khamsat.hsoubcdn.com/images/services/1154960/f60ac589b211520af9cddedffa01c0b5_thumb.jpg"
-                              width="95" height="56">
+                              width="95"
+                              height="56"
+                            />
                           </a>
                         </div>
                         <div class="o-media__body">
                           <h5>
-                            <a href="/programming/php-programming/1350300-%D8%A5%D8%B5%D9%84%D8%A7%D8%AD-%D8%AE%D9%85%D8%B3%D8%A9-%D8%A3%D8%AE%D8%B7%D8%A7%D8%A1-%D8%AF%D8%A7%D8%AE%D9%84-%D8%B3%D9%83%D8%B1%D9%8A%D8%A8%D8%AA"
-                              title="إصلاح خمسة أخطاء داخل سكريبت">إصلاح خمسة أخطاء داخل سكريبت</a>
+                            <a
+                              href="/programming/php-programming/1350300-%D8%A5%D8%B5%D9%84%D8%A7%D8%AD-%D8%AE%D9%85%D8%B3%D8%A9-%D8%A3%D8%AE%D8%B7%D8%A7%D8%A1-%D8%AF%D8%A7%D8%AE%D9%84-%D8%B3%D9%83%D8%B1%D9%8A%D8%A8%D8%AA"
+                              title="إصلاح خمسة أخطاء داخل سكريبت"
+                              >إصلاح خمسة أخطاء داخل سكريبت</a
+                            >
                           </h5>
                         </div>
                       </div>
                       <div class="o-media">
                         <div class="o-media__right">
                           <a
-                            href="/programming/php-programming/1163870-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A3%D9%88-%D8%AA%D8%B9%D8%AF%D9%8A%D9%84-%D9%88%D8%AD%D9%84-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D8%B3%D9%83%D8%B1%D9%8A%D8%A8%D8%AA%D8%A7%D8%AA-php">
+                            href="/programming/php-programming/1163870-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A3%D9%88-%D8%AA%D8%B9%D8%AF%D9%8A%D9%84-%D9%88%D8%AD%D9%84-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D8%B3%D9%83%D8%B1%D9%8A%D8%A8%D8%AA%D8%A7%D8%AA-php"
+                          >
                             <img
                               src="https://khamsat.hsoubcdn.com/images/services/797357/3c176700a381ca907efcda8fce610909_thumb.jpg"
-                              width="95" height="56">
+                              width="95"
+                              height="56"
+                            />
                           </a>
                         </div>
                         <div class="o-media__body">
                           <h5>
-                            <a href="/programming/php-programming/1163870-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A3%D9%88-%D8%AA%D8%B9%D8%AF%D9%8A%D9%84-%D9%88%D8%AD%D9%84-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D8%B3%D9%83%D8%B1%D9%8A%D8%A8%D8%AA%D8%A7%D8%AA-php"
-                              title="برمجة أو تعديل وحل مشاكل سكريبتات php">برمجة أو تعديل وحل مشاكل سكريبتات php</a>
+                            <a
+                              href="/programming/php-programming/1163870-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A3%D9%88-%D8%AA%D8%B9%D8%AF%D9%8A%D9%84-%D9%88%D8%AD%D9%84-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D8%B3%D9%83%D8%B1%D9%8A%D8%A8%D8%AA%D8%A7%D8%AA-php"
+                              title="برمجة أو تعديل وحل مشاكل سكريبتات php"
+                              >برمجة أو تعديل وحل مشاكل سكريبتات php</a
+                            >
                           </h5>
                         </div>
                       </div>
-
-
                     </div>
                   </div>
                 </div>
@@ -381,43 +529,54 @@
               </div>
               <div class="c-card__body u-no--padding">
                 <div class="reviews_block_list" id="reviews_list">
-                  <div class="discussion-item review" id="review-621742" *ngFor="let rate of rates">
+                  <div
+                    class="discussion-item review"
+                    id="review-621742"
+                    *ngFor="let rate of rates"
+                  >
                     <div class="profile-details">
                       <div class="o-media">
                         <div class="o-media__right">
                           <a href="/user/al3r18y">
-                            <img class="u-circle img-thumbnail img--small"
-                              src="https://avatars.hsoubcdn.com/d94f0dfec40b1d874dd46e7fdfd6ae10?s=128">
+                            <img
+                              class="u-circle img-thumbnail img--small"
+                              src="https://avatars.hsoubcdn.com/d94f0dfec40b1d874dd46e7fdfd6ae10?s=128"
+                            />
                           </a>
                         </div>
                         <div class="o-media__body">
                           <div class="o-layout o-layout--flex">
-                            <div class="o-layout__item u-12@large u-12@medium u-12@tiny">
+                            <div
+                              class="
+                                o-layout__item
+                                u-12@large u-12@medium u-12@tiny
+                              "
+                            >
                               <h5 class="u-margin-bottom--tiny u-block-inline">
                                 <div class="meta--user">
                                   <i class="fa fa-thumbs-up"></i>
-                                  <a href="#">{{rate.userfullname}}</a>
+                                  <a href="#">{{ rate.userfullname }}</a>
                                 </div>
                               </h5>
                               <div class="u-block@small meta--date">
                                 <i class="fa fa-clock-o fa-fw"></i>
-                                <span dir="ltr" title="01/06/2021 20:40:43 GMT">{{rate.date |date:'short' }}</span>
+                                <span
+                                  dir="ltr"
+                                  title="01/06/2021 20:40:43 GMT"
+                                  >{{ rate.date | date: "short" }}</span
+                                >
                               </div>
                             </div>
-
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="discussion-message">
                       <article>
-                        {{rate.content }}
+                        {{ rate.content }}
                       </article>
-
                     </div>
                   </div>
-
-
                 </div>
               </div>
             </div>
@@ -428,18 +587,28 @@
               </div>
               <div class="c-card__body">
                 <ul class="c-list c-list--tags">
-
-                  <li class="c-list__item" *ngFor="let keyWord of keyWords" style="margin-left: 5px;">
-                    <a class="c-button c-button--default c-button--ghost tag" href="#">{{keyWord}}</a>
+                  <li
+                    class="c-list__item"
+                    *ngFor="let keyWord of keyWords"
+                    style="margin-left: 5px"
+                  >
+                    <a
+                      class="c-button c-button--default c-button--ghost tag"
+                      href="#"
+                      >{{ keyWord }}</a
+                    >
                   </li>
-
                 </ul>
               </div>
             </div>
 
-
-            <input type="hidden" name="service_id" id="service_id" value="1748333">
-            <input type="hidden" id="user_id" name="user_id" value="1708956">
+            <input
+              type="hidden"
+              name="service_id"
+              id="service_id"
+              value="1748333"
+            />
+            <input type="hidden" id="user_id" name="user_id" value="1708956" />
 
             <div id="add_to_collection_dialog" class="hidden">
               <div id="add_to_collection_form_wrapper" class="dialog_form">
@@ -453,11 +622,9 @@
                 </div>
               </div>
             </div>
-
           </div>
 
           <div class="o-layout__item u-3@large" id="service_sidebar">
-
             <div class="c-card">
               <div class="c-card__head">
                 <h3>تقييم الخدمة</h3>
@@ -503,9 +670,11 @@
             </div>
 
             <div class="c-card u-text--center">
-              <a href="/guarantee"><img
+              <a href="/guarantee"
+                ><img
                   src="https://khamsat.hsoubcdn.com/assets/images/guarantee-0aacaad811ba8969b175a0d2ca1b815620a3860fc0312f63d3c3316e31b5a5d7.png"
-                  width="100%"></a>
+                  width="100%"
+              /></a>
             </div>
 
             <div class="c-card">
@@ -515,55 +684,72 @@
               <div class="c-card__body">
                 <ul class="c-list c-list--social u-text--center">
                   <li class="c-list__item twitter">
-                    <a href="https://twitter.com/intent/tweet?text=%D8%A5%D8%B5%D9%84%D8%A7%D8%AD%20%D8%A3%D8%AE%D8%B7%D8%A7%D8%A1%20%D9%88%20%D8%A7%D9%84%D8%AA%D8%B9%D8%AF%D9%8A%D9%84%20%D8%B9%D9%84%D9%89%20%D8%A7%D9%84%D9%85%D9%88%D8%A7%D9%82%D8%B9%20%D9%88%D8%A7%D9%84%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%D8%A7%D8%AA%20PHP%20Codeigniter&amp;via=KhamsatDotCom&amp;related=KhamsatDotCom&amp;url=https://khamsat.com/programming/1748333"
-                      target="_blank" rel="nofollow" class="c-list__link">
+                    <a
+                      href="https://twitter.com/intent/tweet?text=%D8%A5%D8%B5%D9%84%D8%A7%D8%AD%20%D8%A3%D8%AE%D8%B7%D8%A7%D8%A1%20%D9%88%20%D8%A7%D9%84%D8%AA%D8%B9%D8%AF%D9%8A%D9%84%20%D8%B9%D9%84%D9%89%20%D8%A7%D9%84%D9%85%D9%88%D8%A7%D9%82%D8%B9%20%D9%88%D8%A7%D9%84%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%D8%A7%D8%AA%20PHP%20Codeigniter&amp;via=KhamsatDotCom&amp;related=KhamsatDotCom&amp;url=https://khamsat.com/programming/1748333"
+                      target="_blank"
+                      rel="nofollow"
+                      class="c-list__link"
+                    >
                       <i class="fa fa-twitter"></i>
                     </a>
                   </li>
                   <li class="c-list__item facebook">
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://khamsat.com/programming/1748333"
-                      target="_blank" rel="nofollow" class="c-list__link">
+                    <a
+                      href="https://www.facebook.com/sharer/sharer.php?u=https://khamsat.com/programming/1748333"
+                      target="_blank"
+                      rel="nofollow"
+                      class="c-list__link"
+                    >
                       <i class="fa fa-facebook"></i>
                     </a>
                   </li>
                   <li class="c-list__item linkedin">
-                    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://khamsat.com/programming/1748333"
-                      target="_blank" rel="nofollow" class="c-list__link">
+                    <a
+                      href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://khamsat.com/programming/1748333"
+                      target="_blank"
+                      rel="nofollow"
+                      class="c-list__link"
+                    >
                       <i class="fa fa-linkedin"></i>
                     </a>
                   </li>
                 </ul>
               </div>
             </div>
-
           </div>
-        </div><!--  END o-layout -->
+        </div>
+        <!--  END o-layout -->
       </div>
       <!--  END content -->
     </div>
     <!--  END o-wrapper -->
+  
 
-  </div>
-</div>
-
-
-
-<div class="alertify " style="display: none;" #alertModel>
+<div class="alertify" style="display: none" #alertModel>
   <div class="ajs-dimmer"></div>
   <div class="ajs-modal" tabindex="0" style="">
-    <div class="ajs-dialog" tabindex="0"><button class="ajs-reset"></button>
-      <div class="ajs-commands"><button class="ajs-pin"></button><button class="ajs-maximize"></button><button
-          class="ajs-close"></button></div>
+    <div class="ajs-dialog" tabindex="0">
+      <button class="ajs-reset"></button>
+      <div class="ajs-commands">
+        <button class="ajs-pin"></button><button class="ajs-maximize"></button
+        ><button class="ajs-close"></button>
+      </div>
       <div class="ajs-header">إشعار</div>
       <div class="ajs-body">
         <div class="ajs-content">تم إضافة الخدمة الى سلة المشتريات</div>
       </div>
       <div class="ajs-footer">
         <div class="ajs-auxiliary ajs-buttons"></div>
-        <div class="ajs-primary ajs-buttons"><button class="ajs-button ajs-ok" (click)="buyNowClick()">ادفع الآن</button><button
-            class="ajs-button ajs-cancel" (click)="cancelClick()">تصفح المزيد</button></div>
+        <div class="ajs-primary ajs-buttons">
+          <button class="ajs-button ajs-ok" (click)="buyNowClick()">
+            ادفع الآن</button
+          ><button class="ajs-button ajs-cancel" (click)="cancelClick()">
+            تصفح المزيد
+          </button>
+        </div>
       </div>
-      <div class="ajs-handle"></div><button class="ajs-reset"></button>
+      <div class="ajs-handle"></div>
+      <button class="ajs-reset"></button>
     </div>
   </div>
 </div>

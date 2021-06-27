@@ -38,6 +38,7 @@ export class AuthenticationService {
       localStorage.removeItem('currentUser');
       this.currentUserSubject.next(null);
   }
+
   getUserId(){
     if(localStorage.getItem('currentUser')){
         let token = localStorage.getItem('currentUser');

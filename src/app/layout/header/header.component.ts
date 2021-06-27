@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Notification } from 'src/app/models/notification';
 import { AuthenticationService } from '../../../Services/authentication.service';
+import { Title } from '@angular/platform-browser';
 import { RegisterService } from 'src/Services/register.service';
 
 
@@ -14,11 +15,10 @@ import { RegisterService } from 'src/Services/register.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-
-  @ViewChild("navbar")
+  @ViewChild('navbar')
   navbar!: ElementRef;
 
   itemsNumber: number = 0;
@@ -26,17 +26,23 @@ export class HeaderComponent implements OnInit {
   isAcctive = false;
   isAside = false;
   isNotifyShow = false;
-  userName: string;
+  
 
-  clickEventsubscription: Subscription = new Subscription;
+  clickEventsubscription: Subscription = new Subscription();
 
+  constructor(
+    private subjectService: SubjectService,
+    private cartService: CartService,
+    public signalRService: SignalRService,
+    private http: HttpClient,
+    public _authenticationService: AuthenticationService,
+    private titlePage: Title
+  ) {
+    signalRService.getNotifyByUserId();
+  }
 
-  constructor(private subjectService: SubjectService,
-    public registrationService: RegisterService,
-    private cartService: CartService
-    , public signalRService: SignalRService, private http: HttpClient,
-    public _authenticationService: AuthenticationService) {
-    signalRService.getNotifyByUserId()
+  setTitle(title: string) {
+    this.titlePage.setTitle(title);
   }
 
   ngOnInit(): void {
@@ -46,53 +52,50 @@ export class HeaderComponent implements OnInit {
 
 
 
-    this.clickEventsubscription = this.subjectService.getClickEvent().subscribe(() => {
-      this.calcItemsNum();
-    })
-    this.calcItemsNum()
-
+    this.clickEventsubscription = this.subjectService
+      .getClickEvent()
+      .subscribe(() => {
+        this.calcItemsNum();
+      });
+    this.calcItemsNum();
 
     this.signalRService.startConnection();
     this.signalRService.addTransferDataListener();
-
   }
   hideAll = (e: Event): void => {
-
     if (this.isNotifyShow || this.isAside || this.isAcctive) {
-      e.stopPropagation()
+      e.stopPropagation();
     }
     this.isAcctive = this.isAside = this.isNotifyShow = false;
-  }
+  };
 
-  isUserLoggedIn():boolean{
+  isUserLoggedIn(): boolean {
     return this._authenticationService.isLoggedIn();
   }
 
-
   calcItemsNum() {
-    this.cartService.getCartByUserId()
-      .subscribe(d => this.itemsNumber = d.length)
+    this.cartService
+      .getCartByUserId()
+      .subscribe((d) => (this.itemsNumber = d.length));
   }
   ngOnDestroy() {
     window.removeEventListener('scroll', this.scroll, true);
     window.removeEventListener('click', this.hideAll, true);
   }
 
-
   prevScrollpos = window.pageYOffset;
   scroll = (): void => {
     var currentScrollPos = window.pageYOffset;
     if (this.prevScrollpos > currentScrollPos) {
-      this.navbar.nativeElement.style.top = "0";
+      this.navbar.nativeElement.style.top = '0';
     } else {
-      this.navbar.nativeElement.style.top = "-60px";
+      this.navbar.nativeElement.style.top = '-60px';
     }
     this.prevScrollpos = currentScrollPos;
     if (this.prevScrollpos < 70) {
-      this.navbar.nativeElement.style.top = "0";
+      this.navbar.nativeElement.style.top = '0';
     }
   };
-
 
   dropdownMenuToggle() {
     this.isAcctive = !this.isAcctive;
@@ -103,7 +106,6 @@ export class HeaderComponent implements OnInit {
   notfiyToggle() {
     this.isNotifyShow = !this.isNotifyShow;
     this.signalRService.newNotificationsCount = 0;
-
   }
   GetUserID() {
     var userId =  this._authenticationService.getUserId();

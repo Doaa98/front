@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header ></app-header>
 <div class="hsoub-container">
   <div class="hsoub-content">
     <div class="o-wrapper">
@@ -14,8 +14,72 @@
 
         <div class="o-layout o-layout--flex">
           <div class="o-layout__item u-12@medium u-12@tiny"></div>
-
           <div class="o-layout__item u-12@tiny u-8@large u-2--offset@large">
+            <div
+              *ngIf="title?.errors?.required && title?.touched"
+              id="message"
+              class="c-alert c-alert--error"
+            >
+              <span>أدخل عنوان الخدمة</span>
+            </div>
+            <div
+              *ngIf="title?.errors?.minlength"
+              id="message"
+              class="c-alert c-alert--error"
+            >
+              <span>العنوان الذي أدخلته قصير جداً</span>
+            </div>
+
+            <div
+              *ngIf="subCategoryId?.errors?.required && subCategoryId?.touched"
+              id="message"
+              class="c-alert c-alert--error"
+            >
+              <span>اختر تصنيف الخدمة</span>
+            </div>
+
+            <div
+              *ngIf="description?.errors?.required && description?.touched"
+              id="message"
+              class="c-alert c-alert--error"
+            >
+              <span>أدخل وصف الخدمة</span>
+            </div>
+            <div
+              *ngIf="description?.errors?.minlength"
+              id="message"
+              class="c-alert c-alert--error"
+            >
+              <span>وصف الخدمة الذي أدخلته غير كافي</span>
+            </div>
+
+            <div
+              *ngIf="localImage?.errors?.required && localImage?.touched"
+              id="message"
+              class="c-alert c-alert--error"
+            >
+              <span>يرجى إختيار صورة مناسبة تعبر عن الخدمة</span>
+            </div>
+
+            <div
+              *ngIf="keywords?.errors?.required && keywords?.touched"
+              id="message"
+              class="c-alert c-alert--error"
+            >
+              <span>أدخل الكلمات المفتاحية</span>
+            </div>
+
+            <div
+              *ngIf="
+                InstructionsToBuyer?.errors?.required &&
+                InstructionsToBuyer?.touched
+              "
+              id="message"
+              class="c-alert c-alert--error"
+            >
+              <span>أدخل تعليمات للمشتري</span>
+            </div>
+
             <div
               class="
                 o-layout__item
@@ -59,6 +123,7 @@
                       maxlength="60"
                       value=""
                       formControlName="title"
+                      [class.is.ivalid]="title?.invalid"
                     />
                     <p class="c-form__hb">
                       أدخل عنواناً واضحاً باللغة العربية يصف الخدمة التي تريد أن
@@ -142,463 +207,17 @@
                     </p>
                   </div>
 
-                  <!-- <div class="u-margin-bottom">
-                    <label>معرض الخدمة:</label>
-                    <div id="service_gallery">
-                      <div id="gallery_new" class="">
-                        <div class="u-margin-bottom">
-                          <a
-
-                            class="gitem_add_btn c-button c-button--primary"
-                            #addImgBtn
-                          >
-                            <i class="fa fa-picture-o"></i>
-                            <span style="margin-right: 3%"
-                              >أضف صورة أو فيديو</span
-                            >
-                          </a>
-                        </div>
-                        <p class="u-margin-bottom--small">
-                          القياس: (800x470) بكسل · الحجم الأقصى: 5MB. العدد
-                          المسموح: 10 ملفات
-                        </p>
-                        <p class="padding3">
-                          اختيار فيديو أو صورة مصممة بشكل جيد ستظهر خدمتك بشكل
-                          احترافي وتزيد من مبيعاتك.
-                        </p>
-                      </div>
-                      <div
-                        id="gallery_edit"
-                        class="hidden"
-                        style="display: none"
-                      >
-                        <div id="gallery_edit_btns">
-                          <a href="#" class="gitem_add_btn">
-                            <i class="fa fa-picture-o"></i>
-                            <span>أضف المزيد</span>
-                          </a>
-                          <a href="#" class="gitem_edit_btn">
-                            <i class="fa fa-edit"></i> تعديل
-                          </a>
-                          <a href="#" class="gitem_delete_btn">
-                            <i class="fa fa-times"></i> حذف
-                          </a>
-                        </div>
-                      </div>
-                      <div
-                        id="gallery_items"
-                        class="flickity-enabled flickity-rtl"
-                        tabindex="0"
-                      >
-                        <div
-                          class="flickity-viewport"
-                          style="height: 0px; touch-action: pan-y"
-                        >
-                          <div class="flickity-slider" style="right: 0px"></div>
-                        </div>
-                        <button
-                          class="
-                            flickity-button flickity-prev-next-button
-                            previous
-                          "
-                          type="button"
-                          disabled=""
-                          aria-label="Previous"
-                          style="display: none"
-                        >
-                          <svg
-                            class="flickity-button-icon"
-                            viewBox="0 0 100 100"
-                          >
-                            <path
-                              d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z"
-                              class="arrow"
-                              transform="translate(100, 100) rotate(180) "
-                            ></path>
-                          </svg></button
-                        ><button
-                          class="flickity-button flickity-prev-next-button next"
-                          type="button"
-                          disabled=""
-                          aria-label="Next"
-                          style="display: none"
-                        >
-                          <svg
-                            class="flickity-button-icon"
-                            viewBox="0 0 100 100"
-                          >
-                            <path
-                              d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z"
-                              class="arrow"
-                            ></path>
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-
-                    <div
-                      id="service_gallery_dialog"
-                      class="dialog"
-                      style="
-                        position: fixed;
-                        top: 10%;
-                        left: 0px;
-                        min-width: 1472px;
-                        max-width: 1474px;
-                      "
-                    >
-                      <div
-                        formGroupName="serviceGallery"
-                        class="dialog_wrapper dialog_wrapper--large"
-                      >
-                        <div
-                          id="service_gallery_form_wrapper"
-                          class="
-                            dialog_form
-                            o-layout__item
-                            u-12@tiny u-8@large
-                            u-2--offset@large
-                          "
-                        >
-                          <div class="c-card">
-                            <div class="c-card__head">
-                              <h2>أضف صورة أو فيديو</h2>
-                            </div>
-                            <div class="c-card__body">
-                              <div
-                                class="
-                                  c-alert c-alert--danger
-                                  dialog_message
-                                  hidden
-                                "
-                              ></div>
-                              <div class="gallery_uploader">
-                                <div
-
-                                  class="
-                                    u-margin-bottom@small
-                                    gallery_uploader_option
-                                  "
-                                >
-                                  <label for="add_image_from_device">
-                                    <input
-                                      type="radio"
-                                      name="add_gitem"
-                                      id="add_image_from_device"
-                                      value="image"
-                                      checked="checked"
-                                      formControlName="loclaImage"
-                                    />
-                                    <span>صورة من جهازي</span>
-                                  </label>
-                                </div>
-                                <div
-                                  (click)="showInputUrlImg()"
-                                  class="
-                                    u-margin-bottom@small
-                                    gallery_uploader_option
-                                  "
-                                >
-                                  <label for="add_image_url">
-                                    <input
-                                      type="radio"
-                                      name="add_gitem"
-                                      id="add_image_url"
-                                      value="image_url"
-                                      formControlName='urlImage'
-                                    />
-                                    <span>صورة من رابط</span>
-                                  </label>
-                                </div>
-                                <div
-                                  (click)="showInputYoutube()"
-                                  class="gallery_uploader_option"
-                                >
-                                  <label for="add_youtube_url">
-                                    <input
-                                      type="radio"
-                                      name="add_gitem"
-                                      id="add_youtube_url"
-                                      value="youtube"
-                                      formcontrolName='urlYoutube'
-                                    />
-                                    <span>فيديو من يوتيوب</span>
-                                  </label>
-                                </div>
-                              </div>
-
-                              <div
-                                id="add_gitem_image"
-                                class="row add_gitem_input"
-                                *ngIf="isShowChooseImg"
-                              >
-                                <div id="gitem_image_upload" class="tcenter">
-                                  <input
-                                    type="file"
-                                    multiple="multiple"
-                                    accept=".jpeg, .jpg, .png, .gif"
-                                    style="
-                                      position: absolute;
-                                      top: 0px;
-                                      height: 0px;
-                                      width: 0px;
-                                    "
-
-                                  />
-
-                                  <div
-                                    class="dz-default dz-message u-margin-top"
-                                  >
-                                    <div
-
-                                      class="selected-images u-margin-bottom"
-                                    >
-                                      <div
-                                        class="
-                                          selected-image
-                                          dz-preview dz-image-preview
-                                        "
-                                        *ngFor="
-                                          let img of imagesFile;
-                                          let i = index
-                                        "
-                                      >
-                                        <div class="o-media">
-                                          <div
-                                            class="
-                                              o-media__right
-                                              u-no--margin u-no--padding
-                                            "
-                                          >
-                                            <img
-                                              class="imgPath"
-                                              data-dz-thumbnail=""
-                                              alt="1615720214011.jpg"
-                                              [src]="createImgPath(img.name)"
-                                            />
-                                          </div>
-                                          <div
-                                            class="
-                                              o-media__body
-                                              u-padding-right
-                                            "
-                                          >
-                                            <h5 class="u-margin-bottom--small">
-                                              <span
-                                                class="
-                                                  dz-success-mark
-                                                  u-clr--primary
-                                                "
-                                                style="display: none"
-                                              >
-                                                <i
-                                                  class="fa fa-check-circle-o"
-                                                ></i>
-                                              </span>
-                                              <span
-                                                data-dz-name=""
-                                                class="pull-right dz-name"
-                                                >{{ img.name }}</span
-                                              >
-                                              <span class="pull-left">
-                                                <a
-                                                  data-dz-remove=""
-                                                  class="
-                                                    c-button c-button--danger
-                                                    dz-delete-button
-                                                  "
-                                                >
-                                                  <i class="fa fa-times"></i>
-                                                  حذف
-                                                </a></span
-                                              >
-                                            </h5>
-                                            <div
-                                              class="
-                                                u-margin-bottom--small
-                                                pull-right
-                                                clear
-                                              "
-                                            >
-                                              <span class="dz-size">
-                                                حجم الملف:
-                                                <span data-dz-size=""
-                                                  ><span
-                                                    >{{ img.size }} ميغا</span
-                                                  ></span
-                                                >
-                                              </span>
-                                            </div>
-                                            <div
-                                              class="dz-error-message clear"
-                                              data-dz-errormessage=""
-                                            ></div>
-                                            <div class="dz-progress">
-                                              <span
-                                                class="dz-upload"
-                                                data-dz-uploadprogress=""
-                                              ></span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <a
-                                      class="
-                                        c-button c-button--primary
-                                        mainbtn
-                                        service_image_u_btn
-                                        dz-max-files-reached dz-clickable
-                                        c-button--ghost
-                                      "
-
-                                    >
-                                      <i class="fa fa-folder"></i> اختيار الصور
-                                    </a>
-                                    <a
-                                      class="
-                                        c-button c-button--primary
-                                        mainbtn
-                                        upload_seleted_images_btn
-                                      "
-                                      *ngIf="isShowUploadImgBtn"
-                                    >
-                                      <i class="fa fa-upload"></i> رفع الصور
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                              <div
-                                *ngIf="isShowInputUrlImg"
-                                id="add_gitem_image_url"
-                                class="row add_gitem_input"
-                              >
-                                <div class="u-margin-bottom">
-                                  <input
-                                    type="text"
-                                    id="image_url"
-                                    class="c-form__control u-text--ltr"
-                                    placeholder="رابط الصورة"
-                                    formControlName="urlImage"
-                                  />
-                                </div>
-                                <button
-                                  type="button"
-                                  class="
-                                    c-button c-button--primary
-                                    remote_image_btn
-                                  "
-                                >
-                                  <i class="fa fa-upload"></i> أضف الصورة
-                                </button>
-                              </div>
-                              <div
-                                *ngIf="isShowInputYoutube"
-                                id="add_gitem_youtube"
-                                class="row add_gitem_input"
-                              >
-                                <div class="u-margin-bottom">
-                                  <input
-                                    type="text"
-                                    id="youtube_url"
-                                    class="c-form__control u-text--ltr"
-                                    placeholder="رابط فيديو يوتيوب"
-                                    formControlName="urlYoutube"
-                                  />
-                                </div>
-                                <button
-                                  type="button"
-                                  class="
-                                    c-button c-button--primary
-                                    remote_image_btn
-                                  "
-                                >
-                                  <i class="fa fa-upload"></i> أضف الفيديو
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-
-                    <div id="alert_dialog" class="hidden">
-                      <div id="alert_form_wrapper" class="dialog_form">
-                        <h2 class="dialog_title"></h2>
-                        <div class="dialog_message hidden"></div>
-                        <div class="dialog_content"></div>
-                        <div class="dialog_buttons"></div>
-                      </div>
-                    </div>
-
-                    <div id="service_gallery_temaplate">
-                      <div class="selected-image dz-preview hidden">
-                        <div class="o-media">
-                          <div
-                            class="o-media__right u-no--margin u-no--padding"
-                          >
-                            <img data-dz-thumbnail="" />
-                          </div>
-                          <div class="o-media__body u-padding-right">
-                            <h5 class="u-margin-bottom--small">
-                              <span
-                                class="dz-success-mark u-clr--primary"
-                                style="display: none"
-                              >
-                                <i class="fa fa-check-circle-o"></i>
-                              </span>
-                              <span
-                                data-dz-name=""
-                                class="pull-right dz-name"
-                              ></span>
-                              <span class="pull-left">
-                                <a
-                                  data-dz-remove=""
-                                  class="
-                                    c-button c-button--danger
-                                    dz-delete-button
-                                  "
-                                >
-                                  <i class="fa fa-times"></i> حذف
-                                </a></span
-                              >
-                            </h5>
-                            <div
-                              class="u-margin-bottom--small pull-right clear"
-                            >
-                              <span class="dz-size">
-                                حجم الملف:
-                                <span data-dz-size=""></span>
-                              </span>
-                            </div>
-                            <div
-                              class="dz-error-message clear"
-                              data-dz-errormessage=""
-                            ></div>
-                            <div class="dz-progress">
-                              <span
-                                class="dz-upload"
-                                data-dz-uploadprogress=""
-                              ></span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
-
                   <div class="u-margin-bottom">
                     <label>معرض الخدمة:</label>
                     <div id="service_gallery">
-                      <div *ngIf='isShowAddImageBtn' id="gallery_new" class="">
+                      <div *ngIf="isShowAddImageBtn" id="gallery_new" class="">
                         <div class="u-margin-bottom">
                           <a
                             class="gitem_add_btn c-button c-button--primary"
                             (click)="showServiceGallery($event)"
                           >
                             <i class="fa fa-picture-o"></i>
-                            <span>أضف صورة أو فيديو</span>
+                            <span>أضف صورة</span>
                           </a>
                         </div>
                         <p class="u-margin-bottom--small">
@@ -606,49 +225,54 @@
                           المسموح: 10 ملفات
                         </p>
                         <p class="padding3">
-                          اختيار فيديو أو صورة مصممة بشكل جيد ستظهر خدمتك بشكل
+                          اختيار صورة مصممة بشكل جيد ستظهر خدمتك بشكل
                           احترافي وتزيد من مبيعاتك.
                         </p>
                       </div>
                       <div
                         id="gallery_edit"
                         class="hidden"
-                        [style.display]='galleryEditDisplay'
+                        [style.display]="galleryEditDisplay"
                       >
-                        <div id="gallery_edit_btns" >
-                          <a href="#" class="gitem_add_btn">
-                            <i class="fa fa-picture-o"></i>
-                            <span>أضف المزيد</span>
-                          </a>
-                          <a href="#" class="gitem_edit_btn">
+                        <div
+                          (click)="editInServiceGallery($event)"
+                          id="gallery_edit_btns"
+                        >
+                          <a style="cursor: pointer" class="gitem_edit_btn">
                             <i class="fa fa-edit"></i> تعديل
-                          </a>
-                          <a href="#" class="gitem_delete_btn">
-                            <i class="fa fa-times"></i> حذف
                           </a>
                         </div>
                       </div>
-                      <div  id="gallery_items" *ngIf='isShowGalleryItems' class="flickity-enabled flickity-rtl" tabindex="0">
-                        <div  class="flickity-viewport" style="height: 397.125px; touch-action: pan-y;">
-                          <div  class="flickity-slider" style="right: 0px; transform: translateX(0%);">
-                            <div  class="gitem is-selected" id="gf-0" aria-selected="true" style="position: absolute; right: 0%;">
-                              <img #slides class="slide-container active" *ngFor='let img of imagesFile let i = index' [src]="createImgPath(img.name)" width="100%" attr-file="uploads/22-06-2021/1846337-4c3dcac5ada7b.jpg">
+                      <div
+                        id="gallery_items"
+                        *ngIf="isShowGalleryItems"
+                        class="flickity-enabled flickity-rtl"
+                        tabindex="0"
+                      >
+                        <div
+                          class="flickity-viewport"
+                          style="height: 397.125px; touch-action: pan-y"
+                        >
+                          <div
+                            class="flickity-slider"
+                            style="right: 0px; transform: translateX(0%)"
+                          >
+                            <div
+                              class="gitem is-selected"
+                              id="gf-0"
+                              aria-selected="true"
+                              style="position: absolute; right: 0%"
+                            >
+                              <img
+                                class="slide-container active"
+                                *ngFor="let img of imagesFile; let i = index"
+                                [src]="createImgPath(img.name)"
+                                width="100%"
+                                attr-file="uploads/22-06-2021/1846337-4c3dcac5ada7b.jpg"
+                              />
                             </div>
                           </div>
                         </div>
-                        <button onclick="prev(slides)" *ngIf='isShowpreviousBtn' class="flickity-button flickity-prev-next-button previous" type="button" aria-label="Previous">
-                          <svg class="flickity-button-icon" viewBox="0 0 100 100">
-                            <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180) ">
-
-                            </path>
-                          </svg>
-                        </button>
-                        <button onclick="next(slides)" *ngIf='isShowNextBtn' class="flickity-button flickity-prev-next-button next" type="button" aria-label="Next">
-                          <svg class="flickity-button-icon" viewBox="0 0 100 100">
-                            <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow">
-                            </path>
-                          </svg>
-                        </button>
                       </div>
                     </div>
 
@@ -663,7 +287,7 @@
                       </div>
                     </div>
 
-                    <div id="service_gallery_temaplate" class='hidden'>
+                    <div id="service_gallery_temaplate" class="hidden">
                       <div class="selected-image dz-preview">
                         <div class="o-media">
                           <div
@@ -947,17 +571,83 @@
                       name="token"
                       value="5c6c7e911426ec1404acefbf900e458173eca3d3"
                     />
-                    <button type="submit" class="c-button c-button--primary">
+                    <button
+                      *ngIf="!isShowServiceStatus"
+                      type="submit"
+                      class="c-button c-button--primary"
+                    >
                       أضف الخدمة
                     </button>
                   </div>
+
+                  <!-- <div *ngIf="isShowServiceStatus">
+                    <div class="u-margin-bottom">
+                      <label>الحالة:</label>
+                      <div class="c-form__select">
+                        <select name="running">
+                          <option value="true" selected="selected">تعمل</option>
+                          <option value="false">
+                            إيقاف مؤقت (لا أريد استقبال مزيد من الطلبات)
+                          </option>
+                        </select>
+                      </div>
+                      <p class="c-form__hb">
+                        حدد إذا كنت تريد تفعيل الخدمة أو إيقافها مؤقتاً
+                      </p>
+                    </div> -->
+
+                    <!-- <div class="o-layout o-layout--flex">
+                      <div
+                        class="o-layout__item u-3@large u-6@medium u-12@tiny"
+                      >
+                        <input
+                          id="user_token"
+                          type="hidden"
+                          name="token"
+                          value="5c6c7e911426ec1404acefbf900e458173eca3d3"
+                        />
+                        <button
+                          type="submit"
+                          class="c-button c-button--primary c-button--block"
+                        >
+                          تحديث
+                        </button>
+                      </div>
+                      <div
+                        class="
+                          o-layout__item
+                          u-3@large
+                          u-6--offset@large
+                          u-6@medium u-12@tiny u-margin-top@small
+                        "
+                      >
+                        <input
+                          id="service_id"
+                          name="service_id"
+                          type="hidden"
+                          value="1784628"
+                        />
+                        <a
+                          id="delete_service"
+                          href="#"
+                          class="
+                            c-button
+                            c-button--danger
+                            c-button--block
+                            c-button--ghost
+                          "
+                          >إحذف هذه الخدمة</a
+                        >
+                      </div>
+                    </div>
+                  </div> -->
+
+              
                 </form>
               </div>
             </div>
 
-            <script>
-              
-            </script>
+            <script></script>
           </div>
         </div>
         <!--  END o-layout -->
@@ -967,232 +657,249 @@
     <!--  END o-wrapper -->
   </div>
 </div>
-
 <div
-  *ngIf="isShowModal"
-  class="
-    alertify
-    ajs-no-padding ajs-no-overflow ajs-frameless ajs-closable
-    tips_and_advice
+*ngIf="isShowModal"
+class="
+  alertify
+  ajs-no-padding ajs-no-overflow ajs-frameless ajs-closable
+  tips_and_advice
+"
+>
+<div class="ajs-dimmer"></div>
+<div
+  class="ajs-modal"
+  tabindex="0"
+  style="
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
   "
 >
-  <div class="ajs-dimmer"></div>
-  <div
-    class="ajs-modal"
-    tabindex="0"
-    style="margin-top: 0px; margin-left: 0px; margin-right: 0px"
-  >
-    <div class="ajs-dialog" tabindex="0">
-      <button class="ajs-reset"></button>
-      <div class="ajs-commands">
-        <button class="ajs-pin"></button><button class="ajs-maximize"></button
-        ><button
-          *ngIf="isShowModal"
-          (click)="showModal()"
-          class="ajs-close"
-        ></button>
-      </div>
-      <div class="ajs-header">5 نصائح لقبول خدماتك</div>
-      <div class="ajs-body">
-        <div class="ajs-content">
-          <iframe
-            frameborder="no"
-            width="100%"
-            height="100%"
-            src="https://www.youtube.com/embed/RpblZBFRr1k?enablejsapi=1&amp;rel=0&amp;showinfo=0"
-          ></iframe>
-        </div>
-      </div>
-      <div class="ajs-footer">
-        <div class="ajs-auxiliary ajs-buttons"></div>
-        <div class="ajs-primary ajs-buttons">
-          <button class="ajs-button">undefined</button>
-        </div>
-      </div>
-      <div class="ajs-handle"></div>
-      <button class="ajs-reset"></button>
+  <div class="ajs-dialog" tabindex="0">
+    <button class="ajs-reset"></button>
+    <div class="ajs-commands">
+      <button class="ajs-pin"></button
+      ><button class="ajs-maximize"></button
+      ><button
+        *ngIf="isShowModal"
+        (click)="showModal()"
+        class="ajs-close"
+      ></button>
     </div>
+    <div class="ajs-header">5 نصائح لقبول خدماتك</div>
+    <div class="ajs-body">
+      <div class="ajs-content">
+        <iframe
+          frameborder="no"
+          width="100%"
+          height="100%"
+          src="https://www.youtube.com/embed/RpblZBFRr1k?enablejsapi=1&amp;rel=0&amp;showinfo=0"
+        ></iframe>
+      </div>
+    </div>
+    <div class="ajs-footer">
+      <div class="ajs-auxiliary ajs-buttons"></div>
+      <div class="ajs-primary ajs-buttons">
+        <button class="ajs-button">undefined</button>
+      </div>
+    </div>
+    <div class="ajs-handle"></div>
+    <button class="ajs-reset"></button>
   </div>
+</div>
 </div>
 
 <div
-  id="service_gallery_dialog"
-  class="dialog"
-  style="
-    position: fixed;
-    top: 10%;
-    left: 0px;
-    min-width: 1472px;
-    max-width: 1474px;
-  "
-  [style.display]="gelleryDialogDisplay"
+id="service_gallery_dialog"
+class="dialog"
+style="
+  position: fixed;
+  top: 10%;
+  left: 0px;
+  min-width: 1472px;
+  max-width: 1474px;
+"
+[style.display]="gelleryDialogDisplay"
 >
-  <div class="dialog_wrapper dialog_wrapper--large">
+<div class="dialog_wrapper dialog_wrapper--large">
+  <div
+    id="service_gallery_form_wrapper"
+    class="
+      dialog_form
+      o-layout__item
+      u-12@tiny u-8@large
+      u-2--offset@large
+    "
+  >
     <div
-      id="service_gallery_form_wrapper"
-      class="dialog_form o-layout__item u-12@tiny u-8@large u-2--offset@large"
+      class="c-card"
+      (clickOutside)="hideGallery($event)"
     >
-      <div class="c-card" (clickOutside)="hideGallery($event)">
-        <div class="c-card__head">
-          <h2>أضف صورة أو فيديو</h2>
-        </div>
-        <div class="c-card__body">
-          <div class="c-alert c-alert--danger dialog_message hidden"></div>
-          <div class="gallery_uploader">
-            <div
-              class="u-margin-bottom@small gallery_uploader_option"
-              (click)="showLocalImg()"
-            >
-              <label for="add_image_from_device">
-                <input
-                  type="radio"
-                  name="add_gitem"
-                  id="add_image_from_device"
-                  value="image"
-                  checked="checked"
-                />
-                <span>صورة من جهازي</span>
-              </label>
-            </div>
-            <div
-              class="u-margin-bottom@small gallery_uploader_option"
-              (click)="showInputUrlImg()"
-            >
-              <label for="add_image_url">
-                <input
-                  type="radio"
-                  name="add_gitem"
-                  id="add_image_url"
-                  value="image_url"
-                />
-                <span>صورة من رابط</span>
-              </label>
-            </div>
-            <div class="gallery_uploader_option" (click)="showInputYoutube()">
-              <label for="add_youtube_url">
-                <input
-                  type="radio"
-                  name="add_gitem"
-                  id="add_youtube_url"
-                  value="youtube"
-                />
-                <span>فيديو من يوتيوب</span>
-              </label>
-            </div>
-          </div>
-
-          <input
-            type="file"
-            multiple="multiple"
-            class="dz-hidden-input"
-            accept=".jpeg, .jpg, .png, .gif"
-            style="
-              visibility: hidden;
-              position: absolute;
-              top: 0px;
-              height: 0px;
-              width: 0px;
+      <div class="c-card__head">
+        <h2>أضف صورة</h2>
+      </div>
+      <div class="c-card__body">
+        <div
+          class="
+            c-alert c-alert--danger
+            dialog_message
+            hidden
+          "
+        ></div>
+        <div class="gallery_uploader">
+          <div
+            class="
+              u-margin-bottom@small
+              gallery_uploader_option
             "
-            (change)="onFileChange($event)"
-            #ImgUpload
-            formControlName="localImage"
-          />
+            (click)="showLocalImg()"
+          >
+            <label for="add_image_from_device">
+              <input
+                type="radio"
+                name="add_gitem"
+                id="add_image_from_device"
+                value="image"
+                checked="checked"
+                (click)="showLocalImg()"
+              />
+              <span>صورة من جهازي</span>
+            </label>
+          </div>
+        </div>
 
-          <div id="add_gitem_image" class="row add_gitem_input">
-            <div id="gitem_image_upload" class="tcenter">
-              <div class="dz-default dz-message u-margin-top">
-                <div class="selected-images u-margin-bottom">
+        <input
+          type="file"
+          multiple="multiple"
+          class="dz-hidden-input"
+          accept=".jpeg, .jpg, .png, .gif"
+          style="
+            visibility: hidden;
+            position: absolute;
+            top: 0px;
+            height: 0px;
+            width: 0px;
+          "
+          (change)="onFileChange($event)"
+          #ImgUpload
+          formControlName="localImage"
+          [class.is.invalid]="localImage?.invalid"
+        />
 
-                  <div *ngIf='isShowImgItem' class='selected-image dz-preview dz-image-preview'>
-                    <div *ngFor='let img of imagesFile let i = index' class="o-media">
-                       <div class="o-media__right u-no--margin u-no--padding">
-                         <img class='imgPath' data-dz-thumbnail=""  [src]="createImgPath(img.name)"/>
-                       </div>
-                       <div class="o-media__body u-padding-right">
-                         <h5 class="u-margin-bottom--small">
-                           <span class="dz-success-mark u-clr--primary" style="display:none;">
-                             <i class="fa fa-check-circle-o"></i>
-                           </span>
-                           <span data-dz-name="" class="pull-right dz-name">{{img.name}}</span>
-                           <span class="pull-left">
-                             <a (click)='removeImg(img)' data-dz-remove="" class="c-button c-button--danger dz-delete-button">
-                               <i class="fa fa-times"></i> حذف
-                             </a></span>
-                         </h5>
-                         <div class="u-margin-bottom--small pull-right clear">
-                           <span class="dz-size"> حجم الملف:
-                             <span data-dz-size=""><span>{{img.size}}</span></span>
-                           </span>
-                         </div>
-                         <div class="dz-error-message clear" data-dz-errormessage=""></div>
-                         <div class="dz-progress ">
-                           <span class="dz-upload" data-dz-uploadprogress=""></span>
-                         </div>
-                       </div>
+        <div
+          id="add_gitem_image"
+          class="row add_gitem_input"
+        >
+          <div id="gitem_image_upload" class="tcenter">
+            <div class="dz-default dz-message u-margin-top">
+              <div class="selected-images u-margin-bottom">
+                <div
+                  *ngIf="isShowImgItem"
+                  class="
+                    selected-image
+                    dz-preview dz-image-preview
+                  "
+                >
+                  <div
+                    *ngFor="
+                      let img of imagesFile;
+                      let i = index
+                    "
+                    class="o-media"
+                  >
+                    <div
+                      class="
+                        o-media__right
+                        u-no--margin u-no--padding
+                      "
+                    >
+                      <img
+                        class="imgPath"
+                        data-dz-thumbnail=""
+                        [src]="createImgPath(img.name)"
+                      />
                     </div>
-                 </div>
+                    <div
+                      class="o-media__body u-padding-right"
+                    >
+                      <h5 class="u-margin-bottom--small">
+                        <span
+                          class="
+                            dz-success-mark
+                            u-clr--primary
+                          "
+                          style="display: none"
+                        >
+                          <i
+                            class="fa fa-check-circle-o"
+                          ></i>
+                        </span>
+                        <span
+                          data-dz-name=""
+                          class="pull-right dz-name"
+                          >{{ img.name }}</span
+                        >
+                      </h5>
+                      <div
+                        class="
+                          u-margin-bottom--small
+                          pull-right
+                          clear
+                        "
+                      >
+                        <span class="dz-size">
+                          حجم الملف:
+                          <span data-dz-size=""
+                            ><span>{{
+                              img.size
+                            }}</span></span
+                          >
+                        </span>
+                      </div>
+                      <div
+                        class="dz-error-message clear"
+                        data-dz-errormessage=""
+                      ></div>
+                      <div class="dz-progress">
+                        <span
+                          class="dz-upload"
+                          data-dz-uploadprogress=""
+                        ></span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <a
-                  class="
-                    c-button c-button--primary
-                    mainbtn
-                    service_image_u_btn
-                    dz-max-files-reached dz-clickable
-                  "
-                  (click)="ImgUpload.click()"
-                >
-                  <i class="fa fa-folder"></i> اختيار الصور
-                </a>
-                <a
-                  class="
-                    c-button c-button--primary
-                    mainbtn
-                    upload_seleted_images_btn
-                  "
-                  style="margin-right: 2%;"
-                  [style.display]="uploadImgBtnDisplay"
-                  (click)='showGalleryItems()'
-                >
-                  <i class="fa fa-upload"></i> رفع الصور
-                </a>
               </div>
+              <a
+                class="
+                  c-button c-button--primary
+                  mainbtn
+                  service_image_u_btn
+                  dz-max-files-reached dz-clickable
+                "
+                *ngIf="isShowChooseImg"
+                (click)="ImgUpload.click()"
+              >
+                <i class="fa fa-folder"></i> اختيار الصور
+              </a>
+              <a
+                class="
+                  c-button c-button--primary
+                  mainbtn
+                  upload_seleted_images_btn
+                "
+                style="margin-right: 2%"
+                [style.display]="uploadImgBtnDisplay"
+                (click)="showGalleryItems()"
+              >
+                <i class="fa fa-upload"></i> رفع الصور
+              </a>
             </div>
-          </div>
-          <div id="add_gitem_image_url" class="row add_gitem_input hidden">
-            <div class="u-margin-bottom">
-              <input
-                type="text"
-                id="image_url"
-                class="c-form__control u-text--ltr"
-                placeholder="رابط الصورة"
-              />
-            </div>
-            <button
-              type="button"
-              class="c-button c-button--primary remote_image_btn"
-            >
-              <i class="fa fa-upload"></i> أضف الصورة
-            </button>
-          </div>
-          <div id="add_gitem_youtube" class="row add_gitem_input hidden">
-            <div class="u-margin-bottom">
-              <input
-                type="text"
-                id="youtube_url"
-                class="c-form__control u-text--ltr"
-                placeholder="رابط فيديو يوتيوب"
-              />
-            </div>
-            <button
-              type="button"
-              class="c-button c-button--primary remote_image_btn"
-            >
-              <i class="fa fa-upload"></i> أضف الفيديو
-            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 <app-footer></app-footer>
