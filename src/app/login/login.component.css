@@ -1,9 +1,9 @@
 *{margin: 0; padding: 0; box-sizing: border-box;}
 
-.body {background-color: #ECEFF4; direction:rtl; text-align:right}
+.body {background-color: #ECEFF4; direction:rtl; text-align:right;margin-top: -40px;}
 i {font-size: 30px;}
 
-.page {margin: 100px 0px;}
+.page {margin: 100px 0px;padding-top: 2px;}
 .page .page-box {background-color: #fff;}
 .page .page-box .right, .page .page-box .left {padding: 50px;}
 

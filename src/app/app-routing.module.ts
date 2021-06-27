@@ -32,15 +32,32 @@ import { OrderComponent } from './components/order/order/order.component';
 
 
 const routes: Routes = [
-  {path: 'privacy',component:PrivacyStatementComponent},
-  {path: 'terms',component:TermsOfUseComponent},
 
-   { path: 'home', component: HomeComponent },
+// {
+//   path:'dash',
+//   component:DashboardComponent,
+//   canActivate: [AuthGuard],
+//   data:{
+//     role: UserRoles.Admin
+//   },
+//   children:[
+
+//     {path: 'Users', component: ServicesComponent},
+//   ]
+// },
+
+
+
+
+
   {path: '', component: KhamsatDotComComponent},
 
   {path:'register',component:RegisterComponent},
   {path:'login', component: LoginComponent},
   {path:'head',component:HsoubHeaderComponent},
+  { path: 'home', component: HomeComponent },
+  {path: 'privacy',component:PrivacyStatementComponent},
+  {path: 'terms',component:TermsOfUseComponent},
   {
     path: 'ModelImplementd', component: ModelsImplementedComponent
   },
