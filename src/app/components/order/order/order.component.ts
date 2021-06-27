@@ -88,6 +88,8 @@ export class OrderComponent implements OnInit {
   AcceptOrder() {
     this.Order.status = 3;
     this.orderService.updateIncommingReqest(this.orderId, this.Order).subscribe()
+    this.service.noOfBuyerServices = 1 +  (this.service.noOfBuyerServices || 0 )
+    this.serService.updateService( (this.service.id || 0),this.service)
   }
 
 
