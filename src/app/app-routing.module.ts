@@ -25,20 +25,40 @@ import { KhamsatDotComComponent } from './khamsat-dot-com/khamsat-dot-com.compon
 import { AddServiceComponent } from './components/add-service/add-service.component';
 import { PrivacyStatementComponent } from './components/privacy-statement/privacy-statement.component';
 import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.component';
+// import { DashboardComponent } from './components/dashboard/dashboard.component';
+// import { ServicesComponent } from './components/dashboard/services/services.component';
+import { UserRoles } from './models/Enum/UserRoles';
 
 
 
 
 const routes: Routes = [
-  {path: 'privacy',component:PrivacyStatementComponent},
-  {path: 'terms',component:TermsOfUseComponent},
 
-   { path: 'home', component: HomeComponent },
+// {
+//   path:'dash',
+//   component:DashboardComponent,
+//   canActivate: [AuthGuard],
+//   data:{
+//     role: UserRoles.Admin
+//   },
+//   children:[
+
+//     {path: 'Users', component: ServicesComponent},
+//   ]
+// },
+
+
+
+
+
   {path: '', component: KhamsatDotComComponent},
 
   {path:'register',component:RegisterComponent},
   {path:'login', component: LoginComponent},
   {path:'head',component:HsoubHeaderComponent},
+  { path: 'home', component: HomeComponent },
+  {path: 'privacy',component:PrivacyStatementComponent},
+  {path: 'terms',component:TermsOfUseComponent},
   {
     path: 'ModelImplementd', component: ModelsImplementedComponent
   },

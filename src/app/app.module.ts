@@ -39,6 +39,13 @@ import { AddServiceComponent } from './components/add-service/add-service.compon
 import { ClickOutsideModule } from 'ng-click-outside';
 import { PrivacyStatementComponent } from './components/privacy-statement/privacy-statement.component';
 import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.component';
+// import { DashboardComponent } from './components/dashboard/dashboard.component';
+// import { DashboardHeaderComponent } from './components/dashboard/dashboard-header/dashboard-header.component';
+// import { ServicesComponent } from './components/dashboard/services/services.component';
+// import { DashboardSidebarComponent } from './components/dashboard/dashboard-sidebar/dashboard-sidebar.component';
+// import { ConfirmModalComponent } from './components/_reusableComponents/confirm-modal/confirm-modal.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -75,6 +82,11 @@ import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.comp
     AddServiceComponent,
     PrivacyStatementComponent,
     TermsOfUseComponent,
+    // DashboardComponent,
+    // DashboardHeaderComponent,
+    // ServicesComponent,
+    // DashboardSidebarComponent,
+    // ConfirmModalComponent,
   ],
 
   imports: [
@@ -87,7 +99,10 @@ import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.comp
     ReactiveFormsModule,
     BrowserAnimationsModule,
     BrowserAnimationsModule,
-    ClickOutsideModule
+    ClickOutsideModule,
+    CarouselModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule,
   ],
   providers: [
      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

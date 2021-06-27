@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CDNs -->
@@ -15,16 +13,21 @@
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="crossorigin="anonymous"></script>
 
-   </head>
     <div class="body">
       <app-hsoub-header></app-hsoub-header>
-      <div class="container-xxl">
+      <div class="container-xxl" >
         <div class="page">
-          <div class="container">
+          <div class="container"  style="margin-top:80px;">
+            <div class="d-flex justify-content-center align-items-center"
+            >
+              <div *ngIf="error" class="alert alert-danger mt-3 mb-4 " style="width:750px">
+                فشلت عملية تسجيل الدخول
+             </div>
+            </div>
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-              <div *ngIf="error" class="alert alert-danger mt-3 mb-0" > فشلت عملية تسجيل الدخول
-              </div>
+
             <div class="page-box row d-flex justify-content-center align-items-center" style="background-color: #ECEFF4;">
+
               <div class="right col-lg-8" style="background-color: #fff;">
                 <p class="title">تسجيل الدخول</p>
 
@@ -47,7 +50,7 @@
                 <div class="form row" style="background-color: #fff;">
 
                   <div class="col-md-12">
-                    <label for="email">البريد الالكتروني</label><br><br>
+                    <label for="email">البريد الالكتروني</label><br>
                     <input type="email" name="email" formControlName="email"
                      [class.is-invalid]="formFields.email?.invalid && formFields.email?.touched"
                      class="form-control" placeholder="أدخل البريد الإلكتروني الخاص بك" >
@@ -59,7 +62,7 @@
                   </div>
 
                   <div class="col-md-12 mt-4">
-                    <label for="passwordHash">كلمة المرور</label><br><br>
+                    <label for="passwordHash">كلمة المرور</label><br>
                     <input type="password" formControlName="passwordHash" name="passwordHash"
                     class="form-control" placeholder="أدخل كلمة المرور الخاصة بك"
                     [class.is-invalid]="formFields.passwordHash?.invalid && formFields.passwordHash?.touched">
@@ -80,8 +83,8 @@
                     <p>مساعدة</p>
                     <ul class="mr-5">
                         <li><a routerLink="/register" class="text-decoration-none">لا أملك حساب بعد</a></li>
-                        <li><a href="#" class="text-decoration-none">فقدت كلمة المرور</a></li>
-                        <li><a href="#" class="text-decoration-none">لم يصلني رمز التفعيل</a></li>
+                        <!-- <li><a href="#" class="text-decoration-none">فقدت كلمة المرور</a></li>
+                        <li><a href="#" class="text-decoration-none">لم يصلني رمز التفعيل</a></li> -->
                     </ul>
                 </div>
               </div>
@@ -96,7 +99,7 @@
       </div>
       <footer style="display: flex;justify-content: center;align-items: center;height: 70px;margin-top: -80px;">
         <p class="copyrights">© 2021 حسوب. جميع الحقوق محفوظة.</p>
-      </footer>
+      </footer><br><br><br>
     </div>
 
 
